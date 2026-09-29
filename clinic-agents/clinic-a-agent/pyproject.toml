@@ -1,0 +1,30 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "clinic-a"
+version = "0.1.0"
+description = "CohortGuard Clinic A: in-house clinic AgentApp (no aggregation)"
+license = { file = "LICENSE" }
+requires-python = ">=3.11,<4.0"
+dependencies = ["flwr>=1.38.0,<2.0", "openai>=2.16.0,<3.0.0"]
+
+[tool.hatch.build.targets.wheel]
+packages = ["clinic_a", "clinic_core", "shared"]
+
+[tool.flwr.app]
+publisher = "charan007"
+fab-format-version = 1
+flwr-version-target = "1.38.0"
+fab-include = [
+  "clinic_a/**/*.py", "clinic_a/data/*.json",
+  "clinic_core/**/*.py", "clinic_core/trial_cache/*.json",
+  "shared/*.py", "LICENSE",
+]
+
+[tool.flwr.app.config]
+model = "MiniMaxAI/MiniMax-M3"
+
+[tool.flwr.app.components]
+agentapp = "clinic_a.agent_app:app"

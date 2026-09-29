@@ -1,0 +1,58 @@
+[
+  {
+    "event": "grounding_check",
+    "nct_id": "NCT07060456",
+    "intervention": "HRS9531",
+    "passed": true,
+    "reasons": []
+  },
+  {
+    "event": "grounding_check",
+    "nct_id": "NCT07359105",
+    "intervention": "Moderate-intensity statin monotherapy",
+    "passed": true,
+    "reasons": []
+  },
+  {
+    "event": "grounding_check",
+    "nct_id": "NCT06989697",
+    "intervention": "Cilostazol / Ginko Leaf Dried Ext.",
+    "passed": true,
+    "reasons": []
+  },
+  {
+    "event": "grounding_check",
+    "nct_id": "NCT06338553",
+    "intervention": "Semaglutide (Rybelsus\u00ae)",
+    "passed": true,
+    "reasons": []
+  },
+  {
+    "event": "grounding_check",
+    "nct_id": "NCT07112339",
+    "intervention": "Insulin icodec",
+    "passed": true,
+    "reasons": []
+  },
+  {
+    "event": "grounding_check",
+    "nct_id": "NCT06120881",
+    "intervention": "Metformin",
+    "passed": true,
+    "reasons": []
+  },
+  {
+    "event": "grounding_check",
+    "nct_id": "NCT05124457",
+    "intervention": "Insulin Detemir",
+    "passed": true,
+    "reasons": []
+  },
+  {
+    "event": "grounding_check",
+    "nct_id": "NCT06590324",
+    "intervention": "Apabetalone",
+    "passed": true,
+    "reasons": []
+  }
+]

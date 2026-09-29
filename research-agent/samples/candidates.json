@@ -1,0 +1,214 @@
+[
+  {
+    "intervention": "Insulin icodec",
+    "mechanism": null,
+    "trial": {
+      "nct_id": "NCT07112339",
+      "title": "A Research Study to See How Well Weekly Insulin Icodec Maintains Blood Sugar Levels Compared to Daily Basal Insulins in Adults With Type 2 Diabetes",
+      "phase": "PHASE4",
+      "status": "RECRUITING",
+      "primary_endpoint": "Change in glycated haemoglobin (HbA1c)"
+    },
+    "evidence": [
+      {
+        "pmid": "40853353",
+        "title": "Cost-effectiveness of insulin icodec for the treatment of type 2 diabetes in Canada.",
+        "journal": "J Med Econ",
+        "pubdate": "2025 Dec",
+        "link": "same_drug_and_condition"
+      },
+      {
+        "pmid": "39348567",
+        "title": "Advances in insulin: a review of icodec as a novel once-weekly treatment for type 2 diabetes.",
+        "journal": "Postgrad Med",
+        "pubdate": "2024 Nov",
+        "link": "same_drug_and_condition"
+      }
+    ],
+    "evidence_note": "No papers cite this trial yet; listed papers are about the same drug and condition, not this trial.",
+    "condition_match": true,
+    "evidence_level": "phase4",
+    "relevance": "Endpoint differs from the outcome of interest.",
+    "score": 10,
+    "criteria": [],
+    "verified": true
+  },
+  {
+    "intervention": "HRS9531",
+    "mechanism": null,
+    "trial": {
+      "nct_id": "NCT07060456",
+      "title": "Efficacy and Safety of HRS9531 in Participants With Type 2 Diabetes Treated With Basal Insulin",
+      "phase": "PHASE3",
+      "status": "RECRUITING",
+      "primary_endpoint": "Change in HbA1c"
+    },
+    "evidence": [
+      {
+        "pmid": "42764407",
+        "title": "Preclinical and First-In-Human Evaluation of Ribupatide (HRS9531), a Dual GLP-1/GIP Receptor Agonist.",
+        "journal": "Diabetes Obes Metab",
+        "pubdate": "2026 Sep 20",
+        "link": "same_drug_and_condition"
+      }
+    ],
+    "evidence_note": "No papers cite this trial yet; listed papers are about the same drug and condition, not this trial.",
+    "condition_match": true,
+    "evidence_level": "phase3",
+    "relevance": "Endpoint differs from the outcome of interest.",
+    "score": 8,
+    "criteria": [],
+    "verified": true
+  },
+  {
+    "intervention": "Cilostazol / Ginko Leaf Dried Ext.",
+    "mechanism": null,
+    "trial": {
+      "nct_id": "NCT06989697",
+      "title": "Cilostazol-Ginkgo for Cognitive Function in Elderly Diabetes",
+      "phase": "PHASE3",
+      "status": "RECRUITING",
+      "primary_endpoint": "Change in Mini-Mental State Examination (MMSE) Score From Baseline to 6 Months"
+    },
+    "evidence": [],
+    "evidence_note": "No papers found.",
+    "condition_match": true,
+    "evidence_level": "phase3",
+    "relevance": "Endpoint differs from the outcome of interest.",
+    "score": 8,
+    "criteria": [],
+    "verified": true
+  },
+  {
+    "intervention": "Insulin Detemir",
+    "mechanism": null,
+    "trial": {
+      "nct_id": "NCT05124457",
+      "title": "DETERMINE: Detemir vs NPH",
+      "phase": "PHASE2",
+      "status": "RECRUITING",
+      "primary_endpoint": "Neonatal Hypoglycemia"
+    },
+    "evidence": [
+      {
+        "pmid": "39833031",
+        "title": "A short-course of low-dose insulin detemir effectively decreases blood glucose levels in gestational diabetic women undergoing dexamethasone treatment to promote newborn lung maturity.",
+        "journal": "Medicine (Baltimore)",
+        "pubdate": "2025 Jan 17",
+        "link": "same_drug_and_condition"
+      },
+      {
+        "pmid": "37775682",
+        "title": "Comparison of treatment with insulin detemir and NPH in women with gestational diabetes mellitus: glycemic control and pregnancy outcomes. A retrospective study.",
+        "journal": "Hormones (Athens)",
+        "pubdate": "2023 Dec",
+        "link": "same_drug_and_condition"
+      }
+    ],
+    "evidence_note": "No papers cite this trial yet; listed papers are about the same drug and condition, not this trial.",
+    "condition_match": true,
+    "evidence_level": "phase2",
+    "relevance": "Endpoint differs from the outcome of interest.",
+    "score": 6,
+    "criteria": [],
+    "verified": true
+  },
+  {
+    "intervention": "Moderate-intensity statin monotherapy",
+    "mechanism": null,
+    "trial": {
+      "nct_id": "NCT07359105",
+      "title": "Moderate-intensity Statin vs. Individualized LDL-C Target-based Therapy in Older Adults With Type 2 Diabetes (iTARGET-Elderly Study)",
+      "phase": "NA",
+      "status": "RECRUITING",
+      "primary_endpoint": "Time from the date of randomization to the first occurrence of a major adverse cardiovascular event (MACE)"
+    },
+    "evidence": [],
+    "evidence_note": "No papers found.",
+    "condition_match": true,
+    "evidence_level": "unspecified",
+    "relevance": "Primary endpoint matches the outcome of interest.",
+    "score": 5,
+    "criteria": [],
+    "verified": true
+  },
+  {
+    "intervention": "Apabetalone",
+    "mechanism": null,
+    "trial": {
+      "nct_id": "NCT06590324",
+      "title": "A Study of Apabetalone in Subjects With Long -COVID",
+      "phase": "PHASE3",
+      "status": "RECRUITING",
+      "primary_endpoint": "patient acceptable symptom state (PASS)"
+    },
+    "evidence": [],
+    "evidence_note": "No papers found.",
+    "condition_match": false,
+    "evidence_level": "phase3",
+    "relevance": "Endpoint differs from the outcome of interest. Trial's main condition differs from the query.",
+    "score": 4,
+    "criteria": [],
+    "verified": true
+  },
+  {
+    "intervention": "Semaglutide (Rybelsus\u00ae)",
+    "mechanism": null,
+    "trial": {
+      "nct_id": "NCT06338553",
+      "title": "GLP-1Ra Impact on Metabolic Outcomes in Stage 2 T1DM While Receiving Teplizumab",
+      "phase": "EARLY_PHASE1",
+      "status": "RECRUITING",
+      "primary_endpoint": "Investigate the impact of GLP-1Ra on postprandial glycemia in a pilot study"
+    },
+    "evidence": [],
+    "evidence_note": "No papers found.",
+    "condition_match": true,
+    "evidence_level": "phase1",
+    "relevance": "Endpoint differs from the outcome of interest.",
+    "score": 3.0,
+    "criteria": [],
+    "verified": true
+  },
+  {
+    "intervention": "Metformin",
+    "mechanism": null,
+    "trial": {
+      "nct_id": "NCT06120881",
+      "title": "Precision Dosing of Metformin in Youth With T2D",
+      "phase": "EARLY_PHASE1",
+      "status": "RECRUITING",
+      "primary_endpoint": "Acceptability of Higher Metformin Dose measured with the Acceptability of Intervention Measure (AIM)"
+    },
+    "evidence": [
+      {
+        "pmid": "42808200",
+        "title": "Type A Insulin Resistance Syndrome Due to a Pathogenic Variant in the INSR Gene.",
+        "journal": "Ir Med J",
+        "pubdate": "2026 Sep 28",
+        "link": "same_drug_and_condition"
+      },
+      {
+        "pmid": "42808164",
+        "title": "Benefits of sodium-glucose cotransporter 2 inhibitors versus glucagon-like peptide-1 receptor agonists in older patients with type 2 diabetes.",
+        "journal": "Diab Vasc Dis Res",
+        "pubdate": "2026 Sep-Oct",
+        "link": "same_drug_and_condition"
+      },
+      {
+        "pmid": "42806220",
+        "title": "Metformin Use Is Associated With Better Cognitive Performance in Older Adults With Type 2 Diabetes: Exploratory Analysis of Vitamin B12 and Methylmalonic Acid Pathways in NHANES 2011-2014.",
+        "journal": "Diabetes Obes Metab",
+        "pubdate": "2026 Sep 28",
+        "link": "same_drug_and_condition"
+      }
+    ],
+    "evidence_note": "No papers cite this trial yet; listed papers are about the same drug and condition, not this trial.",
+    "condition_match": true,
+    "evidence_level": "phase1",
+    "relevance": "Endpoint differs from the outcome of interest.",
+    "score": 3.0,
+    "criteria": [],
+    "verified": true
+  }
+]

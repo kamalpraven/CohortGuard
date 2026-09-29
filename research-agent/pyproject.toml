@@ -1,0 +1,24 @@
+[project]
+name = "cohortguard-research-agent"
+version = "0.1.0"
+description = "CohortGuard Research AgentApp"
+license = { file = "LICENSE" }
+requires-python = ">=3.11,<4.0"
+dependencies = ["flwr>=1.39.0,<2.0", "openai>=2.16.0,<3.0.0"]
+
+[tool.flwr.app]
+publisher = "praven1"
+fab-format-version = 1
+flwr-version-target = "1.39.0"
+fab-include = ["research/**/*.py", "shared/**/*.py", "research_agent/**/*.py", "cache/**/*.json", "samples/**/*.json", "README.md", "LICENSE"]
+
+[tool.flwr.app.components]
+agentapp = "research_agent.agent_app:app"
+
+[tool.flwr.app.config]
+"agent.input" = "{}"
+http_mode = "replay"
+demo_seed_fake = false
+with_mechanism = true
+use_web_fetch = false
+model = "openai/gpt-5.6-sol"
