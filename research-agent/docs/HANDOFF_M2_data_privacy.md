@@ -1,0 +1,67 @@
+# M3 → M2 handoff: Criteria, vocabulary and Maria
+
+From: M3 (Research & Evidence) · To: M2 (Data & Privacy)
+
+## Files
+
+| File | What it is |
+|---|---|
+| `shared/allowlist.py` | **Shared source of truth.** Import it; don't copy it. |
+| `cache/criteria_NCT07060456.json` | Structured criteria, HRS9531 phase 3 (**main demo trial**) |
+| `cache/criteria_NCT07112339.json` | Structured criteria, insulin icodec phase 4 |
+| `samples/maria_profile.json` | Maria's synthetic values and her expected checklist |
+
+## Vocabulary your synthetic data must use
+
+Diagnosis codes: `T2D`, `T1D`, `secondary_diabetes`, `other_specific_diabetes`
+
+Medication classes: `metformin`, `sglt2_inhibitor`, `basal_insulin`, `glp1_ra`, `dpp4_inhibitor`, `sulfonylurea`
+
+Sex values: `FEMALE`, `MALE` (uppercase)
+
+Units: age in years · HbA1c in % · eGFR in mL/min/1.73m² · BMI in kg/m²
+
+Any value outside these sets won't match anything. If you need a new code, tell me and we add it to `shared/allowlist.py` together.
+
+## Criterion format
+
+```json
+{"field": "hba1c", "op": "between", "value": [7.5, 11.0],
+ "exclusion": false, "checkable": true, "source": "manual", "source_text": "..."}
+```
+
+| Op | Meaning |
+|---|---|
+| `between` | low ≤ value ≤ high (inclusive) |
+| `gte` / `lte` | ≥ / ≤ |
+| `eq` | equals |
+| `in` | value is one of the list |
+| `has` / `not_has` | patient's medication list contains / doesn't contain the class |
+
+- `exclusion: true` → the patient must **not** satisfy it.
+- `checkable: false` → can't be checked from our data. Skip it in the count and list it as unchecked.
+
+## Feasibility count rule
+
+A patient is potentially eligible if they satisfy **every checkable inclusion criterion** and **no checkable exclusion criterion**. Return the (noised) count plus the list of unchecked criteria, per the feasibility response contract.
+
+**No sex filter** for either trial: both accept any sex.
+
+## Maria Delgado (plant exactly these values)
+
+| Field | Value |
+|---|---|
+| Age | 58 |
+| Sex | `FEMALE` |
+| Diagnoses | `T2D` |
+| HbA1c | 8.2 |
+| BMI | 29 |
+| Current medications | `metformin`, `sglt2_inhibitor` |
+
+Expected result against NCT07060456: **5 met, 1 not met, 8 unknown.**
+The one not met is `basal_insulin` (she isn't on it). Don't give her basal insulin, or the demo checklist changes.
+
+## Please make sure
+
+- Enough synthetic patients match the checkable criteria that feasibility counts aren't zero or suppressed. Aim for 20+ per clinic for NCT07060456.
+- Maria's name and MRN are canaries, and her record stays in Clinic A.

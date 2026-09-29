@@ -1,0 +1,1 @@
+"""CohortGuard Research AgentApp wrapper."""
