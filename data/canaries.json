@@ -1,0 +1,46 @@
+{
+ "A": [
+  {
+   "mrn": "A-MRN-0042871",
+   "name": "Maria Delgado",
+   "dob": "1968-04-17"
+  },
+  {
+   "mrn": "A-MRN-0099314",
+   "name": "Zephyrine Quillfeather",
+   "dob": "1951-12-24"
+  },
+  {
+   "mrn": "A-9101",
+   "name": "Rare Case A1",
+   "dob": "1932-02-29"
+  },
+  {
+   "mrn": "A-9102",
+   "name": "Rare Case A2",
+   "dob": "2006-11-03"
+  }
+ ],
+ "B": [
+  {
+   "mrn": "B-MRN-0077120",
+   "name": "Thaddeus Wrenfield",
+   "dob": "1959-08-08"
+  },
+  {
+   "mrn": "B-MRN-0031985",
+   "name": "Ottoline Baskerwick",
+   "dob": "1972-01-30"
+  },
+  {
+   "mrn": "B-9201",
+   "name": "Rare Case B1",
+   "dob": "1932-02-29"
+  },
+  {
+   "mrn": "B-9202",
+   "name": "Rare Case B2",
+   "dob": "2006-11-03"
+  }
+ ]
+}

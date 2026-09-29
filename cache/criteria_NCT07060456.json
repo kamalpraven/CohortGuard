@@ -1,0 +1,169 @@
+{
+  "trial": {
+    "nct_id": "NCT07060456",
+    "title": "Efficacy and Safety of HRS9531 in Participants With Type 2 Diabetes Treated With Basal Insulin",
+    "status": "RECRUITING",
+    "phases": [
+      "PHASE3"
+    ],
+    "interventions": [
+      {
+        "name": "HRS9531",
+        "type": "DRUG"
+      },
+      {
+        "name": "HRS9531",
+        "type": "DRUG"
+      },
+      {
+        "name": "Placebo",
+        "type": "DRUG"
+      }
+    ],
+    "conditions": [
+      "Type 2 Diabetes"
+    ],
+    "primary_outcomes": [
+      "Change in HbA1c"
+    ],
+    "eligibility_text": "Inclusion Criteria:\n\n1. Male or female, able and willing to provide a written informed consent\n2. Diagnosed with type 2 diabetes \u2265 90 days\uff1b\n3. On stable once-daily dose of basal insulin alone or in combination with metformin and/or SGLT2 inhibitor \u2265 90 days;\n4. HbA1c was 7.5%\\~11.0% (both inclusive);\n5. Body Mass Index (BMI) \u226522 kg/m2 at screening.\n\nExclusion Criteria:\n\n1. A history of type 1 diabetes, specific diabetes, or secondary diabetes;\n2. Have a history of severe hypoglycemia within t180 days prior to screening;\n3. History of acute cardiovascular and cerebrovascular diseases within 180 days prior to screening\uff1b\n4. Have a history of malignancy within 5 years;\n5. Known or suspected allergy or intolerance to the investigational medicinal products or related products;\n6. Participation in any clinical trial of an approved or non-approved investigational product/treatment within the last 90 days;\n7. Any conditions that the Investigator judges might not be suitable to participate in the trial.",
+    "min_age": "18 Years",
+    "max_age": null,
+    "sex": "ALL"
+  },
+  "criteria": [
+    {
+      "field": "age",
+      "op": "gte",
+      "value": 18.0,
+      "exclusion": false,
+      "checkable": true,
+      "source": "registry",
+      "source_text": "minimumAge: 18 Years"
+    },
+    {
+      "field": "diagnosis",
+      "op": "eq",
+      "value": "T2D",
+      "exclusion": false,
+      "checkable": true,
+      "source": "manual",
+      "source_text": "Diagnosed with type 2 diabetes \u2265 90 days\uff1b"
+    },
+    {
+      "field": "unmapped",
+      "op": null,
+      "value": null,
+      "exclusion": false,
+      "checkable": false,
+      "source": "manual",
+      "source_text": "Diagnosed with type 2 diabetes \u2265 90 days\uff1b"
+    },
+    {
+      "field": "current_medication",
+      "op": "has",
+      "value": "basal_insulin",
+      "exclusion": false,
+      "checkable": true,
+      "source": "manual",
+      "source_text": "On stable once-daily dose of basal insulin alone or in combination with metformin and/or SGLT2 inhibitor \u2265 90 days;"
+    },
+    {
+      "field": "unmapped",
+      "op": null,
+      "value": null,
+      "exclusion": false,
+      "checkable": false,
+      "source": "manual",
+      "source_text": "On stable once-daily dose of basal insulin alone or in combination with metformin and/or SGLT2 inhibitor \u2265 90 days;"
+    },
+    {
+      "field": "hba1c",
+      "op": "between",
+      "value": [
+        7.5,
+        11.0
+      ],
+      "exclusion": false,
+      "checkable": true,
+      "source": "manual",
+      "source_text": "HbA1c was 7.5%\\~11.0% (both inclusive);"
+    },
+    {
+      "field": "bmi",
+      "op": "gte",
+      "value": 22,
+      "exclusion": false,
+      "checkable": true,
+      "source": "manual",
+      "source_text": "Body Mass Index (BMI) \u226522 kg/m2 at screening."
+    },
+    {
+      "field": "diagnosis",
+      "op": "in",
+      "value": [
+        "T1D",
+        "other_specific_diabetes",
+        "secondary_diabetes"
+      ],
+      "exclusion": true,
+      "checkable": true,
+      "source": "manual",
+      "source_text": "A history of type 1 diabetes, specific diabetes, or secondary diabetes;"
+    },
+    {
+      "field": "unmapped",
+      "op": null,
+      "value": null,
+      "exclusion": true,
+      "checkable": false,
+      "source": "manual",
+      "source_text": "Have a history of severe hypoglycemia within t180 days prior to screening;"
+    },
+    {
+      "field": "unmapped",
+      "op": null,
+      "value": null,
+      "exclusion": true,
+      "checkable": false,
+      "source": "manual",
+      "source_text": "History of acute cardiovascular and cerebrovascular diseases within 180 days prior to screening\uff1b"
+    },
+    {
+      "field": "unmapped",
+      "op": null,
+      "value": null,
+      "exclusion": true,
+      "checkable": false,
+      "source": "manual",
+      "source_text": "Have a history of malignancy within 5 years;"
+    },
+    {
+      "field": "unmapped",
+      "op": null,
+      "value": null,
+      "exclusion": true,
+      "checkable": false,
+      "source": "manual",
+      "source_text": "Known or suspected allergy or intolerance to the investigational medicinal products or related products;"
+    },
+    {
+      "field": "unmapped",
+      "op": null,
+      "value": null,
+      "exclusion": true,
+      "checkable": false,
+      "source": "manual",
+      "source_text": "Participation in any clinical trial of an approved or non-approved investigational product/treatment within the last 90 days;"
+    },
+    {
+      "field": "unmapped",
+      "op": null,
+      "value": null,
+      "exclusion": true,
+      "checkable": false,
+      "source": "manual",
+      "source_text": "Any conditions that the Investigator judges might not be suitable to participate in the trial."
+    }
+  ]
+}

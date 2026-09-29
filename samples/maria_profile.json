@@ -1,0 +1,109 @@
+{
+  "patient": {
+    "name": "Maria Delgado",
+    "age": 58,
+    "sex": "FEMALE",
+    "diagnoses": [
+      "T2D"
+    ],
+    "hba1c": 8.2,
+    "bmi": 29,
+    "current_medications": [
+      "metformin",
+      "sglt2_inhibitor"
+    ],
+    "unrecorded_fields": [
+      "diabetes_duration_days",
+      "stable_basal_insulin_duration_days",
+      "severe_hypoglycemia_history",
+      "acute_cardiovascular_or_cerebrovascular_disease_180_days",
+      "malignancy_5_years",
+      "allergy_or_intolerance_to_investigational_product",
+      "recent_clinical_trial_participation",
+      "investigator_suitability_judgment"
+    ]
+  },
+  "trial": {
+    "nct_id": "NCT07060456",
+    "title": "Efficacy and Safety of HRS9531 in Participants With Type 2 Diabetes Treated With Basal Insulin"
+  },
+  "expected_checklist_result": {
+    "summary": {
+      "met": 5,
+      "not_met": 1,
+      "unknown": 8
+    },
+    "criteria": [
+      {
+        "source_text": "minimumAge: 18 Years",
+        "expected": "met",
+        "explanation": "Maria is 58 years old, which is at least 18 years."
+      },
+      {
+        "source_text": "Diagnosed with type 2 diabetes \u2265 90 days\uff1b",
+        "expected": "met",
+        "explanation": "Maria has T2D."
+      },
+      {
+        "source_text": "Diagnosed with type 2 diabetes \u2265 90 days\uff1b",
+        "expected": "unknown",
+        "explanation": "The profile does not record diabetes duration in days."
+      },
+      {
+        "source_text": "On stable once-daily dose of basal insulin alone or in combination with metformin and/or SGLT2 inhibitor \u2265 90 days;",
+        "expected": "not_met",
+        "explanation": "Maria is on metformin and sglt2_inhibitor, but no basal_insulin is listed."
+      },
+      {
+        "source_text": "On stable once-daily dose of basal insulin alone or in combination with metformin and/or SGLT2 inhibitor \u2265 90 days;",
+        "expected": "unknown",
+        "explanation": "The stable once-daily dose and \u226590-day duration details are not recorded."
+      },
+      {
+        "source_text": "HbA1c was 7.5%\\~11.0% (both inclusive);",
+        "expected": "met",
+        "explanation": "Maria's HbA1c is 8.2%, within 7.5% to 11.0% inclusive."
+      },
+      {
+        "source_text": "Body Mass Index (BMI) \u226522 kg/m2 at screening.",
+        "expected": "met",
+        "explanation": "Maria's BMI is 29 kg/m\u00b2, which is at least 22 kg/m\u00b2."
+      },
+      {
+        "source_text": "A history of type 1 diabetes, specific diabetes, or secondary diabetes;",
+        "expected": "met",
+        "explanation": "This is an exclusion criterion; Maria has T2D and no listed history of the excluded diabetes types."
+      },
+      {
+        "source_text": "Have a history of severe hypoglycemia within t180 days prior to screening;",
+        "expected": "unknown",
+        "explanation": "Severe hypoglycemia history is not recorded."
+      },
+      {
+        "source_text": "History of acute cardiovascular and cerebrovascular diseases within 180 days prior to screening\uff1b",
+        "expected": "unknown",
+        "explanation": "Recent acute cardiovascular/cerebrovascular disease history is not recorded."
+      },
+      {
+        "source_text": "Have a history of malignancy within 5 years;",
+        "expected": "unknown",
+        "explanation": "Malignancy history is not recorded."
+      },
+      {
+        "source_text": "Known or suspected allergy or intolerance to the investigational medicinal products or related products;",
+        "expected": "unknown",
+        "explanation": "Allergy or intolerance to the investigational product is not recorded."
+      },
+      {
+        "source_text": "Participation in any clinical trial of an approved or non-approved investigational product/treatment within the last 90 days;",
+        "expected": "unknown",
+        "explanation": "Recent clinical trial participation is not recorded."
+      },
+      {
+        "source_text": "Any conditions that the Investigator judges might not be suitable to participate in the trial.",
+        "expected": "unknown",
+        "explanation": "Investigator suitability judgment is not available in the profile."
+      }
+    ]
+  }
+}

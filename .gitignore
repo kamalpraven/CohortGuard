@@ -6,3 +6,5 @@ __pycache__/
 dist/
 build/
 *.fab
+clinic_*_agent/clinic_core/
+clinic_*_agent/shared/

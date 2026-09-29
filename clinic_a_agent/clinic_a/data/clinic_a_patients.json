@@ -1,0 +1,10061 @@
+{
+ "clinic": "A",
+ "patients": [
+  {
+   "mrn": "A-100000",
+   "name": "Wei Johnson",
+   "dob": "1973-11-13",
+   "age": 52,
+   "sex": "FEMALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 9.0,
+   "egfr": 58.2,
+   "bmi": 25.2,
+   "current_medications": [
+    "basal_insulin",
+    "sulfonylurea"
+   ],
+   "prior_medications": [
+    "dpp4_inhibitor"
+   ],
+   "readmitted_30d": true
+  },
+  {
+   "mrn": "A-100001",
+   "name": "Priya Roberts",
+   "dob": "1974-06-21",
+   "age": 52,
+   "sex": "FEMALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 8.1,
+   "egfr": 49.9,
+   "bmi": 27.5,
+   "current_medications": [
+    "glp1_ra",
+    "sglt2_inhibitor"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100002",
+   "name": "Patricia Green",
+   "dob": "1991-02-12",
+   "age": 35,
+   "sex": "MALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 7.8,
+   "egfr": 88.3,
+   "bmi": 34.8,
+   "current_medications": [
+    "metformin"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100003",
+   "name": "Linda Turner",
+   "dob": "1998-08-28",
+   "age": 28,
+   "sex": "MALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 10.0,
+   "egfr": 36.2,
+   "bmi": 18.0,
+   "current_medications": [
+    "metformin"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100004",
+   "name": "Daniel Garcia",
+   "dob": "1972-11-04",
+   "age": 53,
+   "sex": "MALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 9.6,
+   "egfr": 89.7,
+   "bmi": 27.1,
+   "current_medications": [],
+   "prior_medications": [],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100005",
+   "name": "Luis Green",
+   "dob": "1986-06-13",
+   "age": 40,
+   "sex": "FEMALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 10.6,
+   "egfr": 35.1,
+   "bmi": 33.5,
+   "current_medications": [
+    "metformin"
+   ],
+   "prior_medications": [
+    "basal_insulin"
+   ],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100006",
+   "name": "James Adams",
+   "dob": "1977-03-22",
+   "age": 49,
+   "sex": "FEMALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 6.7,
+   "egfr": 25.8,
+   "bmi": 27.4,
+   "current_medications": [
+    "glp1_ra",
+    "metformin",
+    "sglt2_inhibitor",
+    "sulfonylurea"
+   ],
+   "prior_medications": [
+    "dpp4_inhibitor"
+   ],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100007",
+   "name": "Kevin Turner",
+   "dob": "1963-04-06",
+   "age": 63,
+   "sex": "MALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 8.7,
+   "egfr": 44.5,
+   "bmi": 31.6,
+   "current_medications": [
+    "glp1_ra",
+    "metformin"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100008",
+   "name": "Priya Baker",
+   "dob": "1962-04-13",
+   "age": 64,
+   "sex": "MALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 11.6,
+   "egfr": 58.2,
+   "bmi": 24.8,
+   "current_medications": [
+    "basal_insulin",
+    "metformin"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100009",
+   "name": "Jason Turner",
+   "dob": "1970-06-13",
+   "age": 56,
+   "sex": "MALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 7.4,
+   "egfr": 98.1,
+   "bmi": 29.0,
+   "current_medications": [
+    "dpp4_inhibitor",
+    "sulfonylurea"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100010",
+   "name": "Barbara King",
+   "dob": "1969-07-01",
+   "age": 57,
+   "sex": "MALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 9.2,
+   "egfr": 120.0,
+   "bmi": 37.4,
+   "current_medications": [
+    "sglt2_inhibitor"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100011",
+   "name": "Fatima Young",
+   "dob": "1990-08-26",
+   "age": 36,
+   "sex": "FEMALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 8.8,
+   "egfr": 66.9,
+   "bmi": 29.6,
+   "current_medications": [
+    "basal_insulin",
+    "metformin",
+    "sglt2_inhibitor",
+    "sulfonylurea"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": true
+  },
+  {
+   "mrn": "A-100012",
+   "name": "Priya King",
+   "dob": "1953-01-21",
+   "age": 73,
+   "sex": "FEMALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 7.9,
+   "egfr": 111.5,
+   "bmi": 33.9,
+   "current_medications": [
+    "dpp4_inhibitor",
+    "metformin",
+    "sglt2_inhibitor"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100013",
+   "name": "Ana Johnson",
+   "dob": "1982-01-19",
+   "age": 44,
+   "sex": "FEMALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 6.1,
+   "egfr": 65.8,
+   "bmi": 36.4,
+   "current_medications": [
+    "dpp4_inhibitor"
+   ],
+   "prior_medications": [
+    "basal_insulin"
+   ],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100014",
+   "name": "Ravi Nelson",
+   "dob": "1968-12-31",
+   "age": 57,
+   "sex": "FEMALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 7.7,
+   "egfr": 69.5,
+   "bmi": 24.9,
+   "current_medications": [
+    "basal_insulin",
+    "dpp4_inhibitor",
+    "metformin",
+    "sglt2_inhibitor"
+   ],
+   "prior_medications": [
+    "sulfonylurea"
+   ],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100015",
+   "name": "Karen Johnson",
+   "dob": "1998-10-14",
+   "age": 27,
+   "sex": "FEMALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 8.8,
+   "egfr": 107.3,
+   "bmi": 27.6,
+   "current_medications": [],
+   "prior_medications": [],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100016",
+   "name": "Ana Young",
+   "dob": "1971-02-16",
+   "age": 55,
+   "sex": "FEMALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 9.1,
+   "egfr": 65.2,
+   "bmi": 35.7,
+   "current_medications": [
+    "sulfonylurea"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100017",
+   "name": "Lisa Mitchell",
+   "dob": "1981-05-12",
+   "age": 45,
+   "sex": "MALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 9.4,
+   "egfr": 55.3,
+   "bmi": 34.3,
+   "current_medications": [
+    "dpp4_inhibitor",
+    "metformin"
+   ],
+   "prior_medications": [
+    "sglt2_inhibitor"
+   ],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100018",
+   "name": "Kevin Baker",
+   "dob": "1981-05-21",
+   "age": 45,
+   "sex": "MALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 8.3,
+   "egfr": 93.6,
+   "bmi": 28.6,
+   "current_medications": [
+    "sglt2_inhibitor"
+   ],
+   "prior_medications": [
+    "dpp4_inhibitor"
+   ],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100019",
+   "name": "Daniel Patel",
+   "dob": "1979-08-16",
+   "age": 47,
+   "sex": "FEMALE",
+   "diagnoses": [
+    "secondary_diabetes"
+   ],
+   "hba1c": 8.1,
+   "egfr": 103.9,
+   "bmi": 31.3,
+   "current_medications": [
+    "basal_insulin",
+    "metformin"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100020",
+   "name": "Brian Young",
+   "dob": "1979-02-25",
+   "age": 47,
+   "sex": "FEMALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 8.2,
+   "egfr": 79.9,
+   "bmi": 29.7,
+   "current_medications": [],
+   "prior_medications": [],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100021",
+   "name": "Priya Walker",
+   "dob": "1961-09-17",
+   "age": 65,
+   "sex": "FEMALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 7.3,
+   "egfr": 120.0,
+   "bmi": 32.9,
+   "current_medications": [],
+   "prior_medications": [],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100022",
+   "name": "James Lopez",
+   "dob": "1966-09-02",
+   "age": 60,
+   "sex": "MALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 9.5,
+   "egfr": 71.7,
+   "bmi": 28.8,
+   "current_medications": [
+    "basal_insulin",
+    "glp1_ra",
+    "metformin",
+    "sulfonylurea"
+   ],
+   "prior_medications": [
+    "dpp4_inhibitor"
+   ],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100023",
+   "name": "Ana Roberts",
+   "dob": "1965-12-13",
+   "age": 60,
+   "sex": "FEMALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 7.7,
+   "egfr": 109.0,
+   "bmi": 25.6,
+   "current_medications": [
+    "metformin",
+    "sglt2_inhibitor",
+    "sulfonylurea"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100024",
+   "name": "Omar Nguyen",
+   "dob": "1969-10-27",
+   "age": 56,
+   "sex": "FEMALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 8.1,
+   "egfr": 76.2,
+   "bmi": 30.5,
+   "current_medications": [
+    "dpp4_inhibitor",
+    "sulfonylurea"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100025",
+   "name": "Robert Scott",
+   "dob": "1971-01-12",
+   "age": 55,
+   "sex": "MALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 6.6,
+   "egfr": 81.2,
+   "bmi": 22.9,
+   "current_medications": [
+    "metformin"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100026",
+   "name": "Jason Wright",
+   "dob": "1965-06-06",
+   "age": 61,
+   "sex": "FEMALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 8.7,
+   "egfr": 105.7,
+   "bmi": 30.2,
+   "current_medications": [
+    "sglt2_inhibitor"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100027",
+   "name": "Omar Green",
+   "dob": "1959-05-21",
+   "age": 67,
+   "sex": "MALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 9.1,
+   "egfr": 104.0,
+   "bmi": 24.9,
+   "current_medications": [],
+   "prior_medications": [],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100028",
+   "name": "David Roberts",
+   "dob": "1959-10-04",
+   "age": 66,
+   "sex": "FEMALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 7.3,
+   "egfr": 92.8,
+   "bmi": 27.9,
+   "current_medications": [],
+   "prior_medications": [],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100029",
+   "name": "Kenji Young",
+   "dob": "2004-12-07",
+   "age": 21,
+   "sex": "MALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 11.5,
+   "egfr": 108.0,
+   "bmi": 23.8,
+   "current_medications": [
+    "dpp4_inhibitor"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100030",
+   "name": "Lisa Walker",
+   "dob": "1946-01-11",
+   "age": 80,
+   "sex": "MALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 6.6,
+   "egfr": 67.3,
+   "bmi": 39.1,
+   "current_medications": [
+    "dpp4_inhibitor",
+    "metformin"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100031",
+   "name": "Lisa Garcia",
+   "dob": "1972-05-11",
+   "age": 54,
+   "sex": "FEMALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 10.3,
+   "egfr": 78.5,
+   "bmi": 33.9,
+   "current_medications": [
+    "basal_insulin",
+    "glp1_ra"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100032",
+   "name": "Ravi Carter",
+   "dob": "1974-12-25",
+   "age": 51,
+   "sex": "FEMALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 9.5,
+   "egfr": 117.2,
+   "bmi": 36.9,
+   "current_medications": [
+    "metformin"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100033",
+   "name": "Ravi Wright",
+   "dob": "1978-05-05",
+   "age": 48,
+   "sex": "MALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 7.1,
+   "egfr": 78.1,
+   "bmi": 33.1,
+   "current_medications": [
+    "basal_insulin",
+    "sglt2_inhibitor"
+   ],
+   "prior_medications": [
+    "glp1_ra"
+   ],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100034",
+   "name": "Omar King",
+   "dob": "1987-10-16",
+   "age": 38,
+   "sex": "FEMALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 8.0,
+   "egfr": 93.1,
+   "bmi": 33.2,
+   "current_medications": [
+    "glp1_ra"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100035",
+   "name": "Linda Nguyen",
+   "dob": "1966-12-11",
+   "age": 59,
+   "sex": "FEMALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 9.3,
+   "egfr": 45.0,
+   "bmi": 30.6,
+   "current_medications": [
+    "metformin"
+   ],
+   "prior_medications": [
+    "sglt2_inhibitor"
+   ],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100036",
+   "name": "David Martinez",
+   "dob": "1971-04-07",
+   "age": 55,
+   "sex": "MALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 10.4,
+   "egfr": 84.6,
+   "bmi": 39.6,
+   "current_medications": [
+    "metformin"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100037",
+   "name": "Luis Patel",
+   "dob": "1957-07-13",
+   "age": 69,
+   "sex": "FEMALE",
+   "diagnoses": [
+    "T1D"
+   ],
+   "hba1c": 7.8,
+   "egfr": 41.1,
+   "bmi": 37.8,
+   "current_medications": [
+    "metformin",
+    "sglt2_inhibitor",
+    "sulfonylurea"
+   ],
+   "prior_medications": [
+    "glp1_ra"
+   ],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100038",
+   "name": "Daniel Kim",
+   "dob": "1975-07-20",
+   "age": 51,
+   "sex": "MALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 5.2,
+   "egfr": 37.9,
+   "bmi": 36.0,
+   "current_medications": [
+    "glp1_ra",
+    "metformin"
+   ],
+   "prior_medications": [
+    "dpp4_inhibitor"
+   ],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100039",
+   "name": "Lisa Martinez",
+   "dob": "1970-05-08",
+   "age": 56,
+   "sex": "MALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 6.9,
+   "egfr": 83.7,
+   "bmi": 30.9,
+   "current_medications": [
+    "basal_insulin",
+    "metformin",
+    "sulfonylurea"
+   ],
+   "prior_medications": [
+    "dpp4_inhibitor"
+   ],
+   "readmitted_30d": true
+  },
+  {
+   "mrn": "A-100040",
+   "name": "Omar Kim",
+   "dob": "1962-09-13",
+   "age": 64,
+   "sex": "FEMALE",
+   "diagnoses": [
+    "T1D"
+   ],
+   "hba1c": 7.8,
+   "egfr": 82.8,
+   "bmi": 28.2,
+   "current_medications": [
+    "metformin"
+   ],
+   "prior_medications": [
+    "sglt2_inhibitor"
+   ],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100041",
+   "name": "Jason Young",
+   "dob": "1991-06-02",
+   "age": 35,
+   "sex": "FEMALE",
+   "diagnoses": [
+    "T1D"
+   ],
+   "hba1c": 8.8,
+   "egfr": 56.1,
+   "bmi": 30.1,
+   "current_medications": [
+    "basal_insulin",
+    "glp1_ra"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": true
+  },
+  {
+   "mrn": "A-100042",
+   "name": "Susan Garcia",
+   "dob": "1985-02-05",
+   "age": 41,
+   "sex": "MALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 9.4,
+   "egfr": 33.0,
+   "bmi": 33.3,
+   "current_medications": [
+    "metformin",
+    "sulfonylurea"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100043",
+   "name": "Robert Allen",
+   "dob": "1991-08-07",
+   "age": 35,
+   "sex": "MALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 7.7,
+   "egfr": 104.1,
+   "bmi": 30.2,
+   "current_medications": [
+    "metformin"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100044",
+   "name": "Robert Young",
+   "dob": "1964-09-26",
+   "age": 62,
+   "sex": "FEMALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 6.4,
+   "egfr": 61.8,
+   "bmi": 31.8,
+   "current_medications": [
+    "dpp4_inhibitor",
+    "metformin"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100045",
+   "name": "James Walker",
+   "dob": "1964-12-13",
+   "age": 61,
+   "sex": "MALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 8.1,
+   "egfr": 71.9,
+   "bmi": 27.3,
+   "current_medications": [
+    "basal_insulin",
+    "glp1_ra",
+    "metformin",
+    "sulfonylurea"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100046",
+   "name": "Linda Lopez",
+   "dob": "1964-01-08",
+   "age": 62,
+   "sex": "MALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 10.7,
+   "egfr": 74.4,
+   "bmi": 31.0,
+   "current_medications": [
+    "metformin"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100047",
+   "name": "Priya Garcia",
+   "dob": "1965-03-28",
+   "age": 61,
+   "sex": "MALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 6.4,
+   "egfr": 104.0,
+   "bmi": 34.6,
+   "current_medications": [
+    "basal_insulin",
+    "metformin"
+   ],
+   "prior_medications": [
+    "dpp4_inhibitor"
+   ],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100048",
+   "name": "Kevin Patel",
+   "dob": "1977-05-19",
+   "age": 49,
+   "sex": "MALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 8.3,
+   "egfr": 107.7,
+   "bmi": 35.0,
+   "current_medications": [
+    "basal_insulin",
+    "metformin"
+   ],
+   "prior_medications": [
+    "glp1_ra"
+   ],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100049",
+   "name": "Ana Lee",
+   "dob": "1957-06-25",
+   "age": 69,
+   "sex": "FEMALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 7.0,
+   "egfr": 109.5,
+   "bmi": 23.5,
+   "current_medications": [
+    "basal_insulin",
+    "dpp4_inhibitor",
+    "metformin"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100050",
+   "name": "Betty Wright",
+   "dob": "1976-03-26",
+   "age": 50,
+   "sex": "FEMALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 7.2,
+   "egfr": 49.1,
+   "bmi": 33.0,
+   "current_medications": [
+    "metformin"
+   ],
+   "prior_medications": [
+    "sulfonylurea"
+   ],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100051",
+   "name": "Kenji Turner",
+   "dob": "1959-03-26",
+   "age": 67,
+   "sex": "FEMALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 6.1,
+   "egfr": 102.6,
+   "bmi": 32.7,
+   "current_medications": [
+    "metformin",
+    "sglt2_inhibitor",
+    "sulfonylurea"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100052",
+   "name": "Nancy Nelson",
+   "dob": "1964-09-11",
+   "age": 62,
+   "sex": "MALE",
+   "diagnoses": [
+    "other_specific_diabetes"
+   ],
+   "hba1c": 8.1,
+   "egfr": 103.4,
+   "bmi": 40.3,
+   "current_medications": [
+    "sglt2_inhibitor"
+   ],
+   "prior_medications": [
+    "glp1_ra"
+   ],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100053",
+   "name": "Brian Brown",
+   "dob": "1968-01-30",
+   "age": 58,
+   "sex": "MALE",
+   "diagnoses": [
+    "secondary_diabetes"
+   ],
+   "hba1c": 7.6,
+   "egfr": 98.3,
+   "bmi": 35.0,
+   "current_medications": [
+    "metformin",
+    "sulfonylurea"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100054",
+   "name": "Susan Brown",
+   "dob": "1985-12-29",
+   "age": 40,
+   "sex": "FEMALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 10.5,
+   "egfr": 70.4,
+   "bmi": 36.8,
+   "current_medications": [],
+   "prior_medications": [],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100055",
+   "name": "Wei Young",
+   "dob": "1946-11-14",
+   "age": 79,
+   "sex": "MALE",
+   "diagnoses": [
+    "T1D"
+   ],
+   "hba1c": 7.7,
+   "egfr": 94.2,
+   "bmi": 33.7,
+   "current_medications": [],
+   "prior_medications": [
+    "basal_insulin",
+    "glp1_ra",
+    "sulfonylurea"
+   ],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100056",
+   "name": "Aiko Clark",
+   "dob": "1984-06-27",
+   "age": 42,
+   "sex": "FEMALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 7.4,
+   "egfr": 116.3,
+   "bmi": 34.0,
+   "current_medications": [
+    "basal_insulin",
+    "sglt2_inhibitor"
+   ],
+   "prior_medications": [
+    "sulfonylurea"
+   ],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100057",
+   "name": "David Garcia",
+   "dob": "1983-12-06",
+   "age": 42,
+   "sex": "MALE",
+   "diagnoses": [
+    "T1D"
+   ],
+   "hba1c": 7.3,
+   "egfr": 87.4,
+   "bmi": 37.7,
+   "current_medications": [
+    "glp1_ra"
+   ],
+   "prior_medications": [
+    "basal_insulin",
+    "sglt2_inhibitor"
+   ],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100058",
+   "name": "Barbara Martinez",
+   "dob": "1984-07-12",
+   "age": 42,
+   "sex": "FEMALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 6.3,
+   "egfr": 75.7,
+   "bmi": 38.4,
+   "current_medications": [
+    "metformin"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": true
+  },
+  {
+   "mrn": "A-100059",
+   "name": "Daniel Martinez",
+   "dob": "1949-06-06",
+   "age": 77,
+   "sex": "FEMALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 6.3,
+   "egfr": 112.3,
+   "bmi": 27.4,
+   "current_medications": [
+    "metformin"
+   ],
+   "prior_medications": [
+    "glp1_ra"
+   ],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100060",
+   "name": "Aiko Lee",
+   "dob": "1963-06-15",
+   "age": 63,
+   "sex": "MALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 7.4,
+   "egfr": 71.6,
+   "bmi": 29.0,
+   "current_medications": [],
+   "prior_medications": [
+    "basal_insulin",
+    "metformin"
+   ],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100061",
+   "name": "Wei Young",
+   "dob": "1969-08-20",
+   "age": 57,
+   "sex": "FEMALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 8.6,
+   "egfr": 94.8,
+   "bmi": 21.2,
+   "current_medications": [
+    "dpp4_inhibitor",
+    "glp1_ra",
+    "metformin"
+   ],
+   "prior_medications": [
+    "basal_insulin",
+    "sglt2_inhibitor",
+    "sulfonylurea"
+   ],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100062",
+   "name": "Omar Carter",
+   "dob": "1947-10-20",
+   "age": 78,
+   "sex": "MALE",
+   "diagnoses": [
+    "secondary_diabetes"
+   ],
+   "hba1c": 9.4,
+   "egfr": 66.4,
+   "bmi": 30.9,
+   "current_medications": [
+    "basal_insulin",
+    "glp1_ra",
+    "metformin",
+    "sglt2_inhibitor"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100063",
+   "name": "Lisa Nguyen",
+   "dob": "1977-04-22",
+   "age": 49,
+   "sex": "MALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 7.4,
+   "egfr": 68.1,
+   "bmi": 30.2,
+   "current_medications": [
+    "metformin"
+   ],
+   "prior_medications": [
+    "glp1_ra"
+   ],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100064",
+   "name": "Betty Adams",
+   "dob": "1956-08-31",
+   "age": 70,
+   "sex": "MALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 8.8,
+   "egfr": 103.5,
+   "bmi": 28.7,
+   "current_medications": [
+    "metformin",
+    "sulfonylurea"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100065",
+   "name": "Ana Kim",
+   "dob": "1958-10-23",
+   "age": 67,
+   "sex": "MALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 10.5,
+   "egfr": 81.8,
+   "bmi": 29.7,
+   "current_medications": [
+    "metformin"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100066",
+   "name": "Jason Mitchell",
+   "dob": "1973-01-29",
+   "age": 53,
+   "sex": "MALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 11.3,
+   "egfr": 89.5,
+   "bmi": 35.7,
+   "current_medications": [
+    "glp1_ra"
+   ],
+   "prior_medications": [
+    "basal_insulin"
+   ],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100067",
+   "name": "David Clark",
+   "dob": "1976-02-18",
+   "age": 50,
+   "sex": "FEMALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 8.0,
+   "egfr": 94.5,
+   "bmi": 37.4,
+   "current_medications": [],
+   "prior_medications": [],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100068",
+   "name": "Luis Martinez",
+   "dob": "1967-05-13",
+   "age": 59,
+   "sex": "MALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 8.9,
+   "egfr": 66.2,
+   "bmi": 31.2,
+   "current_medications": [
+    "basal_insulin",
+    "glp1_ra",
+    "metformin"
+   ],
+   "prior_medications": [
+    "sglt2_inhibitor"
+   ],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100069",
+   "name": "Lisa Walker",
+   "dob": "1987-03-03",
+   "age": 39,
+   "sex": "MALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 9.6,
+   "egfr": 71.1,
+   "bmi": 28.7,
+   "current_medications": [
+    "metformin"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100070",
+   "name": "Patricia Patel",
+   "dob": "1966-11-26",
+   "age": 59,
+   "sex": "MALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 6.1,
+   "egfr": 65.5,
+   "bmi": 29.6,
+   "current_medications": [
+    "sglt2_inhibitor"
+   ],
+   "prior_medications": [
+    "sulfonylurea"
+   ],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100071",
+   "name": "Fatima Brown",
+   "dob": "1957-08-26",
+   "age": 69,
+   "sex": "MALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 7.7,
+   "egfr": 27.1,
+   "bmi": 29.4,
+   "current_medications": [
+    "basal_insulin",
+    "glp1_ra",
+    "metformin"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100072",
+   "name": "Ravi Martinez",
+   "dob": "1983-06-03",
+   "age": 43,
+   "sex": "MALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 7.0,
+   "egfr": 65.2,
+   "bmi": 31.3,
+   "current_medications": [
+    "basal_insulin",
+    "metformin"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100073",
+   "name": "Betty Young",
+   "dob": "1951-07-12",
+   "age": 75,
+   "sex": "FEMALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 9.4,
+   "egfr": 75.7,
+   "bmi": 35.8,
+   "current_medications": [
+    "metformin"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100074",
+   "name": "Wei Walker",
+   "dob": "1977-10-10",
+   "age": 48,
+   "sex": "FEMALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 8.7,
+   "egfr": 58.1,
+   "bmi": 29.5,
+   "current_medications": [],
+   "prior_medications": [],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100075",
+   "name": "Barbara Nelson",
+   "dob": "1975-09-06",
+   "age": 51,
+   "sex": "FEMALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 7.5,
+   "egfr": 55.2,
+   "bmi": 20.3,
+   "current_medications": [
+    "basal_insulin",
+    "metformin",
+    "sglt2_inhibitor"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100076",
+   "name": "Betty Wright",
+   "dob": "1965-10-25",
+   "age": 60,
+   "sex": "FEMALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 7.5,
+   "egfr": 72.9,
+   "bmi": 26.6,
+   "current_medications": [
+    "dpp4_inhibitor",
+    "glp1_ra",
+    "metformin"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": true
+  },
+  {
+   "mrn": "A-100077",
+   "name": "Mei Patel",
+   "dob": "1986-07-19",
+   "age": 40,
+   "sex": "MALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 7.0,
+   "egfr": 81.5,
+   "bmi": 28.2,
+   "current_medications": [
+    "metformin"
+   ],
+   "prior_medications": [
+    "dpp4_inhibitor",
+    "glp1_ra"
+   ],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100078",
+   "name": "Karen Lopez",
+   "dob": "1970-06-26",
+   "age": 56,
+   "sex": "MALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 7.5,
+   "egfr": 88.5,
+   "bmi": 25.6,
+   "current_medications": [
+    "metformin"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100079",
+   "name": "Karen Johnson",
+   "dob": "1972-06-30",
+   "age": 54,
+   "sex": "FEMALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 9.9,
+   "egfr": 117.1,
+   "bmi": 33.4,
+   "current_medications": [],
+   "prior_medications": [
+    "basal_insulin",
+    "glp1_ra"
+   ],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100080",
+   "name": "Barbara Patel",
+   "dob": "1970-01-30",
+   "age": 56,
+   "sex": "MALE",
+   "diagnoses": [
+    "T1D"
+   ],
+   "hba1c": 7.8,
+   "egfr": 85.5,
+   "bmi": 18.5,
+   "current_medications": [
+    "metformin"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100081",
+   "name": "Aiko King",
+   "dob": "1986-05-04",
+   "age": 40,
+   "sex": "MALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 10.2,
+   "egfr": 74.5,
+   "bmi": 30.8,
+   "current_medications": [
+    "metformin"
+   ],
+   "prior_medications": [
+    "dpp4_inhibitor",
+    "sulfonylurea"
+   ],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100082",
+   "name": "Robert Lee",
+   "dob": "1994-07-20",
+   "age": 32,
+   "sex": "FEMALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 6.5,
+   "egfr": 80.9,
+   "bmi": 31.3,
+   "current_medications": [
+    "basal_insulin",
+    "metformin",
+    "sulfonylurea"
+   ],
+   "prior_medications": [
+    "sglt2_inhibitor"
+   ],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100083",
+   "name": "Linda Roberts",
+   "dob": "1970-07-10",
+   "age": 56,
+   "sex": "FEMALE",
+   "diagnoses": [
+    "T1D"
+   ],
+   "hba1c": 10.6,
+   "egfr": 81.8,
+   "bmi": 30.6,
+   "current_medications": [
+    "glp1_ra",
+    "metformin"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100084",
+   "name": "Omar Brown",
+   "dob": "1968-05-07",
+   "age": 58,
+   "sex": "MALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 7.8,
+   "egfr": 40.2,
+   "bmi": 31.9,
+   "current_medications": [
+    "metformin"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100085",
+   "name": "Susan Allen",
+   "dob": "1973-04-25",
+   "age": 53,
+   "sex": "MALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 10.6,
+   "egfr": 66.1,
+   "bmi": 23.7,
+   "current_medications": [
+    "metformin"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100086",
+   "name": "Aiko Baker",
+   "dob": "1967-10-14",
+   "age": 58,
+   "sex": "MALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 7.2,
+   "egfr": 72.7,
+   "bmi": 32.4,
+   "current_medications": [
+    "basal_insulin",
+    "metformin"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100087",
+   "name": "Robert Martinez",
+   "dob": "1968-06-16",
+   "age": 58,
+   "sex": "MALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 7.4,
+   "egfr": 36.8,
+   "bmi": 24.9,
+   "current_medications": [
+    "metformin",
+    "sulfonylurea"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100088",
+   "name": "Betty Young",
+   "dob": "1983-12-13",
+   "age": 42,
+   "sex": "FEMALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 8.1,
+   "egfr": 61.0,
+   "bmi": 34.9,
+   "current_medications": [
+    "basal_insulin",
+    "metformin"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": true
+  },
+  {
+   "mrn": "A-100089",
+   "name": "Kenji Adams",
+   "dob": "1972-05-22",
+   "age": 54,
+   "sex": "FEMALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 8.6,
+   "egfr": 77.8,
+   "bmi": 32.0,
+   "current_medications": [
+    "basal_insulin",
+    "metformin"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": true
+  },
+  {
+   "mrn": "A-100090",
+   "name": "Susan Carter",
+   "dob": "1968-09-17",
+   "age": 58,
+   "sex": "FEMALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 8.8,
+   "egfr": 109.5,
+   "bmi": 28.3,
+   "current_medications": [
+    "metformin"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100091",
+   "name": "Omar Scott",
+   "dob": "1977-06-13",
+   "age": 49,
+   "sex": "FEMALE",
+   "diagnoses": [
+    "other_specific_diabetes"
+   ],
+   "hba1c": 8.6,
+   "egfr": 93.5,
+   "bmi": 33.4,
+   "current_medications": [
+    "basal_insulin",
+    "metformin"
+   ],
+   "prior_medications": [
+    "sulfonylurea"
+   ],
+   "readmitted_30d": true
+  },
+  {
+   "mrn": "A-100092",
+   "name": "James Wright",
+   "dob": "1963-12-18",
+   "age": 62,
+   "sex": "FEMALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 10.5,
+   "egfr": 81.9,
+   "bmi": 27.4,
+   "current_medications": [
+    "basal_insulin",
+    "dpp4_inhibitor"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100093",
+   "name": "Omar Young",
+   "dob": "1956-04-08",
+   "age": 70,
+   "sex": "FEMALE",
+   "diagnoses": [
+    "T1D"
+   ],
+   "hba1c": 9.2,
+   "egfr": 60.3,
+   "bmi": 38.3,
+   "current_medications": [
+    "metformin",
+    "sglt2_inhibitor"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100094",
+   "name": "Patricia Garcia",
+   "dob": "1995-02-25",
+   "age": 31,
+   "sex": "FEMALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 9.2,
+   "egfr": 51.7,
+   "bmi": 23.4,
+   "current_medications": [
+    "metformin",
+    "sglt2_inhibitor"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100095",
+   "name": "Karen Garcia",
+   "dob": "1992-08-07",
+   "age": 34,
+   "sex": "FEMALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 7.3,
+   "egfr": 53.5,
+   "bmi": 32.8,
+   "current_medications": [
+    "metformin",
+    "sulfonylurea"
+   ],
+   "prior_medications": [
+    "basal_insulin"
+   ],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100096",
+   "name": "Robert Nelson",
+   "dob": "1990-01-12",
+   "age": 36,
+   "sex": "MALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 9.2,
+   "egfr": 79.0,
+   "bmi": 27.1,
+   "current_medications": [
+    "basal_insulin",
+    "metformin"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": true
+  },
+  {
+   "mrn": "A-100097",
+   "name": "Betty Kim",
+   "dob": "1979-07-05",
+   "age": 47,
+   "sex": "FEMALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 6.6,
+   "egfr": 46.5,
+   "bmi": 35.5,
+   "current_medications": [
+    "basal_insulin",
+    "metformin",
+    "sulfonylurea"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": true
+  },
+  {
+   "mrn": "A-100098",
+   "name": "Luis Martinez",
+   "dob": "1974-12-28",
+   "age": 51,
+   "sex": "MALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 7.4,
+   "egfr": 86.1,
+   "bmi": 19.6,
+   "current_medications": [
+    "basal_insulin",
+    "dpp4_inhibitor",
+    "metformin"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100099",
+   "name": "James Nguyen",
+   "dob": "1963-08-21",
+   "age": 63,
+   "sex": "FEMALE",
+   "diagnoses": [
+    "secondary_diabetes"
+   ],
+   "hba1c": 7.6,
+   "egfr": 110.3,
+   "bmi": 26.5,
+   "current_medications": [
+    "dpp4_inhibitor",
+    "metformin"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100100",
+   "name": "Patricia Johnson",
+   "dob": "1962-02-20",
+   "age": 64,
+   "sex": "MALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 6.6,
+   "egfr": 98.5,
+   "bmi": 25.9,
+   "current_medications": [
+    "basal_insulin",
+    "dpp4_inhibitor",
+    "sulfonylurea"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": true
+  },
+  {
+   "mrn": "A-100101",
+   "name": "Susan Walker",
+   "dob": "1968-02-20",
+   "age": 58,
+   "sex": "MALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 10.4,
+   "egfr": 93.7,
+   "bmi": 24.6,
+   "current_medications": [
+    "metformin"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100102",
+   "name": "James Martinez",
+   "dob": "1975-12-29",
+   "age": 50,
+   "sex": "FEMALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 9.6,
+   "egfr": 58.6,
+   "bmi": 33.1,
+   "current_medications": [
+    "metformin"
+   ],
+   "prior_medications": [
+    "sglt2_inhibitor"
+   ],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100103",
+   "name": "Karen Johnson",
+   "dob": "1974-09-22",
+   "age": 52,
+   "sex": "MALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 8.4,
+   "egfr": 70.3,
+   "bmi": 33.2,
+   "current_medications": [
+    "metformin"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": true
+  },
+  {
+   "mrn": "A-100104",
+   "name": "Jason Nelson",
+   "dob": "1944-06-04",
+   "age": 82,
+   "sex": "FEMALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 7.5,
+   "egfr": 69.4,
+   "bmi": 27.5,
+   "current_medications": [
+    "metformin"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100105",
+   "name": "Kevin Scott",
+   "dob": "1984-11-30",
+   "age": 41,
+   "sex": "MALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 8.7,
+   "egfr": 63.9,
+   "bmi": 46.4,
+   "current_medications": [
+    "basal_insulin"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100106",
+   "name": "Fatima Young",
+   "dob": "1970-09-09",
+   "age": 56,
+   "sex": "FEMALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 7.5,
+   "egfr": 64.2,
+   "bmi": 23.7,
+   "current_medications": [
+    "metformin"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100107",
+   "name": "Michael King",
+   "dob": "1964-02-14",
+   "age": 62,
+   "sex": "MALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 6.8,
+   "egfr": 99.0,
+   "bmi": 25.1,
+   "current_medications": [
+    "dpp4_inhibitor",
+    "metformin"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100108",
+   "name": "Wei Allen",
+   "dob": "1983-04-13",
+   "age": 43,
+   "sex": "FEMALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 8.8,
+   "egfr": 120.0,
+   "bmi": 37.0,
+   "current_medications": [
+    "metformin"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100109",
+   "name": "Lisa Green",
+   "dob": "1958-05-03",
+   "age": 68,
+   "sex": "MALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 6.1,
+   "egfr": 62.1,
+   "bmi": 33.8,
+   "current_medications": [
+    "glp1_ra",
+    "metformin",
+    "sglt2_inhibitor"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100110",
+   "name": "Wei Walker",
+   "dob": "1987-10-28",
+   "age": 38,
+   "sex": "FEMALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 11.0,
+   "egfr": 87.2,
+   "bmi": 34.7,
+   "current_medications": [
+    "metformin",
+    "sulfonylurea"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100111",
+   "name": "Linda Carter",
+   "dob": "1964-08-19",
+   "age": 62,
+   "sex": "FEMALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 6.8,
+   "egfr": 35.7,
+   "bmi": 44.5,
+   "current_medications": [
+    "metformin"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100112",
+   "name": "Priya Green",
+   "dob": "1959-10-15",
+   "age": 66,
+   "sex": "FEMALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 8.7,
+   "egfr": 57.8,
+   "bmi": 27.9,
+   "current_medications": [
+    "basal_insulin"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": true
+  },
+  {
+   "mrn": "A-100113",
+   "name": "Daniel Brown",
+   "dob": "1959-08-23",
+   "age": 67,
+   "sex": "FEMALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 10.3,
+   "egfr": 77.0,
+   "bmi": 33.0,
+   "current_medications": [
+    "metformin"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100114",
+   "name": "Wei Brown",
+   "dob": "1980-02-23",
+   "age": 46,
+   "sex": "MALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 7.7,
+   "egfr": 120.0,
+   "bmi": 30.9,
+   "current_medications": [
+    "dpp4_inhibitor",
+    "metformin",
+    "sulfonylurea"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100115",
+   "name": "Brian Brown",
+   "dob": "1978-01-31",
+   "age": 48,
+   "sex": "FEMALE",
+   "diagnoses": [
+    "other_specific_diabetes"
+   ],
+   "hba1c": 8.8,
+   "egfr": 95.9,
+   "bmi": 29.7,
+   "current_medications": [
+    "metformin"
+   ],
+   "prior_medications": [
+    "dpp4_inhibitor"
+   ],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100116",
+   "name": "Susan Roberts",
+   "dob": "1959-04-02",
+   "age": 67,
+   "sex": "FEMALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 9.4,
+   "egfr": 92.6,
+   "bmi": 32.9,
+   "current_medications": [],
+   "prior_medications": [
+    "sulfonylurea"
+   ],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100117",
+   "name": "Daniel Nelson",
+   "dob": "1961-06-15",
+   "age": 65,
+   "sex": "MALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 9.4,
+   "egfr": 60.0,
+   "bmi": 27.7,
+   "current_medications": [
+    "metformin"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100118",
+   "name": "Kenji Martinez",
+   "dob": "1977-08-10",
+   "age": 49,
+   "sex": "MALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 7.7,
+   "egfr": 95.5,
+   "bmi": 41.2,
+   "current_medications": [
+    "dpp4_inhibitor",
+    "metformin"
+   ],
+   "prior_medications": [
+    "sulfonylurea"
+   ],
+   "readmitted_30d": true
+  },
+  {
+   "mrn": "A-100119",
+   "name": "Daniel Brown",
+   "dob": "1952-05-18",
+   "age": 74,
+   "sex": "FEMALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 7.0,
+   "egfr": 51.6,
+   "bmi": 37.8,
+   "current_medications": [
+    "basal_insulin"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100120",
+   "name": "Linda Nelson",
+   "dob": "1967-10-19",
+   "age": 58,
+   "sex": "FEMALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 8.1,
+   "egfr": 44.4,
+   "bmi": 34.4,
+   "current_medications": [
+    "metformin",
+    "sulfonylurea"
+   ],
+   "prior_medications": [
+    "dpp4_inhibitor"
+   ],
+   "readmitted_30d": true
+  },
+  {
+   "mrn": "A-100121",
+   "name": "Karen Patel",
+   "dob": "1971-11-25",
+   "age": 54,
+   "sex": "FEMALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 6.5,
+   "egfr": 110.8,
+   "bmi": 29.2,
+   "current_medications": [
+    "metformin"
+   ],
+   "prior_medications": [
+    "sglt2_inhibitor"
+   ],
+   "readmitted_30d": true
+  },
+  {
+   "mrn": "A-100122",
+   "name": "Ana Roberts",
+   "dob": "1979-04-18",
+   "age": 47,
+   "sex": "MALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 10.5,
+   "egfr": 45.0,
+   "bmi": 30.1,
+   "current_medications": [
+    "metformin"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100123",
+   "name": "Barbara Young",
+   "dob": "1981-08-06",
+   "age": 45,
+   "sex": "MALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 5.9,
+   "egfr": 65.5,
+   "bmi": 32.4,
+   "current_medications": [
+    "metformin",
+    "sulfonylurea"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100124",
+   "name": "Omar Johnson",
+   "dob": "1957-11-07",
+   "age": 68,
+   "sex": "MALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 10.0,
+   "egfr": 78.9,
+   "bmi": 27.2,
+   "current_medications": [
+    "basal_insulin",
+    "glp1_ra"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100125",
+   "name": "Kevin Wright",
+   "dob": "1981-03-17",
+   "age": 45,
+   "sex": "MALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 7.4,
+   "egfr": 61.5,
+   "bmi": 28.6,
+   "current_medications": [
+    "dpp4_inhibitor",
+    "metformin"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100126",
+   "name": "Omar Nelson",
+   "dob": "1958-02-10",
+   "age": 68,
+   "sex": "MALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 8.7,
+   "egfr": 72.9,
+   "bmi": 28.7,
+   "current_medications": [
+    "glp1_ra"
+   ],
+   "prior_medications": [
+    "dpp4_inhibitor"
+   ],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100127",
+   "name": "Kevin Martinez",
+   "dob": "1959-08-03",
+   "age": 67,
+   "sex": "MALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 8.5,
+   "egfr": 110.4,
+   "bmi": 39.8,
+   "current_medications": [
+    "metformin"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100128",
+   "name": "Luis Martinez",
+   "dob": "1971-08-20",
+   "age": 55,
+   "sex": "FEMALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 8.8,
+   "egfr": 98.2,
+   "bmi": 36.5,
+   "current_medications": [
+    "metformin"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100129",
+   "name": "Jason Nguyen",
+   "dob": "1947-02-16",
+   "age": 79,
+   "sex": "FEMALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 7.9,
+   "egfr": 88.9,
+   "bmi": 28.6,
+   "current_medications": [
+    "basal_insulin"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100130",
+   "name": "Ana Mitchell",
+   "dob": "1985-04-14",
+   "age": 41,
+   "sex": "MALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 8.9,
+   "egfr": 63.7,
+   "bmi": 27.6,
+   "current_medications": [
+    "metformin"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100131",
+   "name": "Susan Adams",
+   "dob": "1956-11-19",
+   "age": 69,
+   "sex": "MALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 7.8,
+   "egfr": 69.4,
+   "bmi": 32.1,
+   "current_medications": [],
+   "prior_medications": [],
+   "readmitted_30d": true
+  },
+  {
+   "mrn": "A-100132",
+   "name": "Wei Kim",
+   "dob": "1959-08-20",
+   "age": 67,
+   "sex": "MALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 7.2,
+   "egfr": 61.1,
+   "bmi": 21.6,
+   "current_medications": [
+    "sglt2_inhibitor"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100133",
+   "name": "Linda Young",
+   "dob": "1985-08-12",
+   "age": 41,
+   "sex": "FEMALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 8.3,
+   "egfr": 107.4,
+   "bmi": 31.2,
+   "current_medications": [],
+   "prior_medications": [],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100134",
+   "name": "James Clark",
+   "dob": "1976-03-07",
+   "age": 50,
+   "sex": "FEMALE",
+   "diagnoses": [
+    "T1D"
+   ],
+   "hba1c": 10.4,
+   "egfr": 79.8,
+   "bmi": 37.1,
+   "current_medications": [
+    "glp1_ra",
+    "metformin"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100135",
+   "name": "Jason Johnson",
+   "dob": "1978-12-06",
+   "age": 47,
+   "sex": "FEMALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 9.6,
+   "egfr": 69.4,
+   "bmi": 30.7,
+   "current_medications": [
+    "glp1_ra",
+    "metformin"
+   ],
+   "prior_medications": [
+    "basal_insulin"
+   ],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100136",
+   "name": "Linda Kim",
+   "dob": "1953-10-31",
+   "age": 72,
+   "sex": "FEMALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 10.9,
+   "egfr": 55.0,
+   "bmi": 25.1,
+   "current_medications": [],
+   "prior_medications": [
+    "basal_insulin",
+    "glp1_ra"
+   ],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100137",
+   "name": "Nancy Turner",
+   "dob": "1952-10-28",
+   "age": 73,
+   "sex": "MALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 5.2,
+   "egfr": 65.9,
+   "bmi": 35.9,
+   "current_medications": [
+    "glp1_ra",
+    "metformin"
+   ],
+   "prior_medications": [
+    "basal_insulin"
+   ],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100138",
+   "name": "Daniel Young",
+   "dob": "1975-02-07",
+   "age": 51,
+   "sex": "FEMALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 9.5,
+   "egfr": 83.8,
+   "bmi": 30.4,
+   "current_medications": [
+    "dpp4_inhibitor",
+    "glp1_ra",
+    "metformin"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100139",
+   "name": "Omar Martinez",
+   "dob": "1967-03-10",
+   "age": 59,
+   "sex": "MALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 5.5,
+   "egfr": 102.3,
+   "bmi": 24.2,
+   "current_medications": [
+    "metformin"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100140",
+   "name": "Michael Lopez",
+   "dob": "1976-02-08",
+   "age": 50,
+   "sex": "MALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 6.3,
+   "egfr": 77.6,
+   "bmi": 37.7,
+   "current_medications": [],
+   "prior_medications": [],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100141",
+   "name": "Barbara Clark",
+   "dob": "1966-07-09",
+   "age": 60,
+   "sex": "MALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 8.2,
+   "egfr": 42.5,
+   "bmi": 27.8,
+   "current_medications": [
+    "basal_insulin",
+    "metformin"
+   ],
+   "prior_medications": [
+    "glp1_ra"
+   ],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100142",
+   "name": "Kevin Turner",
+   "dob": "1970-09-19",
+   "age": 56,
+   "sex": "FEMALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 8.6,
+   "egfr": 95.5,
+   "bmi": 30.6,
+   "current_medications": [
+    "metformin"
+   ],
+   "prior_medications": [
+    "sglt2_inhibitor"
+   ],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100143",
+   "name": "Betty Nelson",
+   "dob": "1960-10-01",
+   "age": 65,
+   "sex": "MALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 8.4,
+   "egfr": 76.9,
+   "bmi": 36.6,
+   "current_medications": [
+    "metformin"
+   ],
+   "prior_medications": [
+    "basal_insulin",
+    "sglt2_inhibitor"
+   ],
+   "readmitted_30d": true
+  },
+  {
+   "mrn": "A-100144",
+   "name": "Lisa Young",
+   "dob": "1957-05-09",
+   "age": 69,
+   "sex": "FEMALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 7.5,
+   "egfr": 61.6,
+   "bmi": 24.3,
+   "current_medications": [
+    "glp1_ra",
+    "metformin",
+    "sulfonylurea"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100145",
+   "name": "Patricia Carter",
+   "dob": "1970-10-14",
+   "age": 55,
+   "sex": "MALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 7.2,
+   "egfr": 96.1,
+   "bmi": 36.8,
+   "current_medications": [
+    "metformin"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100146",
+   "name": "James Young",
+   "dob": "1942-12-05",
+   "age": 83,
+   "sex": "FEMALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 7.9,
+   "egfr": 37.3,
+   "bmi": 34.4,
+   "current_medications": [
+    "metformin"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": true
+  },
+  {
+   "mrn": "A-100147",
+   "name": "Wei Allen",
+   "dob": "1949-04-02",
+   "age": 77,
+   "sex": "MALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 6.7,
+   "egfr": 95.8,
+   "bmi": 27.6,
+   "current_medications": [
+    "dpp4_inhibitor",
+    "metformin",
+    "sglt2_inhibitor"
+   ],
+   "prior_medications": [
+    "basal_insulin"
+   ],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100148",
+   "name": "Kenji Clark",
+   "dob": "1969-10-03",
+   "age": 56,
+   "sex": "FEMALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 8.0,
+   "egfr": 85.9,
+   "bmi": 26.5,
+   "current_medications": [
+    "metformin"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100149",
+   "name": "Lisa Garcia",
+   "dob": "1996-07-16",
+   "age": 30,
+   "sex": "MALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 8.6,
+   "egfr": 62.2,
+   "bmi": 21.4,
+   "current_medications": [
+    "glp1_ra",
+    "metformin"
+   ],
+   "prior_medications": [
+    "sulfonylurea"
+   ],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100150",
+   "name": "Linda Adams",
+   "dob": "1965-05-13",
+   "age": 61,
+   "sex": "FEMALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 7.9,
+   "egfr": 87.3,
+   "bmi": 37.9,
+   "current_medications": [
+    "basal_insulin",
+    "dpp4_inhibitor",
+    "sglt2_inhibitor"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": true
+  },
+  {
+   "mrn": "A-100151",
+   "name": "Barbara Martinez",
+   "dob": "1959-12-26",
+   "age": 66,
+   "sex": "FEMALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 9.7,
+   "egfr": 59.5,
+   "bmi": 25.4,
+   "current_medications": [
+    "basal_insulin",
+    "metformin",
+    "sulfonylurea"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100152",
+   "name": "Lisa Baker",
+   "dob": "1993-08-29",
+   "age": 33,
+   "sex": "MALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 7.8,
+   "egfr": 75.9,
+   "bmi": 35.4,
+   "current_medications": [
+    "metformin",
+    "sulfonylurea"
+   ],
+   "prior_medications": [
+    "basal_insulin",
+    "glp1_ra"
+   ],
+   "readmitted_30d": true
+  },
+  {
+   "mrn": "A-100153",
+   "name": "James Martinez",
+   "dob": "1980-04-24",
+   "age": 46,
+   "sex": "MALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 8.6,
+   "egfr": 65.7,
+   "bmi": 22.2,
+   "current_medications": [],
+   "prior_medications": [],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100154",
+   "name": "Betty Green",
+   "dob": "1962-09-01",
+   "age": 64,
+   "sex": "MALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 6.5,
+   "egfr": 20.0,
+   "bmi": 20.7,
+   "current_medications": [
+    "sglt2_inhibitor"
+   ],
+   "prior_medications": [
+    "sulfonylurea"
+   ],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100155",
+   "name": "Daniel Scott",
+   "dob": "1984-03-30",
+   "age": 42,
+   "sex": "MALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 6.6,
+   "egfr": 53.2,
+   "bmi": 29.6,
+   "current_medications": [
+    "metformin",
+    "sulfonylurea"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100156",
+   "name": "Linda Walker",
+   "dob": "1953-01-20",
+   "age": 73,
+   "sex": "MALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 10.8,
+   "egfr": 49.6,
+   "bmi": 38.9,
+   "current_medications": [
+    "basal_insulin",
+    "metformin"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100157",
+   "name": "Aiko Brown",
+   "dob": "1986-03-31",
+   "age": 40,
+   "sex": "FEMALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 9.5,
+   "egfr": 89.6,
+   "bmi": 30.6,
+   "current_medications": [
+    "dpp4_inhibitor",
+    "metformin"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100158",
+   "name": "Kevin Clark",
+   "dob": "1979-01-17",
+   "age": 47,
+   "sex": "FEMALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 6.6,
+   "egfr": 75.7,
+   "bmi": 36.4,
+   "current_medications": [
+    "basal_insulin",
+    "dpp4_inhibitor",
+    "metformin",
+    "sulfonylurea"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100159",
+   "name": "Nancy Martinez",
+   "dob": "1976-08-07",
+   "age": 50,
+   "sex": "MALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 8.3,
+   "egfr": 84.8,
+   "bmi": 28.2,
+   "current_medications": [
+    "glp1_ra"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100160",
+   "name": "Jason Wright",
+   "dob": "1946-12-26",
+   "age": 79,
+   "sex": "MALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 7.9,
+   "egfr": 56.6,
+   "bmi": 33.7,
+   "current_medications": [
+    "sglt2_inhibitor"
+   ],
+   "prior_medications": [
+    "sulfonylurea"
+   ],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100161",
+   "name": "Wei Nguyen",
+   "dob": "1983-01-21",
+   "age": 43,
+   "sex": "FEMALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 8.9,
+   "egfr": 35.3,
+   "bmi": 30.7,
+   "current_medications": [
+    "metformin"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100162",
+   "name": "Ravi Nguyen",
+   "dob": "1992-06-27",
+   "age": 34,
+   "sex": "FEMALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 9.0,
+   "egfr": 95.6,
+   "bmi": 30.2,
+   "current_medications": [
+    "basal_insulin",
+    "metformin"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100163",
+   "name": "Priya Carter",
+   "dob": "1974-05-13",
+   "age": 52,
+   "sex": "MALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 9.3,
+   "egfr": 107.3,
+   "bmi": 27.2,
+   "current_medications": [
+    "metformin",
+    "sglt2_inhibitor"
+   ],
+   "prior_medications": [
+    "dpp4_inhibitor"
+   ],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100164",
+   "name": "Luis Lee",
+   "dob": "1953-04-26",
+   "age": 73,
+   "sex": "MALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 10.8,
+   "egfr": 48.5,
+   "bmi": 35.4,
+   "current_medications": [
+    "sglt2_inhibitor"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100165",
+   "name": "Ana Lopez",
+   "dob": "1967-11-21",
+   "age": 58,
+   "sex": "FEMALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 9.1,
+   "egfr": 65.4,
+   "bmi": 29.8,
+   "current_medications": [
+    "dpp4_inhibitor",
+    "metformin"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100166",
+   "name": "Karen Martinez",
+   "dob": "1974-02-16",
+   "age": 52,
+   "sex": "MALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 6.7,
+   "egfr": 68.6,
+   "bmi": 22.1,
+   "current_medications": [],
+   "prior_medications": [
+    "metformin",
+    "sulfonylurea"
+   ],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100167",
+   "name": "Lisa Walker",
+   "dob": "1971-06-26",
+   "age": 55,
+   "sex": "MALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 10.1,
+   "egfr": 109.1,
+   "bmi": 37.3,
+   "current_medications": [
+    "glp1_ra"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": true
+  },
+  {
+   "mrn": "A-100168",
+   "name": "Robert Lee",
+   "dob": "1936-01-27",
+   "age": 90,
+   "sex": "FEMALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 6.1,
+   "egfr": 41.1,
+   "bmi": 32.2,
+   "current_medications": [
+    "metformin",
+    "sulfonylurea"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100169",
+   "name": "Barbara Johnson",
+   "dob": "1957-05-16",
+   "age": 69,
+   "sex": "MALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 7.3,
+   "egfr": 90.8,
+   "bmi": 22.3,
+   "current_medications": [
+    "metformin",
+    "sulfonylurea"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100170",
+   "name": "Nancy Turner",
+   "dob": "1971-07-23",
+   "age": 55,
+   "sex": "FEMALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 7.6,
+   "egfr": 57.4,
+   "bmi": 36.8,
+   "current_medications": [
+    "basal_insulin",
+    "glp1_ra",
+    "metformin",
+    "sulfonylurea"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": true
+  },
+  {
+   "mrn": "A-100171",
+   "name": "Daniel Young",
+   "dob": "1953-02-14",
+   "age": 73,
+   "sex": "FEMALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 8.4,
+   "egfr": 72.2,
+   "bmi": 37.3,
+   "current_medications": [
+    "basal_insulin",
+    "metformin"
+   ],
+   "prior_medications": [
+    "dpp4_inhibitor"
+   ],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100172",
+   "name": "James King",
+   "dob": "1954-01-17",
+   "age": 72,
+   "sex": "MALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 7.1,
+   "egfr": 70.5,
+   "bmi": 28.6,
+   "current_medications": [
+    "basal_insulin"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100173",
+   "name": "Karen Walker",
+   "dob": "1958-06-27",
+   "age": 68,
+   "sex": "FEMALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 9.7,
+   "egfr": 87.1,
+   "bmi": 24.8,
+   "current_medications": [
+    "glp1_ra",
+    "metformin"
+   ],
+   "prior_medications": [
+    "sulfonylurea"
+   ],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100174",
+   "name": "Luis Kim",
+   "dob": "1942-03-24",
+   "age": 84,
+   "sex": "FEMALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 8.5,
+   "egfr": 84.5,
+   "bmi": 24.4,
+   "current_medications": [
+    "metformin",
+    "sglt2_inhibitor"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100175",
+   "name": "Ana Scott",
+   "dob": "1965-12-10",
+   "age": 60,
+   "sex": "FEMALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 5.3,
+   "egfr": 76.0,
+   "bmi": 38.9,
+   "current_medications": [
+    "dpp4_inhibitor",
+    "metformin"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100176",
+   "name": "Daniel Martinez",
+   "dob": "1957-11-02",
+   "age": 68,
+   "sex": "FEMALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 8.8,
+   "egfr": 85.8,
+   "bmi": 36.3,
+   "current_medications": [
+    "metformin"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100177",
+   "name": "Fatima Nelson",
+   "dob": "1996-10-21",
+   "age": 29,
+   "sex": "MALE",
+   "diagnoses": [
+    "T1D"
+   ],
+   "hba1c": 8.4,
+   "egfr": 78.6,
+   "bmi": 30.0,
+   "current_medications": [
+    "metformin"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100178",
+   "name": "Jason King",
+   "dob": "1965-02-13",
+   "age": 61,
+   "sex": "FEMALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 8.4,
+   "egfr": 102.2,
+   "bmi": 36.2,
+   "current_medications": [
+    "metformin"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": true
+  },
+  {
+   "mrn": "A-100179",
+   "name": "Mei Lee",
+   "dob": "1967-05-29",
+   "age": 59,
+   "sex": "FEMALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 7.5,
+   "egfr": 75.7,
+   "bmi": 31.0,
+   "current_medications": [
+    "basal_insulin",
+    "metformin"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100180",
+   "name": "Robert Green",
+   "dob": "1962-12-30",
+   "age": 63,
+   "sex": "MALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 8.9,
+   "egfr": 26.0,
+   "bmi": 35.3,
+   "current_medications": [
+    "metformin",
+    "sglt2_inhibitor"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100181",
+   "name": "Karen Green",
+   "dob": "1979-04-02",
+   "age": 47,
+   "sex": "FEMALE",
+   "diagnoses": [
+    "T1D"
+   ],
+   "hba1c": 6.6,
+   "egfr": 73.2,
+   "bmi": 21.4,
+   "current_medications": [
+    "basal_insulin",
+    "sulfonylurea"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": true
+  },
+  {
+   "mrn": "A-100182",
+   "name": "Lisa Baker",
+   "dob": "1973-05-27",
+   "age": 53,
+   "sex": "MALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 9.0,
+   "egfr": 54.4,
+   "bmi": 22.5,
+   "current_medications": [
+    "metformin",
+    "sglt2_inhibitor"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100183",
+   "name": "Ravi Brown",
+   "dob": "1992-10-09",
+   "age": 33,
+   "sex": "MALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 10.8,
+   "egfr": 102.5,
+   "bmi": 26.5,
+   "current_medications": [
+    "dpp4_inhibitor"
+   ],
+   "prior_medications": [
+    "sulfonylurea"
+   ],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100184",
+   "name": "Betty Clark",
+   "dob": "1968-10-23",
+   "age": 57,
+   "sex": "FEMALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 7.0,
+   "egfr": 91.7,
+   "bmi": 42.0,
+   "current_medications": [
+    "metformin",
+    "sglt2_inhibitor",
+    "sulfonylurea"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100185",
+   "name": "Omar Johnson",
+   "dob": "1962-05-07",
+   "age": 64,
+   "sex": "MALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 6.6,
+   "egfr": 74.8,
+   "bmi": 30.8,
+   "current_medications": [
+    "metformin",
+    "sulfonylurea"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100186",
+   "name": "Omar Brown",
+   "dob": "1973-12-08",
+   "age": 52,
+   "sex": "FEMALE",
+   "diagnoses": [
+    "T1D"
+   ],
+   "hba1c": 7.2,
+   "egfr": 81.4,
+   "bmi": 25.1,
+   "current_medications": [
+    "metformin",
+    "sglt2_inhibitor"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100187",
+   "name": "Lisa Kim",
+   "dob": "1971-03-27",
+   "age": 55,
+   "sex": "FEMALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 7.0,
+   "egfr": 97.5,
+   "bmi": 24.0,
+   "current_medications": [
+    "glp1_ra",
+    "metformin"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100188",
+   "name": "Brian Lopez",
+   "dob": "1983-05-23",
+   "age": 43,
+   "sex": "FEMALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 9.3,
+   "egfr": 51.0,
+   "bmi": 21.5,
+   "current_medications": [
+    "sglt2_inhibitor"
+   ],
+   "prior_medications": [
+    "dpp4_inhibitor"
+   ],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100189",
+   "name": "Kevin Lee",
+   "dob": "1954-12-13",
+   "age": 71,
+   "sex": "FEMALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 7.0,
+   "egfr": 41.9,
+   "bmi": 33.0,
+   "current_medications": [
+    "metformin"
+   ],
+   "prior_medications": [
+    "dpp4_inhibitor",
+    "sglt2_inhibitor"
+   ],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100190",
+   "name": "Aiko Lee",
+   "dob": "2003-12-07",
+   "age": 22,
+   "sex": "MALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 8.2,
+   "egfr": 99.3,
+   "bmi": 22.0,
+   "current_medications": [
+    "basal_insulin",
+    "glp1_ra"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100191",
+   "name": "Fatima Patel",
+   "dob": "1950-10-04",
+   "age": 75,
+   "sex": "MALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 8.8,
+   "egfr": 97.1,
+   "bmi": 29.3,
+   "current_medications": [
+    "dpp4_inhibitor",
+    "metformin",
+    "sulfonylurea"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100192",
+   "name": "Kenji Lee",
+   "dob": "1958-08-09",
+   "age": 68,
+   "sex": "FEMALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 9.0,
+   "egfr": 80.2,
+   "bmi": 26.9,
+   "current_medications": [
+    "sulfonylurea"
+   ],
+   "prior_medications": [
+    "dpp4_inhibitor",
+    "glp1_ra"
+   ],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100193",
+   "name": "Barbara Adams",
+   "dob": "1965-10-03",
+   "age": 60,
+   "sex": "MALE",
+   "diagnoses": [
+    "T1D"
+   ],
+   "hba1c": 7.3,
+   "egfr": 96.8,
+   "bmi": 30.2,
+   "current_medications": [
+    "dpp4_inhibitor",
+    "sglt2_inhibitor"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": true
+  },
+  {
+   "mrn": "A-100194",
+   "name": "Betty Garcia",
+   "dob": "1965-09-29",
+   "age": 61,
+   "sex": "FEMALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 9.5,
+   "egfr": 61.5,
+   "bmi": 29.8,
+   "current_medications": [
+    "basal_insulin",
+    "metformin",
+    "sglt2_inhibitor"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100195",
+   "name": "James Kim",
+   "dob": "1981-07-04",
+   "age": 45,
+   "sex": "MALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 9.9,
+   "egfr": 80.8,
+   "bmi": 26.9,
+   "current_medications": [],
+   "prior_medications": [
+    "metformin"
+   ],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100196",
+   "name": "Wei Carter",
+   "dob": "1950-04-28",
+   "age": 76,
+   "sex": "MALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 6.9,
+   "egfr": 80.1,
+   "bmi": 23.4,
+   "current_medications": [],
+   "prior_medications": [],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100197",
+   "name": "Susan Nguyen",
+   "dob": "1965-11-15",
+   "age": 60,
+   "sex": "MALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 7.6,
+   "egfr": 44.7,
+   "bmi": 26.8,
+   "current_medications": [
+    "sulfonylurea"
+   ],
+   "prior_medications": [
+    "dpp4_inhibitor"
+   ],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100198",
+   "name": "Lisa Clark",
+   "dob": "1972-06-10",
+   "age": 54,
+   "sex": "FEMALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 6.3,
+   "egfr": 80.4,
+   "bmi": 31.4,
+   "current_medications": [
+    "glp1_ra",
+    "sglt2_inhibitor"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100199",
+   "name": "Robert Green",
+   "dob": "1944-10-21",
+   "age": 81,
+   "sex": "FEMALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 10.6,
+   "egfr": 69.1,
+   "bmi": 22.7,
+   "current_medications": [
+    "metformin"
+   ],
+   "prior_medications": [
+    "sglt2_inhibitor",
+    "sulfonylurea"
+   ],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100200",
+   "name": "Priya Green",
+   "dob": "1987-12-27",
+   "age": 38,
+   "sex": "MALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 8.9,
+   "egfr": 73.9,
+   "bmi": 28.4,
+   "current_medications": [
+    "dpp4_inhibitor",
+    "metformin"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100201",
+   "name": "Mei Lee",
+   "dob": "1945-09-04",
+   "age": 81,
+   "sex": "MALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 5.6,
+   "egfr": 56.4,
+   "bmi": 32.0,
+   "current_medications": [
+    "metformin",
+    "sglt2_inhibitor"
+   ],
+   "prior_medications": [
+    "glp1_ra",
+    "sulfonylurea"
+   ],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100202",
+   "name": "Daniel Lopez",
+   "dob": "1986-08-30",
+   "age": 40,
+   "sex": "MALE",
+   "diagnoses": [
+    "T1D"
+   ],
+   "hba1c": 5.8,
+   "egfr": 99.3,
+   "bmi": 31.5,
+   "current_medications": [
+    "sglt2_inhibitor"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100203",
+   "name": "Kenji Martinez",
+   "dob": "1954-11-16",
+   "age": 71,
+   "sex": "MALE",
+   "diagnoses": [
+    "T1D"
+   ],
+   "hba1c": 11.2,
+   "egfr": 85.5,
+   "bmi": 24.0,
+   "current_medications": [],
+   "prior_medications": [
+    "basal_insulin"
+   ],
+   "readmitted_30d": true
+  },
+  {
+   "mrn": "A-100204",
+   "name": "Ravi Roberts",
+   "dob": "1965-11-27",
+   "age": 60,
+   "sex": "FEMALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 7.2,
+   "egfr": 68.8,
+   "bmi": 27.4,
+   "current_medications": [
+    "basal_insulin",
+    "dpp4_inhibitor",
+    "metformin"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100205",
+   "name": "David Carter",
+   "dob": "1956-03-10",
+   "age": 70,
+   "sex": "MALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 6.8,
+   "egfr": 54.3,
+   "bmi": 25.1,
+   "current_medications": [
+    "basal_insulin"
+   ],
+   "prior_medications": [
+    "sulfonylurea"
+   ],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100206",
+   "name": "Betty Carter",
+   "dob": "1968-09-09",
+   "age": 58,
+   "sex": "MALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 8.7,
+   "egfr": 99.1,
+   "bmi": 27.6,
+   "current_medications": [
+    "basal_insulin",
+    "glp1_ra",
+    "metformin",
+    "sglt2_inhibitor",
+    "sulfonylurea"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100207",
+   "name": "Aiko Young",
+   "dob": "1970-10-22",
+   "age": 55,
+   "sex": "MALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 9.7,
+   "egfr": 77.5,
+   "bmi": 31.3,
+   "current_medications": [
+    "metformin",
+    "sglt2_inhibitor"
+   ],
+   "prior_medications": [
+    "sulfonylurea"
+   ],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100208",
+   "name": "Linda Kim",
+   "dob": "1964-11-11",
+   "age": 61,
+   "sex": "MALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 7.8,
+   "egfr": 120.0,
+   "bmi": 31.5,
+   "current_medications": [
+    "metformin",
+    "sglt2_inhibitor",
+    "sulfonylurea"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": true
+  },
+  {
+   "mrn": "A-100209",
+   "name": "David Martinez",
+   "dob": "1959-07-18",
+   "age": 67,
+   "sex": "MALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 8.0,
+   "egfr": 87.9,
+   "bmi": 27.2,
+   "current_medications": [
+    "dpp4_inhibitor"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100210",
+   "name": "Barbara Martinez",
+   "dob": "1971-08-24",
+   "age": 55,
+   "sex": "MALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 8.5,
+   "egfr": 67.7,
+   "bmi": 31.5,
+   "current_medications": [
+    "dpp4_inhibitor",
+    "sglt2_inhibitor"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": true
+  },
+  {
+   "mrn": "A-100211",
+   "name": "Barbara Green",
+   "dob": "1979-04-21",
+   "age": 47,
+   "sex": "MALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 9.5,
+   "egfr": 80.1,
+   "bmi": 32.7,
+   "current_medications": [
+    "metformin"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100212",
+   "name": "Omar Green",
+   "dob": "1959-08-10",
+   "age": 67,
+   "sex": "FEMALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 7.6,
+   "egfr": 57.2,
+   "bmi": 23.9,
+   "current_medications": [
+    "metformin",
+    "sulfonylurea"
+   ],
+   "prior_medications": [
+    "dpp4_inhibitor"
+   ],
+   "readmitted_30d": true
+  },
+  {
+   "mrn": "A-100213",
+   "name": "Ana Kim",
+   "dob": "1982-11-04",
+   "age": 43,
+   "sex": "MALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 6.4,
+   "egfr": 79.2,
+   "bmi": 32.0,
+   "current_medications": [
+    "basal_insulin"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100214",
+   "name": "Mei Lee",
+   "dob": "1966-05-07",
+   "age": 60,
+   "sex": "FEMALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 9.0,
+   "egfr": 85.4,
+   "bmi": 27.3,
+   "current_medications": [
+    "glp1_ra"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100215",
+   "name": "Priya Roberts",
+   "dob": "1979-04-30",
+   "age": 47,
+   "sex": "MALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 8.6,
+   "egfr": 88.6,
+   "bmi": 33.6,
+   "current_medications": [
+    "metformin"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": true
+  },
+  {
+   "mrn": "A-100216",
+   "name": "Susan Garcia",
+   "dob": "1964-08-05",
+   "age": 62,
+   "sex": "MALE",
+   "diagnoses": [
+    "other_specific_diabetes"
+   ],
+   "hba1c": 8.1,
+   "egfr": 112.0,
+   "bmi": 28.8,
+   "current_medications": [
+    "metformin",
+    "sulfonylurea"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": true
+  },
+  {
+   "mrn": "A-100217",
+   "name": "Luis Green",
+   "dob": "1991-09-30",
+   "age": 34,
+   "sex": "FEMALE",
+   "diagnoses": [
+    "T1D"
+   ],
+   "hba1c": 9.3,
+   "egfr": 53.6,
+   "bmi": 32.6,
+   "current_medications": [
+    "dpp4_inhibitor",
+    "glp1_ra",
+    "metformin",
+    "sglt2_inhibitor"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100218",
+   "name": "Fatima Kim",
+   "dob": "1975-01-18",
+   "age": 51,
+   "sex": "FEMALE",
+   "diagnoses": [
+    "secondary_diabetes"
+   ],
+   "hba1c": 7.1,
+   "egfr": 60.3,
+   "bmi": 26.1,
+   "current_medications": [
+    "basal_insulin",
+    "metformin"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100219",
+   "name": "Ana Martinez",
+   "dob": "1970-02-12",
+   "age": 56,
+   "sex": "MALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 8.1,
+   "egfr": 76.1,
+   "bmi": 25.3,
+   "current_medications": [],
+   "prior_medications": [],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100220",
+   "name": "Kenji King",
+   "dob": "1970-06-22",
+   "age": 56,
+   "sex": "MALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 7.6,
+   "egfr": 89.4,
+   "bmi": 36.1,
+   "current_medications": [
+    "basal_insulin"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": true
+  },
+  {
+   "mrn": "A-100221",
+   "name": "Robert Nelson",
+   "dob": "1974-04-06",
+   "age": 52,
+   "sex": "MALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 7.6,
+   "egfr": 104.3,
+   "bmi": 21.4,
+   "current_medications": [
+    "metformin"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100222",
+   "name": "Aiko Martinez",
+   "dob": "1970-01-13",
+   "age": 56,
+   "sex": "FEMALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 8.5,
+   "egfr": 87.0,
+   "bmi": 30.8,
+   "current_medications": [
+    "basal_insulin",
+    "dpp4_inhibitor",
+    "metformin"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": true
+  },
+  {
+   "mrn": "A-100223",
+   "name": "Luis Clark",
+   "dob": "1966-09-07",
+   "age": 60,
+   "sex": "FEMALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 9.8,
+   "egfr": 87.2,
+   "bmi": 21.9,
+   "current_medications": [
+    "dpp4_inhibitor",
+    "metformin",
+    "sulfonylurea"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100224",
+   "name": "Jason Wright",
+   "dob": "1977-12-29",
+   "age": 48,
+   "sex": "FEMALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 8.3,
+   "egfr": 48.5,
+   "bmi": 23.4,
+   "current_medications": [
+    "dpp4_inhibitor"
+   ],
+   "prior_medications": [
+    "metformin",
+    "sglt2_inhibitor"
+   ],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100225",
+   "name": "Jason Nelson",
+   "dob": "1971-12-19",
+   "age": 54,
+   "sex": "FEMALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 8.4,
+   "egfr": 90.1,
+   "bmi": 28.3,
+   "current_medications": [],
+   "prior_medications": [
+    "dpp4_inhibitor",
+    "metformin"
+   ],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100226",
+   "name": "Karen Patel",
+   "dob": "1975-07-24",
+   "age": 51,
+   "sex": "MALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 7.4,
+   "egfr": 65.4,
+   "bmi": 30.2,
+   "current_medications": [
+    "metformin"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100227",
+   "name": "Ravi Martinez",
+   "dob": "1961-07-06",
+   "age": 65,
+   "sex": "MALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 7.2,
+   "egfr": 67.6,
+   "bmi": 36.2,
+   "current_medications": [],
+   "prior_medications": [
+    "dpp4_inhibitor",
+    "sulfonylurea"
+   ],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100228",
+   "name": "Robert Wright",
+   "dob": "1969-02-27",
+   "age": 57,
+   "sex": "FEMALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 7.0,
+   "egfr": 75.4,
+   "bmi": 32.5,
+   "current_medications": [
+    "dpp4_inhibitor",
+    "sglt2_inhibitor"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100229",
+   "name": "Lisa Brown",
+   "dob": "1969-08-31",
+   "age": 57,
+   "sex": "FEMALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 6.8,
+   "egfr": 95.3,
+   "bmi": 38.8,
+   "current_medications": [
+    "glp1_ra"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100230",
+   "name": "Brian Roberts",
+   "dob": "1974-06-10",
+   "age": 52,
+   "sex": "FEMALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 8.9,
+   "egfr": 76.8,
+   "bmi": 27.6,
+   "current_medications": [
+    "basal_insulin",
+    "metformin"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": true
+  },
+  {
+   "mrn": "A-100231",
+   "name": "David Mitchell",
+   "dob": "1965-01-25",
+   "age": 61,
+   "sex": "MALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 8.1,
+   "egfr": 78.3,
+   "bmi": 30.5,
+   "current_medications": [
+    "dpp4_inhibitor",
+    "metformin"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100232",
+   "name": "Fatima King",
+   "dob": "1982-06-02",
+   "age": 44,
+   "sex": "FEMALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 10.3,
+   "egfr": 90.9,
+   "bmi": 23.3,
+   "current_medications": [],
+   "prior_medications": [],
+   "readmitted_30d": true
+  },
+  {
+   "mrn": "A-100233",
+   "name": "Kevin Garcia",
+   "dob": "1965-07-29",
+   "age": 61,
+   "sex": "FEMALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 7.8,
+   "egfr": 89.4,
+   "bmi": 20.3,
+   "current_medications": [
+    "dpp4_inhibitor",
+    "metformin"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100234",
+   "name": "Robert Scott",
+   "dob": "1958-02-22",
+   "age": 68,
+   "sex": "FEMALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 7.8,
+   "egfr": 85.8,
+   "bmi": 36.3,
+   "current_medications": [
+    "basal_insulin",
+    "dpp4_inhibitor"
+   ],
+   "prior_medications": [
+    "metformin",
+    "sglt2_inhibitor"
+   ],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100235",
+   "name": "Jason King",
+   "dob": "1961-05-10",
+   "age": 65,
+   "sex": "FEMALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 5.2,
+   "egfr": 101.8,
+   "bmi": 24.9,
+   "current_medications": [],
+   "prior_medications": [
+    "glp1_ra"
+   ],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100236",
+   "name": "Aiko Turner",
+   "dob": "1977-11-08",
+   "age": 48,
+   "sex": "MALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 9.3,
+   "egfr": 109.4,
+   "bmi": 36.3,
+   "current_medications": [
+    "metformin",
+    "sglt2_inhibitor"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100237",
+   "name": "Michael Nelson",
+   "dob": "1960-03-08",
+   "age": 66,
+   "sex": "MALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 8.8,
+   "egfr": 106.2,
+   "bmi": 30.5,
+   "current_medications": [
+    "basal_insulin",
+    "metformin"
+   ],
+   "prior_medications": [
+    "dpp4_inhibitor"
+   ],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100238",
+   "name": "David Green",
+   "dob": "1960-01-07",
+   "age": 66,
+   "sex": "MALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 11.1,
+   "egfr": 103.7,
+   "bmi": 27.6,
+   "current_medications": [
+    "glp1_ra",
+    "metformin",
+    "sglt2_inhibitor"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100239",
+   "name": "Priya Clark",
+   "dob": "1985-03-06",
+   "age": 41,
+   "sex": "FEMALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 6.4,
+   "egfr": 64.4,
+   "bmi": 30.1,
+   "current_medications": [
+    "sulfonylurea"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100240",
+   "name": "Aiko Baker",
+   "dob": "1963-12-20",
+   "age": 62,
+   "sex": "MALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 7.8,
+   "egfr": 93.3,
+   "bmi": 35.3,
+   "current_medications": [
+    "metformin"
+   ],
+   "prior_medications": [
+    "sglt2_inhibitor"
+   ],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100241",
+   "name": "Lisa Scott",
+   "dob": "1960-06-12",
+   "age": 66,
+   "sex": "MALE",
+   "diagnoses": [
+    "other_specific_diabetes"
+   ],
+   "hba1c": 8.3,
+   "egfr": 81.5,
+   "bmi": 23.2,
+   "current_medications": [
+    "metformin"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100242",
+   "name": "Luis Allen",
+   "dob": "1973-02-13",
+   "age": 53,
+   "sex": "FEMALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 10.0,
+   "egfr": 37.3,
+   "bmi": 32.8,
+   "current_medications": [
+    "basal_insulin",
+    "metformin",
+    "sglt2_inhibitor"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100243",
+   "name": "Brian Walker",
+   "dob": "1950-02-16",
+   "age": 76,
+   "sex": "FEMALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 8.9,
+   "egfr": 49.6,
+   "bmi": 41.7,
+   "current_medications": [
+    "metformin"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100244",
+   "name": "Patricia Walker",
+   "dob": "1977-08-13",
+   "age": 49,
+   "sex": "MALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 8.8,
+   "egfr": 55.1,
+   "bmi": 35.4,
+   "current_medications": [],
+   "prior_medications": [
+    "basal_insulin"
+   ],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100245",
+   "name": "Michael Garcia",
+   "dob": "1971-03-29",
+   "age": 55,
+   "sex": "MALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 9.6,
+   "egfr": 79.0,
+   "bmi": 32.4,
+   "current_medications": [
+    "sglt2_inhibitor"
+   ],
+   "prior_medications": [
+    "dpp4_inhibitor"
+   ],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100246",
+   "name": "Robert Carter",
+   "dob": "1972-08-19",
+   "age": 54,
+   "sex": "FEMALE",
+   "diagnoses": [
+    "secondary_diabetes"
+   ],
+   "hba1c": 6.1,
+   "egfr": 28.5,
+   "bmi": 21.9,
+   "current_medications": [
+    "metformin",
+    "sglt2_inhibitor",
+    "sulfonylurea"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": true
+  },
+  {
+   "mrn": "A-100247",
+   "name": "Kevin Allen",
+   "dob": "1965-10-03",
+   "age": 60,
+   "sex": "MALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 8.5,
+   "egfr": 77.7,
+   "bmi": 34.5,
+   "current_medications": [
+    "basal_insulin",
+    "glp1_ra"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100248",
+   "name": "James Nelson",
+   "dob": "1952-07-20",
+   "age": 74,
+   "sex": "MALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 8.2,
+   "egfr": 63.9,
+   "bmi": 24.9,
+   "current_medications": [],
+   "prior_medications": [
+    "sulfonylurea"
+   ],
+   "readmitted_30d": true
+  },
+  {
+   "mrn": "A-100249",
+   "name": "Fatima Lee",
+   "dob": "1950-01-27",
+   "age": 76,
+   "sex": "MALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 9.0,
+   "egfr": 74.9,
+   "bmi": 24.9,
+   "current_medications": [
+    "glp1_ra",
+    "metformin"
+   ],
+   "prior_medications": [
+    "sulfonylurea"
+   ],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100250",
+   "name": "Aiko Nelson",
+   "dob": "1943-12-10",
+   "age": 82,
+   "sex": "MALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 7.4,
+   "egfr": 101.6,
+   "bmi": 39.6,
+   "current_medications": [
+    "basal_insulin"
+   ],
+   "prior_medications": [
+    "metformin"
+   ],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100251",
+   "name": "Michael Johnson",
+   "dob": "1975-08-31",
+   "age": 51,
+   "sex": "MALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 11.4,
+   "egfr": 76.2,
+   "bmi": 33.2,
+   "current_medications": [
+    "basal_insulin",
+    "glp1_ra"
+   ],
+   "prior_medications": [
+    "metformin"
+   ],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100252",
+   "name": "Ravi Green",
+   "dob": "1989-05-30",
+   "age": 37,
+   "sex": "MALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 9.1,
+   "egfr": 82.0,
+   "bmi": 22.1,
+   "current_medications": [
+    "metformin",
+    "sglt2_inhibitor",
+    "sulfonylurea"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100253",
+   "name": "Michael Young",
+   "dob": "1973-05-03",
+   "age": 53,
+   "sex": "MALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 10.3,
+   "egfr": 88.7,
+   "bmi": 27.2,
+   "current_medications": [
+    "dpp4_inhibitor",
+    "sglt2_inhibitor"
+   ],
+   "prior_medications": [
+    "sulfonylurea"
+   ],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100254",
+   "name": "Patricia Carter",
+   "dob": "1973-09-01",
+   "age": 53,
+   "sex": "FEMALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 8.4,
+   "egfr": 87.0,
+   "bmi": 26.9,
+   "current_medications": [
+    "basal_insulin"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": true
+  },
+  {
+   "mrn": "A-100255",
+   "name": "Aiko Walker",
+   "dob": "1963-06-23",
+   "age": 63,
+   "sex": "FEMALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 7.7,
+   "egfr": 77.5,
+   "bmi": 26.5,
+   "current_medications": [],
+   "prior_medications": [],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100256",
+   "name": "Wei Walker",
+   "dob": "1957-06-06",
+   "age": 69,
+   "sex": "FEMALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 5.2,
+   "egfr": 72.6,
+   "bmi": 32.6,
+   "current_medications": [
+    "dpp4_inhibitor"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100257",
+   "name": "Fatima Roberts",
+   "dob": "1946-02-06",
+   "age": 80,
+   "sex": "MALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 10.7,
+   "egfr": 27.7,
+   "bmi": 32.0,
+   "current_medications": [
+    "dpp4_inhibitor"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": true
+  },
+  {
+   "mrn": "A-100258",
+   "name": "Patricia Martinez",
+   "dob": "1953-07-20",
+   "age": 73,
+   "sex": "FEMALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 7.8,
+   "egfr": 57.8,
+   "bmi": 19.0,
+   "current_medications": [
+    "metformin",
+    "sulfonylurea"
+   ],
+   "prior_medications": [
+    "sglt2_inhibitor"
+   ],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100259",
+   "name": "Barbara Martinez",
+   "dob": "1979-10-11",
+   "age": 46,
+   "sex": "FEMALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 6.3,
+   "egfr": 80.7,
+   "bmi": 33.2,
+   "current_medications": [
+    "basal_insulin"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100260",
+   "name": "Nancy Mitchell",
+   "dob": "1971-11-02",
+   "age": 54,
+   "sex": "FEMALE",
+   "diagnoses": [
+    "secondary_diabetes"
+   ],
+   "hba1c": 5.2,
+   "egfr": 120.0,
+   "bmi": 25.4,
+   "current_medications": [
+    "metformin",
+    "sglt2_inhibitor",
+    "sulfonylurea"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100261",
+   "name": "Patricia Brown",
+   "dob": "1983-07-20",
+   "age": 43,
+   "sex": "MALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 6.9,
+   "egfr": 49.2,
+   "bmi": 30.4,
+   "current_medications": [
+    "basal_insulin",
+    "metformin",
+    "sulfonylurea"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100262",
+   "name": "Lisa Walker",
+   "dob": "1983-10-03",
+   "age": 42,
+   "sex": "MALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 9.2,
+   "egfr": 79.5,
+   "bmi": 26.6,
+   "current_medications": [
+    "basal_insulin",
+    "glp1_ra",
+    "metformin"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100263",
+   "name": "Kenji Wright",
+   "dob": "1964-01-31",
+   "age": 62,
+   "sex": "FEMALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 7.0,
+   "egfr": 72.7,
+   "bmi": 27.4,
+   "current_medications": [
+    "metformin",
+    "sglt2_inhibitor"
+   ],
+   "prior_medications": [
+    "dpp4_inhibitor",
+    "glp1_ra"
+   ],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100264",
+   "name": "Ravi Patel",
+   "dob": "1965-01-25",
+   "age": 61,
+   "sex": "MALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 8.0,
+   "egfr": 103.5,
+   "bmi": 32.5,
+   "current_medications": [
+    "basal_insulin",
+    "metformin",
+    "sglt2_inhibitor",
+    "sulfonylurea"
+   ],
+   "prior_medications": [
+    "dpp4_inhibitor"
+   ],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100265",
+   "name": "Fatima Lopez",
+   "dob": "1966-06-19",
+   "age": 60,
+   "sex": "MALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 9.6,
+   "egfr": 69.2,
+   "bmi": 34.2,
+   "current_medications": [
+    "dpp4_inhibitor",
+    "metformin",
+    "sglt2_inhibitor"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100266",
+   "name": "Patricia Mitchell",
+   "dob": "1967-10-27",
+   "age": 58,
+   "sex": "MALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 9.7,
+   "egfr": 55.9,
+   "bmi": 28.2,
+   "current_medications": [
+    "basal_insulin",
+    "metformin",
+    "sglt2_inhibitor"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": true
+  },
+  {
+   "mrn": "A-100267",
+   "name": "Kevin Martinez",
+   "dob": "1992-08-04",
+   "age": 34,
+   "sex": "FEMALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 6.7,
+   "egfr": 87.7,
+   "bmi": 43.7,
+   "current_medications": [
+    "basal_insulin",
+    "metformin"
+   ],
+   "prior_medications": [
+    "sglt2_inhibitor"
+   ],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100268",
+   "name": "Daniel Roberts",
+   "dob": "1960-03-21",
+   "age": 66,
+   "sex": "FEMALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 10.6,
+   "egfr": 94.1,
+   "bmi": 34.1,
+   "current_medications": [
+    "dpp4_inhibitor",
+    "glp1_ra",
+    "metformin"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100269",
+   "name": "Karen Green",
+   "dob": "1967-04-16",
+   "age": 59,
+   "sex": "FEMALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 8.3,
+   "egfr": 58.2,
+   "bmi": 31.0,
+   "current_medications": [
+    "metformin"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100270",
+   "name": "Jason Young",
+   "dob": "1986-06-18",
+   "age": 40,
+   "sex": "MALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 8.2,
+   "egfr": 78.3,
+   "bmi": 43.0,
+   "current_medications": [
+    "basal_insulin",
+    "sglt2_inhibitor",
+    "sulfonylurea"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100271",
+   "name": "Susan King",
+   "dob": "1978-03-20",
+   "age": 48,
+   "sex": "MALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 9.1,
+   "egfr": 55.7,
+   "bmi": 24.1,
+   "current_medications": [
+    "metformin"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100272",
+   "name": "David Clark",
+   "dob": "1960-09-29",
+   "age": 66,
+   "sex": "MALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 8.8,
+   "egfr": 89.2,
+   "bmi": 31.3,
+   "current_medications": [
+    "metformin"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100273",
+   "name": "Lisa King",
+   "dob": "1997-05-12",
+   "age": 29,
+   "sex": "FEMALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 10.0,
+   "egfr": 100.2,
+   "bmi": 38.4,
+   "current_medications": [
+    "metformin",
+    "sglt2_inhibitor"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100274",
+   "name": "Fatima Patel",
+   "dob": "1963-01-27",
+   "age": 63,
+   "sex": "FEMALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 9.0,
+   "egfr": 85.8,
+   "bmi": 37.5,
+   "current_medications": [
+    "metformin",
+    "sglt2_inhibitor",
+    "sulfonylurea"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100275",
+   "name": "David Wright",
+   "dob": "1969-10-16",
+   "age": 56,
+   "sex": "MALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 8.9,
+   "egfr": 120.0,
+   "bmi": 30.0,
+   "current_medications": [
+    "sulfonylurea"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": true
+  },
+  {
+   "mrn": "A-100276",
+   "name": "Linda Mitchell",
+   "dob": "1969-03-23",
+   "age": 57,
+   "sex": "MALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 9.5,
+   "egfr": 49.1,
+   "bmi": 32.3,
+   "current_medications": [
+    "dpp4_inhibitor"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100277",
+   "name": "James King",
+   "dob": "1981-03-26",
+   "age": 45,
+   "sex": "MALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 7.4,
+   "egfr": 59.8,
+   "bmi": 30.3,
+   "current_medications": [],
+   "prior_medications": [
+    "sglt2_inhibitor"
+   ],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100278",
+   "name": "Kenji Kim",
+   "dob": "2004-07-10",
+   "age": 22,
+   "sex": "MALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 7.9,
+   "egfr": 89.6,
+   "bmi": 26.1,
+   "current_medications": [
+    "basal_insulin",
+    "metformin"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100279",
+   "name": "Susan Brown",
+   "dob": "1974-11-01",
+   "age": 51,
+   "sex": "MALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 7.7,
+   "egfr": 103.1,
+   "bmi": 41.0,
+   "current_medications": [
+    "metformin",
+    "sulfonylurea"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100280",
+   "name": "Ravi Walker",
+   "dob": "1960-05-04",
+   "age": 66,
+   "sex": "MALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 8.8,
+   "egfr": 66.8,
+   "bmi": 29.6,
+   "current_medications": [],
+   "prior_medications": [],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100281",
+   "name": "Priya Brown",
+   "dob": "1975-05-07",
+   "age": 51,
+   "sex": "FEMALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 7.8,
+   "egfr": 72.0,
+   "bmi": 28.4,
+   "current_medications": [
+    "metformin"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100282",
+   "name": "Luis Wright",
+   "dob": "1943-01-31",
+   "age": 83,
+   "sex": "FEMALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 9.0,
+   "egfr": 87.6,
+   "bmi": 27.7,
+   "current_medications": [
+    "metformin",
+    "sglt2_inhibitor",
+    "sulfonylurea"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100283",
+   "name": "Jason Nelson",
+   "dob": "1972-04-23",
+   "age": 54,
+   "sex": "MALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 8.6,
+   "egfr": 75.8,
+   "bmi": 30.3,
+   "current_medications": [
+    "basal_insulin",
+    "glp1_ra"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": true
+  },
+  {
+   "mrn": "A-100284",
+   "name": "Ana Green",
+   "dob": "1972-11-08",
+   "age": 53,
+   "sex": "FEMALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 9.5,
+   "egfr": 90.6,
+   "bmi": 34.0,
+   "current_medications": [
+    "metformin",
+    "sglt2_inhibitor"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": true
+  },
+  {
+   "mrn": "A-100285",
+   "name": "Barbara Green",
+   "dob": "1960-04-10",
+   "age": 66,
+   "sex": "FEMALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 9.1,
+   "egfr": 65.5,
+   "bmi": 32.1,
+   "current_medications": [
+    "metformin"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100286",
+   "name": "James Lopez",
+   "dob": "1962-11-15",
+   "age": 63,
+   "sex": "MALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 11.6,
+   "egfr": 81.2,
+   "bmi": 27.6,
+   "current_medications": [
+    "metformin",
+    "sglt2_inhibitor"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100287",
+   "name": "Ravi Garcia",
+   "dob": "1993-10-14",
+   "age": 32,
+   "sex": "MALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 7.1,
+   "egfr": 85.9,
+   "bmi": 41.4,
+   "current_medications": [
+    "metformin"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100288",
+   "name": "Kenji Carter",
+   "dob": "1965-12-23",
+   "age": 60,
+   "sex": "FEMALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 9.0,
+   "egfr": 63.0,
+   "bmi": 29.6,
+   "current_medications": [
+    "metformin",
+    "sglt2_inhibitor",
+    "sulfonylurea"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100289",
+   "name": "Aiko Johnson",
+   "dob": "1977-06-17",
+   "age": 49,
+   "sex": "FEMALE",
+   "diagnoses": [
+    "T1D"
+   ],
+   "hba1c": 10.4,
+   "egfr": 101.6,
+   "bmi": 21.1,
+   "current_medications": [
+    "metformin",
+    "sglt2_inhibitor",
+    "sulfonylurea"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": true
+  },
+  {
+   "mrn": "A-100290",
+   "name": "James Johnson",
+   "dob": "1970-06-06",
+   "age": 56,
+   "sex": "MALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 8.9,
+   "egfr": 78.0,
+   "bmi": 24.5,
+   "current_medications": [
+    "basal_insulin",
+    "metformin",
+    "sglt2_inhibitor"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100291",
+   "name": "Kenji Scott",
+   "dob": "1962-04-19",
+   "age": 64,
+   "sex": "MALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 8.4,
+   "egfr": 87.8,
+   "bmi": 35.6,
+   "current_medications": [
+    "sulfonylurea"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100292",
+   "name": "Barbara Lee",
+   "dob": "1984-12-27",
+   "age": 41,
+   "sex": "MALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 9.4,
+   "egfr": 96.5,
+   "bmi": 20.3,
+   "current_medications": [
+    "dpp4_inhibitor"
+   ],
+   "prior_medications": [
+    "sglt2_inhibitor"
+   ],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100293",
+   "name": "Karen Baker",
+   "dob": "1989-07-27",
+   "age": 37,
+   "sex": "FEMALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 5.8,
+   "egfr": 104.7,
+   "bmi": 36.4,
+   "current_medications": [
+    "sglt2_inhibitor"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100294",
+   "name": "Brian Lee",
+   "dob": "1968-04-08",
+   "age": 58,
+   "sex": "MALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 8.2,
+   "egfr": 43.6,
+   "bmi": 31.6,
+   "current_medications": [
+    "dpp4_inhibitor",
+    "metformin"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100295",
+   "name": "Patricia Baker",
+   "dob": "1986-08-14",
+   "age": 40,
+   "sex": "FEMALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 8.1,
+   "egfr": 73.0,
+   "bmi": 31.2,
+   "current_medications": [],
+   "prior_medications": [],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100296",
+   "name": "Ravi Martinez",
+   "dob": "1961-12-19",
+   "age": 64,
+   "sex": "FEMALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 7.7,
+   "egfr": 89.1,
+   "bmi": 24.1,
+   "current_medications": [
+    "basal_insulin"
+   ],
+   "prior_medications": [
+    "glp1_ra"
+   ],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100297",
+   "name": "Wei Roberts",
+   "dob": "1962-03-16",
+   "age": 64,
+   "sex": "FEMALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 8.8,
+   "egfr": 48.0,
+   "bmi": 25.9,
+   "current_medications": [
+    "metformin"
+   ],
+   "prior_medications": [
+    "sglt2_inhibitor"
+   ],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100298",
+   "name": "Ravi Lopez",
+   "dob": "1978-03-02",
+   "age": 48,
+   "sex": "MALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 8.3,
+   "egfr": 62.1,
+   "bmi": 34.5,
+   "current_medications": [
+    "metformin",
+    "sulfonylurea"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100299",
+   "name": "Daniel Roberts",
+   "dob": "1976-06-10",
+   "age": 50,
+   "sex": "FEMALE",
+   "diagnoses": [
+    "other_specific_diabetes"
+   ],
+   "hba1c": 12.2,
+   "egfr": 67.0,
+   "bmi": 32.5,
+   "current_medications": [],
+   "prior_medications": [
+    "sglt2_inhibitor"
+   ],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100300",
+   "name": "Omar Lopez",
+   "dob": "1977-07-09",
+   "age": 49,
+   "sex": "MALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 10.7,
+   "egfr": 65.9,
+   "bmi": 25.8,
+   "current_medications": [
+    "metformin",
+    "sglt2_inhibitor"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100301",
+   "name": "Karen Nelson",
+   "dob": "1976-01-23",
+   "age": 50,
+   "sex": "MALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 8.8,
+   "egfr": 120.0,
+   "bmi": 29.3,
+   "current_medications": [],
+   "prior_medications": [],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100302",
+   "name": "Karen Lopez",
+   "dob": "1978-08-27",
+   "age": 48,
+   "sex": "FEMALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 8.1,
+   "egfr": 75.6,
+   "bmi": 36.0,
+   "current_medications": [
+    "basal_insulin",
+    "glp1_ra",
+    "metformin"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": true
+  },
+  {
+   "mrn": "A-100303",
+   "name": "Robert Martinez",
+   "dob": "1981-10-04",
+   "age": 44,
+   "sex": "MALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 8.8,
+   "egfr": 64.7,
+   "bmi": 44.7,
+   "current_medications": [
+    "metformin",
+    "sglt2_inhibitor"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100304",
+   "name": "Barbara Lee",
+   "dob": "1946-08-17",
+   "age": 80,
+   "sex": "FEMALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 8.1,
+   "egfr": 70.6,
+   "bmi": 23.6,
+   "current_medications": [
+    "metformin",
+    "sulfonylurea"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100305",
+   "name": "Lisa Green",
+   "dob": "1982-07-03",
+   "age": 44,
+   "sex": "MALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 6.9,
+   "egfr": 54.6,
+   "bmi": 32.4,
+   "current_medications": [
+    "dpp4_inhibitor",
+    "metformin"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100306",
+   "name": "Jason Scott",
+   "dob": "1954-07-20",
+   "age": 72,
+   "sex": "FEMALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 7.3,
+   "egfr": 68.8,
+   "bmi": 28.0,
+   "current_medications": [
+    "dpp4_inhibitor",
+    "glp1_ra",
+    "metformin"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100307",
+   "name": "Lisa Allen",
+   "dob": "1968-02-25",
+   "age": 58,
+   "sex": "FEMALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 8.8,
+   "egfr": 62.1,
+   "bmi": 25.3,
+   "current_medications": [
+    "glp1_ra",
+    "sulfonylurea"
+   ],
+   "prior_medications": [
+    "sglt2_inhibitor"
+   ],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100308",
+   "name": "Brian Carter",
+   "dob": "2002-06-24",
+   "age": 24,
+   "sex": "MALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 5.4,
+   "egfr": 31.2,
+   "bmi": 38.0,
+   "current_medications": [
+    "basal_insulin"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100309",
+   "name": "Lisa Mitchell",
+   "dob": "1976-08-22",
+   "age": 50,
+   "sex": "MALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 8.2,
+   "egfr": 77.2,
+   "bmi": 30.1,
+   "current_medications": [
+    "dpp4_inhibitor",
+    "metformin"
+   ],
+   "prior_medications": [
+    "basal_insulin"
+   ],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100310",
+   "name": "Jason Baker",
+   "dob": "1962-02-18",
+   "age": 64,
+   "sex": "FEMALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 7.5,
+   "egfr": 60.1,
+   "bmi": 26.1,
+   "current_medications": [
+    "metformin"
+   ],
+   "prior_medications": [
+    "glp1_ra"
+   ],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100311",
+   "name": "Susan Turner",
+   "dob": "1988-11-01",
+   "age": 37,
+   "sex": "MALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 7.8,
+   "egfr": 68.8,
+   "bmi": 28.5,
+   "current_medications": [
+    "dpp4_inhibitor",
+    "metformin",
+    "sglt2_inhibitor"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100312",
+   "name": "Barbara Nguyen",
+   "dob": "1968-03-03",
+   "age": 58,
+   "sex": "MALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 7.7,
+   "egfr": 95.0,
+   "bmi": 23.3,
+   "current_medications": [
+    "metformin"
+   ],
+   "prior_medications": [
+    "dpp4_inhibitor"
+   ],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100313",
+   "name": "Michael Lopez",
+   "dob": "1973-04-01",
+   "age": 53,
+   "sex": "FEMALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 8.8,
+   "egfr": 84.0,
+   "bmi": 29.4,
+   "current_medications": [
+    "glp1_ra",
+    "metformin"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100314",
+   "name": "Daniel Clark",
+   "dob": "1972-07-11",
+   "age": 54,
+   "sex": "FEMALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 11.3,
+   "egfr": 106.8,
+   "bmi": 38.7,
+   "current_medications": [
+    "metformin"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100315",
+   "name": "Robert Young",
+   "dob": "1969-11-03",
+   "age": 56,
+   "sex": "MALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 10.5,
+   "egfr": 87.5,
+   "bmi": 28.3,
+   "current_medications": [
+    "metformin",
+    "sglt2_inhibitor"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": true
+  },
+  {
+   "mrn": "A-100316",
+   "name": "Lisa Roberts",
+   "dob": "1969-11-06",
+   "age": 56,
+   "sex": "MALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 7.7,
+   "egfr": 83.8,
+   "bmi": 23.9,
+   "current_medications": [
+    "metformin",
+    "sglt2_inhibitor",
+    "sulfonylurea"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100317",
+   "name": "Patricia Wright",
+   "dob": "1962-05-19",
+   "age": 64,
+   "sex": "FEMALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 9.3,
+   "egfr": 38.0,
+   "bmi": 26.0,
+   "current_medications": [
+    "basal_insulin",
+    "metformin"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100318",
+   "name": "Priya Carter",
+   "dob": "1971-01-29",
+   "age": 55,
+   "sex": "FEMALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 9.0,
+   "egfr": 106.6,
+   "bmi": 26.8,
+   "current_medications": [
+    "glp1_ra",
+    "metformin",
+    "sglt2_inhibitor"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100319",
+   "name": "Aiko Nguyen",
+   "dob": "1980-02-25",
+   "age": 46,
+   "sex": "MALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 8.2,
+   "egfr": 101.5,
+   "bmi": 22.2,
+   "current_medications": [
+    "metformin"
+   ],
+   "prior_medications": [
+    "sulfonylurea"
+   ],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100320",
+   "name": "Wei Mitchell",
+   "dob": "1967-10-04",
+   "age": 58,
+   "sex": "MALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 7.4,
+   "egfr": 63.9,
+   "bmi": 26.6,
+   "current_medications": [
+    "basal_insulin",
+    "dpp4_inhibitor",
+    "metformin"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": true
+  },
+  {
+   "mrn": "A-100321",
+   "name": "Ana Wright",
+   "dob": "1956-12-22",
+   "age": 69,
+   "sex": "FEMALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 9.0,
+   "egfr": 106.1,
+   "bmi": 29.6,
+   "current_medications": [],
+   "prior_medications": [],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100322",
+   "name": "Robert Allen",
+   "dob": "1964-04-20",
+   "age": 62,
+   "sex": "FEMALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 8.6,
+   "egfr": 113.6,
+   "bmi": 25.5,
+   "current_medications": [
+    "basal_insulin",
+    "metformin"
+   ],
+   "prior_medications": [
+    "sglt2_inhibitor"
+   ],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100323",
+   "name": "Barbara Wright",
+   "dob": "1956-11-15",
+   "age": 69,
+   "sex": "MALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 9.0,
+   "egfr": 78.7,
+   "bmi": 27.6,
+   "current_medications": [
+    "basal_insulin",
+    "metformin"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100324",
+   "name": "Aiko Carter",
+   "dob": "1963-09-12",
+   "age": 63,
+   "sex": "MALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 6.1,
+   "egfr": 72.9,
+   "bmi": 34.3,
+   "current_medications": [
+    "dpp4_inhibitor"
+   ],
+   "prior_medications": [
+    "sglt2_inhibitor"
+   ],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100325",
+   "name": "Omar Carter",
+   "dob": "1976-04-15",
+   "age": 50,
+   "sex": "MALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 10.4,
+   "egfr": 54.5,
+   "bmi": 30.6,
+   "current_medications": [
+    "dpp4_inhibitor",
+    "metformin"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100326",
+   "name": "Betty Nelson",
+   "dob": "1977-09-23",
+   "age": 49,
+   "sex": "FEMALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 7.7,
+   "egfr": 76.1,
+   "bmi": 26.9,
+   "current_medications": [],
+   "prior_medications": [],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100327",
+   "name": "Omar Wright",
+   "dob": "1973-04-17",
+   "age": 53,
+   "sex": "MALE",
+   "diagnoses": [
+    "T1D"
+   ],
+   "hba1c": 8.8,
+   "egfr": 81.1,
+   "bmi": 22.2,
+   "current_medications": [
+    "basal_insulin",
+    "metformin"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100328",
+   "name": "Nancy Johnson",
+   "dob": "1980-10-04",
+   "age": 45,
+   "sex": "MALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 10.0,
+   "egfr": 63.6,
+   "bmi": 36.0,
+   "current_medications": [
+    "metformin"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100329",
+   "name": "Mei Roberts",
+   "dob": "1947-02-06",
+   "age": 79,
+   "sex": "FEMALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 9.9,
+   "egfr": 79.5,
+   "bmi": 34.6,
+   "current_medications": [
+    "metformin"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100330",
+   "name": "Patricia Scott",
+   "dob": "1966-08-09",
+   "age": 60,
+   "sex": "FEMALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 9.9,
+   "egfr": 32.1,
+   "bmi": 29.6,
+   "current_medications": [],
+   "prior_medications": [
+    "sulfonylurea"
+   ],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100331",
+   "name": "Betty Lee",
+   "dob": "1980-07-26",
+   "age": 46,
+   "sex": "FEMALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 7.1,
+   "egfr": 27.8,
+   "bmi": 26.8,
+   "current_medications": [
+    "basal_insulin",
+    "metformin"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": true
+  },
+  {
+   "mrn": "A-100332",
+   "name": "Omar Allen",
+   "dob": "1958-06-24",
+   "age": 68,
+   "sex": "MALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 6.3,
+   "egfr": 38.4,
+   "bmi": 32.3,
+   "current_medications": [
+    "metformin",
+    "sglt2_inhibitor"
+   ],
+   "prior_medications": [
+    "dpp4_inhibitor"
+   ],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100333",
+   "name": "Michael Nguyen",
+   "dob": "1973-02-04",
+   "age": 53,
+   "sex": "MALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 8.2,
+   "egfr": 50.6,
+   "bmi": 33.3,
+   "current_medications": [
+    "metformin",
+    "sulfonylurea"
+   ],
+   "prior_medications": [
+    "dpp4_inhibitor"
+   ],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100334",
+   "name": "Michael Scott",
+   "dob": "1970-12-28",
+   "age": 55,
+   "sex": "MALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 8.6,
+   "egfr": 47.6,
+   "bmi": 39.5,
+   "current_medications": [
+    "basal_insulin",
+    "metformin",
+    "sulfonylurea"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100335",
+   "name": "Ravi King",
+   "dob": "1975-08-20",
+   "age": 51,
+   "sex": "MALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 6.7,
+   "egfr": 76.4,
+   "bmi": 34.5,
+   "current_medications": [
+    "dpp4_inhibitor",
+    "metformin"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100336",
+   "name": "Betty Scott",
+   "dob": "1980-01-23",
+   "age": 46,
+   "sex": "FEMALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 6.8,
+   "egfr": 79.0,
+   "bmi": 25.8,
+   "current_medications": [
+    "glp1_ra",
+    "metformin",
+    "sglt2_inhibitor"
+   ],
+   "prior_medications": [
+    "sulfonylurea"
+   ],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100337",
+   "name": "Kevin Carter",
+   "dob": "1965-12-14",
+   "age": 60,
+   "sex": "FEMALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 10.0,
+   "egfr": 106.0,
+   "bmi": 26.7,
+   "current_medications": [
+    "basal_insulin",
+    "metformin"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100338",
+   "name": "James Walker",
+   "dob": "1982-03-09",
+   "age": 44,
+   "sex": "FEMALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 7.4,
+   "egfr": 59.0,
+   "bmi": 34.2,
+   "current_medications": [
+    "metformin"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100339",
+   "name": "Betty Wright",
+   "dob": "1976-10-04",
+   "age": 49,
+   "sex": "MALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 9.1,
+   "egfr": 88.5,
+   "bmi": 32.9,
+   "current_medications": [
+    "metformin"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100340",
+   "name": "Kenji Nelson",
+   "dob": "1968-04-18",
+   "age": 58,
+   "sex": "FEMALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 7.0,
+   "egfr": 101.8,
+   "bmi": 34.8,
+   "current_medications": [
+    "dpp4_inhibitor",
+    "glp1_ra"
+   ],
+   "prior_medications": [
+    "sglt2_inhibitor"
+   ],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100341",
+   "name": "Ana Kim",
+   "dob": "1970-08-12",
+   "age": 56,
+   "sex": "MALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 11.5,
+   "egfr": 81.0,
+   "bmi": 29.7,
+   "current_medications": [
+    "basal_insulin",
+    "glp1_ra",
+    "metformin"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100342",
+   "name": "Daniel Wright",
+   "dob": "1964-02-01",
+   "age": 62,
+   "sex": "FEMALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 8.0,
+   "egfr": 68.8,
+   "bmi": 38.7,
+   "current_medications": [
+    "basal_insulin",
+    "metformin"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": true
+  },
+  {
+   "mrn": "A-100343",
+   "name": "Daniel Brown",
+   "dob": "1983-02-25",
+   "age": 43,
+   "sex": "MALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 7.1,
+   "egfr": 69.1,
+   "bmi": 25.6,
+   "current_medications": [
+    "metformin"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100344",
+   "name": "Daniel Kim",
+   "dob": "1954-04-16",
+   "age": 72,
+   "sex": "FEMALE",
+   "diagnoses": [
+    "other_specific_diabetes"
+   ],
+   "hba1c": 10.5,
+   "egfr": 92.3,
+   "bmi": 33.4,
+   "current_medications": [
+    "glp1_ra"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100345",
+   "name": "Omar Adams",
+   "dob": "1999-05-16",
+   "age": 27,
+   "sex": "MALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 5.9,
+   "egfr": 87.0,
+   "bmi": 36.5,
+   "current_medications": [
+    "sglt2_inhibitor"
+   ],
+   "prior_medications": [
+    "basal_insulin",
+    "glp1_ra"
+   ],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100346",
+   "name": "Fatima Walker",
+   "dob": "1966-05-11",
+   "age": 60,
+   "sex": "MALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 6.9,
+   "egfr": 73.4,
+   "bmi": 38.0,
+   "current_medications": [
+    "basal_insulin"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100347",
+   "name": "Barbara Nguyen",
+   "dob": "1970-04-01",
+   "age": 56,
+   "sex": "FEMALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 7.7,
+   "egfr": 60.2,
+   "bmi": 35.4,
+   "current_medications": [
+    "metformin"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": true
+  },
+  {
+   "mrn": "A-100348",
+   "name": "Luis Johnson",
+   "dob": "1958-12-23",
+   "age": 67,
+   "sex": "FEMALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 7.9,
+   "egfr": 84.2,
+   "bmi": 25.1,
+   "current_medications": [
+    "dpp4_inhibitor",
+    "metformin",
+    "sglt2_inhibitor"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100349",
+   "name": "Mei Wright",
+   "dob": "1976-08-04",
+   "age": 50,
+   "sex": "FEMALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 7.3,
+   "egfr": 80.6,
+   "bmi": 23.7,
+   "current_medications": [
+    "basal_insulin",
+    "glp1_ra",
+    "metformin"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100350",
+   "name": "Daniel Walker",
+   "dob": "1976-06-03",
+   "age": 50,
+   "sex": "FEMALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 8.0,
+   "egfr": 100.7,
+   "bmi": 37.9,
+   "current_medications": [
+    "dpp4_inhibitor",
+    "glp1_ra",
+    "metformin",
+    "sulfonylurea"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100351",
+   "name": "Ravi Allen",
+   "dob": "1978-07-25",
+   "age": 48,
+   "sex": "MALE",
+   "diagnoses": [
+    "T1D"
+   ],
+   "hba1c": 9.2,
+   "egfr": 79.8,
+   "bmi": 23.5,
+   "current_medications": [
+    "metformin",
+    "sglt2_inhibitor",
+    "sulfonylurea"
+   ],
+   "prior_medications": [
+    "basal_insulin"
+   ],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100352",
+   "name": "Susan Johnson",
+   "dob": "1974-05-09",
+   "age": 52,
+   "sex": "FEMALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 11.2,
+   "egfr": 100.8,
+   "bmi": 28.8,
+   "current_medications": [
+    "glp1_ra"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100353",
+   "name": "Betty Clark",
+   "dob": "1970-06-14",
+   "age": 56,
+   "sex": "FEMALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 8.2,
+   "egfr": 115.3,
+   "bmi": 28.1,
+   "current_medications": [
+    "metformin"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100354",
+   "name": "Luis Roberts",
+   "dob": "1977-02-04",
+   "age": 49,
+   "sex": "MALE",
+   "diagnoses": [
+    "T1D"
+   ],
+   "hba1c": 10.4,
+   "egfr": 51.7,
+   "bmi": 28.3,
+   "current_medications": [
+    "dpp4_inhibitor",
+    "metformin",
+    "sglt2_inhibitor"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": true
+  },
+  {
+   "mrn": "A-100355",
+   "name": "Robert Wright",
+   "dob": "1993-03-18",
+   "age": 33,
+   "sex": "MALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 8.7,
+   "egfr": 54.3,
+   "bmi": 27.2,
+   "current_medications": [
+    "dpp4_inhibitor",
+    "glp1_ra",
+    "sglt2_inhibitor"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100356",
+   "name": "Susan Walker",
+   "dob": "1994-06-18",
+   "age": 32,
+   "sex": "FEMALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 8.5,
+   "egfr": 63.3,
+   "bmi": 33.1,
+   "current_medications": [
+    "basal_insulin",
+    "glp1_ra",
+    "metformin"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": true
+  },
+  {
+   "mrn": "A-100357",
+   "name": "Ravi Nguyen",
+   "dob": "1993-12-24",
+   "age": 32,
+   "sex": "MALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 9.8,
+   "egfr": 88.8,
+   "bmi": 27.6,
+   "current_medications": [],
+   "prior_medications": [],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100358",
+   "name": "James Adams",
+   "dob": "1983-04-25",
+   "age": 43,
+   "sex": "FEMALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 7.1,
+   "egfr": 20.0,
+   "bmi": 34.2,
+   "current_medications": [
+    "glp1_ra",
+    "metformin"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100359",
+   "name": "Brian Adams",
+   "dob": "1968-10-12",
+   "age": 57,
+   "sex": "MALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 9.9,
+   "egfr": 109.3,
+   "bmi": 25.6,
+   "current_medications": [
+    "dpp4_inhibitor"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100360",
+   "name": "Robert Turner",
+   "dob": "1961-10-07",
+   "age": 64,
+   "sex": "MALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 8.5,
+   "egfr": 62.7,
+   "bmi": 31.8,
+   "current_medications": [
+    "dpp4_inhibitor",
+    "metformin"
+   ],
+   "prior_medications": [
+    "sglt2_inhibitor"
+   ],
+   "readmitted_30d": true
+  },
+  {
+   "mrn": "A-100361",
+   "name": "Aiko Wright",
+   "dob": "1975-01-20",
+   "age": 51,
+   "sex": "MALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 5.8,
+   "egfr": 87.0,
+   "bmi": 35.7,
+   "current_medications": [],
+   "prior_medications": [
+    "glp1_ra"
+   ],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100362",
+   "name": "Kevin Nguyen",
+   "dob": "1971-08-27",
+   "age": 55,
+   "sex": "FEMALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 8.3,
+   "egfr": 63.3,
+   "bmi": 32.2,
+   "current_medications": [
+    "basal_insulin",
+    "metformin"
+   ],
+   "prior_medications": [
+    "glp1_ra"
+   ],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100363",
+   "name": "Betty Roberts",
+   "dob": "1962-09-07",
+   "age": 64,
+   "sex": "FEMALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 8.2,
+   "egfr": 60.4,
+   "bmi": 39.3,
+   "current_medications": [
+    "dpp4_inhibitor",
+    "metformin",
+    "sglt2_inhibitor"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100364",
+   "name": "Brian Mitchell",
+   "dob": "1957-02-27",
+   "age": 69,
+   "sex": "FEMALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 9.5,
+   "egfr": 60.2,
+   "bmi": 26.8,
+   "current_medications": [
+    "basal_insulin",
+    "metformin",
+    "sulfonylurea"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": true
+  },
+  {
+   "mrn": "A-100365",
+   "name": "Omar Garcia",
+   "dob": "1984-12-06",
+   "age": 41,
+   "sex": "FEMALE",
+   "diagnoses": [
+    "other_specific_diabetes"
+   ],
+   "hba1c": 8.7,
+   "egfr": 83.8,
+   "bmi": 40.8,
+   "current_medications": [
+    "metformin"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100366",
+   "name": "Ravi Carter",
+   "dob": "1965-07-14",
+   "age": 61,
+   "sex": "FEMALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 8.6,
+   "egfr": 90.8,
+   "bmi": 40.8,
+   "current_medications": [
+    "dpp4_inhibitor",
+    "glp1_ra",
+    "metformin",
+    "sulfonylurea"
+   ],
+   "prior_medications": [
+    "basal_insulin"
+   ],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100367",
+   "name": "Patricia Nguyen",
+   "dob": "1959-12-03",
+   "age": 66,
+   "sex": "MALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 8.0,
+   "egfr": 119.3,
+   "bmi": 28.8,
+   "current_medications": [
+    "basal_insulin"
+   ],
+   "prior_medications": [
+    "dpp4_inhibitor",
+    "sulfonylurea"
+   ],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100368",
+   "name": "Priya Wright",
+   "dob": "1985-10-01",
+   "age": 40,
+   "sex": "FEMALE",
+   "diagnoses": [
+    "T1D"
+   ],
+   "hba1c": 10.4,
+   "egfr": 67.2,
+   "bmi": 41.8,
+   "current_medications": [
+    "glp1_ra",
+    "sglt2_inhibitor"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": true
+  },
+  {
+   "mrn": "A-100369",
+   "name": "Priya Carter",
+   "dob": "1970-03-01",
+   "age": 56,
+   "sex": "FEMALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 7.8,
+   "egfr": 65.7,
+   "bmi": 32.9,
+   "current_medications": [
+    "metformin",
+    "sglt2_inhibitor"
+   ],
+   "prior_medications": [
+    "basal_insulin"
+   ],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100370",
+   "name": "Linda Young",
+   "dob": "1985-01-17",
+   "age": 41,
+   "sex": "MALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 7.0,
+   "egfr": 64.8,
+   "bmi": 24.9,
+   "current_medications": [],
+   "prior_medications": [],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100371",
+   "name": "Robert Kim",
+   "dob": "1967-10-11",
+   "age": 58,
+   "sex": "FEMALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 9.4,
+   "egfr": 99.6,
+   "bmi": 34.7,
+   "current_medications": [
+    "metformin"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100372",
+   "name": "Barbara Wright",
+   "dob": "1966-10-24",
+   "age": 59,
+   "sex": "MALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 7.8,
+   "egfr": 102.0,
+   "bmi": 29.1,
+   "current_medications": [
+    "metformin"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100373",
+   "name": "Susan Turner",
+   "dob": "1969-05-12",
+   "age": 57,
+   "sex": "FEMALE",
+   "diagnoses": [
+    "T1D"
+   ],
+   "hba1c": 9.3,
+   "egfr": 85.3,
+   "bmi": 27.8,
+   "current_medications": [
+    "metformin",
+    "sulfonylurea"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": true
+  },
+  {
+   "mrn": "A-100374",
+   "name": "Omar Martinez",
+   "dob": "1982-06-27",
+   "age": 44,
+   "sex": "FEMALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 7.9,
+   "egfr": 97.7,
+   "bmi": 26.9,
+   "current_medications": [
+    "glp1_ra"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100375",
+   "name": "Fatima Nguyen",
+   "dob": "1960-08-14",
+   "age": 66,
+   "sex": "FEMALE",
+   "diagnoses": [
+    "secondary_diabetes"
+   ],
+   "hba1c": 5.6,
+   "egfr": 101.0,
+   "bmi": 21.1,
+   "current_medications": [
+    "metformin",
+    "sglt2_inhibitor",
+    "sulfonylurea"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100376",
+   "name": "Lisa Johnson",
+   "dob": "1952-07-22",
+   "age": 74,
+   "sex": "MALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 9.4,
+   "egfr": 82.1,
+   "bmi": 27.1,
+   "current_medications": [
+    "metformin"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": true
+  },
+  {
+   "mrn": "A-100377",
+   "name": "Susan Kim",
+   "dob": "1972-11-20",
+   "age": 53,
+   "sex": "FEMALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 10.3,
+   "egfr": 87.6,
+   "bmi": 30.9,
+   "current_medications": [],
+   "prior_medications": [],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100378",
+   "name": "Luis Carter",
+   "dob": "1974-04-06",
+   "age": 52,
+   "sex": "FEMALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 8.0,
+   "egfr": 114.5,
+   "bmi": 28.8,
+   "current_medications": [
+    "metformin"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100379",
+   "name": "Luis Mitchell",
+   "dob": "1982-06-14",
+   "age": 44,
+   "sex": "MALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 7.7,
+   "egfr": 75.8,
+   "bmi": 29.0,
+   "current_medications": [
+    "metformin",
+    "sglt2_inhibitor"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100380",
+   "name": "Brian Nelson",
+   "dob": "1988-07-17",
+   "age": 38,
+   "sex": "FEMALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 8.3,
+   "egfr": 48.2,
+   "bmi": 32.5,
+   "current_medications": [
+    "basal_insulin",
+    "glp1_ra",
+    "metformin"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": true
+  },
+  {
+   "mrn": "A-100381",
+   "name": "Wei Adams",
+   "dob": "1975-05-02",
+   "age": 51,
+   "sex": "FEMALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 8.9,
+   "egfr": 59.4,
+   "bmi": 24.7,
+   "current_medications": [
+    "glp1_ra",
+    "metformin"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100382",
+   "name": "Susan Scott",
+   "dob": "1972-07-31",
+   "age": 54,
+   "sex": "MALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 8.6,
+   "egfr": 93.8,
+   "bmi": 38.7,
+   "current_medications": [
+    "basal_insulin",
+    "metformin"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100383",
+   "name": "Betty Young",
+   "dob": "1958-09-08",
+   "age": 68,
+   "sex": "MALE",
+   "diagnoses": [
+    "other_specific_diabetes"
+   ],
+   "hba1c": 7.8,
+   "egfr": 107.0,
+   "bmi": 20.8,
+   "current_medications": [
+    "glp1_ra",
+    "metformin",
+    "sulfonylurea"
+   ],
+   "prior_medications": [
+    "dpp4_inhibitor"
+   ],
+   "readmitted_30d": true
+  },
+  {
+   "mrn": "A-100384",
+   "name": "Patricia Lopez",
+   "dob": "1962-07-04",
+   "age": 64,
+   "sex": "FEMALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 6.4,
+   "egfr": 78.0,
+   "bmi": 38.3,
+   "current_medications": [
+    "basal_insulin",
+    "dpp4_inhibitor"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100385",
+   "name": "Susan Allen",
+   "dob": "1980-12-16",
+   "age": 45,
+   "sex": "MALE",
+   "diagnoses": [
+    "secondary_diabetes"
+   ],
+   "hba1c": 6.8,
+   "egfr": 61.9,
+   "bmi": 31.8,
+   "current_medications": [
+    "basal_insulin",
+    "metformin"
+   ],
+   "prior_medications": [
+    "sulfonylurea"
+   ],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100386",
+   "name": "Kenji Nelson",
+   "dob": "1965-01-28",
+   "age": 61,
+   "sex": "MALE",
+   "diagnoses": [
+    "other_specific_diabetes"
+   ],
+   "hba1c": 7.9,
+   "egfr": 108.3,
+   "bmi": 35.7,
+   "current_medications": [
+    "metformin",
+    "sglt2_inhibitor"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100387",
+   "name": "Priya Green",
+   "dob": "1963-08-23",
+   "age": 63,
+   "sex": "FEMALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 7.9,
+   "egfr": 42.1,
+   "bmi": 32.0,
+   "current_medications": [
+    "basal_insulin",
+    "metformin",
+    "sglt2_inhibitor"
+   ],
+   "prior_medications": [
+    "glp1_ra"
+   ],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100388",
+   "name": "Betty Martinez",
+   "dob": "1962-09-01",
+   "age": 64,
+   "sex": "MALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 9.0,
+   "egfr": 89.3,
+   "bmi": 33.1,
+   "current_medications": [
+    "basal_insulin",
+    "metformin"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": true
+  },
+  {
+   "mrn": "A-100389",
+   "name": "James Brown",
+   "dob": "1982-10-22",
+   "age": 43,
+   "sex": "FEMALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 7.0,
+   "egfr": 49.5,
+   "bmi": 24.3,
+   "current_medications": [
+    "metformin",
+    "sulfonylurea"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100390",
+   "name": "Jason Adams",
+   "dob": "1963-11-15",
+   "age": 62,
+   "sex": "MALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 9.0,
+   "egfr": 109.3,
+   "bmi": 29.9,
+   "current_medications": [],
+   "prior_medications": [
+    "dpp4_inhibitor",
+    "metformin",
+    "sulfonylurea"
+   ],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100391",
+   "name": "Susan Allen",
+   "dob": "1980-02-11",
+   "age": 46,
+   "sex": "MALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 7.7,
+   "egfr": 79.3,
+   "bmi": 35.4,
+   "current_medications": [
+    "metformin"
+   ],
+   "prior_medications": [
+    "glp1_ra"
+   ],
+   "readmitted_30d": true
+  },
+  {
+   "mrn": "A-100392",
+   "name": "Aiko Kim",
+   "dob": "1976-04-04",
+   "age": 50,
+   "sex": "MALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 10.3,
+   "egfr": 69.2,
+   "bmi": 29.2,
+   "current_medications": [
+    "metformin",
+    "sglt2_inhibitor"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100393",
+   "name": "Kevin Young",
+   "dob": "1970-11-20",
+   "age": 55,
+   "sex": "FEMALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 8.7,
+   "egfr": 81.7,
+   "bmi": 31.1,
+   "current_medications": [
+    "dpp4_inhibitor",
+    "metformin"
+   ],
+   "prior_medications": [
+    "sglt2_inhibitor",
+    "sulfonylurea"
+   ],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100394",
+   "name": "Patricia Mitchell",
+   "dob": "1976-07-21",
+   "age": 50,
+   "sex": "FEMALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 9.1,
+   "egfr": 65.3,
+   "bmi": 29.6,
+   "current_medications": [
+    "metformin",
+    "sulfonylurea"
+   ],
+   "prior_medications": [
+    "dpp4_inhibitor"
+   ],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100395",
+   "name": "Kenji Nelson",
+   "dob": "1948-11-22",
+   "age": 77,
+   "sex": "MALE",
+   "diagnoses": [
+    "secondary_diabetes"
+   ],
+   "hba1c": 7.0,
+   "egfr": 85.4,
+   "bmi": 28.7,
+   "current_medications": [
+    "sulfonylurea"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100396",
+   "name": "Robert Walker",
+   "dob": "1966-07-30",
+   "age": 60,
+   "sex": "FEMALE",
+   "diagnoses": [
+    "T1D"
+   ],
+   "hba1c": 9.4,
+   "egfr": 87.8,
+   "bmi": 20.4,
+   "current_medications": [
+    "dpp4_inhibitor",
+    "sulfonylurea"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100397",
+   "name": "Daniel Carter",
+   "dob": "1961-06-07",
+   "age": 65,
+   "sex": "MALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 9.7,
+   "egfr": 85.7,
+   "bmi": 32.0,
+   "current_medications": [],
+   "prior_medications": [
+    "sglt2_inhibitor"
+   ],
+   "readmitted_30d": true
+  },
+  {
+   "mrn": "A-100398",
+   "name": "Luis Wright",
+   "dob": "1959-10-21",
+   "age": 66,
+   "sex": "MALE",
+   "diagnoses": [
+    "secondary_diabetes"
+   ],
+   "hba1c": 8.3,
+   "egfr": 115.0,
+   "bmi": 40.2,
+   "current_medications": [
+    "dpp4_inhibitor",
+    "metformin"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100399",
+   "name": "Priya Martinez",
+   "dob": "1976-06-02",
+   "age": 50,
+   "sex": "MALE",
+   "diagnoses": [
+    "other_specific_diabetes"
+   ],
+   "hba1c": 7.1,
+   "egfr": 99.1,
+   "bmi": 30.9,
+   "current_medications": [
+    "sglt2_inhibitor"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100400",
+   "name": "Kevin Nguyen",
+   "dob": "1969-05-30",
+   "age": 57,
+   "sex": "MALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 6.5,
+   "egfr": 73.6,
+   "bmi": 37.0,
+   "current_medications": [
+    "metformin",
+    "sglt2_inhibitor"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100401",
+   "name": "Lisa Lopez",
+   "dob": "1973-01-29",
+   "age": 53,
+   "sex": "MALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 8.7,
+   "egfr": 34.4,
+   "bmi": 28.6,
+   "current_medications": [
+    "metformin"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100402",
+   "name": "Priya Green",
+   "dob": "1971-01-01",
+   "age": 55,
+   "sex": "FEMALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 8.5,
+   "egfr": 108.1,
+   "bmi": 38.6,
+   "current_medications": [
+    "basal_insulin",
+    "sglt2_inhibitor"
+   ],
+   "prior_medications": [
+    "dpp4_inhibitor"
+   ],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100403",
+   "name": "Karen Scott",
+   "dob": "1965-04-16",
+   "age": 61,
+   "sex": "FEMALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 8.0,
+   "egfr": 101.2,
+   "bmi": 32.5,
+   "current_medications": [
+    "metformin",
+    "sulfonylurea"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100404",
+   "name": "Ravi Green",
+   "dob": "1977-03-27",
+   "age": 49,
+   "sex": "FEMALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 7.9,
+   "egfr": 85.0,
+   "bmi": 24.9,
+   "current_medications": [
+    "basal_insulin",
+    "metformin"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": true
+  },
+  {
+   "mrn": "A-100405",
+   "name": "Ravi Lee",
+   "dob": "1964-10-19",
+   "age": 61,
+   "sex": "FEMALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 8.0,
+   "egfr": 87.7,
+   "bmi": 18.3,
+   "current_medications": [
+    "basal_insulin",
+    "metformin"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": true
+  },
+  {
+   "mrn": "A-100406",
+   "name": "Nancy Roberts",
+   "dob": "1977-04-08",
+   "age": 49,
+   "sex": "MALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 9.4,
+   "egfr": 61.8,
+   "bmi": 32.7,
+   "current_medications": [
+    "dpp4_inhibitor"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100407",
+   "name": "Mei Mitchell",
+   "dob": "1979-11-07",
+   "age": 46,
+   "sex": "MALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 9.9,
+   "egfr": 75.3,
+   "bmi": 19.8,
+   "current_medications": [
+    "metformin"
+   ],
+   "prior_medications": [
+    "sulfonylurea"
+   ],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100408",
+   "name": "Jason Brown",
+   "dob": "1965-09-07",
+   "age": 61,
+   "sex": "MALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 8.0,
+   "egfr": 89.5,
+   "bmi": 30.9,
+   "current_medications": [],
+   "prior_medications": [],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100409",
+   "name": "Linda Kim",
+   "dob": "1958-12-03",
+   "age": 67,
+   "sex": "FEMALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 6.9,
+   "egfr": 84.4,
+   "bmi": 27.7,
+   "current_medications": [
+    "metformin"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100410",
+   "name": "Ravi Scott",
+   "dob": "1964-01-21",
+   "age": 62,
+   "sex": "MALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 8.6,
+   "egfr": 98.4,
+   "bmi": 28.5,
+   "current_medications": [
+    "dpp4_inhibitor"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100411",
+   "name": "Michael Turner",
+   "dob": "1983-09-18",
+   "age": 43,
+   "sex": "FEMALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 9.1,
+   "egfr": 104.0,
+   "bmi": 30.1,
+   "current_medications": [
+    "sglt2_inhibitor"
+   ],
+   "prior_medications": [
+    "dpp4_inhibitor"
+   ],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100412",
+   "name": "Patricia Allen",
+   "dob": "1965-12-05",
+   "age": 60,
+   "sex": "FEMALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 7.4,
+   "egfr": 57.0,
+   "bmi": 27.3,
+   "current_medications": [
+    "metformin",
+    "sglt2_inhibitor"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": true
+  },
+  {
+   "mrn": "A-100413",
+   "name": "Michael Walker",
+   "dob": "1982-02-06",
+   "age": 44,
+   "sex": "FEMALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 8.7,
+   "egfr": 59.8,
+   "bmi": 21.0,
+   "current_medications": [],
+   "prior_medications": [],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100414",
+   "name": "Wei Martinez",
+   "dob": "1982-03-03",
+   "age": 44,
+   "sex": "FEMALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 8.7,
+   "egfr": 102.5,
+   "bmi": 37.4,
+   "current_medications": [
+    "glp1_ra",
+    "metformin",
+    "sglt2_inhibitor",
+    "sulfonylurea"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100415",
+   "name": "Nancy Johnson",
+   "dob": "1983-12-31",
+   "age": 42,
+   "sex": "FEMALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 9.3,
+   "egfr": 41.7,
+   "bmi": 28.9,
+   "current_medications": [
+    "basal_insulin"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100416",
+   "name": "Lisa Allen",
+   "dob": "1980-02-14",
+   "age": 46,
+   "sex": "FEMALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 7.5,
+   "egfr": 94.8,
+   "bmi": 26.4,
+   "current_medications": [
+    "metformin",
+    "sglt2_inhibitor"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100417",
+   "name": "Fatima Clark",
+   "dob": "1958-10-10",
+   "age": 67,
+   "sex": "MALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 6.5,
+   "egfr": 86.6,
+   "bmi": 34.7,
+   "current_medications": [
+    "metformin",
+    "sulfonylurea"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100418",
+   "name": "Robert Roberts",
+   "dob": "1978-12-10",
+   "age": 47,
+   "sex": "FEMALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 8.6,
+   "egfr": 99.1,
+   "bmi": 32.7,
+   "current_medications": [
+    "basal_insulin"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100419",
+   "name": "Aiko Brown",
+   "dob": "1993-12-25",
+   "age": 32,
+   "sex": "FEMALE",
+   "diagnoses": [
+    "T1D"
+   ],
+   "hba1c": 8.9,
+   "egfr": 61.5,
+   "bmi": 40.4,
+   "current_medications": [
+    "metformin",
+    "sglt2_inhibitor",
+    "sulfonylurea"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100420",
+   "name": "Ravi Scott",
+   "dob": "1990-09-19",
+   "age": 36,
+   "sex": "FEMALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 10.9,
+   "egfr": 57.5,
+   "bmi": 37.9,
+   "current_medications": [
+    "basal_insulin",
+    "glp1_ra",
+    "metformin"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100421",
+   "name": "Nancy Adams",
+   "dob": "1948-07-23",
+   "age": 78,
+   "sex": "MALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 7.7,
+   "egfr": 114.4,
+   "bmi": 36.1,
+   "current_medications": [
+    "metformin",
+    "sulfonylurea"
+   ],
+   "prior_medications": [
+    "basal_insulin",
+    "dpp4_inhibitor"
+   ],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100422",
+   "name": "Ravi Scott",
+   "dob": "1975-10-21",
+   "age": 50,
+   "sex": "FEMALE",
+   "diagnoses": [
+    "secondary_diabetes"
+   ],
+   "hba1c": 7.5,
+   "egfr": 90.8,
+   "bmi": 30.4,
+   "current_medications": [
+    "metformin"
+   ],
+   "prior_medications": [
+    "glp1_ra"
+   ],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100423",
+   "name": "Fatima Lopez",
+   "dob": "1975-07-22",
+   "age": 51,
+   "sex": "MALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 6.8,
+   "egfr": 114.5,
+   "bmi": 35.0,
+   "current_medications": [],
+   "prior_medications": [
+    "dpp4_inhibitor"
+   ],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100424",
+   "name": "Ana Green",
+   "dob": "1977-03-21",
+   "age": 49,
+   "sex": "MALE",
+   "diagnoses": [
+    "T1D"
+   ],
+   "hba1c": 10.4,
+   "egfr": 58.4,
+   "bmi": 26.0,
+   "current_medications": [
+    "metformin"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100425",
+   "name": "Daniel Wright",
+   "dob": "1957-07-27",
+   "age": 69,
+   "sex": "FEMALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 7.8,
+   "egfr": 116.6,
+   "bmi": 32.5,
+   "current_medications": [
+    "sulfonylurea"
+   ],
+   "prior_medications": [
+    "glp1_ra"
+   ],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100426",
+   "name": "Susan Baker",
+   "dob": "1964-03-06",
+   "age": 62,
+   "sex": "FEMALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 7.5,
+   "egfr": 78.8,
+   "bmi": 21.8,
+   "current_medications": [
+    "dpp4_inhibitor",
+    "metformin",
+    "sulfonylurea"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100427",
+   "name": "James Baker",
+   "dob": "1955-09-26",
+   "age": 71,
+   "sex": "FEMALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 7.0,
+   "egfr": 102.3,
+   "bmi": 36.0,
+   "current_medications": [
+    "glp1_ra",
+    "metformin"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100428",
+   "name": "Kenji Roberts",
+   "dob": "1971-05-05",
+   "age": 55,
+   "sex": "FEMALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 7.0,
+   "egfr": 105.8,
+   "bmi": 45.7,
+   "current_medications": [
+    "basal_insulin",
+    "metformin"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100429",
+   "name": "Aiko Adams",
+   "dob": "1994-08-14",
+   "age": 32,
+   "sex": "MALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 8.2,
+   "egfr": 74.5,
+   "bmi": 34.8,
+   "current_medications": [
+    "dpp4_inhibitor",
+    "metformin"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100430",
+   "name": "Betty Adams",
+   "dob": "1953-06-16",
+   "age": 73,
+   "sex": "FEMALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 10.1,
+   "egfr": 89.6,
+   "bmi": 24.6,
+   "current_medications": [
+    "metformin"
+   ],
+   "prior_medications": [
+    "basal_insulin",
+    "sulfonylurea"
+   ],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100431",
+   "name": "Linda Adams",
+   "dob": "1957-12-16",
+   "age": 68,
+   "sex": "FEMALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 9.9,
+   "egfr": 43.3,
+   "bmi": 35.0,
+   "current_medications": [
+    "sulfonylurea"
+   ],
+   "prior_medications": [
+    "metformin"
+   ],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100432",
+   "name": "Betty Turner",
+   "dob": "1974-03-22",
+   "age": 52,
+   "sex": "MALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 9.8,
+   "egfr": 73.4,
+   "bmi": 37.0,
+   "current_medications": [
+    "metformin",
+    "sulfonylurea"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100433",
+   "name": "Daniel King",
+   "dob": "1956-08-01",
+   "age": 70,
+   "sex": "MALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 8.4,
+   "egfr": 74.5,
+   "bmi": 34.2,
+   "current_medications": [
+    "metformin"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100434",
+   "name": "Lisa Wright",
+   "dob": "1979-05-05",
+   "age": 47,
+   "sex": "MALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 8.5,
+   "egfr": 53.9,
+   "bmi": 37.6,
+   "current_medications": [
+    "sglt2_inhibitor"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100435",
+   "name": "Fatima Nguyen",
+   "dob": "1981-04-09",
+   "age": 45,
+   "sex": "MALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 9.3,
+   "egfr": 71.1,
+   "bmi": 40.7,
+   "current_medications": [
+    "basal_insulin",
+    "metformin"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100436",
+   "name": "Ana Garcia",
+   "dob": "1975-05-30",
+   "age": 51,
+   "sex": "FEMALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 6.0,
+   "egfr": 80.0,
+   "bmi": 26.6,
+   "current_medications": [
+    "basal_insulin",
+    "glp1_ra",
+    "metformin",
+    "sulfonylurea"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100437",
+   "name": "Michael Kim",
+   "dob": "1963-06-10",
+   "age": 63,
+   "sex": "MALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 8.2,
+   "egfr": 64.5,
+   "bmi": 27.3,
+   "current_medications": [
+    "metformin",
+    "sglt2_inhibitor"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100438",
+   "name": "Michael Turner",
+   "dob": "1961-04-26",
+   "age": 65,
+   "sex": "FEMALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 8.3,
+   "egfr": 48.1,
+   "bmi": 25.7,
+   "current_medications": [
+    "metformin",
+    "sglt2_inhibitor"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100439",
+   "name": "Omar Turner",
+   "dob": "1997-09-24",
+   "age": 29,
+   "sex": "MALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 7.5,
+   "egfr": 81.0,
+   "bmi": 24.2,
+   "current_medications": [
+    "glp1_ra",
+    "metformin"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": true
+  },
+  {
+   "mrn": "A-100440",
+   "name": "Jason Brown",
+   "dob": "1982-04-22",
+   "age": 44,
+   "sex": "MALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 7.9,
+   "egfr": 66.4,
+   "bmi": 26.3,
+   "current_medications": [
+    "metformin"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": true
+  },
+  {
+   "mrn": "A-100441",
+   "name": "Fatima Nelson",
+   "dob": "1982-05-08",
+   "age": 44,
+   "sex": "MALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 7.7,
+   "egfr": 120.0,
+   "bmi": 21.7,
+   "current_medications": [
+    "glp1_ra"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100442",
+   "name": "Patricia Carter",
+   "dob": "1996-05-07",
+   "age": 30,
+   "sex": "MALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 10.4,
+   "egfr": 38.8,
+   "bmi": 28.8,
+   "current_medications": [
+    "glp1_ra",
+    "metformin"
+   ],
+   "prior_medications": [
+    "sulfonylurea"
+   ],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100443",
+   "name": "Karen Adams",
+   "dob": "1966-04-18",
+   "age": 60,
+   "sex": "MALE",
+   "diagnoses": [
+    "T1D"
+   ],
+   "hba1c": 7.7,
+   "egfr": 72.6,
+   "bmi": 30.3,
+   "current_medications": [
+    "dpp4_inhibitor",
+    "metformin"
+   ],
+   "prior_medications": [
+    "sglt2_inhibitor"
+   ],
+   "readmitted_30d": true
+  },
+  {
+   "mrn": "A-100444",
+   "name": "Daniel Roberts",
+   "dob": "1976-08-25",
+   "age": 50,
+   "sex": "FEMALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 7.0,
+   "egfr": 64.6,
+   "bmi": 27.9,
+   "current_medications": [
+    "dpp4_inhibitor"
+   ],
+   "prior_medications": [
+    "basal_insulin"
+   ],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100445",
+   "name": "Susan Nelson",
+   "dob": "1981-12-26",
+   "age": 44,
+   "sex": "FEMALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 8.1,
+   "egfr": 92.3,
+   "bmi": 30.9,
+   "current_medications": [
+    "basal_insulin",
+    "sglt2_inhibitor"
+   ],
+   "prior_medications": [
+    "glp1_ra",
+    "metformin"
+   ],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100446",
+   "name": "Omar Carter",
+   "dob": "1982-09-30",
+   "age": 43,
+   "sex": "MALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 10.1,
+   "egfr": 80.1,
+   "bmi": 27.4,
+   "current_medications": [
+    "basal_insulin",
+    "sulfonylurea"
+   ],
+   "prior_medications": [
+    "metformin"
+   ],
+   "readmitted_30d": true
+  },
+  {
+   "mrn": "A-100447",
+   "name": "Aiko Brown",
+   "dob": "1986-10-23",
+   "age": 39,
+   "sex": "MALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 8.0,
+   "egfr": 48.9,
+   "bmi": 39.1,
+   "current_medications": [],
+   "prior_medications": [],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100448",
+   "name": "Ravi Young",
+   "dob": "1949-10-19",
+   "age": 76,
+   "sex": "MALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 6.5,
+   "egfr": 120.0,
+   "bmi": 26.9,
+   "current_medications": [
+    "basal_insulin",
+    "metformin"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100449",
+   "name": "Lisa Young",
+   "dob": "1978-02-05",
+   "age": 48,
+   "sex": "FEMALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 7.9,
+   "egfr": 85.3,
+   "bmi": 26.7,
+   "current_medications": [
+    "glp1_ra"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100450",
+   "name": "Susan Walker",
+   "dob": "1969-10-07",
+   "age": 56,
+   "sex": "MALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 9.5,
+   "egfr": 39.1,
+   "bmi": 42.0,
+   "current_medications": [
+    "basal_insulin"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100451",
+   "name": "Linda King",
+   "dob": "1989-10-25",
+   "age": 36,
+   "sex": "FEMALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 9.6,
+   "egfr": 75.0,
+   "bmi": 35.7,
+   "current_medications": [
+    "metformin",
+    "sulfonylurea"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100452",
+   "name": "Linda Scott",
+   "dob": "1965-05-06",
+   "age": 61,
+   "sex": "MALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 5.9,
+   "egfr": 80.2,
+   "bmi": 33.2,
+   "current_medications": [
+    "basal_insulin",
+    "sulfonylurea"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": true
+  },
+  {
+   "mrn": "A-100453",
+   "name": "Karen Carter",
+   "dob": "1972-08-07",
+   "age": 54,
+   "sex": "MALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 6.5,
+   "egfr": 56.0,
+   "bmi": 26.8,
+   "current_medications": [
+    "dpp4_inhibitor",
+    "metformin",
+    "sulfonylurea"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100454",
+   "name": "Mei Scott",
+   "dob": "1980-11-02",
+   "age": 45,
+   "sex": "MALE",
+   "diagnoses": [
+    "secondary_diabetes"
+   ],
+   "hba1c": 8.1,
+   "egfr": 68.0,
+   "bmi": 34.1,
+   "current_medications": [
+    "metformin",
+    "sglt2_inhibitor",
+    "sulfonylurea"
+   ],
+   "prior_medications": [
+    "glp1_ra"
+   ],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100455",
+   "name": "Daniel Walker",
+   "dob": "1989-09-08",
+   "age": 37,
+   "sex": "MALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 7.8,
+   "egfr": 51.1,
+   "bmi": 24.3,
+   "current_medications": [
+    "sulfonylurea"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100456",
+   "name": "Robert Turner",
+   "dob": "1983-03-03",
+   "age": 43,
+   "sex": "MALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 8.9,
+   "egfr": 57.1,
+   "bmi": 23.4,
+   "current_medications": [
+    "basal_insulin",
+    "metformin"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100457",
+   "name": "Michael Garcia",
+   "dob": "1977-05-24",
+   "age": 49,
+   "sex": "FEMALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 8.3,
+   "egfr": 78.0,
+   "bmi": 34.9,
+   "current_medications": [
+    "basal_insulin",
+    "glp1_ra"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": true
+  },
+  {
+   "mrn": "A-100458",
+   "name": "Patricia Garcia",
+   "dob": "1957-02-09",
+   "age": 69,
+   "sex": "FEMALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 8.0,
+   "egfr": 57.0,
+   "bmi": 41.7,
+   "current_medications": [
+    "sglt2_inhibitor"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100459",
+   "name": "Luis Nguyen",
+   "dob": "1951-04-01",
+   "age": 75,
+   "sex": "MALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 7.8,
+   "egfr": 94.2,
+   "bmi": 37.2,
+   "current_medications": [
+    "dpp4_inhibitor",
+    "metformin"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100460",
+   "name": "Wei Wright",
+   "dob": "1968-03-26",
+   "age": 58,
+   "sex": "MALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 6.0,
+   "egfr": 94.3,
+   "bmi": 31.2,
+   "current_medications": [
+    "basal_insulin"
+   ],
+   "prior_medications": [
+    "metformin"
+   ],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100461",
+   "name": "Omar Nguyen",
+   "dob": "1975-02-06",
+   "age": 51,
+   "sex": "FEMALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 7.6,
+   "egfr": 47.7,
+   "bmi": 30.9,
+   "current_medications": [
+    "glp1_ra"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100462",
+   "name": "Barbara Allen",
+   "dob": "1962-02-03",
+   "age": 64,
+   "sex": "FEMALE",
+   "diagnoses": [
+    "other_specific_diabetes"
+   ],
+   "hba1c": 9.9,
+   "egfr": 63.8,
+   "bmi": 34.5,
+   "current_medications": [
+    "metformin"
+   ],
+   "prior_medications": [
+    "sglt2_inhibitor",
+    "sulfonylurea"
+   ],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100463",
+   "name": "Fatima Kim",
+   "dob": "1962-01-18",
+   "age": 64,
+   "sex": "MALE",
+   "diagnoses": [
+    "T1D"
+   ],
+   "hba1c": 6.7,
+   "egfr": 61.9,
+   "bmi": 18.2,
+   "current_medications": [
+    "basal_insulin",
+    "dpp4_inhibitor",
+    "metformin",
+    "sglt2_inhibitor"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100464",
+   "name": "James Lopez",
+   "dob": "1969-05-22",
+   "age": 57,
+   "sex": "FEMALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 8.5,
+   "egfr": 108.6,
+   "bmi": 30.4,
+   "current_medications": [
+    "dpp4_inhibitor",
+    "metformin"
+   ],
+   "prior_medications": [
+    "sglt2_inhibitor"
+   ],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100465",
+   "name": "Aiko Young",
+   "dob": "1981-03-23",
+   "age": 45,
+   "sex": "MALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 10.6,
+   "egfr": 66.4,
+   "bmi": 20.6,
+   "current_medications": [
+    "metformin"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100466",
+   "name": "Aiko Mitchell",
+   "dob": "1956-04-01",
+   "age": 70,
+   "sex": "MALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 7.8,
+   "egfr": 68.4,
+   "bmi": 30.7,
+   "current_medications": [
+    "dpp4_inhibitor",
+    "metformin"
+   ],
+   "prior_medications": [
+    "basal_insulin"
+   ],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100467",
+   "name": "Luis Turner",
+   "dob": "1969-12-30",
+   "age": 56,
+   "sex": "FEMALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 6.7,
+   "egfr": 63.0,
+   "bmi": 34.0,
+   "current_medications": [
+    "metformin"
+   ],
+   "prior_medications": [
+    "glp1_ra"
+   ],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100468",
+   "name": "Michael Turner",
+   "dob": "1973-01-06",
+   "age": 53,
+   "sex": "FEMALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 8.1,
+   "egfr": 58.8,
+   "bmi": 26.7,
+   "current_medications": [
+    "metformin"
+   ],
+   "prior_medications": [
+    "basal_insulin"
+   ],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100469",
+   "name": "Nancy Scott",
+   "dob": "1965-03-09",
+   "age": 61,
+   "sex": "FEMALE",
+   "diagnoses": [
+    "other_specific_diabetes"
+   ],
+   "hba1c": 5.8,
+   "egfr": 77.6,
+   "bmi": 31.0,
+   "current_medications": [
+    "metformin"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100470",
+   "name": "Aiko Baker",
+   "dob": "1987-11-04",
+   "age": 38,
+   "sex": "MALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 8.0,
+   "egfr": 89.0,
+   "bmi": 29.4,
+   "current_medications": [],
+   "prior_medications": [
+    "sulfonylurea"
+   ],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100471",
+   "name": "Mei Turner",
+   "dob": "1953-06-11",
+   "age": 73,
+   "sex": "MALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 6.9,
+   "egfr": 91.4,
+   "bmi": 29.2,
+   "current_medications": [
+    "metformin"
+   ],
+   "prior_medications": [
+    "sglt2_inhibitor",
+    "sulfonylurea"
+   ],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100472",
+   "name": "Mei Brown",
+   "dob": "1965-09-05",
+   "age": 61,
+   "sex": "FEMALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 10.1,
+   "egfr": 83.9,
+   "bmi": 27.6,
+   "current_medications": [
+    "dpp4_inhibitor",
+    "metformin"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100473",
+   "name": "Nancy Kim",
+   "dob": "1965-02-11",
+   "age": 61,
+   "sex": "MALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 5.7,
+   "egfr": 58.1,
+   "bmi": 37.0,
+   "current_medications": [
+    "glp1_ra",
+    "metformin",
+    "sglt2_inhibitor"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100474",
+   "name": "Nancy Patel",
+   "dob": "1955-08-25",
+   "age": 71,
+   "sex": "MALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 8.8,
+   "egfr": 55.3,
+   "bmi": 27.2,
+   "current_medications": [
+    "metformin",
+    "sglt2_inhibitor",
+    "sulfonylurea"
+   ],
+   "prior_medications": [
+    "basal_insulin"
+   ],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100475",
+   "name": "Patricia Adams",
+   "dob": "1983-05-09",
+   "age": 43,
+   "sex": "FEMALE",
+   "diagnoses": [
+    "T1D"
+   ],
+   "hba1c": 8.3,
+   "egfr": 97.0,
+   "bmi": 34.7,
+   "current_medications": [
+    "metformin"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100476",
+   "name": "Kenji Allen",
+   "dob": "1981-06-19",
+   "age": 45,
+   "sex": "FEMALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 6.6,
+   "egfr": 81.2,
+   "bmi": 22.1,
+   "current_medications": [
+    "metformin"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100477",
+   "name": "Priya Kim",
+   "dob": "1976-11-21",
+   "age": 49,
+   "sex": "FEMALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 7.9,
+   "egfr": 31.7,
+   "bmi": 22.5,
+   "current_medications": [],
+   "prior_medications": [
+    "dpp4_inhibitor",
+    "glp1_ra"
+   ],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100478",
+   "name": "James Martinez",
+   "dob": "1970-08-22",
+   "age": 56,
+   "sex": "FEMALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 6.8,
+   "egfr": 65.7,
+   "bmi": 31.5,
+   "current_medications": [
+    "metformin"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100479",
+   "name": "Jason Green",
+   "dob": "1989-06-21",
+   "age": 37,
+   "sex": "FEMALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 7.5,
+   "egfr": 101.5,
+   "bmi": 23.4,
+   "current_medications": [
+    "basal_insulin"
+   ],
+   "prior_medications": [
+    "metformin"
+   ],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100480",
+   "name": "Michael Nelson",
+   "dob": "1970-03-22",
+   "age": 56,
+   "sex": "FEMALE",
+   "diagnoses": [
+    "secondary_diabetes"
+   ],
+   "hba1c": 8.2,
+   "egfr": 112.1,
+   "bmi": 24.1,
+   "current_medications": [
+    "sglt2_inhibitor"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100481",
+   "name": "Karen Lopez",
+   "dob": "1994-03-27",
+   "age": 32,
+   "sex": "FEMALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 8.1,
+   "egfr": 26.1,
+   "bmi": 37.6,
+   "current_medications": [
+    "metformin"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100482",
+   "name": "Priya Roberts",
+   "dob": "1946-09-11",
+   "age": 80,
+   "sex": "FEMALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 9.2,
+   "egfr": 73.6,
+   "bmi": 22.6,
+   "current_medications": [
+    "basal_insulin",
+    "dpp4_inhibitor",
+    "metformin"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": true
+  },
+  {
+   "mrn": "A-100483",
+   "name": "Priya Young",
+   "dob": "1978-07-04",
+   "age": 48,
+   "sex": "MALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 6.1,
+   "egfr": 120.0,
+   "bmi": 34.7,
+   "current_medications": [
+    "metformin"
+   ],
+   "prior_medications": [
+    "sglt2_inhibitor"
+   ],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100484",
+   "name": "Daniel King",
+   "dob": "1954-07-30",
+   "age": 72,
+   "sex": "MALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 8.8,
+   "egfr": 57.9,
+   "bmi": 27.1,
+   "current_medications": [
+    "basal_insulin",
+    "dpp4_inhibitor",
+    "sulfonylurea"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": true
+  },
+  {
+   "mrn": "A-100485",
+   "name": "Brian Turner",
+   "dob": "1963-02-13",
+   "age": 63,
+   "sex": "FEMALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 5.6,
+   "egfr": 52.3,
+   "bmi": 32.7,
+   "current_medications": [
+    "dpp4_inhibitor"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100486",
+   "name": "Karen Scott",
+   "dob": "1956-09-06",
+   "age": 70,
+   "sex": "MALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 7.4,
+   "egfr": 74.9,
+   "bmi": 28.3,
+   "current_medications": [],
+   "prior_medications": [],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100487",
+   "name": "Ravi Baker",
+   "dob": "1974-07-19",
+   "age": 52,
+   "sex": "MALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 7.0,
+   "egfr": 67.5,
+   "bmi": 28.2,
+   "current_medications": [
+    "dpp4_inhibitor"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100488",
+   "name": "Betty Patel",
+   "dob": "1962-06-13",
+   "age": 64,
+   "sex": "MALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 6.6,
+   "egfr": 114.1,
+   "bmi": 35.5,
+   "current_medications": [
+    "metformin"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100489",
+   "name": "Kenji Patel",
+   "dob": "1967-09-05",
+   "age": 59,
+   "sex": "FEMALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 9.5,
+   "egfr": 79.0,
+   "bmi": 26.1,
+   "current_medications": [
+    "metformin"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100490",
+   "name": "James Young",
+   "dob": "1981-10-04",
+   "age": 44,
+   "sex": "MALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 8.2,
+   "egfr": 113.8,
+   "bmi": 39.1,
+   "current_medications": [
+    "metformin"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100491",
+   "name": "Daniel Turner",
+   "dob": "1962-03-14",
+   "age": 64,
+   "sex": "MALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 7.2,
+   "egfr": 58.0,
+   "bmi": 20.8,
+   "current_medications": [
+    "sglt2_inhibitor"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": true
+  },
+  {
+   "mrn": "A-100492",
+   "name": "Wei Nelson",
+   "dob": "1971-11-06",
+   "age": 54,
+   "sex": "MALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 6.3,
+   "egfr": 46.8,
+   "bmi": 36.5,
+   "current_medications": [
+    "metformin"
+   ],
+   "prior_medications": [
+    "glp1_ra"
+   ],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100493",
+   "name": "David Allen",
+   "dob": "1973-04-27",
+   "age": 53,
+   "sex": "MALE",
+   "diagnoses": [
+    "secondary_diabetes"
+   ],
+   "hba1c": 7.8,
+   "egfr": 115.2,
+   "bmi": 29.8,
+   "current_medications": [
+    "dpp4_inhibitor",
+    "glp1_ra"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100494",
+   "name": "Karen Lee",
+   "dob": "1977-05-06",
+   "age": 49,
+   "sex": "FEMALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 9.8,
+   "egfr": 86.8,
+   "bmi": 25.3,
+   "current_medications": [],
+   "prior_medications": [
+    "glp1_ra"
+   ],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100495",
+   "name": "Luis Martinez",
+   "dob": "1957-12-13",
+   "age": 68,
+   "sex": "MALE",
+   "diagnoses": [
+    "other_specific_diabetes"
+   ],
+   "hba1c": 8.4,
+   "egfr": 75.2,
+   "bmi": 39.1,
+   "current_medications": [
+    "metformin"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": true
+  },
+  {
+   "mrn": "A-100496",
+   "name": "Lisa Carter",
+   "dob": "1959-09-22",
+   "age": 67,
+   "sex": "FEMALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 11.1,
+   "egfr": 92.3,
+   "bmi": 27.3,
+   "current_medications": [
+    "metformin",
+    "sulfonylurea"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": true
+  },
+  {
+   "mrn": "A-100497",
+   "name": "Jason Johnson",
+   "dob": "1962-12-13",
+   "age": 63,
+   "sex": "MALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 11.0,
+   "egfr": 69.7,
+   "bmi": 30.8,
+   "current_medications": [
+    "metformin"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100498",
+   "name": "Jason Lopez",
+   "dob": "1983-03-20",
+   "age": 43,
+   "sex": "FEMALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 9.1,
+   "egfr": 68.1,
+   "bmi": 37.2,
+   "current_medications": [
+    "sglt2_inhibitor"
+   ],
+   "prior_medications": [
+    "dpp4_inhibitor"
+   ],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100499",
+   "name": "Karen Nguyen",
+   "dob": "1964-08-22",
+   "age": 62,
+   "sex": "MALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 8.5,
+   "egfr": 75.8,
+   "bmi": 18.7,
+   "current_medications": [
+    "metformin"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100500",
+   "name": "Patricia Patel",
+   "dob": "1966-06-05",
+   "age": 60,
+   "sex": "FEMALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 8.7,
+   "egfr": 73.8,
+   "bmi": 28.0,
+   "current_medications": [
+    "glp1_ra",
+    "metformin"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100501",
+   "name": "Fatima Brown",
+   "dob": "1965-01-16",
+   "age": 61,
+   "sex": "MALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 7.4,
+   "egfr": 61.2,
+   "bmi": 29.4,
+   "current_medications": [],
+   "prior_medications": [],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100502",
+   "name": "Linda Lopez",
+   "dob": "1989-12-22",
+   "age": 36,
+   "sex": "MALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 10.9,
+   "egfr": 80.2,
+   "bmi": 23.8,
+   "current_medications": [
+    "basal_insulin",
+    "metformin"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100503",
+   "name": "Nancy Nelson",
+   "dob": "1949-11-05",
+   "age": 76,
+   "sex": "MALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 8.2,
+   "egfr": 67.6,
+   "bmi": 31.9,
+   "current_medications": [
+    "basal_insulin",
+    "glp1_ra"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100504",
+   "name": "Patricia Roberts",
+   "dob": "1957-12-04",
+   "age": 68,
+   "sex": "FEMALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 8.1,
+   "egfr": 41.3,
+   "bmi": 31.7,
+   "current_medications": [
+    "dpp4_inhibitor",
+    "glp1_ra",
+    "metformin"
+   ],
+   "prior_medications": [
+    "basal_insulin"
+   ],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100505",
+   "name": "Aiko Clark",
+   "dob": "1972-01-22",
+   "age": 54,
+   "sex": "MALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 7.8,
+   "egfr": 102.8,
+   "bmi": 30.4,
+   "current_medications": [
+    "glp1_ra",
+    "metformin",
+    "sulfonylurea"
+   ],
+   "prior_medications": [
+    "dpp4_inhibitor"
+   ],
+   "readmitted_30d": true
+  },
+  {
+   "mrn": "A-100506",
+   "name": "Omar Nguyen",
+   "dob": "1970-09-16",
+   "age": 56,
+   "sex": "FEMALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 6.2,
+   "egfr": 88.1,
+   "bmi": 35.6,
+   "current_medications": [
+    "metformin"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100507",
+   "name": "Kevin Brown",
+   "dob": "1964-01-15",
+   "age": 62,
+   "sex": "MALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 7.0,
+   "egfr": 82.9,
+   "bmi": 32.6,
+   "current_medications": [
+    "dpp4_inhibitor",
+    "metformin",
+    "sglt2_inhibitor"
+   ],
+   "prior_medications": [
+    "basal_insulin"
+   ],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100508",
+   "name": "David Roberts",
+   "dob": "1961-08-17",
+   "age": 65,
+   "sex": "FEMALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 6.1,
+   "egfr": 82.5,
+   "bmi": 31.8,
+   "current_medications": [
+    "basal_insulin",
+    "sulfonylurea"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100509",
+   "name": "Nancy Allen",
+   "dob": "1954-01-10",
+   "age": 72,
+   "sex": "FEMALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 9.4,
+   "egfr": 112.5,
+   "bmi": 40.9,
+   "current_medications": [
+    "metformin"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100510",
+   "name": "Karen Turner",
+   "dob": "1943-03-11",
+   "age": 83,
+   "sex": "MALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 5.8,
+   "egfr": 57.3,
+   "bmi": 30.2,
+   "current_medications": [
+    "basal_insulin",
+    "metformin"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100511",
+   "name": "Robert Allen",
+   "dob": "1979-04-04",
+   "age": 47,
+   "sex": "MALE",
+   "diagnoses": [
+    "T1D"
+   ],
+   "hba1c": 10.2,
+   "egfr": 78.1,
+   "bmi": 25.7,
+   "current_medications": [
+    "basal_insulin",
+    "metformin"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": true
+  },
+  {
+   "mrn": "A-100512",
+   "name": "Ravi Baker",
+   "dob": "1994-11-11",
+   "age": 31,
+   "sex": "FEMALE",
+   "diagnoses": [
+    "other_specific_diabetes"
+   ],
+   "hba1c": 7.6,
+   "egfr": 66.2,
+   "bmi": 26.5,
+   "current_medications": [
+    "metformin",
+    "sglt2_inhibitor"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100513",
+   "name": "Priya Garcia",
+   "dob": "1989-12-27",
+   "age": 36,
+   "sex": "FEMALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 9.6,
+   "egfr": 75.2,
+   "bmi": 24.6,
+   "current_medications": [],
+   "prior_medications": [
+    "glp1_ra"
+   ],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100514",
+   "name": "Wei Mitchell",
+   "dob": "1974-03-11",
+   "age": 52,
+   "sex": "FEMALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 9.1,
+   "egfr": 73.0,
+   "bmi": 22.3,
+   "current_medications": [
+    "metformin"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100515",
+   "name": "Barbara King",
+   "dob": "1969-11-11",
+   "age": 56,
+   "sex": "FEMALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 7.3,
+   "egfr": 96.9,
+   "bmi": 39.9,
+   "current_medications": [
+    "glp1_ra",
+    "metformin"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100516",
+   "name": "Susan Turner",
+   "dob": "1962-04-10",
+   "age": 64,
+   "sex": "FEMALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 8.9,
+   "egfr": 61.9,
+   "bmi": 27.0,
+   "current_medications": [
+    "metformin"
+   ],
+   "prior_medications": [
+    "basal_insulin"
+   ],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100517",
+   "name": "Luis Nguyen",
+   "dob": "1969-06-24",
+   "age": 57,
+   "sex": "MALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 6.2,
+   "egfr": 60.8,
+   "bmi": 26.9,
+   "current_medications": [
+    "sglt2_inhibitor"
+   ],
+   "prior_medications": [
+    "glp1_ra"
+   ],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100518",
+   "name": "Lisa Martinez",
+   "dob": "1971-06-26",
+   "age": 55,
+   "sex": "FEMALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 9.9,
+   "egfr": 89.0,
+   "bmi": 31.4,
+   "current_medications": [
+    "metformin"
+   ],
+   "prior_medications": [
+    "dpp4_inhibitor"
+   ],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-100519",
+   "name": "Mei Garcia",
+   "dob": "1981-10-11",
+   "age": 44,
+   "sex": "MALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 7.9,
+   "egfr": 71.0,
+   "bmi": 25.5,
+   "current_medications": [
+    "metformin",
+    "sglt2_inhibitor"
+   ],
+   "prior_medications": [
+    "dpp4_inhibitor"
+   ],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-MRN-0042871",
+   "name": "Maria Delgado",
+   "dob": "1968-04-17",
+   "age": 58,
+   "sex": "FEMALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 8.2,
+   "egfr": 74.0,
+   "bmi": 29,
+   "current_medications": [
+    "metformin",
+    "sglt2_inhibitor"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-MRN-0099314",
+   "name": "Zephyrine Quillfeather",
+   "dob": "1951-12-24",
+   "age": 74,
+   "sex": "MALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 9.4,
+   "egfr": 61.0,
+   "bmi": 33.2,
+   "current_medications": [
+    "basal_insulin",
+    "metformin"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": false
+  },
+  {
+   "mrn": "A-9101",
+   "name": "Rare Case A1",
+   "dob": "1932-02-29",
+   "age": 94,
+   "sex": "MALE",
+   "diagnoses": [
+    "T2D"
+   ],
+   "hba1c": 10.9,
+   "egfr": 22.0,
+   "bmi": 41.5,
+   "current_medications": [
+    "basal_insulin",
+    "glp1_ra"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": true
+  },
+  {
+   "mrn": "A-9102",
+   "name": "Rare Case A2",
+   "dob": "2006-11-03",
+   "age": 19,
+   "sex": "FEMALE",
+   "diagnoses": [
+    "other_specific_diabetes"
+   ],
+   "hba1c": 6.1,
+   "egfr": 118.0,
+   "bmi": 19.0,
+   "current_medications": [
+    "dpp4_inhibitor"
+   ],
+   "prior_medications": [],
+   "readmitted_30d": false
+  }
+ ]
+}
