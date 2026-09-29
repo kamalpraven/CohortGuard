@@ -33,3 +33,7 @@ available through `agent.events.get_trace()`.
 
 See the [Flower Agent documentation](https://flower.ai/docs/agent/) for more
 tutorials and guides.
+
+## Clinic agents (M2)
+
+Clinic A / Clinic B agents, synthetic data and privacy gate live in [clinic-agents/](clinic-agents/README.md).
