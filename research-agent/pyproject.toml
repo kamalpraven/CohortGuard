@@ -22,3 +22,8 @@ demo_seed_fake = false
 with_mechanism = true
 use_web_fetch = false
 model = "openai/gpt-5.6-sol"
+
+[dependency-groups]
+dev = [
+    "pytest>=9.1.1",
+]

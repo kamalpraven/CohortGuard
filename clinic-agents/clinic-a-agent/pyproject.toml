@@ -28,3 +28,8 @@ model = "MiniMaxAI/MiniMax-M3"
 
 [tool.flwr.app.components]
 agentapp = "clinic_a.agent_app:app"
+
+[dependency-groups]
+dev = [
+    "pytest>=9.1.1",
+]
