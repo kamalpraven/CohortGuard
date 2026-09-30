@@ -22,17 +22,37 @@ _PATTERNS: tuple[tuple[str, re.Pattern[str]], ...] = (
 )
 
 REDACTION = "[REDACTED_IDENTIFIER]"
+_BENIGN_NAME_PHRASES = {
+    "basal insulin",
+    "chronic kidney",
+    "clinic a",
+    "clinic b",
+    "for clinic",
+    "heart failure",
+    "kidney disease",
+    "type diabetes",
+}
+
+
+def _has_nonbenign_name_match(pattern: re.Pattern[str], text: str) -> bool:
+    for match in pattern.finditer(text):
+        if match.group(0).casefold() not in _BENIGN_NAME_PHRASES:
+            return True
+    return False
 
 
 def identifier_kinds(text: str, *, include_names: bool = True) -> set[str]:
     """Return identifier categories found in text without returning matched values."""
     if not isinstance(text, str):
         return {"invalid_text"}
-    return {
-        kind
-        for kind, pattern in _PATTERNS
-        if (include_names or kind != "name") and pattern.search(text)
-    }
+    kinds: set[str] = set()
+    for kind, pattern in _PATTERNS:
+        if kind == "name":
+            if include_names and _has_nonbenign_name_match(pattern, text):
+                kinds.add(kind)
+        elif pattern.search(text):
+            kinds.add(kind)
+    return kinds
 
 
 def contains_identifier(value: Any, *, include_names: bool = True) -> bool:

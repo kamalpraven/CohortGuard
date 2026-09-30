@@ -222,6 +222,22 @@ def test_research_web_page_log_is_removed(monkeypatch):
     }
 
 
+def test_capitalized_clinical_terms_drugs_trial_ids_and_clinic_labels_pass_identifier_check():
+    grid = FakeGrid()
+    request = base_request("site_feasibility") | {
+        "question": (
+            "For Clinic A and Clinic B, estimate feasibility for NCT07060456 in Type 2 Diabetes, "
+            "Chronic Kidney Disease, Heart Failure, SGLT2, GLP-1, DPP-4, Metformin, and Basal Insulin cohorts."
+        ),
+        "nct_id": "NCT07060456",
+    }
+    agent = Agent(json.dumps(request), grid)
+    main(agent, context({"model": "", "grid_timeout": 10.0, "expected_role_node_ids": "{}"}))
+    text = "".join(event.get("delta", "") for event in agent.events.sent)
+    assert json.loads(text)["workflow"] == "site_feasibility"
+    assert grid.calls
+
+
 def test_hashed_exact_canary_rejected_before_grid_call():
     grid = FakeGrid()
     request = base_request("trial_pipeline") | {
