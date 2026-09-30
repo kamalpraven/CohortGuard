@@ -88,12 +88,18 @@ def _pool_cohorts(replies: dict[str, dict[str, Any]]) -> dict[str, Any]:
     if any(status != "ok" for status in statuses):
         return {"status": "partial", "sites": list(replies.values())}
     pooled: dict[str, dict[str, int]] = {}
+    noise_variance: dict[str, dict[str, float]] = {}
     for reply in replies.values():
+        scale = float(reply.get("noise_scale") or 0.0)
+        per_count_variance = 2.0 * scale * scale
         for row in reply.get("results", []):
             cohort = row["cohort"]
             item = pooled.setdefault(cohort, {"n": 0, "events": 0})
             item["n"] += int(row["n"])
             item["events"] += int(row["events"])
+            variance = noise_variance.setdefault(cohort, {"n": 0.0, "events": 0.0})
+            variance["n"] += per_count_variance
+            variance["events"] += per_count_variance
     results = [
         {
             "cohort": cohort,
@@ -111,13 +117,32 @@ def _pool_cohorts(replies: dict[str, dict[str, Any]]) -> dict[str, Any]:
         p1 = first["events"] / first["n"]
         p2 = second["events"] / second["n"]
         diff = p1 - p2
-        se = math.sqrt((p1 * (1 - p1) / first["n"]) + (p2 * (1 - p2) / second["n"]))
+
+        def rate_variance(row: dict[str, Any]) -> float:
+            n = float(row["n"])
+            events = float(row["events"])
+            p = events / n
+            noise = noise_variance.get(str(row["cohort"]), {"n": 0.0, "events": 0.0})
+            binomial_component = p * (1 - p) / n
+            # Delta method for p = events / n, where both released events and n
+            # include independent Laplace noise. Laplace(scale=b) variance is 2*b^2;
+            # variances add when pooling independent site releases.
+            noise_component = (noise["events"] / (n * n)) + (
+                events * events * noise["n"] / (n**4)
+            )
+            return binomial_component + noise_component
+
+        se = math.sqrt(rate_variance(first) + rate_variance(second))
         output["rate_difference"] = {
             "cohort_a": first["cohort"],
             "cohort_b": second["cohort"],
             "difference_pct_points": round(diff * 100, 1),
-            "ci_95_pct_points": [round((diff - 1.96 * se) * 100, 1), round((diff + 1.96 * se) * 100, 1)],
-            "method": "wald_difference_in_proportions_on_released_counts",
+            "ci_95_pct_points": [
+                round((diff - 1.96 * se) * 100, 1),
+                round((diff + 1.96 * se) * 100, 1),
+            ],
+            "method": "wald_difference_in_proportions_with_laplace_noise_delta_method",
+            "laplace_noise_variance_included": True,
         }
     return output
 
