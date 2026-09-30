@@ -29,6 +29,15 @@ FEAS = {"template": "feasibility_count", "nct_id": "NCT07060456"}
 COHORT = {"template": "outcome_rate_by_cohort", "cohort_field": "medication",
           "cohorts": ["sglt2_inhibitor", "sulfonylurea"], "outcome": "readmit_30d",
           "filters": {"diagnosis": "T2D", "age_band": "50-59"}}
+COHORT_WIDE = COHORT | {"filters": {"diagnosis": "T2D"}}
+
+
+class SequenceRng:
+    def __init__(self, values):
+        self.values = iter(values)
+
+    def random(self):
+        return next(self.values)
 
 
 def test_generated_app_copies_match_canonical_sources():
@@ -103,12 +112,38 @@ def test_clinic_b_feasibility_fixed_seed_regression(tmp_path):
 
 
 def test_cohort_rate_pct_derived_from_released_counts(tmp_path):
-    r = handle_clinic_b(COHORT, B, gate(tmp_path))
+    r = handle_clinic_b(COHORT_WIDE, B, gate(tmp_path))
     for row in r["results"]:
         assert row["rate_pct"] == round(100 * row["events"] / row["n"], 1)
         assert row["events"] <= row["n"]
-    a = handle_clinic_a(COHORT, A)
+    a = handle_clinic_a(COHORT_WIDE, A)
     assert all(x["rate_pct"] == round(100 * x["events"] / x["n"], 1) for x in a["results"])
+
+
+def test_feasibility_suppresses_when_noised_release_below_min_cell_and_charges(tmp_path):
+    g = PrivacyGate(BudgetLedger(tmp_path / "ledger.json"), SequenceRng([0.1]))
+    rel = g.release({"eligible_n": 10}, gate_on=10)
+    assert rel == {"suppressed": True, "reason": "below_disclosure_threshold"}
+    assert g.ledger.remaining() == 4.5
+
+
+def test_true_count_below_min_cell_still_suppresses_without_charge(tmp_path):
+    g = PrivacyGate(BudgetLedger(tmp_path / "ledger.json"), SequenceRng([0.99]))
+    rel = g.release({"eligible_n": 9}, gate_on=9)
+    assert rel == {"suppressed": True, "reason": "below_disclosure_threshold"}
+    assert g.ledger.remaining() == 5.0
+
+
+def test_cohort_release_suppresses_whole_query_when_noised_event_below_min_cell(tmp_path):
+    # Flat release order is cohort1.n, cohort1.events, cohort2.n, cohort2.events.
+    rng = SequenceRng([0.5, 0.1, 0.5, 0.5])
+    g = PrivacyGate(BudgetLedger(tmp_path / "ledger.json"), rng)
+    r = handle_clinic_b(COHORT_WIDE, B, g)
+    assert r["status"] == "suppressed"
+    assert r["reason"] == "below_disclosure_threshold"
+    assert r["results"] == []
+    # Four released counts were evaluated before post-noise suppression.
+    assert g.ledger.remaining() == 3.0
 
 
 def test_clinic_b_suppresses_small_cells(tmp_path):

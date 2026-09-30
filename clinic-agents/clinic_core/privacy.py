@@ -2,6 +2,11 @@
 
 Deterministic code only. Every count leaving the clinic goes through
 `PrivacyGate.release`.
+
+Releases are suppressed if either the true gate count or any noised released
+count is below the minimum cell size. Post-noise suppressions still charge the
+privacy budget: the query was evaluated and the threshold decision itself is a
+release about the noised result, so charging is the safer accounting default.
 """
 
 from __future__ import annotations
@@ -58,6 +63,7 @@ class PrivacyGate:
         `gate_on` is the raw cohort size the min-cell rule applies to. Returns
         {"suppressed": True, "reason": ...} or {"suppressed": False, "counts":
         {...noised ints...}, "noise_scale": ..., "budget_remaining": ...}.
+        Post-noise suppressions are charged before returning suppression.
         """
         if gate_on < MIN_CELL:
             return {"suppressed": True, "reason": "below_disclosure_threshold"}
@@ -68,6 +74,8 @@ class PrivacyGate:
             k: max(0, round(v + laplace(self.scale, self.rng))) for k, v in raw_counts.items()
         }
         self.ledger.charge(cost)
+        if any(value < MIN_CELL for value in noised.values()):
+            return {"suppressed": True, "reason": "below_disclosure_threshold"}
         return {
             "suppressed": False,
             "counts": noised,
