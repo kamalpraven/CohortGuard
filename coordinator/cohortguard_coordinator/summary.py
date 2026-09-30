@@ -6,8 +6,6 @@ import json
 import os
 from typing import Any
 
-from openai import OpenAI
-
 
 def _response_text(response: Any) -> str:
     text = getattr(response, "output_text", None)
@@ -24,6 +22,8 @@ def write_final_summary(
     """Ask the configured model to summarize an already-computed result."""
     if not model:
         return json.dumps(result, separators=(",", ":"), ensure_ascii=False)
+    from openai import OpenAI
+
     client = OpenAI(
         base_url=os.environ["FLWR_RUNTIME_BASE_URL"],
         api_key=os.environ["FLWR_RUNTIME_API_KEY"],
