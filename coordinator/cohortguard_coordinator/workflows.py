@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import re
+import math
 from typing import Any
 
 from shared.allowlist import DIAGNOSIS_CODES, MEDICATION_CLASSES, SEX_VALUES
@@ -104,7 +105,21 @@ def _pool_cohorts(replies: dict[str, dict[str, Any]]) -> dict[str, Any]:
         }
         for cohort, values in pooled.items()
     ]
-    return {"status": "ok", "results": results, "site_count": len(replies)}
+    output: dict[str, Any] = {"status": "ok", "results": results, "site_count": len(replies)}
+    if len(results) == 2 and all(row["n"] for row in results):
+        first, second = results
+        p1 = first["events"] / first["n"]
+        p2 = second["events"] / second["n"]
+        diff = p1 - p2
+        se = math.sqrt((p1 * (1 - p1) / first["n"]) + (p2 * (1 - p2) / second["n"]))
+        output["rate_difference"] = {
+            "cohort_a": first["cohort"],
+            "cohort_b": second["cohort"],
+            "difference_pct_points": round(diff * 100, 1),
+            "ci_95_pct_points": [round((diff - 1.96 * se) * 100, 1), round((diff + 1.96 * se) * 100, 1)],
+            "method": "wald_difference_in_proportions_on_released_counts",
+        }
+    return output
 
 
 def run_workflow(

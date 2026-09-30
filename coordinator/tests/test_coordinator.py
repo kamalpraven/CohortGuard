@@ -3,6 +3,7 @@ from __future__ import annotations
 import json
 import logging
 import sys
+import types
 import zipfile
 from pathlib import Path
 from types import SimpleNamespace
@@ -20,6 +21,7 @@ sys.path[:0] = [
 from cohortguard_coordinator.agent_app import main
 from cohortguard_coordinator.grid import MAX_GRID_TIMEOUT
 from cohortguard_coordinator.nodes import _research_response
+from cohortguard_coordinator.summary import summary_instructions, write_final_summary
 from doctor_agent.core import LocalContext, local_patient_answer, prepare_coordinator_request
 
 ROLES = {"101": "clinic_a", "202": "clinic_b", "303": "research"}
@@ -124,6 +126,66 @@ def test_each_workflow_is_code_driven(workflow_request):
     assert result["workflow"] == workflow_request["workflow"]
     assert [name for name, _ in grid.calls].count("get_nodes") == 1
     assert all(name in {"get_nodes", "push_messages", "pull_messages"} for name, _ in grid.calls)
+
+
+def test_cohort_result_includes_code_computed_rate_difference_ci():
+    grid = FakeGrid()
+    request = base_request("cohort_question") | {
+        "cohort_field": "medication",
+        "cohorts": ["sglt2_inhibitor", "sulfonylurea"],
+        "outcome": "readmit_30d",
+        "filters": {"diagnosis": "T2D"},
+    }
+    agent = Agent(json.dumps(request), grid)
+    main(agent, context({"model": "", "grid_timeout": 10.0, "expected_role_node_ids": "{}"}))
+    result = json.loads("".join(event.get("delta", "") for event in agent.events.sent))
+    assert result["rate_difference"] == {
+        "cohort_a": "sglt2_inhibitor",
+        "cohort_b": "sulfonylurea",
+        "difference_pct_points": 0.0,
+        "ci_95_pct_points": [-13.1, 13.1],
+        "method": "wald_difference_in_proportions_on_released_counts",
+    }
+
+
+def test_summary_instructions_are_workflow_specific():
+    cohort = summary_instructions("cohort_question")
+    site = summary_instructions("site_feasibility")
+    trial = summary_instructions("trial_pipeline")
+    assert "noised cohort sizes" in cohort and "observational" in cohort and "confidence interval" in cohort
+    assert "potentially eligible upper-bound" in site
+    assert "Do not add differential-privacy or patient-count caveats" in trial
+    forbidden = "patient-level facts were or were not accessed"
+    assert forbidden not in cohort and forbidden not in site and forbidden not in trial
+
+
+def test_final_summary_uses_fake_model_and_workflow_instructions(monkeypatch):
+    calls = []
+
+    class Responses:
+        @staticmethod
+        def create(**kwargs):
+            calls.append(kwargs)
+            return {"output_text": "fake summary"}
+
+    class FakeOpenAI:
+        def __init__(self, **kwargs):
+            self.responses = Responses()
+
+    monkeypatch.setenv("FLWR_RUNTIME_BASE_URL", "http://runtime.test")
+    monkeypatch.setenv("FLWR_RUNTIME_API_KEY", "token")
+    monkeypatch.setitem(sys.modules, "openai", types.SimpleNamespace(OpenAI=FakeOpenAI))
+    text = write_final_summary(
+        {"question": "deidentified", "workflow": "cohort_question"},
+        {"workflow": "cohort_question", "rate_difference": {"ci_95_pct_points": [-1, 1]}},
+        "fake-model",
+        "low",
+    )
+    assert text == "fake summary"
+    assert calls[0]["model"] == "fake-model"
+    assert calls[0]["reasoning"] == {"effort": "low"}
+    assert "noised cohort sizes" in calls[0]["instructions"]
+    assert "confidence interval" in calls[0]["instructions"]
 
 
 def test_expected_role_mapping_rejects_mismatched_claim():

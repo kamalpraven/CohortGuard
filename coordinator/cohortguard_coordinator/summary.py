@@ -16,6 +16,34 @@ def _response_text(response: Any) -> str:
     raise RuntimeError("model_returned_no_text")
 
 
+def summary_instructions(workflow: str) -> str:
+    """Return workflow-specific instructions for the final-summary model."""
+    base = (
+        "Write a concise clinical-research summary using only the computed result. "
+        "Describe only released aggregate or public research results. "
+        "Do not reconstruct identifiers, invent counts, infer unstated budget details, "
+        "or make operational/privacy-process claims unless they are explicitly in the computed result. "
+    )
+    if workflow == "cohort_question":
+        return base + (
+            "For cohort comparisons, describe n values as noised cohort sizes, not eligibility counts. "
+            "Frame comparisons as observational associations in synthetic aggregate data, not causal effects. "
+            "If a rate_difference object is present, include its 95% confidence interval and method exactly from the computed result. "
+            "Report privacy budget only if explicitly present in the computed result."
+        )
+    if workflow == "site_feasibility":
+        return base + (
+            "For site feasibility, describe released counts as noised estimates of potentially eligible upper-bound screening counts, "
+            "not exact patient counts. Report unchecked criteria and privacy budget only exactly as the clinics stated them."
+        )
+    if workflow == "trial_pipeline":
+        return base + (
+            "For trial pipeline results, summarize the returned public trial candidates, evidence notes, and blocked items. "
+            "Do not add differential-privacy or patient-count caveats unless they appear in the computed result."
+        )
+    return base
+
+
 def write_final_summary(
     request: dict[str, Any], result: dict[str, Any], model: str, reasoning_effort: str = "low"
 ) -> str:
@@ -36,12 +64,7 @@ def write_final_summary(
     response = client.responses.create(
         model=model,
         reasoning={"effort": reasoning_effort or "low"},
-        instructions=(
-            "Write a concise clinical-research summary using only the computed result. "
-            "Describe released clinic counts as noised estimates of potentially eligible upper-bound screening counts, "
-            "not exact patient counts. Report privacy budget only exactly as the clinics stated it in the computed result. "
-            "Do not infer patient-level facts, reconstruct identifiers, invent counts, or infer unstated budget details."
-        ),
+        instructions=summary_instructions(str(result.get("workflow", request.get("workflow", "")))),
         input=prompt,
     )
     return _response_text(response).strip()
