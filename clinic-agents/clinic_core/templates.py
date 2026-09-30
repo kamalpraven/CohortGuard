@@ -6,8 +6,6 @@ parameters; this module validates them and does all computation.
 
 from __future__ import annotations
 
-from typing import Any
-
 from shared.allowlist import DIAGNOSIS_CODES, MEDICATION_CLASSES, SEX_VALUES
 
 from .criteria import validate_criterion

@@ -13,7 +13,7 @@ sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from research.candidates import build_candidates
 from research.criteria import parse_age, registry_criteria, structure_criteria, validate_criteria
 from research.grounding import grounding_gate, verify_candidate
-from research.http_cache import CacheMiss, Http
+from research.http_cache import Http
 from research.injection import detect_injection
 from research_agent.agent_app import handle_request, main as agent_main
 from shared.allowlist import ALLOWLIST, DIAGNOSIS_CODES, MEDICATION_CLASSES, SEX_VALUES

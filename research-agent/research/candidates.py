@@ -10,7 +10,6 @@ import re
 
 from typing import Callable, List, Optional
 
-from .criteria import structure_criteria
 from .grounding import grounding_gate
 from .http_cache import Http
 from .sources import papers_for_trial_linked, search_trials, summarize_pmids
@@ -59,7 +58,7 @@ def score(trial: dict, outcome_keywords: List[str], n_papers: int,
 
 def build_candidates(http: Http, condition: str, outcome_keywords: List[str],
                      llm: Optional[Callable[[str], str]] = None,
-                     max_trials: int = 10, with_criteria: bool = False,
+                     max_trials: int = 10,
                      log: Optional[list] = None,
                      extra_candidates: Optional[List[dict]] = None) -> List[dict]:
     trials = [t for t in search_trials(http, condition)
@@ -88,7 +87,7 @@ def build_candidates(http: Http, condition: str, outcome_keywords: List[str],
                           else "Endpoint differs from the outcome of interest.")
                          + ("" if cond_ok else " Trial's main condition differs from the query."),
             "score": score(t, outcome_keywords, len(papers), cond_ok, link == "cites_trial"),
-            "criteria": structure_criteria(t, llm) if with_criteria else [],
+            "criteria": [],
         }
         if llm:
             cand["mechanism"] = short_sentence(llm(

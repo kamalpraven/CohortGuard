@@ -6,8 +6,10 @@ agents or clinical data.
 """
 from __future__ import annotations
 
+import copy
 import json
 import os
+from functools import lru_cache
 from pathlib import Path
 from typing import Any, Callable, Optional
 
@@ -86,18 +88,22 @@ def make_llm(agent: AgentSession, run_config: dict[str, Any]) -> Callable[[str],
     """
     model = str(run_config.get("model", MODEL))
 
+    client: Any = None
+
     def llm(prompt: str) -> str:
+        nonlocal client
         responses = getattr(agent, "responses", None)
         if responses is not None and hasattr(responses, "create"):
             return _response_text(responses.create(model=model, input=prompt))
 
-        from openai import OpenAI  # imported only inside the AgentApp runtime
+        if client is None:
+            from openai import OpenAI  # imported only inside the AgentApp runtime
 
-        client = OpenAI(
-            base_url=os.environ["FLWR_RUNTIME_BASE_URL"],
-            api_key=os.environ["FLWR_RUNTIME_API_KEY"],
-            max_retries=0,
-        )
+            client = OpenAI(
+                base_url=os.environ["FLWR_RUNTIME_BASE_URL"],
+                api_key=os.environ["FLWR_RUNTIME_API_KEY"],
+                max_retries=0,
+            )
         return _response_text(client.responses.create(model=model, input=prompt))
 
     return llm
@@ -134,12 +140,17 @@ def make_web_fetcher(agent: AgentSession) -> Callable[[str], tuple[int, str]]:
     return fetch
 
 
+@lru_cache(maxsize=None)
+def _read_cached_criteria(path: Path) -> dict[str, Any]:
+    with path.open(encoding="utf-8") as file:
+        return json.load(file)
+
+
 def load_cached_criteria(nct_id: str, cache_dir: str | os.PathLike[str] | None = None) -> dict[str, Any]:
     if not isinstance(nct_id, str) or not NCT_RE.match(nct_id):
         raise ValueError("nct_id must match NCT followed by 8 digits")
     path = Path(cache_dir or DEFAULT_AGENT_CACHE_DIR) / f"criteria_{nct_id}.json"
-    with path.open(encoding="utf-8") as f:
-        return json.load(f)
+    return copy.deepcopy(_read_cached_criteria(path))
 
 
 # Options a request may set in its "options" field. In Flower Chat there is no per-run

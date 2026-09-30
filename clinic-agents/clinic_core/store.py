@@ -2,10 +2,13 @@
 
 from __future__ import annotations
 
+import copy
 import json
 import os
 import re
+from functools import lru_cache
 from pathlib import Path
+from typing import Any
 
 _CORE = Path(__file__).parent
 
@@ -19,23 +22,30 @@ def _find(env_var: str, filename: str, dirs: list[Path]) -> Path:
     raise FileNotFoundError(f"{filename} not found (set {env_var}); tried {candidates}")
 
 
-def load_patients(clinic: str, data_dir: Path | None = None) -> list[dict]:
-    """Read clinic_<x>_patients.json ({"clinic": "A", "patients": [...]}).
+@lru_cache(maxsize=None)
+def _read_json(path: Path) -> Any:
+    return json.loads(path.read_text(encoding="utf-8"))
 
-    Each clinic app ships only its own file and passes its own `data_dir`.
+
+def load_patients(clinic: str, data_dir: Path | None = None) -> list[dict[str, Any]]:
+    """Read and cache one clinic's patient file for the process lifetime.
+
+    Each clinic app ships only its own file and passes its own ``data_dir``.
+    Handlers treat the returned records as read-only.
     """
     dirs = ([data_dir] if data_dir else []) + [Path.cwd() / "data"]
     path = _find(f"CLINIC_{clinic}_DATA", f"clinic_{clinic.lower()}_patients.json", dirs)
-    doc = json.loads(path.read_text())
+    doc = _read_json(path)
     if doc.get("clinic") != clinic:
         raise ValueError(f"{path} belongs to clinic {doc.get('clinic')!r}, not {clinic!r}")
     return doc["patients"]
 
 
-def load_cached_criteria(nct_id: str) -> list[dict]:
+def load_cached_criteria(nct_id: str) -> list[dict[str, Any]]:
     """M3's hand-checked criteria for a demo trial (public trial data)."""
     if not re.fullmatch(r"NCT\d{8}", nct_id):
         raise ValueError(f"bad NCT id: {nct_id!r}")
     path = _find("CRITERIA_CACHE", f"criteria_{nct_id}.json",
                  [_CORE / "trial_cache", _CORE.parent / "cache"])
-    return json.loads(path.read_text())["criteria"]
+    # Validation adds defaults, so callers receive a copy of the cached document.
+    return copy.deepcopy(_read_json(path)["criteria"])

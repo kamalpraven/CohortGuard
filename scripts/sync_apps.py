@@ -44,12 +44,18 @@ def _asset_pairs() -> list[tuple[Path, Path]]:
 
     for app in CLINIC_APPS:
         for source in sorted(CLINIC_CORE.glob("*.py")):
-            pairs.append((source, app / "clinic_core" / source.name))
+            if source.name != "generate_data.py":
+                pairs.append((source, app / "clinic_core" / source.name))
     return pairs
 
 
+def _unexpected_paths() -> list[Path]:
+    """Files deliberately excluded from runtime app bundles."""
+    return [app / "clinic_core" / "generate_data.py" for app in CLINIC_APPS]
+
+
 def find_drift() -> list[str]:
-    """Return descriptions of missing or different generated copies."""
+    """Return descriptions of missing, different, or unexpected generated files."""
     drift: list[str] = []
     for source, destination in _asset_pairs():
         relative = destination.relative_to(ROOT)
@@ -57,6 +63,9 @@ def find_drift() -> list[str]:
             drift.append(f"missing: {relative}")
         elif not filecmp.cmp(source, destination, shallow=False):
             drift.append(f"different: {relative}")
+    drift.extend(
+        f"unexpected: {path.relative_to(ROOT)}" for path in _unexpected_paths() if path.exists()
+    )
     return drift
 
 
@@ -66,6 +75,8 @@ def sync() -> None:
         destination.parent.mkdir(parents=True, exist_ok=True)
         if not destination.exists() or not filecmp.cmp(source, destination, shallow=False):
             shutil.copy2(source, destination)
+    for path in _unexpected_paths():
+        path.unlink(missing_ok=True)
 
 
 def main() -> int:
