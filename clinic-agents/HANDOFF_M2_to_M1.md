@@ -140,13 +140,13 @@ Values are in `clinic_core/privacy.py`.
 
 | Setting           | Value                                                                                   |
 | ----------------- | --------------------------------------------------------------------------------------- |
-| Minimum cell size | 10 (raw count below this is suppressed)                                                 |
+| Minimum cell size | 10 (raw count below this, or any noised released count below this, is suppressed)        |
 | Noise             | Laplace, scale 2.0 per released count                                                   |
 | Budget            | 5.0 total; 0.5 per count                                                                |
 | Cost              | A feasibility query releases 1 count (0.5); a cohort query releases 2 counts per cohort |
 | Ledger file       | `~/.cohortguard/clinic_b_budget.json`                                                   |
 
-The ledger persists across runs. To reset it for a demo, delete that file or set `CLINIC_B_STATE` to a fresh path. The cohort example above spent 0.5 on `q-1` and 2.0 on `q-2`, which is why `budget_remaining` fell from 0.9 to 0.5.
+Post-noise suppressions still charge the privacy budget because the query was evaluated and the threshold decision is itself a release about the noised result. True-count pre-noise suppressions do not charge, matching the previous behavior. The ledger persists across runs. To reset it for a demo, delete that file or set `CLINIC_B_STATE` to a fresh path. The cohort example above spent 0.5 on `q-1` and 2.0 on `q-2`, which is why `budget_remaining` fell from 0.9 to 0.5.
 
 ## Clinic A local-only mode
 
