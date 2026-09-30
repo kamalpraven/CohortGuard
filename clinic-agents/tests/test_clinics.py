@@ -147,8 +147,7 @@ def test_reflection_channels_do_not_echo_canaries(tmp_path):
 
 
 @pytest.mark.parametrize("clinic,req,check", [
-    ("a", {"template": "patient_checklist", "mrn": "A-MRN-0042871", "nct_id": "NCT07060456"},
-     lambda r: r["summary"]["met"] == 5),
+    ("a", FEAS, lambda r: r["status"] == "ok" and "eligible_n" in r),
     ("b", FEAS, lambda r: r["status"] == "ok"),
 ])
 def test_agentapp_main_end_to_end(clinic, req, check, tmp_path, monkeypatch, capsys):
@@ -167,6 +166,32 @@ def test_agentapp_main_end_to_end(clinic, req, check, tmp_path, monkeypatch, cap
     printed = json.loads(capsys.readouterr().out)
     assert check(printed) and printed["clinic"] == clinic.upper()
     assert Agent.events.sent[0]["type"] == "response.output_text.delta"
+
+
+def test_clinic_a_deployment_never_emits_exact_patient_result(tmp_path, monkeypatch, capsys):
+    monkeypatch.setenv("CLINIC_A_STATE", str(tmp_path / "a.json"))
+    from clinic_a import agent_app
+
+    class Events:
+        def __init__(self): self.sent = []
+        def emit(self, event): self.sent.append(event)
+
+    class Agent:
+        prompt = json.dumps({
+            "template": "patient_checklist",
+            "name": CANARIES["A"][0]["name"],
+            "nct_id": "NCT07060456",
+        })
+        events = Events()
+
+    agent_app.main(Agent(), None)
+    printed = capsys.readouterr().out
+    emitted = json.dumps(Agent.events.sent)
+    assert json.loads(printed)["status"] == "rejected"
+    for canary in CANARIES["A"] + CANARIES["B"]:
+        assert canary["name"] not in printed + emitted
+        assert canary["mrn"] not in printed + emitted
+        assert canary["dob"] not in printed + emitted
 
 
 @pytest.mark.parametrize("prompt", ["find patients like Maria", "prefix {\"template\": \"none\"}", "[]", "{bad"])

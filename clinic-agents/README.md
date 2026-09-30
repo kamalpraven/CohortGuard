@@ -2,8 +2,8 @@
 
 Two separate Flower AgentApps, each with its own synthetic patient JSON:
 
-- **`clinic-a-agent/`** — in-house clinic. Exact, local answers for its own doctor (single-patient checklist, local feasibility). Nothing is aggregated or sent out.
-- **`clinic-b-agent/`** — outside clinic. Reads its raw patient JSON, aggregates, applies the privacy gate (min cell 10, Laplace noise, persistent budget ledger, age-band counter-offers) and returns only the fixed response schema for the coordinator.
+- **`clinic-a-agent/`** — deployment AgentApp that releases only privacy-gated aggregates. Exact patient-level work is disabled on Flower and available only through the explicit local CLI.
+- **`clinic-b-agent/`** — deployment AgentApp that reads its local patient JSON, aggregates, applies the same privacy gate, and returns only the fixed response schema.
 
 ## Layout
 
@@ -26,7 +26,8 @@ python ../scripts/sync_apps.py        # cross-platform app vendoring
 python ../scripts/sync_apps.py --check # fail if generated copies drift
 python -m clinic_core.generate_data   # regenerate synthetic JSON + data/canaries.json
 pytest tests                          # clinic tests
-python scripts/run_feasibility.py     # site feasibility for both clinics, locally
+python scripts/run_feasibility.py     # gated site feasibility for both clinics
+python scripts/clinic_a_local.py --allow-exact-local '<JSON>'  # explicit local-only exact mode
 ./scripts/build_clinics.sh            # sync shared code, build both FABs into dist/
 ```
 
