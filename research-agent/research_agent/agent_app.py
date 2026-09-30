@@ -6,8 +6,10 @@ agents or clinical data.
 """
 from __future__ import annotations
 
+import copy
 import json
 import os
+from functools import lru_cache
 from pathlib import Path
 from typing import Any, Callable, Optional
 
@@ -24,8 +26,8 @@ except ModuleNotFoundError:  # pragma: no cover - exercised only outside Flower.
     Context = Any  # type: ignore
 
     class AgentApp:  # minimal decorator shim for local import/tests
-        def main(self):
-            def deco(fn):
+        def main(self) -> Callable[[Callable[..., Any]], Callable[..., Any]]:
+            def deco(fn: Callable[..., Any]) -> Callable[..., Any]:
                 return fn
             return deco
 
@@ -86,18 +88,22 @@ def make_llm(agent: AgentSession, run_config: dict[str, Any]) -> Callable[[str],
     """
     model = str(run_config.get("model", MODEL))
 
+    client: Any = None
+
     def llm(prompt: str) -> str:
+        nonlocal client
         responses = getattr(agent, "responses", None)
         if responses is not None and hasattr(responses, "create"):
             return _response_text(responses.create(model=model, input=prompt))
 
-        from openai import OpenAI  # imported only inside the AgentApp runtime
+        if client is None:
+            from openai import OpenAI  # imported only inside the AgentApp runtime
 
-        client = OpenAI(
-            base_url=os.environ["FLWR_RUNTIME_BASE_URL"],
-            api_key=os.environ["FLWR_RUNTIME_API_KEY"],
-            max_retries=0,
-        )
+            client = OpenAI(
+                base_url=os.environ["FLWR_RUNTIME_BASE_URL"],
+                api_key=os.environ["FLWR_RUNTIME_API_KEY"],
+                max_retries=0,
+            )
         return _response_text(client.responses.create(model=model, input=prompt))
 
     return llm
@@ -134,12 +140,17 @@ def make_web_fetcher(agent: AgentSession) -> Callable[[str], tuple[int, str]]:
     return fetch
 
 
+@lru_cache(maxsize=None)
+def _read_cached_criteria(path: Path) -> dict[str, Any]:
+    with path.open(encoding="utf-8") as file:
+        return json.load(file)
+
+
 def load_cached_criteria(nct_id: str, cache_dir: str | os.PathLike[str] | None = None) -> dict[str, Any]:
     if not isinstance(nct_id, str) or not NCT_RE.match(nct_id):
         raise ValueError("nct_id must match NCT followed by 8 digits")
     path = Path(cache_dir or DEFAULT_AGENT_CACHE_DIR) / f"criteria_{nct_id}.json"
-    with path.open(encoding="utf-8") as f:
-        return json.load(f)
+    return copy.deepcopy(_read_cached_criteria(path))
 
 
 # Options a request may set in its "options" field. In Flower Chat there is no per-run
@@ -151,8 +162,20 @@ def _truthy(v: Any) -> bool:
     return v is True or (isinstance(v, str) and v.strip().lower() in {"1", "true", "yes"})
 
 
+ERROR_DETAILS = {
+    "not_in_cache": "The requested replay data is unavailable.",
+    "unknown_trial": "Structured criteria are unavailable for that trial.",
+    "bad_request": "The request is invalid.",
+    "internal_error": "The request could not be completed.",
+}
+
+
+def _error(code: str) -> dict[str, str]:
+    return {"type": "error", "error": code, "detail": ERROR_DETAILS[code]}
+
+
 def safe_handle_request(request: Any, **kw: Any) -> dict[str, Any]:
-    """handle_request, but errors come back as JSON instead of crashing the run."""
+    """Return stable JSON errors without exposing exception text."""
     try:
         if not isinstance(request, dict):
             raise ValueError("the prompt must be a JSON object")
@@ -165,12 +188,13 @@ def safe_handle_request(request: Any, **kw: Any) -> dict[str, Any]:
         kw["run_config"] = {**(kw.get("run_config") or {}), **options}
         return handle_request(request, **kw)
     except CacheMiss:
-        return {"type": "error", "error": "not_in_cache",
-                "detail": "Request not in the recorded cache. Use the demo condition or run in live/record mode."}
+        return _error("not_in_cache")
     except FileNotFoundError:
-        return {"type": "error", "error": "unknown_trial", "detail": "No structured criteria for that trial."}
-    except (ValueError, json.JSONDecodeError) as e:
-        return {"type": "error", "error": "bad_request", "detail": str(e)}
+        return _error("unknown_trial")
+    except (ValueError, json.JSONDecodeError, TypeError, KeyError, IndexError):
+        return _error("bad_request")
+    except Exception:
+        return _error("internal_error")
 
 
 def handle_request(

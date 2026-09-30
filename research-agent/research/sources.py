@@ -6,6 +6,7 @@ The LLM never fills these fields; it only adds narrative (mechanism, relevance).
 from __future__ import annotations
 
 import re
+from collections.abc import Sequence
 from typing import Dict, List, Optional
 
 from .http_cache import Http
@@ -46,7 +47,7 @@ def normalize_study(study: dict) -> dict:
 
 
 def search_trials(http: Http, condition: str, intervention: Optional[str] = None,
-                  statuses=("RECRUITING",), page_size: int = 20) -> List[dict]:
+                  statuses: Sequence[str] = ("RECRUITING",), page_size: int = 20) -> List[dict]:
     params = {
         "query.cond": condition,
         "query.intr": intervention,
@@ -105,7 +106,9 @@ def summarize_pmids(http: Http, pmids: List[str]) -> Dict[str, dict]:
     return out
 
 
-def papers_for_trial_linked(http: Http, trial: dict, retmax: int = 3):
+def papers_for_trial_linked(
+    http: Http, trial: dict, retmax: int = 3
+) -> tuple[List[str], str | None]:
     """(pmids, link). link says how the papers relate to the trial:
       "cites_trial"             - the paper cites this trial's NCT ID
       "same_drug_and_condition" - fallback: same drug and condition, NOT about this trial

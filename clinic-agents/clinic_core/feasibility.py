@@ -16,7 +16,7 @@ from __future__ import annotations
 
 from .criteria import is_potentially_eligible, unchecked_criteria
 from .privacy import PrivacyGate
-from .templates import BadRequest, validate_criteria
+from .templates import validate_criteria
 
 
 def feasibility_count(
@@ -36,4 +36,4 @@ def feasibility_count(
             "noise_scale": rel["noise_scale"], "budget_remaining": rel["budget_remaining"]}
 
 
-__all__ = ["feasibility_count", "BadRequest"]
+__all__ = ["feasibility_count"]

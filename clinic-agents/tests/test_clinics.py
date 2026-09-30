@@ -1,9 +1,11 @@
-"""Run from repo root after scripts/sync_clinics.sh:  pytest tests"""
+"""Run from clinic-agents after ``python ../scripts/sync_apps.py``: pytest tests."""
 
 import importlib
 import json
 import random
+import subprocess
 import sys
+import tomllib
 from pathlib import Path
 
 import pytest
@@ -26,6 +28,12 @@ FEAS = {"template": "feasibility_count", "nct_id": "NCT07060456"}
 COHORT = {"template": "outcome_rate_by_cohort", "cohort_field": "medication",
           "cohorts": ["sglt2_inhibitor", "sulfonylurea"], "outcome": "readmit_30d",
           "filters": {"diagnosis": "T2D", "age_band": "50-59"}}
+
+
+def test_generated_app_copies_match_canonical_sources():
+    script = ROOT.parent / "scripts" / "sync_apps.py"
+    result = subprocess.run([sys.executable, str(script), "--check"], capture_output=True, text=True)
+    assert result.returncode == 0, result.stdout + result.stderr
 
 
 def gate(tmp_path, seed=1):
@@ -59,6 +67,17 @@ def test_clinic_b_feasibility_is_noised_and_charged(tmp_path):
     assert r["status"] == "ok" and r["eligible_n"] >= 20
     assert abs(r["eligible_n"] - exact["eligible_n"]) < 30
     assert r["budget_remaining"] < 1.0 and "eligible_mrns" not in r
+
+
+def test_clinic_b_feasibility_fixed_seed_regression(tmp_path):
+    """Pin Clinic B's released values while cleanup refactors its request path."""
+    r = handle_clinic_b(FEAS, B, gate(tmp_path, seed=1))
+    assert {k: r[k] for k in ("eligible_n", "noise_scale", "budget_remaining")} == {
+        "eligible_n": 81,
+        "noise_scale": 2.0,
+        "budget_remaining": 0.9,
+    }
+    assert r["status"] == "ok" and len(r["unchecked_criteria"]) == 8
 
 
 def test_cohort_rate_pct_derived_from_released_counts(tmp_path):
@@ -111,12 +130,29 @@ def test_no_canary_leaves_clinic_b(tmp_path):
         assert c["name"] not in out and c["mrn"] not in out and c["dob"] not in out
 
 
+def test_reflection_channels_do_not_echo_canaries(tmp_path):
+    canary = CANARIES["A"][0]["name"]
+    responses = [
+        handle_clinic_b(FEAS | {"request_id": canary}, B, gate(tmp_path / "id")),
+        handle_clinic_b({"template": canary, "request_id": "safe-id"}, B, gate(tmp_path / "template")),
+        handle_clinic_b(
+            FEAS | {"criteria": [{"field": "unmapped", "checkable": False, "source_text": canary}]},
+            B,
+            gate(tmp_path / "criteria"),
+        ),
+    ]
+    assert canary not in json.dumps(responses)
+    assert responses[0]["request_id"] is None and responses[0]["reason"] == "invalid_request"
+    assert responses[1]["request_id"] == "safe-id" and responses[1]["reason"] == "invalid_request"
+    assert responses[2]["unchecked_criteria"] == ["criterion_1"]
+
+
 @pytest.mark.parametrize("clinic,req,check", [
-    ("a", {"template": "patient_checklist", "mrn": "A-MRN-0042871", "nct_id": "NCT07060456"},
-     lambda r: r["summary"]["met"] == 5),
+    ("a", FEAS, lambda r: r["status"] == "ok" and "eligible_n" in r),
     ("b", FEAS, lambda r: r["status"] == "ok"),
 ])
 def test_agentapp_main_end_to_end(clinic, req, check, tmp_path, monkeypatch, capsys):
+    monkeypatch.setenv("CLINIC_A_STATE", str(tmp_path / "a.json"))
     monkeypatch.setenv("CLINIC_B_STATE", str(tmp_path / "b.json"))
     mod = importlib.import_module(f"clinic_{clinic}.agent_app")
 
@@ -125,13 +161,85 @@ def test_agentapp_main_end_to_end(clinic, req, check, tmp_path, monkeypatch, cap
         def emit(self, e): self.sent.append(e)
 
     class Agent:
-        prompt = "Coordinator request: " + json.dumps(req)
+        prompt = json.dumps(req)
         events = Events()
 
     mod.main(Agent(), None)
     printed = json.loads(capsys.readouterr().out)
     assert check(printed) and printed["clinic"] == clinic.upper()
     assert Agent.events.sent[0]["type"] == "response.output_text.delta"
+
+
+def test_clinic_a_fab_excludes_exact_local_handler():
+    with (ROOT / "clinic-a-agent" / "pyproject.toml").open("rb") as file:
+        includes = tomllib.load(file)["tool"]["flwr"]["app"]["fab-include"]
+    assert "clinic_a/clinic.py" not in includes
+    assert not any(pattern == "clinic_a/**/*.py" for pattern in includes)
+
+
+def test_clinic_a_deployment_never_emits_exact_patient_result(tmp_path, monkeypatch, capsys):
+    monkeypatch.setenv("CLINIC_A_STATE", str(tmp_path / "a.json"))
+    from clinic_a import agent_app
+
+    class Events:
+        def __init__(self): self.sent = []
+        def emit(self, event): self.sent.append(event)
+
+    class Agent:
+        prompt = json.dumps({
+            "template": "patient_checklist",
+            "name": CANARIES["A"][0]["name"],
+            "nct_id": "NCT07060456",
+        })
+        events = Events()
+
+    agent_app.main(Agent(), None)
+    printed = capsys.readouterr().out
+    emitted = json.dumps(Agent.events.sent)
+    assert json.loads(printed)["status"] == "rejected"
+    for canary in CANARIES["A"] + CANARIES["B"]:
+        assert canary["name"] not in printed + emitted
+        assert canary["mrn"] not in printed + emitted
+        assert canary["dob"] not in printed + emitted
+
+
+@pytest.mark.parametrize("prompt", ["find patients like Maria", "prefix {\"template\": \"none\"}", "[]", "{bad"])
+def test_agentapp_rejects_non_object_or_free_text_without_model(prompt, capsys):
+    from clinic_b import agent_app
+
+    class Events:
+        def __init__(self): self.sent = []
+        def emit(self, event): self.sent.append(event)
+
+    class Agent:
+        events = Events()
+
+    Agent.prompt = prompt
+    agent_app.main(Agent(), None)
+    result = json.loads(capsys.readouterr().out)
+    assert result == {"clinic": "B", "status": "rejected", "reason": "no_valid_request"}
+
+
+def test_agentapp_failure_is_generic_json(monkeypatch, capsys):
+    from clinic_b import agent_app
+
+    secret = CANARIES["B"][0]["name"]
+    monkeypatch.setattr(agent_app, "load_patients", lambda *_args: (_ for _ in ()).throw(OSError(secret)))
+
+    class Events:
+        def __init__(self): self.sent = []
+        def emit(self, event): self.sent.append(event)
+
+    class Agent:
+        prompt = json.dumps(FEAS)
+        events = Events()
+
+    agent_app.main(Agent(), None)
+    output = capsys.readouterr().out + json.dumps(Agent.events.sent)
+    assert secret not in output
+    assert json.loads(output.splitlines()[0]) == {
+        "clinic": "B", "status": "error", "reason": "internal_error"
+    }
 
 
 RESEARCH_CRITERIA = ROOT.parent / "research-agent" / "cache" / "criteria_NCT07060456.json"

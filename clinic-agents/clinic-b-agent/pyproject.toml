@@ -8,7 +8,9 @@ version = "0.1.0"
 description = "CohortGuard Clinic B: outside clinic AgentApp (aggregates via privacy gate)"
 license = { file = "LICENSE" }
 requires-python = ">=3.11,<4.0"
-dependencies = ["flwr>=1.38.0,<2.0", "openai>=2.16.0,<3.0.0"]
+dependencies = [
+    "flwr>=1.38.0,<2.0",
+]
 
 [tool.hatch.build.targets.wheel]
 packages = ["clinic_b", "clinic_core", "shared"]
@@ -23,8 +25,10 @@ fab-include = [
   "shared/*.py", "LICENSE",
 ]
 
-[tool.flwr.app.config]
-model = "MiniMaxAI/MiniMax-M3"
-
 [tool.flwr.app.components]
 agentapp = "clinic_b.agent_app:app"
+
+[dependency-groups]
+dev = [
+    "pytest>=9.1.1",
+]

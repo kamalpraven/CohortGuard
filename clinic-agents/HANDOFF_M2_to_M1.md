@@ -2,7 +2,7 @@
 
 From: M2 (Data & Privacy) · To: M1 (Platform & Coordinator)
 
-Two separate Flower AgentApps. Clinic B is the one the coordinator calls. Clinic A is in-house and returns exact patient-level answers to its own doctor only.
+Two separate Flower AgentApps. Both deployment apps release only privacy-gated aggregates. Clinic A exact patient-level workflows are available only through an explicit local CLI that does not use Flower.
 
 ## Build
 
@@ -12,15 +12,15 @@ cd clinic-agents
 pytest tests                              # 19 tests
 ```
 
-Apps live in `clinic-a-agent/` and `clinic-b-agent/` (hyphenated, because `flwr build` rejects underscores in the app folder name). Build them in place with `./scripts/sync_clinics.sh` then `flwr build` inside each folder.
+Apps live in `clinic-a-agent/` and `clinic-b-agent/` (hyphenated, because `flwr build` rejects underscores in the app folder name). From `clinic-agents/`, run `python ../scripts/sync_apps.py`, then run `flwr build` inside each app folder.
 
 Clinic A's patient JSON ships only in the clinic-a FAB. Clinic B's ships only in the clinic-b FAB.
 
 ## How to call
 
-Put one JSON object in the AgentApp prompt (surrounding text is fine). The reply is a single JSON object, printed as the run's final text and also emitted as `response.output_text.delta` then `response.completed` events. If the prompt has no JSON, the agent asks the runtime model to build the request. Code validates it either way.
+Put one complete JSON object in the AgentApp prompt. Surrounding text, free text, arrays, and malformed JSON are rejected without calling a model. The reply is a single JSON object, printed as the run's final text and also emitted as `response.output_text.delta` then `response.completed` events.
 
-If no JSON request can be found, the reply is `{"clinic":"B","status":"rejected","reason":"no_valid_request"}`.
+If a structured JSON object is not provided, the reply is `{"clinic":"B","status":"rejected","reason":"no_valid_request"}`.
 
 ## Site feasibility: the function to call
 
@@ -37,7 +37,7 @@ feasibility_count(clinic, nct_id, criteria, patients, gate)   # clinic: "A" or "
 {"nct_id":"NCT07060456","clinic":"A","eligible_n":77,"unchecked_criteria":["..."],"status":"ok","noise_scale":2.0,"budget_remaining":0.9}
 ```
 
-Both clinics answer the template `{"template":"feasibility_count","nct_id":"NCT07060456"}` through their AgentApp, so the coordinator can call either. Clinic A's count is gated exactly like B's (its own budget ledger, `~/.cohortguard/clinic_a_budget.json`, override `CLINIC_A_STATE`). A's exact in-house `feasibility_local` is unchanged and never leaves the clinic.
+Both clinics answer `{"template":"feasibility_count","nct_id":"NCT07060456"}` through their AgentApp using separate privacy ledgers. Clinic A exact local templates are rejected by its AgentApp and can run only with `scripts/clinic_a_local.py --allow-exact-local`.
 
 Local run, no Grid: `python scripts/run_feasibility.py` (uses throwaway ledgers).
 
@@ -148,20 +148,16 @@ Values are in `clinic_core/privacy.py`.
 
 The ledger persists across runs. To reset it for a demo, delete that file or set `CLINIC_B_STATE` to a fresh path. The cohort example above spent 0.5 on `q-1` and 2.0 on `q-2`, which is why `budget_remaining` fell from 0.9 to 0.5.
 
-## Clinic A (in-house)
+## Clinic A local-only mode
 
-Clinic A is for the Doctor agent inside Clinic A, not for the coordinator. Its replies carry `"scope":"in_house"` and are exact, with no noise.
+Clinic A's deployed AgentApp accepts only the same gated aggregate templates as Clinic B. Exact templates are rejected before any result is emitted or printed.
 
-- `patient_checklist` takes `mrn` or `name` plus `nct_id` (or `criteria`) and returns a met / not_met / unknown checklist. For Maria against NCT07060456 the summary is 5 met, 1 not met, 8 unknown.
-- `feasibility_local` returns the exact eligible count and MRNs.
-- `outcome_rate_by_cohort` returns exact `n`, `events` and `rate_pct`.
-
-Decision for the team: the demo script says "Clinic A ≈ 30" from the coordinator. If A's count should reach the coordinator, A needs the same gate. Right now it does not send anything out.
+For an authorized operator working directly on the clinic machine, `scripts/clinic_a_local.py --allow-exact-local '<JSON>'` exposes the existing `patient_checklist`, `feasibility_local`, and exact cohort workflows without Flower or a SuperLink. The acknowledgement flag is mandatory and exact mode is off by default.
 
 ## Synthetic data
 
 - Clinic A has 524 patients and Clinic B has 644, using M3's vocabulary.
-- Potentially eligible for NCT07060456: 77 in A, 84 in B.
+- Both clinics have enough potentially eligible synthetic patients to exceed the disclosure threshold; exact pre-noise counts remain local.
 - Clinic B skews older than A.
 - The planted effect is that SGLT2 users have lower 30-day readmission than sulfonylurea users.
 - Canaries and rare cases are in `data/canaries.json` (also needed by M4).
@@ -171,4 +167,3 @@ Decision for the team: the demo script says "Clinic A ≈ 30" from the coordinat
 
 - Running on a real SuperLink or SuperGrid. Everything so far is local, with a fake AgentSession.
 - The exact way the coordinator retrieves each agent's reply. The event shape is inferred from the template.
-- The natural-language path through the runtime model.

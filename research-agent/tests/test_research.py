@@ -6,6 +6,7 @@ import json
 import os
 import sys
 import tempfile
+import tomllib
 import urllib.parse
 
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
@@ -13,7 +14,7 @@ sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from research.candidates import build_candidates
 from research.criteria import parse_age, registry_criteria, structure_criteria, validate_criteria
 from research.grounding import grounding_gate, verify_candidate
-from research.http_cache import CacheMiss, Http
+from research.http_cache import Http
 from research.injection import detect_injection
 from research_agent.agent_app import handle_request, main as agent_main
 from shared.allowlist import ALLOWLIST, DIAGNOSIS_CODES, MEDICATION_CLASSES, SEX_VALUES
@@ -300,11 +301,19 @@ def test_grounding_fails_closed_on_cache_miss():
 
 
 def test_maria_uses_shared_vocabulary():
-    p = os.path.join(os.path.dirname(__file__), "..", "samples", "maria_profile.json")
+    p = os.path.join(os.path.dirname(__file__), "..", "..", "shared", "test_fixtures", "maria_profile.json")
     m = json.load(open(p, encoding="utf-8"))["patient"]
     assert m["sex"] in SEX_VALUES
     assert set(m["diagnoses"]) <= DIAGNOSIS_CODES
     assert set(m["current_medications"]) <= MEDICATION_CLASSES
+
+
+def test_research_fab_excludes_patient_like_samples():
+    root = os.path.dirname(os.path.dirname(__file__))
+    with open(os.path.join(root, "pyproject.toml"), "rb") as file:
+        includes = tomllib.load(file)["tool"]["flwr"]["app"]["fab-include"]
+    assert not any("samples" in pattern or "test_fixtures" in pattern for pattern in includes)
+    assert not os.path.exists(os.path.join(root, "samples", "maria_profile.json"))
 
 
 # ---------------------------------------------------------------- web page / injection
@@ -363,7 +372,31 @@ def test_options_in_request_json():
 def test_unknown_option_rejected():
     out = safe_handle_request({"type": "pipeline", "condition": "type 2 diabetes", "outcome_keywords": [],
                                "options": {"cache_dir": "/etc"}})
-    assert out["error"] == "bad_request" and "unknown options" in out["detail"]
+    assert out == {"type": "error", "error": "bad_request", "detail": "The request is invalid."}
+
+
+def test_failures_return_generic_json_without_exception_text():
+    secret = "sensitive exception detail"
+
+    def failing_llm(_prompt):
+        raise RuntimeError(secret)
+
+    out = safe_handle_request(
+        {"type": "pipeline", "condition": "type 2 diabetes", "outcome_keywords": ["readmission"]},
+        run_config={"http_mode": "replay"},
+        llm=failing_llm,
+    )
+    assert out == {
+        "type": "error",
+        "error": "internal_error",
+        "detail": "The request could not be completed.",
+    }
+    assert secret not in json.dumps(out)
+    bad_mode = safe_handle_request(
+        {"type": "pipeline", "condition": "type 2 diabetes", "outcome_keywords": []},
+        run_config={"http_mode": secret},
+    )
+    assert bad_mode["error"] == "bad_request" and secret not in json.dumps(bad_mode)
 
 
 class ChatAgent:

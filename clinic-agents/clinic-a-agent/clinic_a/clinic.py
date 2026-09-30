@@ -8,7 +8,13 @@ from __future__ import annotations
 from clinic_core.criteria import checklist, is_potentially_eligible, unchecked_criteria
 from clinic_core.feasibility import feasibility_count
 from clinic_core.privacy import PrivacyGate
-from clinic_core.templates import BadRequest, cohort_counts, cohort_filters, criteria_from
+from clinic_core.templates import (
+    BadRequest,
+    cohort_counts,
+    cohort_filters,
+    criteria_from,
+    request_id_from,
+)
 
 
 
@@ -32,8 +38,9 @@ def _next_step(summary: dict) -> str:
 
 
 def handle_clinic_a(req: dict, patients: list[dict], gate: PrivacyGate | None = None) -> dict:
-    base = {"request_id": req.get("request_id"), "clinic": "A", "scope": "in_house"}
+    base = {"request_id": None, "clinic": "A", "scope": "in_house"}
     try:
+        base["request_id"] = request_id_from(req)
         template = req.get("template")
         if template == "patient_checklist":
             criteria = criteria_from(req)
@@ -59,8 +66,8 @@ def handle_clinic_a(req: dict, patients: list[dict], gate: PrivacyGate | None = 
             filters, _ = cohort_filters(req)
             return {**base, "status": "ok", "template": template,
                     "results": cohort_counts(req, patients, filters)}
-        raise BadRequest(f"unknown template {template!r}")
-    except BadRequest as e:
-        return {**base, "status": "rejected", "reason": str(e)}
+        raise BadRequest("unknown template")
+    except BadRequest:
+        return {**base, "status": "rejected", "reason": "invalid_request"}
 
 

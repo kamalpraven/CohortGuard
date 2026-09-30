@@ -10,7 +10,7 @@ Failures are dropped and logged for the evaluation harness (M4).
 from __future__ import annotations
 
 import re
-from typing import List, Tuple
+from typing import Any, List, Tuple
 
 from .http_cache import CacheMiss, Http
 from .sources import NCT_RE, get_trial, summarize_pmids
@@ -66,7 +66,9 @@ def verify_candidate(http: Http, cand: dict) -> Tuple[bool, List[str]]:
     return (not reasons), reasons
 
 
-def grounding_gate(http: Http, candidates: List[dict], log: list | None = None):
+def grounding_gate(
+    http: Http, candidates: List[dict], log: list[dict[str, Any]] | None = None
+) -> tuple[list[dict], list[dict]]:
     kept, dropped = [], []
     for c in candidates:
         ok, reasons = verify_candidate(http, c)
