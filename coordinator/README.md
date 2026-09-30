@@ -36,7 +36,21 @@ The coordinator FAB contains shared clinic/research code and public replay cache
 
 ## Local SuperLink plus three SuperNodes
 
-The commands below were verified with Flower 1.39 on Windows using separate Git Bash terminals. Replace paths if the clone is elsewhere.
+On Windows, use **Git Bash** for the helper scripts and set `PYTHONUTF8=1` for Flower commands. PowerShell can split the quoted `--node-config` string incorrectly, causing SuperNode startup failures. Replace paths if the clone is elsewhere.
+
+Recommended fresh demo session flow from the repository root:
+
+```shell
+# Session selects new ledger filenames only. Existing ledgers are never deleted or reset.
+scripts/start_local_grid.sh --session demo-001
+sleep 15
+PYTHONUTF8=1 coordinator/.venv/Scripts/python.exe scripts/run_local_demo.py
+scripts/stop_local_grid.sh
+```
+
+`run_local_demo.py` submits all three workflows plus the Maria identifier case through the local SuperLink and scans the streamed Flower run events plus `runtime-logs/*.log` for Maria's identifiers. It prints `canary hits: 0` on success and exits nonzero on any hit.
+
+The manual commands below were verified with Flower 1.39 on Windows using separate Git Bash terminals.
 
 Add the Control API connection to `%USERPROFILE%\.flwr\config.toml`:
 
@@ -88,6 +102,16 @@ uv run --project coordinator python doctor-agent/app.py
 ```
 
 The Doctor Agent builds/submits the local coordinator FAB using Flower's Control API. Raw doctor text remains in the Clinic A desktop process; only its scrubbed structured request becomes the AgentApp prompt.
+
+## Canary hash boundary
+
+The coordinator bundle includes salted SHA-256 hashes of normalized planted canary values, generated locally from `clinic-agents/data/canaries.json` by:
+
+```shell
+python scripts/build_canary_hashes.py
+```
+
+The coordinator does not ship `canaries.json` or plaintext canary identifiers. It hashes normalized 1-3 word n-grams from incoming requests and rejects matches before any model or Grid call. Known limitation: because the salt ships with the hash file, low-entropy values such as DOBs and MRNs could be brute-forced. This is a bundle hygiene and regression-test control, not a cryptographic privacy guarantee.
 
 ## Role-to-node-ID pinning
 
