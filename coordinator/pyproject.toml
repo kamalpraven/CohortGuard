@@ -24,6 +24,7 @@ fab-format-version = 1
 flwr-version-target = "1.39.0"
 fab-include = [
   "cohortguard_coordinator/**/*.py",
+  "cohortguard_coordinator/canary_hashes.json",
   "clinic_core/**/*.py",
   "research/**/*.py",
   "research_agent/**/*.py",

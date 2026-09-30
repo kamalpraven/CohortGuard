@@ -7,6 +7,8 @@ import re
 from collections.abc import Iterable
 from typing import Any
 
+from .canary_hashes import contains_hashed_canary
+
 # Deliberately broad: false positives are safer than sending an identifier to Grid/model.
 _PATTERNS: tuple[tuple[str, re.Pattern[str]], ...] = (
     ("mrn", re.compile(r"(?i)\b[A-Z]{1,8}-MRN-[A-Z0-9-]*\d[A-Z0-9-]*\b")),
@@ -50,7 +52,7 @@ def contains_identifier(value: Any, *, include_names: bool = True) -> bool:
 
 def assert_deidentified(value: Any, *, include_names: bool = True) -> None:
     """Reject a boundary value containing an identifier without echoing it."""
-    if contains_identifier(value, include_names=include_names):
+    if contains_identifier(value, include_names=include_names) or contains_hashed_canary(value):
         raise ValueError("identifier_detected")
 
 

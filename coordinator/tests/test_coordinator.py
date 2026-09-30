@@ -3,6 +3,7 @@ from __future__ import annotations
 import json
 import logging
 import sys
+import zipfile
 from pathlib import Path
 from types import SimpleNamespace
 
@@ -209,6 +210,36 @@ def test_research_web_page_log_is_removed(monkeypatch):
         "type": "web_page", "url": "https://example.test", "status": 200,
         "summary": "safe", "injection_detected": True,
     }
+
+
+def test_hashed_exact_canary_rejected_before_grid_call():
+    grid = FakeGrid()
+    request = base_request("trial_pipeline") | {
+        "question": "Evaluate rare record A-9101 for trial matching",
+        "condition": "type 2 diabetes",
+        "outcome_keywords": [],
+    }
+    agent = Agent(json.dumps(request), grid)
+    main(agent, context({"model": ""}))
+    assert grid.calls == []
+    assert json.loads(agent.events.sent[0]["delta"])["error"] == "request_rejected"
+
+
+def test_coordinator_fab_contains_no_raw_canary_values():
+    canaries = json.loads((ROOT / "clinic-agents/data/canaries.json").read_text(encoding="utf-8"))
+    raw_values = {
+        str(record[key]).encode("utf-8")
+        for records in canaries.values()
+        for record in records
+        for key in ("name", "mrn", "dob")
+    }
+    fab_paths = list((ROOT / "coordinator").glob("*.fab"))
+    assert fab_paths, "Build a coordinator FAB before running this assertion."
+    for fab_path in fab_paths:
+        with zipfile.ZipFile(fab_path) as archive:
+            for name in archive.namelist():
+                data = archive.read(name)
+                assert not any(raw in data for raw in raw_values), f"raw canary found in {fab_path}:{name}"
 
 
 def test_grid_timeout_cap_stays_well_below_task_limit():
