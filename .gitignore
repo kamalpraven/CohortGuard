@@ -22,3 +22,6 @@ coordinator/research/
 coordinator/research_agent/
 coordinator/shared/
 coordinator/cache/
+
+# Local grid process logs from scripts/start_local_grid.sh.
+runtime-logs/

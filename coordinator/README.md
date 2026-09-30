@@ -42,13 +42,19 @@ Recommended fresh demo session flow from the repository root:
 
 ```shell
 # Session selects new ledger filenames only. Existing ledgers are never deleted or reset.
-scripts/start_local_grid.sh --session demo-001
+scripts/start_local_grid.sh --session demo-main-001
 sleep 15
-PYTHONUTF8=1 coordinator/.venv/Scripts/python.exe scripts/run_local_demo.py
+PYTHONUTF8=1 coordinator/.venv/Scripts/python.exe scripts/run_local_demo.py --demo main
+scripts/stop_local_grid.sh
+
+# Separate fresh session for the SGLT2 suppression example.
+scripts/start_local_grid.sh --session demo-sglt2-001
+sleep 15
+PYTHONUTF8=1 coordinator/.venv/Scripts/python.exe scripts/run_local_demo.py --demo sglt2_suppression
 scripts/stop_local_grid.sh
 ```
 
-`run_local_demo.py` submits all three workflows plus the Maria identifier case through the local SuperLink and scans the streamed Flower run events plus `runtime-logs/*.log` for Maria's identifiers. It prints `canary hits: 0` on success and exits nonzero on any hit.
+`--demo main` runs, in order, the primary cohort question (metformin vs basal insulin), the Maria identifier case (same comparison, so it shows redaction and a released result), the trial pipeline and site feasibility: 2.0 + 2.0 + 0.5 = 4.5 of 5.0 epsilon per clinic. `--demo sglt2_suppression` runs the SGLT2 vs sulfonylurea 50-59 comparison on a fresh budget, where it is suppressed because its event counts are too small. Both sets live in `scripts/demo_plan.py`, which checks each expected outcome. The script scans the streamed Flower run events plus `runtime-logs/*.log` for Maria's identifiers, prints `canary hits: 0` on success and exits nonzero on any hit or unexpected outcome.
 
 The manual commands below were verified with Flower 1.39 on Windows using separate Git Bash terminals.
 

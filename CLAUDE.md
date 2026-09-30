@@ -39,9 +39,11 @@ python scripts/build_canary_hashes.py  # regenerate coordinator/cohortguard_coor
 End-to-end local demo (Git Bash):
 
 ```shell
-scripts/start_local_grid.sh --session demo-001   # SuperLink + 3 SuperNodes; logs in runtime-logs/
-PYTHONUTF8=1 coordinator/.venv/Scripts/python.exe scripts/run_local_demo.py   # must print "canary hits: 0"
+scripts/start_local_grid.sh --session demo-main-<new>   # SuperLink + 3 SuperNodes; logs in runtime-logs/
+PYTHONUTF8=1 coordinator/.venv/Scripts/python.exe scripts/run_local_demo.py --demo main   # must print "canary hits: 0"
 scripts/stop_local_grid.sh
+# then a second fresh session for: run_local_demo.py --demo sglt2_suppression   (sets defined in scripts/demo_plan.py)
+PYTHONUTF8=1 coordinator/.venv/Scripts/python.exe scripts/run_clinic_attack_suite.py   # offline, seeded; also run by coordinator/tests/test_attack_suite.py
 uv run --project coordinator python doctor-agent/app.py   # Tk Doctor Agent UI
 ```
 
