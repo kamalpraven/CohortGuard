@@ -43,6 +43,25 @@ canary hits: 0
 ```
 
 The SGLT2 inhibitor vs sulfonylurea cohort workflow recovered the planted synthetic effect direction: the sulfonylurea cohort had a higher noised 30-day readmission rate than the SGLT2 inhibitor cohort. This is an observational aggregate comparison over synthetic data, not a causal estimate.
+## Live on SuperGrid
+
+These are screenshots of real coordinator runs on Flower SuperGrid (model: `flwrlabs/endeavor-1.0`), not mockups.
+
+**Identifiers never reach the coordinator.** The doctor agent scrubs Maria's name, alternate name, MRN and date of birth inside Clinic A before anything is sent. The coordinator receives `[REDACTED_IDENTIFIER]` placeholders and the analysis still runs.
+
+![Redacted request and cohort comparison](docs/media/supergrid-maria-redacted-cohort.png)
+
+**Cohort comparison across two clinics,** from noised, privacy-gated counts, with the rate difference and confidence interval computed in code. Observational, on synthetic data; it recovers the direction of the effect planted in the data generator.
+
+![Cohort comparison](docs/media/supergrid-cohort-comparison.png)
+
+**Site feasibility:** trial criteria go into each clinic; only noised upper-bound counts come back.
+
+![Site feasibility](docs/media/supergrid-site-feasibility.png)
+
+**Trial pipeline:** every candidate verified against ClinicalTrials.gov; the summary says plainly when no trial matches the outcome of interest.
+
+![Trial pipeline](docs/media/supergrid-trial-pipeline.png)
 
 ## Local/SuperGrid helper scripts
 
