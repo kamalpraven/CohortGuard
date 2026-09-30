@@ -42,7 +42,7 @@ sys.path[:0] = [
 ]
 
 from clinic_core.aggregate import handle_gated_aggregate  # noqa: E402
-from clinic_core.privacy import EPSILON_PER_COUNT, MIN_CELL, TOTAL_BUDGET, BudgetLedger, PrivacyGate  # noqa: E402
+from clinic_core.privacy import EPSILON_PER_COUNT, MIN_CELL, TOTAL_BUDGET, BudgetLedger, LedgerUnavailable, PrivacyGate  # noqa: E402
 from clinic_core.store import load_patients  # noqa: E402
 from cohortguard_coordinator.agent_app import main as coordinator_main  # noqa: E402
 from doctor_agent.core import LocalContext, prepare_coordinator_request  # noqa: E402
@@ -80,8 +80,9 @@ class MemoryLedger(BudgetLedger):
     def _spent(self) -> float:
         return self.spent
 
-    def charge(self, cost: float) -> None:
+    def charge(self, cost: float) -> float:
         self.spent += cost
+        return max(0.0, self.total - self.spent)
 
 
 # ---------------------------------------------------------------------------
@@ -125,6 +126,10 @@ class Nodes:
     def __init__(self, ledger_dir: Path) -> None:
         self.ledgers = {role: ledger_dir / f"{role}_budget.json" for role in DATA_PATHS}
         self.stdout: list[str] = []
+        for path in self.ledgers.values():  # as the start scripts do: create once, then continue
+            if not path.exists():
+                path.parent.mkdir(parents=True, exist_ok=True)
+                BudgetLedger.create_session(path)
 
     def node_config(self, role: str) -> dict[str, str]:
         if role == "research":
@@ -603,6 +608,31 @@ def budget_cases(ledger_root: Path, seed: int) -> list[Case]:
     cases.append(Case("budget_exhaustion", "exhaustion is per clinic and releases no counts",
                       untouched == 0.0 and extra_cohort.get("results") == [] and beyond.get("eligible_n") is None,
                       f"clinic_b spent {untouched:g}"))
+
+    # Resetting the budget by corrupting or deleting the ledger fails closed.
+    for label, tamper in (("corrupted", lambda path: path.write_text("{", encoding="utf-8")),
+                          ("deleted", lambda path: path.unlink())):
+        nodes = Nodes(ledger_root / f"tamper-{label}")
+        for _ in range(9):
+            nodes.call("clinic_a", feas)
+        tamper(nodes.ledgers["clinic_a"])
+        replies = [nodes.call("clinic_a", request) for request in (feas, main_cohort)]
+        try:
+            BudgetLedger.create_session(nodes.ledgers["clinic_a"])
+            recreated = True
+        except (FileExistsError, LedgerUnavailable):
+            recreated = False
+        ok = all(r.get("reason") == "privacy_ledger_unavailable" and not r.get("results") and r.get("eligible_n") is None
+                 for r in replies) and not recreated
+        cases.append(Case("budget_exhaustion", f"{label} ledger mid-session refuses every release and cannot be reset",
+                          ok, f"replies {[r.get('reason') for r in replies]}; session recreated {recreated}"))
+
+    # A clinic node started without an explicit session ledger refuses.
+    nodes = Nodes(ledger_root / "no-ledger-path")
+    nodes.node_config = lambda role: {"role": role, "data-path": str(DATA_PATHS[role])}  # type: ignore[method-assign]
+    reply = nodes.call("clinic_a", feas)
+    cases.append(Case("budget_exhaustion", "clinic node without a ledger-path refuses",
+                      reply.get("error") == "invalid_request" and "eligible_n" not in reply, f"reply {reply}"))
     return cases
 
 

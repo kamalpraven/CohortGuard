@@ -49,12 +49,8 @@ def _clinic_response(role: str, request: dict[str, Any], context: Context) -> di
     if data_path.name != expected_name:
         raise ValueError("wrong_clinic_data_path")
     patients = load_patients(clinic, data_path.parent)
-    ledger_value = context.node_config.get("ledger-path", context.node_config.get("ledger_path"))
-    ledger = (
-        Path(str(ledger_value))
-        if ledger_value
-        else Path.home() / ".cohortguard" / f"clinic_{clinic.lower()}_budget.json"
-    )
+    # No default ledger: a session ledger is created explicitly by the start scripts.
+    ledger = _config_path(context, "ledger-path")
     gate = PrivacyGate(BudgetLedger(ledger), random.SystemRandom())
     return handle_gated_aggregate(request, patients, gate, clinic)
 
