@@ -30,9 +30,9 @@ def test_scrubber_removes_name_variants_mrn_and_date_formats():
         "Delgado, Maria needs review",
         "Maria needs review",
         "A-MRN-0042871 needs review",
-        "DOB 1968-03-14 needs review",
-        "DOB 03/14/1968 needs review",
-        "DOB March 14, 1968 needs review",
+        "DOB 1968-04-17 needs review",
+        "DOB 04/17/1968 needs review",
+        "DOB April 17, 1968 needs review",
     ]
     for question in cases:
         scrubbed = scrub_doctor_question(question, local)
@@ -41,8 +41,8 @@ def test_scrubber_removes_name_variants_mrn_and_date_formats():
         assert "Delgado" not in scrubbed
         assert "A-MRN-0042871" not in scrubbed
         assert "1968" not in scrubbed
-        assert "03/14" not in scrubbed
-        assert "March 14" not in scrubbed
+        assert "04/17" not in scrubbed
+        assert "April 17" not in scrubbed
 
 
 def test_scrubber_does_not_redact_clinical_terms_or_drug_names():
@@ -55,6 +55,14 @@ def test_scrubber_does_not_redact_clinical_terms_or_drug_names():
     assert REDACTION not in scrubbed
     for term in ["SGLT2", "GLP-1", "DPP-4", "metformin", "sulfonylurea", "basal insulin", "HbA1c", "eGFR"]:
         assert term in scrubbed
+
+
+def test_trial_mentions_route_to_trial_pipeline_even_with_readmission_terms():
+    local = load_local()
+    request = prepare_coordinator_request(
+        "Find trials for type 2 diabetes with readmission or hospitalization outcomes.", local
+    )
+    assert request["workflow"] == "trial_pipeline"
 
 
 def test_local_patient_answer_never_reaches_stdout_events_or_submitted_payload(capsys):

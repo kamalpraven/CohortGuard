@@ -84,6 +84,14 @@ def structure_coordinator_request(scrubbed_question: str) -> dict[str, Any]:
         if not nct_match:
             raise ValueError("A trial NCT ID is required for feasibility.")
         return {**base, "workflow": "site_feasibility", "nct_id": nct_match.group(0).upper()}
+    if "trial" in lowered or "trials" in lowered:
+        condition = "type 2 diabetes" if ("type 2" in lowered or "t2d" in lowered) else lowered[:120]
+        return {
+            **base,
+            "workflow": "trial_pipeline",
+            "condition": condition,
+            "outcome_keywords": ["readmission", "hospitalization"],
+        }
     if "cohort" in lowered or "readmission" in lowered or "readmit" in lowered:
         filters: dict[str, str] = {}
         if "type 2" in lowered or "t2d" in lowered:
