@@ -40,7 +40,8 @@ def urllib_fetcher(url: str, timeout: float = 20.0) -> Tuple[int, str]:
 class Http:
     def __init__(self, mode: str = "live", cache_dir: str | os.PathLike[str] | None = None,
                  fetcher: Optional[Fetcher] = None, min_interval: float = 0.4):
-        assert mode in {"live", "record", "replay"}
+        if mode not in {"live", "record", "replay"}:
+            raise ValueError("invalid HTTP mode")
         self.mode = mode
         self.cache_dir = os.fspath(cache_dir or DEFAULT_CACHE_DIR)
         self.fetcher = fetcher or urllib_fetcher

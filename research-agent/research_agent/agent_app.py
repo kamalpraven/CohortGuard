@@ -162,8 +162,20 @@ def _truthy(v: Any) -> bool:
     return v is True or (isinstance(v, str) and v.strip().lower() in {"1", "true", "yes"})
 
 
+ERROR_DETAILS = {
+    "not_in_cache": "The requested replay data is unavailable.",
+    "unknown_trial": "Structured criteria are unavailable for that trial.",
+    "bad_request": "The request is invalid.",
+    "internal_error": "The request could not be completed.",
+}
+
+
+def _error(code: str) -> dict[str, str]:
+    return {"type": "error", "error": code, "detail": ERROR_DETAILS[code]}
+
+
 def safe_handle_request(request: Any, **kw: Any) -> dict[str, Any]:
-    """handle_request, but errors come back as JSON instead of crashing the run."""
+    """Return stable JSON errors without exposing exception text."""
     try:
         if not isinstance(request, dict):
             raise ValueError("the prompt must be a JSON object")
@@ -176,12 +188,13 @@ def safe_handle_request(request: Any, **kw: Any) -> dict[str, Any]:
         kw["run_config"] = {**(kw.get("run_config") or {}), **options}
         return handle_request(request, **kw)
     except CacheMiss:
-        return {"type": "error", "error": "not_in_cache",
-                "detail": "Request not in the recorded cache. Use the demo condition or run in live/record mode."}
+        return _error("not_in_cache")
     except FileNotFoundError:
-        return {"type": "error", "error": "unknown_trial", "detail": "No structured criteria for that trial."}
-    except (ValueError, json.JSONDecodeError) as e:
-        return {"type": "error", "error": "bad_request", "detail": str(e)}
+        return _error("unknown_trial")
+    except (ValueError, json.JSONDecodeError, TypeError, KeyError, IndexError):
+        return _error("bad_request")
+    except Exception:
+        return _error("internal_error")
 
 
 def handle_request(

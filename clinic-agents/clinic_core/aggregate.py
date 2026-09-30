@@ -73,5 +73,7 @@ def handle_gated_aggregate(
                 "definitions": {"readmit_30d": "unplanned return <= 30 days"},
             }
         raise BadRequest("unknown template")
-    except BadRequest:
+    except (BadRequest, KeyError, TypeError, ValueError, IndexError):
         return {**base, "status": "rejected", "reason": "invalid_request"}
+    except Exception:
+        return {**base, "status": "error", "reason": "internal_error"}

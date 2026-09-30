@@ -33,6 +33,9 @@ def main(agent: AgentSession, context: Context) -> None:
     if req is None:
         emit_result(agent, {"clinic": "B", "status": "rejected", "reason": "no_valid_request"})
         return
-    gate = PrivacyGate(BudgetLedger(LEDGER), random.SystemRandom())
-    resp = handle_clinic_b(req, load_patients("B", DATA_DIR), gate)
+    try:
+        gate = PrivacyGate(BudgetLedger(LEDGER), random.SystemRandom())
+        resp = handle_clinic_b(req, load_patients("B", DATA_DIR), gate)
+    except Exception:
+        resp = {"clinic": "B", "status": "error", "reason": "internal_error"}
     emit_result(agent, egress(resp))

@@ -33,8 +33,12 @@ def main() -> int:
     if not isinstance(request, dict):
         print(json.dumps({"status": "rejected", "reason": "invalid_request"}))
         return 2
-    patients = load_patients("A", ROOT / "clinic-a-agent" / "clinic_a" / "data")
-    print(json.dumps(handle_clinic_a(request, patients)))
+    try:
+        patients = load_patients("A", ROOT / "clinic-a-agent" / "clinic_a" / "data")
+        result = handle_clinic_a(request, patients)
+    except Exception:
+        result = {"clinic": "A", "status": "error", "reason": "internal_error"}
+    print(json.dumps(result))
     return 0
 
 

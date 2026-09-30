@@ -211,6 +211,28 @@ def test_agentapp_rejects_non_object_or_free_text_without_model(prompt, capsys):
     assert result == {"clinic": "B", "status": "rejected", "reason": "no_valid_request"}
 
 
+def test_agentapp_failure_is_generic_json(monkeypatch, capsys):
+    from clinic_b import agent_app
+
+    secret = CANARIES["B"][0]["name"]
+    monkeypatch.setattr(agent_app, "load_patients", lambda *_args: (_ for _ in ()).throw(OSError(secret)))
+
+    class Events:
+        def __init__(self): self.sent = []
+        def emit(self, event): self.sent.append(event)
+
+    class Agent:
+        prompt = json.dumps(FEAS)
+        events = Events()
+
+    agent_app.main(Agent(), None)
+    output = capsys.readouterr().out + json.dumps(Agent.events.sent)
+    assert secret not in output
+    assert json.loads(output.splitlines()[0]) == {
+        "clinic": "B", "status": "error", "reason": "internal_error"
+    }
+
+
 RESEARCH_CRITERIA = ROOT.parent / "research-agent" / "cache" / "criteria_NCT07060456.json"
 
 

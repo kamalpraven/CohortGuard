@@ -363,7 +363,31 @@ def test_options_in_request_json():
 def test_unknown_option_rejected():
     out = safe_handle_request({"type": "pipeline", "condition": "type 2 diabetes", "outcome_keywords": [],
                                "options": {"cache_dir": "/etc"}})
-    assert out["error"] == "bad_request" and "unknown options" in out["detail"]
+    assert out == {"type": "error", "error": "bad_request", "detail": "The request is invalid."}
+
+
+def test_failures_return_generic_json_without_exception_text():
+    secret = "sensitive exception detail"
+
+    def failing_llm(_prompt):
+        raise RuntimeError(secret)
+
+    out = safe_handle_request(
+        {"type": "pipeline", "condition": "type 2 diabetes", "outcome_keywords": ["readmission"]},
+        run_config={"http_mode": "replay"},
+        llm=failing_llm,
+    )
+    assert out == {
+        "type": "error",
+        "error": "internal_error",
+        "detail": "The request could not be completed.",
+    }
+    assert secret not in json.dumps(out)
+    bad_mode = safe_handle_request(
+        {"type": "pipeline", "condition": "type 2 diabetes", "outcome_keywords": []},
+        run_config={"http_mode": secret},
+    )
+    assert bad_mode["error"] == "bad_request" and secret not in json.dumps(bad_mode)
 
 
 class ChatAgent:
