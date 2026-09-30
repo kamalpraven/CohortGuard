@@ -44,7 +44,12 @@ def run_coordinator(agent: AgentSession, context: Context) -> None:
         result = run_workflow(grid, roles, request)
         # Node replies may contain public research names, but never strong identifiers.
         assert_deidentified(result, include_names=False)
-        summary = write_final_summary(request, result, str(context.run_config.get("model", "")))
+        summary = write_final_summary(
+            request,
+            result,
+            str(context.run_config.get("model", "")),
+            str(context.run_config.get("reasoning_effort", "low")),
+        )
         assert_deidentified(summary, include_names=False)
     except (ValueError, TypeError, KeyError, RuntimeError, TimeoutError, json.JSONDecodeError):
         _emit_text(agent, _error_text("workflow_failed"))

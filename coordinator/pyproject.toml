@@ -42,4 +42,5 @@ model = ""
 grid_timeout = 45.0
 http_mode = "replay"
 with_mechanism = false
+reasoning_effort = "low"
 expected_role_node_ids = "{}"

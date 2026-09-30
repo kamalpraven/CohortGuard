@@ -74,7 +74,7 @@ def test_deployment_style_fresh_ledgers_can_release_different_counts(tmp_path):
     """Default PrivacyGate randomness is not fixed-seed deterministic."""
     released = {
         handle_clinic_b(FEAS, B, PrivacyGate(BudgetLedger(tmp_path / f"ledger-{i}.json")))["eligible_n"]
-        for i in range(20)
+        for i in range(200)
     }
     assert len(released) > 1
 

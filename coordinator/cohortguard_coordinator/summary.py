@@ -17,7 +17,7 @@ def _response_text(response: Any) -> str:
 
 
 def write_final_summary(
-    request: dict[str, Any], result: dict[str, Any], model: str
+    request: dict[str, Any], result: dict[str, Any], model: str, reasoning_effort: str = "low"
 ) -> str:
     """Ask the configured model to summarize an already-computed result."""
     if not model:
@@ -35,6 +35,7 @@ def write_final_summary(
     )
     response = client.responses.create(
         model=model,
+        reasoning={"effort": reasoning_effort or "low"},
         instructions=(
             "Write a concise clinical-research summary using only the computed result. "
             "Describe released clinic counts as noised estimates of potentially eligible upper-bound screening counts, "
