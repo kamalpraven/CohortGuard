@@ -28,11 +28,20 @@ class LocalContext:
 
     def known_identifiers(self) -> set[str]:
         values: set[str] = set()
+        def add_record(record: dict[str, Any]) -> None:
+            values.update(str(record.get(key, "")) for key in ("name", "mrn", "dob"))
+            name = str(record.get("name", "")).strip()
+            parts = name.split()
+            if len(parts) >= 2:
+                first = parts[0]
+                last = parts[-1]
+                values.update({first, f"{last}, {first}", f"{last} {first}"})
+
         for patient in self.patients:
-            values.update(str(patient.get(key, "")) for key in ("name", "mrn", "dob"))
+            add_record(patient)
         for records in self.canaries.values():
             for record in records:
-                values.update(str(record.get(key, "")) for key in ("name", "mrn", "dob"))
+                add_record(record)
         values.discard("")
         return values
 

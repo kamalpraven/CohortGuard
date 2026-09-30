@@ -14,6 +14,7 @@ _PATTERNS: tuple[tuple[str, re.Pattern[str]], ...] = (
     ("identifier", re.compile(r"(?i)\b(?:patient[-_ ]?id|subject[-_ ]?id)\s*[:#-]?\s*[A-Z0-9-]{4,}\b")),
     ("date", re.compile(r"\b(?:19|20)\d{2}[-/]\d{1,2}[-/]\d{1,2}\b")),
     ("date", re.compile(r"\b\d{1,2}[-/]\d{1,2}[-/](?:19|20)?\d{2}\b")),
+    ("date", re.compile(r"(?i)\b(?:jan(?:uary)?|feb(?:ruary)?|mar(?:ch)?|apr(?:il)?|may|jun(?:e)?|jul(?:y)?|aug(?:ust)?|sep(?:t(?:ember)?)?|oct(?:ober)?|nov(?:ember)?|dec(?:ember)?)\s+\d{1,2},\s*(?:19|20)\d{2}\b")),
     ("canary", re.compile(r"(?i)\b(?:canary|cohortguard-canary)[-_:#A-Z0-9]*\b")),
     ("name", re.compile(r"\b[A-Z][a-z]{2,}(?:[-'][A-Z]?[a-z]+)?\s+[A-Z][a-z]{2,}(?:[-'][A-Z]?[a-z]+)?\b")),
 )
