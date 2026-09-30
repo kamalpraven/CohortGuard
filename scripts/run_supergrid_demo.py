@@ -125,6 +125,12 @@ def main() -> None:
     parser.add_argument("--model", default="", help="SuperGrid model ID for final summaries. Empty disables model calls.")
     parser.add_argument("--allow-model-calls", action="store_true", help="Required when --model is non-empty.")
     parser.add_argument("--log-dir", type=Path, default=ROOT / "runtime-logs")
+    parser.add_argument(
+        "--workflow",
+        choices=["all", "cohort_question", "trial_pipeline", "site_feasibility", "maria_scrubbed_cohort"],
+        default="all",
+        help="Run all demo workflows or just one workflow.",
+    )
     args = parser.parse_args()
 
     expected = json.loads(args.expected_role_node_ids)
@@ -149,9 +155,15 @@ def main() -> None:
 
     original_pyproject = patch_run_config(expected_role_node_ids=expected_json, model=args.model)
     run_ids: dict[str, int] = {}
+    selected_questions = questions if args.workflow == "all" else {args.workflow: questions[args.workflow]}
+
     all_event_texts: list[str] = []
+    model_boundary_texts: list[str] = []
     try:
-        for label, question in questions.items():
+        for label, question in selected_questions.items():
+            if args.model:
+                print(f"MODEL_CALL_PLANNED workflow={label} model={args.model}")
+            
             request = prepare_coordinator_request(question, local)
             print(f"=== {label} request ===")
             print(json.dumps(request, sort_keys=True, ensure_ascii=False))
@@ -162,10 +174,13 @@ def main() -> None:
             print(run_id)
             print(f"=== {label} response ===")
             print(response)
-            parsed = json.loads(response)
             if args.model:
-                # Model summaries may be prose; JSON workflow assertion only applies to no-model runs.
+                # Model summaries may be prose; scan the final-summary model boundary we expect:
+                # de-identified question + streamed model output.
+                model_boundary_texts.append(request["question"])
+                model_boundary_texts.append(response)
                 continue
+            parsed = json.loads(response)
             if parsed.get("workflow") != request["workflow"]:
                 raise RuntimeError(f"{label} routed to {parsed.get('workflow')}, expected {request['workflow']}")
     finally:
@@ -173,13 +188,14 @@ def main() -> None:
 
     needles = maria_needles(local)
     event_hits = scan_texts(all_event_texts, needles)
+    model_boundary_hits = scan_texts(model_boundary_texts, needles)
     log_hits = scan_logs(args.log_dir, needles)
-    total_hits = len(event_hits) + len(log_hits)
+    total_hits = len(event_hits) + len(model_boundary_hits) + len(log_hits)
     print("=== run_ids ===")
     print(json.dumps(run_ids, indent=2, sort_keys=True))
     print(f"canary hits: {total_hits}")
     if total_hits:
-        print(json.dumps({"event_hits": event_hits, "log_hits": log_hits}, indent=2))
+        print(json.dumps({"event_hits": event_hits, "model_boundary_hits": model_boundary_hits, "log_hits": log_hits}, indent=2))
         raise SystemExit(1)
 
 
