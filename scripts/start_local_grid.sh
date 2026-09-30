@@ -35,6 +35,7 @@ fi
 mkdir -p "$LOG_DIR"
 : > "$LOG_DIR/pids.txt"
 export PYTHONUTF8=1
+export UV_LINK_MODE=copy
 
 LEDGER_ROOT="C:/Users/kamal/.cohortguard"
 CLINIC_A_LEDGER="$LEDGER_ROOT/clinic_a_budget_${SESSION}.json"

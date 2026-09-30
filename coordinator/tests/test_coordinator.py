@@ -147,6 +147,7 @@ def test_cohort_result_includes_code_computed_rate_difference_ci():
         "ci_95_pct_points": [-13.1, 13.1],
         "method": "wald_difference_in_proportions_with_laplace_noise_delta_method",
         "laplace_noise_variance_included": True,
+        "site_scope": "pooled_sites",
     }
 
 
@@ -179,11 +180,29 @@ def test_rate_difference_ci_propagates_laplace_noise_variance():
     assert with_noise_ci[1] > no_noise_ci[1]
 
 
+def test_partial_cohort_pooling_labels_single_site_ci_and_suppression():
+    result = _pool_cohorts({
+        "a": {"clinic": "A", "status": "suppressed", "reason": "below_disclosure_threshold", "results": []},
+        "b": {"clinic": "B", "status": "ok", "noise_scale": 2.0, "results": [
+            {"cohort": "metformin", "n": 380, "events": 75},
+            {"cohort": "basal_insulin", "n": 126, "events": 31},
+        ]},
+    })
+    assert result["status"] == "partial"
+    assert result["site_count"] == 1
+    assert result["site_scope"] == "single_site"
+    assert result["suppressed_sites"] == [
+        {"clinic": "A", "status": "suppressed", "reason": "below_disclosure_threshold"}
+    ]
+    assert result["rate_difference"]["site_scope"] == "single_site"
+
+
 def test_summary_instructions_are_workflow_specific():
     cohort = summary_instructions("cohort_question")
     site = summary_instructions("site_feasibility")
     trial = summary_instructions("trial_pipeline")
     assert "noised cohort sizes" in cohort and "observational" in cohort and "confidence interval" in cohort
+    assert "suppressed" in cohort and "single_site" in cohort
     assert "potentially eligible upper-bound" in site
     assert "Do not add differential-privacy or patient-count caveats" in trial
     forbidden = "patient-level facts were or were not accessed"
