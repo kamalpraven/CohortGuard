@@ -99,7 +99,7 @@ On Windows, use Git Bash for the start scripts. PowerShell can split Flower's qu
 - **Synthetic data only:** all clinical records are synthetic and intended for demo/testing.
 - **No regulatory claim:** this is not a HIPAA/compliance product.
 - **Salted canary hashes:** the coordinator ships salted SHA-256 hashes of planted canary values instead of plaintext canaries. Because the salt ships with the hashes, low-entropy values such as DOBs and MRNs could be brute-forced; this is bundle hygiene and regression protection, not a cryptographic privacy guarantee.
-- **Budget per session:** privacy ledgers persist by session path. The main four-workflow demo spends 2.0 + 2.0 + 0.5 = 4.5 of 5.0 budget per clinic; the SGLT2 suppression example runs in its own session. Scripts create new ledger filenames with `--session`; they never auto-delete or reset ledgers.
+- **Budget per session:** privacy ledgers persist by session path. The main four-workflow demo spends 2.0 + 2.0 + 0.5 = 4.5 of 5.0 budget per clinic; the SGLT2 suppression example runs in its own session. Scripts create new ledger filenames with `--session`; they never auto-delete or reset ledgers. Ledgers fail closed: only the start scripts create a new session at zero spent, and a missing, corrupted or unreadable ledger during a session refuses every release.
 - **Noisy aggregates:** clinic counts are privacy-gated/noised and must not be interpreted as exact patient counts.
 
 ## Project areas

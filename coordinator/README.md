@@ -66,6 +66,12 @@ address = "127.0.0.1:8000"
 insecure = true
 ```
 
+Before starting the clinic SuperNodes by hand, create (or continue) their session ledgers. Ledgers fail closed: a clinic node refuses every release if its ledger is missing, corrupted or unreadable, and a deleted session ledger is never recreated.
+
+```shell
+python scripts/init_ledgers.py C:/Users/kamal/.cohortguard/clinic_a_budget.json C:/Users/kamal/.cohortguard/clinic_b_budget.json
+```
+
 ### Terminal 1 — SuperLink
 
 ```shell
