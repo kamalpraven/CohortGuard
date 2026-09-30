@@ -143,13 +143,30 @@ def test_agentapp_main_end_to_end(clinic, req, check, tmp_path, monkeypatch, cap
         def emit(self, e): self.sent.append(e)
 
     class Agent:
-        prompt = "Coordinator request: " + json.dumps(req)
+        prompt = json.dumps(req)
         events = Events()
 
     mod.main(Agent(), None)
     printed = json.loads(capsys.readouterr().out)
     assert check(printed) and printed["clinic"] == clinic.upper()
     assert Agent.events.sent[0]["type"] == "response.output_text.delta"
+
+
+@pytest.mark.parametrize("prompt", ["find patients like Maria", "prefix {\"template\": \"none\"}", "[]", "{bad"])
+def test_agentapp_rejects_non_object_or_free_text_without_model(prompt, capsys):
+    from clinic_b import agent_app
+
+    class Events:
+        def __init__(self): self.sent = []
+        def emit(self, event): self.sent.append(event)
+
+    class Agent:
+        events = Events()
+
+    Agent.prompt = prompt
+    agent_app.main(Agent(), None)
+    result = json.loads(capsys.readouterr().out)
+    assert result == {"clinic": "B", "status": "rejected", "reason": "no_valid_request"}
 
 
 RESEARCH_CRITERIA = ROOT.parent / "research-agent" / "cache" / "criteria_NCT07060456.json"

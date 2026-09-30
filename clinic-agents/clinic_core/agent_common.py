@@ -1,50 +1,20 @@
-"""Glue shared by the Clinic A and Clinic B AgentApps.
-
-The model's only job is turning a natural-language prompt into a template
-request. Handlers validate that request; nothing the model writes reaches data.
-"""
+"""Structured request parsing and fixed-schema output for clinic AgentApps."""
 
 from __future__ import annotations
 
 import json
-import os
 from typing import Any
-
-# MiniMax-M3 on Nebius Token Factory (the proposal's clinic-agent model). Override
-# per run with `flwr run -c model=...` (see [tool.flwr.app.config]). The starter's
-# model was "openai/gpt-5.6-sol".
-DEFAULT_MODEL = "MiniMaxAI/MiniMax-M3"
 
 
 def extract_request(prompt: str) -> dict | None:
-    """Pull a JSON object out of the prompt (structured coordinator message)."""
-    dec = json.JSONDecoder()
-    for i, ch in enumerate(prompt):
-        if ch == "{":
-            try:
-                obj, _ = dec.raw_decode(prompt[i:])
-            except ValueError:
-                continue
-            if isinstance(obj, dict):
-                return obj
-    return None
-
-
-def translate_with_model(prompt: str, guide: str, model: str = DEFAULT_MODEL) -> dict | None:
-    """Ask the runtime model for a template request as JSON; None if it fails."""
-    from openai import OpenAI
-
-    client = OpenAI(
-        base_url=os.environ["FLWR_RUNTIME_BASE_URL"],
-        api_key=os.environ["FLWR_RUNTIME_API_KEY"],
-        max_retries=0,
-    )
-    resp = client.responses.create(
-        model=model,
-        instructions=guide + "\nReply with ONE JSON object and nothing else.",
-        input=prompt,
-    )
-    return extract_request(resp.output_text)
+    """Accept only a complete JSON object; free text fails closed."""
+    if not isinstance(prompt, str):
+        return None
+    try:
+        request = json.loads(prompt)
+    except (json.JSONDecodeError, TypeError):
+        return None
+    return request if isinstance(request, dict) else None
 
 
 def emit_result(agent: Any, payload: dict) -> None:
@@ -55,17 +25,9 @@ def emit_result(agent: Any, payload: dict) -> None:
     print(text)
 
 
-def request_from(agent: Any, guide: str, context: Any = None) -> dict | None:
-    """Structured JSON in the prompt wins; otherwise ask the model (fail closed)."""
-    found = extract_request(agent.prompt)
-    if found is not None:
-        return found
-    run_config = getattr(context, "run_config", None) or {}
-    model = str(run_config.get("model", DEFAULT_MODEL))
-    try:
-        return translate_with_model(agent.prompt, guide, model)
-    except Exception:   # no model configured / provider error: fail closed
-        return None
+def request_from(agent: Any) -> dict | None:
+    """Read a structured deployment request without invoking a model."""
+    return extract_request(getattr(agent, "prompt", ""))
 
 
 # Fixed output schema for anything that leaves a clinic: other keys are dropped.

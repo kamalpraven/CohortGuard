@@ -23,19 +23,13 @@ from clinic_core.store import load_patients
 DATA_DIR = Path(__file__).parent / "data"
 LEDGER = Path(os.environ.get("CLINIC_B_STATE", Path.home() / ".cohortguard" / "clinic_b_budget.json"))
 
-GUIDE = """You route requests for Clinic B's data agent. Output a request:
-{"template": "feasibility_count", "nct_id": "NCT########", "criteria": [...structured criteria...]}
-{"template": "outcome_rate_by_cohort", "cohort_field": "medication", "cohorts": [...],
- "outcome": "readmit_30d", "filters": {"age_band": "50-59", "diagnosis": "T2D", "sex": "FEMALE"}}
-Never include patient names or identifiers. If asked for anything else, output {"template": "none"}."""
-
 app = AgentApp()
 
 
 @app.main()
 def main(agent: AgentSession, context: Context) -> None:
     """Aggregate Clinic B's data for one request and send back the gated result."""
-    req = request_from(agent, GUIDE, context)
+    req = request_from(agent)
     if req is None:
         emit_result(agent, {"clinic": "B", "status": "rejected", "reason": "no_valid_request"})
         return

@@ -26,21 +26,13 @@ from .clinic import handle_clinic_a
 DATA_DIR = Path(__file__).parent / "data"
 LEDGER = Path(os.environ.get("CLINIC_A_STATE", Path.home() / ".cohortguard" / "clinic_a_budget.json"))
 
-GUIDE = """You route requests for Clinic A's in-house agent. Output a request:
-{"template": "patient_checklist", "mrn": "<MRN>" or "name": "<full name>", "nct_id": "NCT########"}
-{"template": "feasibility_local", "nct_id": "NCT########"}   (exact, in-house only)
-{"template": "feasibility_count", "nct_id": "NCT########"}   (gated count for the coordinator)
-{"template": "outcome_rate_by_cohort", "cohort_field": "medication", "cohorts": [...],
- "outcome": "readmit_30d", "filters": {"age_band": "50-59", "diagnosis": "T2D", "sex": "FEMALE"}}
-Never invent identifiers. If the user asks for anything else, output {"template": "none"}."""
-
 app = AgentApp()
 
 
 @app.main()
 def main(agent: AgentSession, context: Context) -> None:
     """Answer one in-house request from local data."""
-    req = request_from(agent, GUIDE, context)
+    req = request_from(agent)
     if req is None:
         emit_result(agent, {"clinic": "A", "status": "rejected", "reason": "no_valid_request"})
         return
