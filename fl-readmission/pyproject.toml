@@ -1,0 +1,57 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "fl-readmission"
+version = "0.1.0"
+description = "CohortGuard federated 30-day readmission model (NumPy logistic regression, FedAvg)"
+license = { file = "LICENSE" }
+requires-python = ">=3.11,<4.0"
+dependencies = ["flwr>=1.39.0,<2.0", "numpy>=1.26"]
+
+[dependency-groups]
+dev = [
+  "flwr[simulation]>=1.39.0,<2.0",
+  "pytest>=9.0.0",
+  "scikit-learn>=1.5",
+  "matplotlib>=3.9",
+]
+
+[tool.hatch.build.targets.wheel]
+packages = ["fl_readmission", "shared"]
+
+[tool.flwr.app]
+publisher = "praven1"
+display-name = "CohortGuard FL Readmission"
+color = "emerald"
+fab-format-version = 1
+flwr-version-target = "1.39.0"
+# Code only: no patient data, no offline evaluation code (it reads both clinics).
+fab-include = [
+  "fl_readmission/__init__.py",
+  "fl_readmission/task.py",
+  "fl_readmission/selection.py",
+  "fl_readmission/client_app.py",
+  "fl_readmission/server_app.py",
+  "shared/*.py",
+  "README.md",
+  "LICENSE",
+]
+
+[tool.flwr.app.components]
+serverapp = "fl_readmission.server_app:app"
+clientapp = "fl_readmission.client_app:app"
+
+[tool.flwr.app.config]
+num-server-rounds = 20
+local-epochs = 10
+learning-rate = 1.0
+l2 = 0.001
+split-seed = 20260930
+test-fraction = 0.2
+# Deployment: '{"clinic_a":"<node-id>","clinic_b":"<node-id>"}'. "{}" only with simulation = true.
+clinic-node-ids = "{}"
+simulation = false
+# Simulation only: the clinic-agents/ directory holding each clinic's patient file.
+sim-data-dir = ""
