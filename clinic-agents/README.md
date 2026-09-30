@@ -10,8 +10,8 @@ Two separate Flower AgentApps, each with its own synthetic patient JSON:
 ```
 clinic-agents/
   clinic-a-agent/   clinic_a/{agent_app,clinic}.py  data/clinic_a_patients.json  pyproject.toml
-  clinic-b-agent/   clinic_b/{agent_app,clinic,privacy}.py  data/clinic_b_patients.json  pyproject.toml
-  clinic_core/      shared logic: criteria checker, templates, store, agent glue, data generator
+  clinic-b-agent/   clinic_b/{agent_app,clinic}.py  data/clinic_b_patients.json  pyproject.toml
+  clinic_core/      shared logic: privacy gate, criteria checker, templates, store, agent glue, data generator
   shared/           generated from the top-level shared/ contract
   cache/            generated copies of canonical structured trial criteria
   data/canaries.json    planted canaries for M4
