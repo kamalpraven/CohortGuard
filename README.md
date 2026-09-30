@@ -68,9 +68,18 @@ These are screenshots of real coordinator runs on Flower SuperGrid (model: `flwr
 Useful scripts:
 
 ```shell
-scripts/start_local_grid.sh --session demo-001
-PYTHONUTF8=1 coordinator/.venv/Scripts/python.exe scripts/run_local_demo.py
+# Main demo: cohort question, Maria (redacted and released), trial pipeline, feasibility = 4.5 of 5.0 budget
+scripts/start_local_grid.sh --session demo-main-001
+PYTHONUTF8=1 coordinator/.venv/Scripts/python.exe scripts/run_local_demo.py --demo main
 scripts/stop_local_grid.sh
+
+# SGLT2 suppression example on its own fresh session: suppressed for small counts, not an empty budget
+scripts/start_local_grid.sh --session demo-sglt2-001
+PYTHONUTF8=1 coordinator/.venv/Scripts/python.exe scripts/run_local_demo.py --demo sglt2_suppression
+scripts/stop_local_grid.sh
+
+# Clinic attack suite (offline, seeded): differencing on Maria, direct extraction, tiny cohorts, budget exhaustion
+PYTHONUTF8=1 coordinator/.venv/Scripts/python.exe scripts/run_clinic_attack_suite.py
 ```
 
 For SuperGrid:
@@ -90,7 +99,7 @@ On Windows, use Git Bash for the start scripts. PowerShell can split Flower's qu
 - **Synthetic data only:** all clinical records are synthetic and intended for demo/testing.
 - **No regulatory claim:** this is not a HIPAA/compliance product.
 - **Salted canary hashes:** the coordinator ships salted SHA-256 hashes of planted canary values instead of plaintext canaries. Because the salt ships with the hashes, low-entropy values such as DOBs and MRNs could be brute-forced; this is bundle hygiene and regression protection, not a cryptographic privacy guarantee.
-- **Budget per session:** privacy ledgers persist by session path. A full four-workflow demo spends 4.5 of 5.0 budget per clinic. Scripts create new ledger filenames with `--session`; they never auto-delete or reset ledgers.
+- **Budget per session:** privacy ledgers persist by session path. The main four-workflow demo spends 2.0 + 2.0 + 0.5 = 4.5 of 5.0 budget per clinic; the SGLT2 suppression example runs in its own session. Scripts create new ledger filenames with `--session`; they never auto-delete or reset ledgers.
 - **Noisy aggregates:** clinic counts are privacy-gated/noised and must not be interpreted as exact patient counts.
 
 ## Project areas
