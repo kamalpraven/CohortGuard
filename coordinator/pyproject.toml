@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "cohortguard-coordinator"
-version = "0.1.0"
+version = "0.1.1"
 description = "CohortGuard code-driven collaborative AgentApp"
 license = { file = "LICENSE" }
 requires-python = ">=3.11,<4.0"
