@@ -73,7 +73,7 @@ Errors surface as `{"type":"error","error":"request_rejected"|"workflow_failed"|
 
 ### Privacy gate (`clinic_core/privacy.py`)
 
-Every count that leaves a clinic goes through `PrivacyGate.release`. It applies min cell size 10 (checked before and after noise), Laplace noise at ε=0.5 per count, and a persisted per-clinic `BudgetLedger` (total ε=5.0). Suppressions after noise still charge the budget. Ledgers are selected by `--session` and are **never** deleted or reset by scripts. A full four-workflow demo uses 4.5 of the 5.0 budget. Cohort pooling and CIs (`workflows._pool_cohorts`) must account for noise variance.
+Every count that leaves a clinic goes through `PrivacyGate.release`. It applies min cell size 10 (checked before and after noise), Laplace noise at ε=0.5 per count, and a persisted per-clinic `BudgetLedger` (total ε=5.0). Suppressions after noise still charge the budget. Ledgers are selected by `--session` and are **never** deleted or reset by scripts. The ledger fails closed: only `scripts/init_ledgers.py` (called by the start scripts) creates a session at zero spent via `BudgetLedger.create_session`, leaving a `.session` marker; a missing, corrupted or unreadable ledger refuses every release (`privacy_ledger_unavailable`), and a node without `ledger-path` refuses. A full four-workflow demo uses 4.5 of the 5.0 budget. Cohort pooling and CIs (`workflows._pool_cohorts`) must account for noise variance.
 
 ### Doctor Agent (`doctor-agent/`)
 
