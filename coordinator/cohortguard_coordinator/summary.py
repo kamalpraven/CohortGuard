@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import json
 import os
+import re
 from typing import Any
 
 
@@ -16,11 +17,29 @@ def _response_text(response: Any) -> str:
     raise RuntimeError("model_returned_no_text")
 
 
+_OUTSIDE_FACT_PATTERNS: tuple[re.Pattern[str], ...] = (
+    re.compile(r"(?i)\bmechanism(?:s)?\b"),
+    re.compile(r"(?i)\b(?:cardiovascular|renal|kidney|heart failure)\b"),
+    re.compile(r"(?i)\b(?:lowers?|reduces?|improves?)\s+(?:glucose|blood sugar|hba1c|weight)\b"),
+    re.compile(r"(?i)\b(?:protective|preferred|recommended|standard of care)\b"),
+)
+
+
+def assert_no_obvious_outside_facts(text: str, allowed_source: str = "") -> None:
+    """Fail closed on common clinical/background claims absent from computed results."""
+    allowed = allowed_source.casefold()
+    for pattern in _OUTSIDE_FACT_PATTERNS:
+        for match in pattern.finditer(text):
+            if match.group(0).casefold() not in allowed:
+                raise ValueError("outside_fact_detected")
+
+
 def summary_instructions(workflow: str) -> str:
     """Return workflow-specific instructions for the final-summary model."""
     base = (
-        "Write a concise clinical-research summary using only the computed result. "
-        "Describe only released aggregate or public research results. "
+        "Write a concise clinical-research summary using only facts present in the computed result. "
+        "Do not add drug mechanisms, clinical background, guideline context, safety claims, or outside knowledge. "
+        "If context would help but is not in the computed result, say that context is not included in the result. "
         "Do not reconstruct identifiers, invent counts, infer unstated budget details, "
         "or make operational/privacy-process claims unless they are explicitly in the computed result. "
     )
@@ -67,4 +86,6 @@ def write_final_summary(
         instructions=summary_instructions(str(result.get("workflow", request.get("workflow", "")))),
         input=prompt,
     )
-    return _response_text(response).strip()
+    text = _response_text(response).strip()
+    assert_no_obvious_outside_facts(text, prompt)
+    return text

@@ -21,7 +21,7 @@ sys.path[:0] = [
 from cohortguard_coordinator.agent_app import main
 from cohortguard_coordinator.grid import MAX_GRID_TIMEOUT
 from cohortguard_coordinator.nodes import _research_response
-from cohortguard_coordinator.summary import summary_instructions, write_final_summary
+from cohortguard_coordinator.summary import assert_no_obvious_outside_facts, summary_instructions, write_final_summary
 from doctor_agent.core import LocalContext, local_patient_answer, prepare_coordinator_request
 
 ROLES = {"101": "clinic_a", "202": "clinic_b", "303": "research"}
@@ -186,6 +186,14 @@ def test_final_summary_uses_fake_model_and_workflow_instructions(monkeypatch):
     assert calls[0]["reasoning"] == {"effort": "low"}
     assert "noised cohort sizes" in calls[0]["instructions"]
     assert "confidence interval" in calls[0]["instructions"]
+    assert "Do not add drug mechanisms" in calls[0]["instructions"]
+
+
+def test_final_summary_flags_obvious_outside_clinical_facts():
+    fake_result = {"workflow": "cohort_question", "results": [{"cohort": "sglt2_inhibitor", "n": 10}]}
+    fake_output = "SGLT2 inhibitors are protective because they improve cardiovascular and kidney outcomes."
+    with pytest.raises(ValueError, match="outside_fact_detected"):
+        assert_no_obvious_outside_facts(fake_output, json.dumps(fake_result))
 
 
 def test_expected_role_mapping_rejects_mismatched_claim():
