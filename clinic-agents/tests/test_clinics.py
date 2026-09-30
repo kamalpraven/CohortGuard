@@ -68,6 +68,17 @@ def test_clinic_b_feasibility_is_noised_and_charged(tmp_path):
     assert r["budget_remaining"] < 1.0 and "eligible_mrns" not in r
 
 
+def test_clinic_b_feasibility_fixed_seed_regression(tmp_path):
+    """Pin Clinic B's released values while cleanup refactors its request path."""
+    r = handle_clinic_b(FEAS, B, gate(tmp_path, seed=1))
+    assert {k: r[k] for k in ("eligible_n", "noise_scale", "budget_remaining")} == {
+        "eligible_n": 81,
+        "noise_scale": 2.0,
+        "budget_remaining": 0.9,
+    }
+    assert r["status"] == "ok" and len(r["unchecked_criteria"]) == 8
+
+
 def test_cohort_rate_pct_derived_from_released_counts(tmp_path):
     r = handle_clinic_b(COHORT, B, gate(tmp_path))
     for row in r["results"]:
