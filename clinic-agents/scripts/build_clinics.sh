@@ -3,7 +3,7 @@
 # so `flwr build` runs in place. Needs `flwr` on PATH (activate a venv with flwr).
 set -euo pipefail
 cd "$(dirname "$0")/.."
-./scripts/sync_clinics.sh
+python ../scripts/sync_apps.py
 mkdir -p dist
 for c in clinic-a-agent clinic-b-agent; do
   (cd "$c" && flwr build && mv ./*.fab ../dist/)

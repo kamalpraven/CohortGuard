@@ -26,7 +26,7 @@ uv run flwr chat
 # {"request_id":"q-1","template":"feasibility_count","nct_id":"NCT07060456"}
 ```
 
-Run `./scripts/sync_clinics.sh` first so the app has the shared code.
+Run `python ../scripts/sync_apps.py` from `clinic-agents/` first so every app has the canonical shared code and criteria. This command is cross-platform; use `--check` to detect drift without writing.
 
 ## Choosing the model (Nebius / MiniMax)
 

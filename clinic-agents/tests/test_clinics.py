@@ -1,8 +1,9 @@
-"""Run from repo root after scripts/sync_clinics.sh:  pytest tests"""
+"""Run from clinic-agents after ``python ../scripts/sync_apps.py``: pytest tests."""
 
 import importlib
 import json
 import random
+import subprocess
 import sys
 from pathlib import Path
 
@@ -26,6 +27,12 @@ FEAS = {"template": "feasibility_count", "nct_id": "NCT07060456"}
 COHORT = {"template": "outcome_rate_by_cohort", "cohort_field": "medication",
           "cohorts": ["sglt2_inhibitor", "sulfonylurea"], "outcome": "readmit_30d",
           "filters": {"diagnosis": "T2D", "age_band": "50-59"}}
+
+
+def test_generated_app_copies_match_canonical_sources():
+    script = ROOT.parent / "scripts" / "sync_apps.py"
+    result = subprocess.run([sys.executable, str(script), "--check"], capture_output=True, text=True)
+    assert result.returncode == 0, result.stdout + result.stderr
 
 
 def gate(tmp_path, seed=1):

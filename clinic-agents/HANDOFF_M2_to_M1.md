@@ -12,7 +12,7 @@ cd clinic-agents
 pytest tests                              # 19 tests
 ```
 
-Apps live in `clinic-a-agent/` and `clinic-b-agent/` (hyphenated, because `flwr build` rejects underscores in the app folder name). Build them in place with `./scripts/sync_clinics.sh` then `flwr build` inside each folder.
+Apps live in `clinic-a-agent/` and `clinic-b-agent/` (hyphenated, because `flwr build` rejects underscores in the app folder name). From `clinic-agents/`, run `python ../scripts/sync_apps.py`, then run `flwr build` inside each app folder.
 
 Clinic A's patient JSON ships only in the clinic-a FAB. Clinic B's ships only in the clinic-b FAB.
 

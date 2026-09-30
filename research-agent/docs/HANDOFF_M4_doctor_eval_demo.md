@@ -8,7 +8,7 @@ From: M3 (Research & Evidence) · To: M4 (Doctor UX, Evaluation & Demo)
 |---|---|
 | `samples/candidates.json` | Real pipeline output, for building the UI |
 | `samples/grounding_log.json` | Real grounding log, for the dashboard |
-| `samples/maria_profile.json` | Maria's values and expected checklist |
+| `../shared/test_fixtures/maria_profile.json` | Maria's synthetic test fixture and expected checklist (not packaged in a FAB) |
 | `cache/criteria_NCT07060456.json` | Criteria for the demo trial (patient checklist) |
 | `cache/criteria_NCT07112339.json` | Criteria for the second trial |
 

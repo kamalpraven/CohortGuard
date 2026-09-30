@@ -300,7 +300,7 @@ def test_grounding_fails_closed_on_cache_miss():
 
 
 def test_maria_uses_shared_vocabulary():
-    p = os.path.join(os.path.dirname(__file__), "..", "samples", "maria_profile.json")
+    p = os.path.join(os.path.dirname(__file__), "..", "..", "shared", "test_fixtures", "maria_profile.json")
     m = json.load(open(p, encoding="utf-8"))["patient"]
     assert m["sex"] in SEX_VALUES
     assert set(m["diagnoses"]) <= DIAGNOSIS_CODES
