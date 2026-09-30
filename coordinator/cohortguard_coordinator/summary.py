@@ -37,7 +37,9 @@ def write_final_summary(
         model=model,
         instructions=(
             "Write a concise clinical-research summary using only the computed result. "
-            "Do not infer patient-level facts, reconstruct identifiers, or invent counts."
+            "Describe released clinic counts as noised estimates of potentially eligible upper-bound screening counts, "
+            "not exact patient counts. Report privacy budget only exactly as the clinics stated it in the computed result. "
+            "Do not infer patient-level facts, reconstruct identifiers, invent counts, or infer unstated budget details."
         ),
         input=prompt,
     )
