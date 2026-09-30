@@ -6,6 +6,9 @@ parameters; this module validates them and does all computation.
 
 from __future__ import annotations
 
+import re
+from typing import Any
+
 from shared.allowlist import DIAGNOSIS_CODES, MEDICATION_CLASSES, SEX_VALUES
 
 from .criteria import validate_criterion
@@ -14,10 +17,21 @@ from .store import load_cached_criteria
 MAX_CHECKABLE_CRITERIA = 8
 COHORT_FILTERS = {"age_band", "diagnosis", "sex"}
 OUTCOMES = {"readmit_30d": "readmitted_30d"}
+REQUEST_ID_RE = re.compile(r"^[A-Za-z0-9_-]{1,64}$")
 
 
 class BadRequest(ValueError):
     """Request rejected before touching any data."""
+
+
+def request_id_from(req: dict[str, Any]) -> str | None:
+    """Return a bounded opaque request ID, rejecting reflective free text."""
+    request_id = req.get("request_id")
+    if request_id is None:
+        return None
+    if not isinstance(request_id, str) or not REQUEST_ID_RE.fullmatch(request_id):
+        raise BadRequest("invalid request_id")
+    return request_id
 
 
 def validate_criteria(criteria: list[dict]) -> None:

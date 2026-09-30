@@ -6,7 +6,14 @@ from typing import Any
 
 from .feasibility import feasibility_count
 from .privacy import PrivacyGate
-from .templates import BadRequest, cohort_counts, cohort_filters, criteria_from, rate_pct
+from .templates import (
+    BadRequest,
+    cohort_counts,
+    cohort_filters,
+    criteria_from,
+    rate_pct,
+    request_id_from,
+)
 
 
 def _released_row(cohort: str, counts: dict[str, int]) -> dict[str, Any]:
@@ -23,8 +30,9 @@ def handle_gated_aggregate(
     clinic: str,
 ) -> dict[str, Any]:
     """Handle the fixed aggregate templates through ``PrivacyGate``."""
-    base = {"request_id": req.get("request_id"), "clinic": clinic}
+    base = {"request_id": None, "clinic": clinic}
     try:
+        base["request_id"] = request_id_from(req)
         template = req.get("template")
         if template == "feasibility_count":
             return {
@@ -64,6 +72,6 @@ def handle_gated_aggregate(
                 "budget_remaining": release["budget_remaining"],
                 "definitions": {"readmit_30d": "unplanned return <= 30 days"},
             }
-        raise BadRequest(f"unknown template {template!r}")
-    except BadRequest as exc:
-        return {**base, "status": "rejected", "reason": str(exc)}
+        raise BadRequest("unknown template")
+    except BadRequest:
+        return {**base, "status": "rejected", "reason": "invalid_request"}

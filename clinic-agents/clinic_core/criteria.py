@@ -101,9 +101,9 @@ def is_potentially_eligible(criteria: list[dict[str, Any]], patient: dict[str, A
 
 
 def unchecked_criteria(criteria: list[dict[str, Any]]) -> list[str]:
-    """source_text of every criterion that cannot be checked from our data."""
-    seen: list[str] = []
-    for c in criteria:
-        if not c.get("checkable") and c["source_text"] not in seen:
-            seen.append(c["source_text"])
-    return seen
+    """Return generated criterion IDs without reflecting source text."""
+    return [
+        f"criterion_{index}"
+        for index, criterion in enumerate(criteria, start=1)
+        if not criterion.get("checkable")
+    ]

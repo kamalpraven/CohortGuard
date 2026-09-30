@@ -129,6 +129,23 @@ def test_no_canary_leaves_clinic_b(tmp_path):
         assert c["name"] not in out and c["mrn"] not in out and c["dob"] not in out
 
 
+def test_reflection_channels_do_not_echo_canaries(tmp_path):
+    canary = CANARIES["A"][0]["name"]
+    responses = [
+        handle_clinic_b(FEAS | {"request_id": canary}, B, gate(tmp_path / "id")),
+        handle_clinic_b({"template": canary, "request_id": "safe-id"}, B, gate(tmp_path / "template")),
+        handle_clinic_b(
+            FEAS | {"criteria": [{"field": "unmapped", "checkable": False, "source_text": canary}]},
+            B,
+            gate(tmp_path / "criteria"),
+        ),
+    ]
+    assert canary not in json.dumps(responses)
+    assert responses[0]["request_id"] is None and responses[0]["reason"] == "invalid_request"
+    assert responses[1]["request_id"] == "safe-id" and responses[1]["reason"] == "invalid_request"
+    assert responses[2]["unchecked_criteria"] == ["criterion_1"]
+
+
 @pytest.mark.parametrize("clinic,req,check", [
     ("a", {"template": "patient_checklist", "mrn": "A-MRN-0042871", "nct_id": "NCT07060456"},
      lambda r: r["summary"]["met"] == 5),
