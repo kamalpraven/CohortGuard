@@ -22,6 +22,7 @@ sys.path[:0] = [
     str(ROOT / "clinic-agents" / "clinic-a-agent"),
 ]
 
+from demo_plan import DEMO_SETS, check_outcome, demo_questions  # noqa: E402
 from doctor_agent.core import LocalContext, prepare_coordinator_request  # noqa: E402
 
 PATIENTS = ROOT / "clinic-agents/clinic-a-agent/clinic_a/data/clinic_a_patients.json"
@@ -126,10 +127,15 @@ def main() -> None:
     parser.add_argument("--allow-model-calls", action="store_true", help="Required when --model is non-empty.")
     parser.add_argument("--log-dir", type=Path, default=ROOT / "runtime-logs")
     parser.add_argument(
+        "--demo",
+        choices=DEMO_SETS,
+        default="main",
+        help="Demo set; run each against a fresh node --session so budgets do not mix.",
+    )
+    parser.add_argument(
         "--workflow",
-        choices=["all", "cohort_question", "sglt2_expected_suppressed", "trial_pipeline", "site_feasibility", "maria_scrubbed_cohort"],
         default="all",
-        help="Run all demo workflows or just one workflow.",
+        help="Run the whole demo set (default) or one label from it. Budget checks apply only to the whole set.",
     )
     args = parser.parse_args()
 
@@ -143,16 +149,9 @@ def main() -> None:
 
     local = LocalContext.load(PATIENTS, CANARIES)
     maria = next(patient for patient in local.patients if patient["name"] == "Maria Delgado")
-    questions = {
-        "cohort_question": "Compare readmission cohorts for basal insulin and metformin in type 2 diabetes across Clinic A and Clinic B.",
-        "sglt2_expected_suppressed": "Compare readmission cohorts for SGLT2 and sulfonylurea in type 2 diabetes age 50-59 across Clinic A and Clinic B; this is expected to suppress after the stricter release threshold.",
-        "trial_pipeline": "Find trials for type 2 diabetes with readmission or hospitalization outcomes.",
-        "site_feasibility": "Estimate site feasibility for NCT07060456 in type 2 diabetes across Clinic A and Clinic B.",
-        "maria_scrubbed_cohort": (
-            f"For {maria['name']} also written Delgado, Maria, MRN {maria['mrn']}, "
-            f"DOB {maria['dob']}, compare readmission cohorts for SGLT2 and sulfonylurea in type 2 diabetes."
-        ),
-    }
+    questions = demo_questions(maria, args.demo)
+    if args.workflow != "all" and args.workflow not in questions:
+        raise SystemExit(f"--workflow must be 'all' or one of: {', '.join(questions)}")
 
     original_pyproject = patch_run_config(expected_role_node_ids=expected_json, model=args.model)
     run_ids: dict[str, int] = {}
@@ -164,7 +163,7 @@ def main() -> None:
         for label, question in selected_questions.items():
             if args.model:
                 print(f"MODEL_CALL_PLANNED workflow={label} model={args.model}")
-            
+
             request = prepare_coordinator_request(question, local)
             print(f"=== {label} request ===")
             print(json.dumps(request, sort_keys=True, ensure_ascii=False))
@@ -182,7 +181,9 @@ def main() -> None:
                 model_boundary_texts.append(response)
                 continue
             parsed = json.loads(response)
-            if parsed.get("workflow") != request["workflow"]:
+            if args.workflow == "all":
+                check_outcome(label, request, parsed)
+            elif parsed.get("workflow") != request["workflow"]:
                 raise RuntimeError(f"{label} routed to {parsed.get('workflow')}, expected {request['workflow']}")
     finally:
         PYPROJECT.write_text(original_pyproject, encoding="utf-8")
