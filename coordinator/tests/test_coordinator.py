@@ -153,8 +153,15 @@ def test_doctor_scrubbing_leaves_zero_canaries_in_all_boundaries(caplog):
     canary_path = ROOT / "clinic-agents/data/canaries.json"
     local = LocalContext.load(patients, canary_path)
     maria = next(patient for patient in local.patients if patient["name"] == "Maria Delgado")
+    iso_dob = maria["dob"]
+    year, month, day = iso_dob.split("-")
+    slash_dob = f"{month}/{day}/{year}"
+    month_name = "April" if month == "04" else month
+    long_dob = f"{month_name} {int(day)}, {year}"
+    reversed_name = "Delgado, Maria"
     question = (
-        f"For {maria['name']} with MRN {maria['mrn']} born {maria['dob']}, "
+        f"For {maria['name']} also written {reversed_name}, with MRN {maria['mrn']} "
+        f"and DOBs {iso_dob}, {slash_dob}, and {long_dob}, "
         "compare the readmission cohort for SGLT2 and sulfonylurea in type 2 diabetes."
     )
     request = prepare_coordinator_request(question, local)
@@ -168,11 +175,14 @@ def test_doctor_scrubbing_leaves_zero_canaries_in_all_boundaries(caplog):
         "events": agent.events.sent,
         "logs": caplog.messages,
     })
+    lowered_boundaries = boundaries.lower()
+    for forbidden in (maria["name"], reversed_name, maria["mrn"], iso_dob, slash_dob, long_dob):
+        assert forbidden.lower() not in lowered_boundaries
     canaries = json.loads(canary_path.read_text(encoding="utf-8"))
     for records in canaries.values():
         for canary in records:
             for key in ("name", "mrn", "dob"):
-                assert canary[key].lower() not in boundaries.lower()
+                assert canary[key].lower() not in lowered_boundaries
 
 
 def test_local_patient_answer_never_prints(capsys):
