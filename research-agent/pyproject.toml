@@ -10,7 +10,7 @@ dependencies = ["flwr>=1.39.0,<2.0", "openai>=2.16.0,<3.0.0"]
 publisher = "praven1"
 fab-format-version = 1
 flwr-version-target = "1.39.0"
-fab-include = ["research/**/*.py", "shared/**/*.py", "research_agent/**/*.py", "cache/**/*.json", "samples/**/*.json", "README.md", "LICENSE"]
+fab-include = ["research/**/*.py", "shared/**/*.py", "research_agent/**/*.py", "cache/**/*.json", "README.md", "LICENSE"]
 
 [tool.flwr.app.components]
 agentapp = "research_agent.agent_app:app"

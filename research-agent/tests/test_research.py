@@ -6,6 +6,7 @@ import json
 import os
 import sys
 import tempfile
+import tomllib
 import urllib.parse
 
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
@@ -305,6 +306,14 @@ def test_maria_uses_shared_vocabulary():
     assert m["sex"] in SEX_VALUES
     assert set(m["diagnoses"]) <= DIAGNOSIS_CODES
     assert set(m["current_medications"]) <= MEDICATION_CLASSES
+
+
+def test_research_fab_excludes_patient_like_samples():
+    root = os.path.dirname(os.path.dirname(__file__))
+    with open(os.path.join(root, "pyproject.toml"), "rb") as file:
+        includes = tomllib.load(file)["tool"]["flwr"]["app"]["fab-include"]
+    assert not any("samples" in pattern or "test_fixtures" in pattern for pattern in includes)
+    assert not os.path.exists(os.path.join(root, "samples", "maria_profile.json"))
 
 
 # ---------------------------------------------------------------- web page / injection
