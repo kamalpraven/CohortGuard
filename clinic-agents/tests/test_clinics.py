@@ -47,7 +47,11 @@ def test_generated_app_copies_match_canonical_sources():
 
 
 def gate(tmp_path, seed=1):
-    return PrivacyGate(BudgetLedger(tmp_path / "ledger.json"), random.Random(seed))
+    """Gate on a session ledger in ``tmp_path``, created explicitly on first use."""
+    path = tmp_path / "ledger.json"
+    if not path.exists():
+        BudgetLedger.create_session(path)
+    return PrivacyGate(BudgetLedger(path), random.Random(seed))
 
 
 def test_maria_checklist_matches_m3_expectation():
@@ -82,7 +86,7 @@ def test_clinic_b_feasibility_is_noised_and_charged(tmp_path):
 def test_deployment_style_fresh_ledgers_can_release_different_counts(tmp_path):
     """Default PrivacyGate randomness is not fixed-seed deterministic."""
     released = {
-        handle_clinic_b(FEAS, B, PrivacyGate(BudgetLedger(tmp_path / f"ledger-{i}.json")))["eligible_n"]
+        handle_clinic_b(FEAS, B, PrivacyGate(BudgetLedger.create_session(tmp_path / f"ledger-{i}.json")))["eligible_n"]
         for i in range(200)
     }
     assert len(released) > 1
@@ -121,14 +125,14 @@ def test_cohort_rate_pct_derived_from_released_counts(tmp_path):
 
 
 def test_feasibility_suppresses_when_noised_release_below_min_cell_and_charges(tmp_path):
-    g = PrivacyGate(BudgetLedger(tmp_path / "ledger.json"), SequenceRng([0.1]))
+    g = PrivacyGate(BudgetLedger.create_session(tmp_path / "ledger.json"), SequenceRng([0.1]))
     rel = g.release({"eligible_n": 10}, gate_on=10)
     assert rel == {"suppressed": True, "reason": "below_disclosure_threshold"}
     assert g.ledger.remaining() == 4.5
 
 
 def test_true_count_below_min_cell_still_suppresses_without_charge(tmp_path):
-    g = PrivacyGate(BudgetLedger(tmp_path / "ledger.json"), SequenceRng([0.99]))
+    g = PrivacyGate(BudgetLedger.create_session(tmp_path / "ledger.json"), SequenceRng([0.99]))
     rel = g.release({"eligible_n": 9}, gate_on=9)
     assert rel == {"suppressed": True, "reason": "below_disclosure_threshold"}
     assert g.ledger.remaining() == 5.0
@@ -137,7 +141,7 @@ def test_true_count_below_min_cell_still_suppresses_without_charge(tmp_path):
 def test_cohort_release_suppresses_whole_query_when_noised_event_below_min_cell(tmp_path):
     # Flat release order is cohort1.n, cohort1.events, cohort2.n, cohort2.events.
     rng = SequenceRng([0.5, 0.1, 0.5, 0.5])
-    g = PrivacyGate(BudgetLedger(tmp_path / "ledger.json"), rng)
+    g = PrivacyGate(BudgetLedger.create_session(tmp_path / "ledger.json"), rng)
     r = handle_clinic_b(COHORT_WIDE, B, g)
     assert r["status"] == "suppressed"
     assert r["reason"] == "below_disclosure_threshold"
@@ -209,9 +213,8 @@ def test_reflection_channels_do_not_echo_canaries(tmp_path):
     ("b", FEAS, lambda r: r["status"] == "ok"),
 ])
 def test_agentapp_main_end_to_end(clinic, req, check, tmp_path, monkeypatch, capsys):
-    monkeypatch.setenv("CLINIC_A_STATE", str(tmp_path / "a.json"))
-    monkeypatch.setenv("CLINIC_B_STATE", str(tmp_path / "b.json"))
     mod = importlib.import_module(f"clinic_{clinic}.agent_app")
+    monkeypatch.setattr(mod, "LEDGER", BudgetLedger.create_session(tmp_path / f"{clinic}.json").path)
 
     class Events:
         def __init__(self): self.sent = []
@@ -235,8 +238,8 @@ def test_clinic_a_fab_excludes_exact_local_handler():
 
 
 def test_clinic_a_deployment_never_emits_exact_patient_result(tmp_path, monkeypatch, capsys):
-    monkeypatch.setenv("CLINIC_A_STATE", str(tmp_path / "a.json"))
     from clinic_a import agent_app
+    monkeypatch.setattr(agent_app, "LEDGER", BudgetLedger.create_session(tmp_path / "a.json").path)
 
     class Events:
         def __init__(self): self.sent = []

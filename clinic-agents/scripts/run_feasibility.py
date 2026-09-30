@@ -41,7 +41,7 @@ def main() -> None:
     for clinic in ("A", "B"):
         patients = load_patients(clinic, ROOT / f"clinic-{clinic.lower()}-agent" / f"clinic_{clinic.lower()}" / "data")
         rng = random.Random(args.seed) if args.seed is not None else random.SystemRandom()
-        gate = PrivacyGate(BudgetLedger(tmp / f"{clinic}.json"), rng)
+        gate = PrivacyGate(BudgetLedger.create_session(tmp / f"{clinic}.json"), rng)
         out = feasibility_count(clinic, nct_id, criteria, patients, gate)
         print(json.dumps(out))
         if args.exact:
