@@ -84,12 +84,21 @@ def _validate_cohort_params(request: dict[str, Any]) -> dict[str, Any]:
 
 
 def _pool_cohorts(replies: dict[str, dict[str, Any]]) -> dict[str, Any]:
-    statuses = [reply.get("status") for reply in replies.values()]
-    if any(status != "ok" for status in statuses):
-        return {"status": "partial", "sites": list(replies.values())}
+    ok_replies = [reply for reply in replies.values() if reply.get("status") == "ok"]
+    suppressed = [
+        {
+            "clinic": reply.get("clinic"),
+            "status": reply.get("status"),
+            "reason": reply.get("reason"),
+        }
+        for reply in replies.values()
+        if reply.get("status") != "ok"
+    ]
+    if not ok_replies:
+        return {"status": "partial", "sites": list(replies.values()), "suppressed_sites": suppressed}
     pooled: dict[str, dict[str, int]] = {}
     noise_variance: dict[str, dict[str, float]] = {}
-    for reply in replies.values():
+    for reply in ok_replies:
         scale = float(reply.get("noise_scale") or 0.0)
         per_count_variance = 2.0 * scale * scale
         for row in reply.get("results", []):
@@ -111,7 +120,16 @@ def _pool_cohorts(replies: dict[str, dict[str, Any]]) -> dict[str, Any]:
         }
         for cohort, values in pooled.items()
     ]
-    output: dict[str, Any] = {"status": "ok", "results": results, "site_count": len(replies)}
+    is_partial = bool(suppressed)
+    output: dict[str, Any] = {
+        "status": "partial" if is_partial else "ok",
+        "results": results,
+        "site_count": len(ok_replies),
+        "site_scope": "single_site" if len(ok_replies) == 1 else "pooled_sites",
+    }
+    if is_partial:
+        output["sites"] = list(replies.values())
+        output["suppressed_sites"] = suppressed
     if len(results) == 2 and all(row["n"] for row in results):
         first, second = results
         p1 = first["events"] / first["n"]
@@ -143,6 +161,7 @@ def _pool_cohorts(replies: dict[str, dict[str, Any]]) -> dict[str, Any]:
             ],
             "method": "wald_difference_in_proportions_with_laplace_noise_delta_method",
             "laplace_noise_variance_included": True,
+            "site_scope": output["site_scope"],
         }
     return output
 

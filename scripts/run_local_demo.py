@@ -105,7 +105,8 @@ def main() -> None:
     local = LocalContext.load(PATIENTS, CANARIES)
     maria = next(patient for patient in local.patients if patient["name"] == "Maria Delgado")
     questions = {
-        "cohort_question": "Compare readmission cohorts for SGLT2 and sulfonylurea in type 2 diabetes across Clinic A and Clinic B.",
+        "cohort_question": "Compare readmission cohorts for basal insulin and metformin in type 2 diabetes across Clinic A and Clinic B.",
+        "sglt2_expected_suppressed": "Compare readmission cohorts for SGLT2 and sulfonylurea in type 2 diabetes age 50-59 across Clinic A and Clinic B; this is expected to suppress after the stricter release threshold.",
         "trial_pipeline": "Find trials for type 2 diabetes with readmission or hospitalization outcomes.",
         "site_feasibility": "Estimate site feasibility for NCT07060456 in type 2 diabetes across Clinic A and Clinic B.",
         "maria_scrubbed_cohort": (

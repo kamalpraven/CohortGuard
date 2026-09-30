@@ -47,7 +47,8 @@ def summary_instructions(workflow: str) -> str:
         return base + (
             "For cohort comparisons, describe n values as noised cohort sizes, not eligibility counts. "
             "Frame comparisons as observational associations in synthetic aggregate data, not causal effects. "
-            "If a rate_difference object is present, include its 95% confidence interval and method exactly from the computed result, including whether Laplace noise variance was included. "
+            "If status is partial or suppressed_sites is present, state plainly which clinic release was suppressed and the stated reason, for example counts too small to release safely for below_disclosure_threshold. "
+            "If a rate_difference object is present, include its 95% confidence interval and method exactly from the computed result, including whether Laplace noise variance was included and whether site_scope is single_site. "
             "Report privacy budget only if explicitly present in the computed result."
         )
     if workflow == "site_feasibility":
