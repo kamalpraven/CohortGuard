@@ -5,6 +5,7 @@ import json
 import random
 import subprocess
 import sys
+import tomllib
 from pathlib import Path
 
 import pytest
@@ -166,6 +167,13 @@ def test_agentapp_main_end_to_end(clinic, req, check, tmp_path, monkeypatch, cap
     printed = json.loads(capsys.readouterr().out)
     assert check(printed) and printed["clinic"] == clinic.upper()
     assert Agent.events.sent[0]["type"] == "response.output_text.delta"
+
+
+def test_clinic_a_fab_excludes_exact_local_handler():
+    with (ROOT / "clinic-a-agent" / "pyproject.toml").open("rb") as file:
+        includes = tomllib.load(file)["tool"]["flwr"]["app"]["fab-include"]
+    assert "clinic_a/clinic.py" not in includes
+    assert not any(pattern == "clinic_a/**/*.py" for pattern in includes)
 
 
 def test_clinic_a_deployment_never_emits_exact_patient_result(tmp_path, monkeypatch, capsys):

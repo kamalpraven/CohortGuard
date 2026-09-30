@@ -20,7 +20,7 @@ publisher = "charan007"
 fab-format-version = 1
 flwr-version-target = "1.38.0"
 fab-include = [
-  "clinic_a/**/*.py", "clinic_a/data/*.json",
+  "clinic_a/__init__.py", "clinic_a/agent_app.py", "clinic_a/data/*.json",
   "clinic_core/**/*.py", "clinic_core/trial_cache/*.json",
   "shared/*.py", "LICENSE",
 ]
