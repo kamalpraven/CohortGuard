@@ -3,6 +3,7 @@
 import importlib
 import json
 import random
+import re
 import subprocess
 import sys
 import tomllib
@@ -69,8 +70,29 @@ def test_clinic_b_feasibility_is_noised_and_charged(tmp_path):
     assert r["budget_remaining"] < 1.0 and "eligible_mrns" not in r
 
 
+def test_deployment_style_fresh_ledgers_can_release_different_counts(tmp_path):
+    """Default PrivacyGate randomness is not fixed-seed deterministic."""
+    released = {
+        handle_clinic_b(FEAS, B, PrivacyGate(BudgetLedger(tmp_path / f"ledger-{i}.json")))["eligible_n"]
+        for i in range(200)
+    }
+    assert len(released) > 1
+
+
+def test_no_constant_seed_in_deployment_paths():
+    deployment_files = [
+        ROOT / "clinic-a-agent" / "clinic_a" / "agent_app.py",
+        ROOT / "clinic-b-agent" / "clinic_b" / "agent_app.py",
+        ROOT / "clinic_core" / "privacy.py",
+        ROOT.parent / "coordinator" / "cohortguard_coordinator" / "nodes.py",
+    ]
+    seed_pattern = re.compile(r"random\.Random\s*\(\s*\d|default_rng\s*\(\s*\d")
+    for path in deployment_files:
+        assert not seed_pattern.search(path.read_text(encoding="utf-8")), path
+
+
 def test_clinic_b_feasibility_fixed_seed_regression(tmp_path):
-    """Pin Clinic B's released values while cleanup refactors its request path."""
+    """Pin Clinic B's released values with an injected test RNG only."""
     r = handle_clinic_b(FEAS, B, gate(tmp_path, seed=1))
     assert {k: r[k] for k in ("eligible_n", "noise_scale", "budget_remaining")} == {
         "eligible_n": 81,

@@ -17,3 +17,8 @@ clinic-agents/clinic_core/trial_cache/
 research-agent/shared/
 research-agent/cache/criteria_*.json
 **/samples/maria_profile.json
+coordinator/clinic_core/
+coordinator/research/
+coordinator/research_agent/
+coordinator/shared/
+coordinator/cache/

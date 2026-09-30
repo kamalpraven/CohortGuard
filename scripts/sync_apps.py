@@ -16,13 +16,16 @@ CANONICAL = ROOT / "shared"
 CLINICS = ROOT / "clinic-agents"
 CLINIC_CORE = CLINICS / "clinic_core"
 CLINIC_APPS = (CLINICS / "clinic-a-agent", CLINICS / "clinic-b-agent")
+COORDINATOR = ROOT / "coordinator"
+RESEARCH_APP = ROOT / "research-agent"
 
 
 def _asset_pairs() -> list[tuple[Path, Path]]:
     pairs: list[tuple[Path, Path]] = []
     allowlist_sources = (
-        ROOT / "research-agent" / "shared",
+        RESEARCH_APP / "shared",
         CLINICS / "shared",
+        COORDINATOR / "shared",
         *(app / "shared" for app in CLINIC_APPS),
     )
     for destination in allowlist_sources:
@@ -34,24 +37,31 @@ def _asset_pairs() -> list[tuple[Path, Path]]:
         )
 
     criteria_destinations = (
-        ROOT / "research-agent" / "cache",
+        RESEARCH_APP / "cache",
         CLINICS / "cache",
         CLINIC_CORE / "trial_cache",
+        COORDINATOR / "cache",
         *(app / "clinic_core" / "trial_cache" for app in CLINIC_APPS),
     )
     for source in sorted((CANONICAL / "criteria").glob("criteria_*.json")):
         pairs.extend((source, destination / source.name) for destination in criteria_destinations)
 
-    for app in CLINIC_APPS:
+    for app in (*CLINIC_APPS, COORDINATOR):
         for source in sorted(CLINIC_CORE.glob("*.py")):
             if source.name != "generate_data.py":
                 pairs.append((source, app / "clinic_core" / source.name))
+
+    for package in ("research", "research_agent"):
+        for source in sorted((RESEARCH_APP / package).glob("*.py")):
+            pairs.append((source, COORDINATOR / package / source.name))
+    for source in sorted((RESEARCH_APP / "cache").glob("*.json")):
+        pairs.append((source, COORDINATOR / "cache" / source.name))
     return pairs
 
 
 def _unexpected_paths() -> list[Path]:
     """Files deliberately excluded from runtime app bundles."""
-    return [app / "clinic_core" / "generate_data.py" for app in CLINIC_APPS]
+    return [app / "clinic_core" / "generate_data.py" for app in (*CLINIC_APPS, COORDINATOR)]
 
 
 def find_drift() -> list[str]:
@@ -92,7 +102,7 @@ def main() -> int:
         print("Shared app copies are in sync.")
         return 0
     sync()
-    print("Synchronized canonical assets into research and clinic apps.")
+    print("Synchronized canonical assets into research, clinic, and coordinator apps.")
     return 0
 
 

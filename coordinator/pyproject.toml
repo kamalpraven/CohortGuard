@@ -1,0 +1,46 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "cohortguard-coordinator"
+version = "0.1.0"
+description = "CohortGuard code-driven collaborative AgentApp"
+license = { file = "LICENSE" }
+requires-python = ">=3.11,<4.0"
+dependencies = ["flwr>=1.39.0,<2.0", "openai>=2.16.0,<3.0.0"]
+
+[dependency-groups]
+dev = ["pytest>=9.0.0"]
+
+[tool.hatch.build.targets.wheel]
+packages = ["cohortguard_coordinator", "clinic_core", "research", "research_agent", "shared"]
+
+[tool.flwr.app]
+publisher = "praven1"
+display-name = "CohortGuard Coordinator"
+color = "emerald"
+fab-format-version = 1
+flwr-version-target = "1.39.0"
+fab-include = [
+  "cohortguard_coordinator/**/*.py",
+  "cohortguard_coordinator/canary_hashes.json",
+  "clinic_core/**/*.py",
+  "research/**/*.py",
+  "research_agent/**/*.py",
+  "shared/*.py",
+  "cache/**/*.json",
+  "README.md",
+  "LICENSE",
+]
+
+[tool.flwr.app.components]
+agentapp = "cohortguard_coordinator.agent_app:app"
+
+[tool.flwr.app.config]
+model = ""
+grid_timeout = 45.0
+http_mode = "replay"
+with_mechanism = false
+reasoning_effort = "low"
+expected_role_node_ids = "{}"
