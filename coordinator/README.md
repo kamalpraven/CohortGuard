@@ -103,6 +103,53 @@ uv run --project coordinator python doctor-agent/app.py
 
 The Doctor Agent builds/submits the local coordinator FAB using Flower's Control API. Raw doctor text remains in the Clinic A desktop process; only its scrubbed structured request becomes the AgentApp prompt.
 
+## SuperGrid dry run
+
+Use Flower 1.39 CLI. Check `--help` before changing commands because SuperGrid options are CLI-version sensitive.
+
+Generate one ECDSA key pair per SuperNode role outside the repository:
+
+```shell
+mkdir -p ~/.cohortguard/keys
+ssh-keygen -t ecdsa -b 384 -N "" -f ~/.cohortguard/keys/supergrid_clinic_a_ecdsa -C "cohortguard-clinic_a-supergrid"
+ssh-keygen -t ecdsa -b 384 -N "" -f ~/.cohortguard/keys/supergrid_clinic_b_ecdsa -C "cohortguard-clinic_b-supergrid"
+ssh-keygen -t ecdsa -b 384 -N "" -f ~/.cohortguard/keys/supergrid_research_ecdsa -C "cohortguard-research-supergrid"
+```
+
+Never commit or copy private keys into the repo. Register only public keys:
+
+```shell
+flwr supernode register ~/.cohortguard/keys/supergrid_clinic_a_ecdsa.pub supergrid --name cohortguard-clinic_a
+flwr supernode register ~/.cohortguard/keys/supergrid_clinic_b_ecdsa.pub supergrid --name cohortguard-clinic_b
+flwr supernode register ~/.cohortguard/keys/supergrid_research_ecdsa.pub supergrid --name cohortguard-research
+flwr supernode list supergrid --verbose --format json
+```
+
+If the CLI asks for authentication, run `flwr login supergrid` yourself in the browser.
+
+Start the three SuperGrid-connected nodes from Git Bash:
+
+```shell
+scripts/start_supergrid_nodes.sh --session supergrid-demo-001
+sleep 30
+flwr supernode list supergrid --verbose --format json
+```
+
+Run the no-model SuperGrid demo with role discovery pinned to the registered node IDs:
+
+```shell
+PYTHONUTF8=1 coordinator/.venv/Scripts/python.exe scripts/run_supergrid_demo.py \
+  --expected-role-node-ids '{"clinic_a":"<clinic-a-node-id>","clinic_b":"<clinic-b-node-id>","research":"<research-node-id>"}'
+```
+
+To test the final-summary model path, pass `--model <model-id> --allow-model-calls`. This makes one model call per submitted workflow, so use sparingly. `with_mechanism` remains false.
+
+Stop local SuperNode processes:
+
+```shell
+scripts/stop_local_grid.sh
+```
+
 ## Canary hash boundary
 
 The coordinator bundle includes salted SHA-256 hashes of normalized planted canary values, generated locally from `clinic-agents/data/canaries.json` by:
