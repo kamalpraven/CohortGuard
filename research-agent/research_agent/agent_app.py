@@ -26,8 +26,8 @@ except ModuleNotFoundError:  # pragma: no cover - exercised only outside Flower.
     Context = Any  # type: ignore
 
     class AgentApp:  # minimal decorator shim for local import/tests
-        def main(self):
-            def deco(fn):
+        def main(self) -> Callable[[Callable[..., Any]], Callable[..., Any]]:
+            def deco(fn: Callable[..., Any]) -> Callable[..., Any]:
                 return fn
             return deco
 

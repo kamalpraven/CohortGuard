@@ -152,6 +152,7 @@ def test_reflection_channels_do_not_echo_canaries(tmp_path):
     ("b", FEAS, lambda r: r["status"] == "ok"),
 ])
 def test_agentapp_main_end_to_end(clinic, req, check, tmp_path, monkeypatch, capsys):
+    monkeypatch.setenv("CLINIC_A_STATE", str(tmp_path / "a.json"))
     monkeypatch.setenv("CLINIC_B_STATE", str(tmp_path / "b.json"))
     mod = importlib.import_module(f"clinic_{clinic}.agent_app")
 
