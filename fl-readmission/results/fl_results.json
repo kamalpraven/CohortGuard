@@ -2820,6 +2820,11 @@
       "superlink_reply_sources": {
         "7846383649474478628": 40,
         "7639901861940771299": 40
+      },
+      "node_messages_received": {
+        "clinic_a": 40,
+        "clinic_b": 40,
+        "research": 0
       }
     }
   },
@@ -3049,6 +3054,7 @@
         "clinic_b.err.log",
         "clinic_b.log",
         "fl_local.log",
+        "fl_local_saved.log",
         "fl_results.json",
         "fl_simulation.log",
         "message_log",

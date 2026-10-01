@@ -39,14 +39,33 @@ from fl_readmission.evaluate import compare, patient_file, plot_comparison, plot
 from fl_readmission.task import CLINIC_ROLES  # noqa: E402
 
 
-def flwr_command(mode: str, superlink: str | None, clinic_node_ids: str | None) -> list[str]:
+RUN_KEYS = {"simulation": "simulation", "local": "local_deployment", "supergrid": "supergrid_demonstration"}
+
+
+def flwr_command(mode: str, superlink: str | None, clinic_node_ids: str | None,
+                 federation: str | None = None, rounds: int | None = None) -> list[str]:
     flwr = str(APP / ".venv" / "Scripts" / "flwr.exe")
     if mode == "simulation":
         data_dir = DATA_DIR.as_posix()
         return [flwr, "run", ".", "local", "--stream", "--federation-config", "num-supernodes=2",
                 "--run-config", f"simulation=true sim-data-dir='{data_dir}'"]
-    return [flwr, "run", ".", superlink or "local-agent", "--stream",
-            "--run-config", f"clinic-node-ids='{clinic_node_ids}'"]
+    run_config = f"clinic-node-ids='{clinic_node_ids}'"
+    if rounds is not None:
+        run_config += f" num-server-rounds={rounds}"
+    command = [flwr, "run", ".", superlink or ("supergrid" if mode == "supergrid" else "local-agent"), "--stream"]
+    if federation:
+        command += ["--federation", federation]
+    return command + ["--run-config", run_config]
+
+
+def node_messages_received(log_dir: Path) -> dict[str, int]:
+    """Messages each local SuperNode logged as received (works when the SuperLink is remote)."""
+    counts = {}
+    for role in (*CLINIC_ROLES, "research"):
+        path = log_dir / f"{role}.err.log"
+        text = re.sub(r"\x1b\[[0-9;]*m", "", path.read_text(encoding="utf-8", errors="ignore")) if path.exists() else ""
+        counts[role] = len(re.findall(r"Receiving: \w+ message", text))
+    return counts
 
 
 def run_flwr(command: list[str], log_path: Path) -> str:
@@ -103,31 +122,46 @@ def canary_scan(texts: dict[str, str], structured: dict[str, str]) -> dict[str, 
 
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__.splitlines()[0])
-    parser.add_argument("mode", choices=["simulation", "local"])
-    parser.add_argument("--superlink", default="local-agent")
-    parser.add_argument("--clinic-node-ids", help='JSON, e.g. {"clinic_a":"123","clinic_b":"456"} (local mode)')
+    parser.add_argument("mode", choices=list(RUN_KEYS))
+    parser.add_argument("--superlink", default=None, help="Flower connection (default local-agent, or supergrid)")
+    parser.add_argument("--federation", default=None, help="SuperGrid federation, e.g. @praven1/<name>")
+    parser.add_argument("--clinic-node-ids", help='JSON, e.g. {"clinic_a":"123","clinic_b":"456"} (local/supergrid)')
+    parser.add_argument("--rounds", type=int, default=None,
+                        help="supergrid only: rounds for the deployment demonstration (chosen from timing)")
     parser.add_argument("--from-log", type=Path, help="reuse an existing flwr run log instead of running again")
     args = parser.parse_args()
-    if args.mode == "local" and not args.clinic_node_ids and not args.from_log:
-        parser.error("local mode needs --clinic-node-ids")
+    if args.mode != "simulation" and not args.clinic_node_ids and not args.from_log:
+        parser.error(f"{args.mode} mode needs --clinic-node-ids")
+    if args.rounds is not None and args.mode != "supergrid":
+        parser.error("--rounds is only for the SuperGrid deployment demonstration")
 
     LOG_DIR.mkdir(exist_ok=True)
     log_path = LOG_DIR / f"fl_{args.mode}.log"
     if args.from_log:
         output = args.from_log.read_text(encoding="utf-8")
     else:
-        output = run_flwr(flwr_command(args.mode, args.superlink, args.clinic_node_ids), log_path)
+        command = flwr_command(args.mode, args.superlink, args.clinic_node_ids, args.federation, args.rounds)
+        output = run_flwr(command, log_path)
     fl = parse_result(output)
 
     results = json.loads(RESULTS.read_text(encoding="utf-8")) if RESULTS.exists() else {"runs": {}}
-    results["runs"]["local_deployment" if args.mode == "local" else "simulation"] = fl
-    comparison = compare(fl, DATA_DIR)
-    results["comparison"] = {"source_run": args.mode, **comparison}
-    runs = list(results["runs"].values())
-    if len(runs) > 1:
-        results["runs_identical_weights"] = all(
-            np.allclose(r["coefficients"], runs[0]["coefficients"], atol=1e-9) and abs(r["intercept"] - runs[0]["intercept"]) < 1e-9
-            for r in runs)
+    if args.mode == "supergrid":
+        # A shorter run that fits the hosted time limit: it demonstrates deployment only.
+        # The reported comparison stays the 20-round local deployment.
+        fl["label"] = ("deployment demonstration: round count chosen from local timing to fit the SuperGrid "
+                       "time limit; the 20-round local deployment remains the reported result")
+    results["runs"][RUN_KEYS[args.mode]] = fl
+    if args.mode == "supergrid":
+        comparison = results["comparison"]
+    else:
+        comparison = compare(fl, DATA_DIR)
+        results["comparison"] = {"source_run": args.mode, **comparison}
+        full_runs = [results["runs"][key] for key in ("simulation", "local_deployment") if key in results["runs"]]
+        if len(full_runs) > 1:
+            results["runs_identical_weights"] = all(
+                np.allclose(r["coefficients"], full_runs[0]["coefficients"], atol=1e-9)
+                and abs(r["intercept"] - full_runs[0]["intercept"]) < 1e-9
+                for r in full_runs)
 
     # Nothing but the pinned (or, in simulation, the two) clinic nodes may be addressed.
     addressed_ok = set(fl["addressed_node_ids"]) == set(fl["clinic_node_roles"]) and \
@@ -138,14 +172,23 @@ def main() -> int:
         sources = superlink_reply_sources(LOG_DIR)
         expected_replies = 2 * len(fl["rounds"])  # one train + one evaluate reply per round
         fl["superlink_reply_sources"] = sources
-        addressed_ok = addressed_ok and set(sources) == set(fl["clinic_node_roles"]) and             all(count == expected_replies for count in sources.values())
+        addressed_ok = (addressed_ok and set(sources) == set(fl["clinic_node_roles"])
+                        and all(count == expected_replies for count in sources.values()))
+    if args.mode in {"local", "supergrid"}:
+        # The SuperNodes run on this machine in both modes: their own logs show what they received.
+        received = node_messages_received(LOG_DIR)
+        fl["node_messages_received"] = received
+        expected_messages = 2 * len(fl["rounds"])
+        addressed_ok = (addressed_ok and received["research"] == 0
+                        and all(received[role] == expected_messages for role in CLINIC_ROLES))
 
-    MEDIA.mkdir(parents=True, exist_ok=True)
-    plot_rounds(fl, comparison, MEDIA / "fl-readmission-auc-per-round.png")
-    plot_comparison(comparison, MEDIA / "fl-readmission-comparison.png")
+    if args.mode != "supergrid":
+        MEDIA.mkdir(parents=True, exist_ok=True)
+        plot_rounds(fl, comparison, MEDIA / "fl-readmission-auc-per-round.png")
+        plot_comparison(comparison, MEDIA / "fl-readmission-comparison.png")
 
     texts = {log_path.name: output}
-    if args.mode == "local":
+    if args.mode in {"local", "supergrid"}:
         texts |= {p.name: p.read_text(encoding="utf-8", errors="ignore") for p in sorted(LOG_DIR.glob("*.log")) if p != log_path}
     RESULTS.parent.mkdir(exist_ok=True)
     draft = json.dumps(results, indent=2)
@@ -153,8 +196,12 @@ def main() -> int:
     results.setdefault("canary_scans", {})[args.mode] = scan
     RESULTS.write_text(json.dumps(results, indent=2) + "\n", encoding="utf-8")
 
-    models = comparison["models"]
+    models = comparison["models"] if args.mode != "supergrid" else {}
     print(f"rounds: {len(fl['rounds'])}; final weighted AUC {fl['rounds'][-1]['weighted_auc']:.4f}")
+    if args.mode == "supergrid":
+        sglt2 = fl["coefficients"][list(fl["feature_names"]).index("current_sglt2_inhibitor")]
+        print(f"  {fl['label']}")
+        print(f"  final sglt2 coef {sglt2:+.3f} OR {np.exp(sglt2):.2f} (not the reported result)")
     for name, model in models.items():
         s = model["scores"]
         print(f"  {model['label']:<22} AUC A {s['clinic_a']['auc']:.3f}  B {s['clinic_b']['auc']:.3f}  combined {s['combined']['auc']:.3f}"
@@ -163,6 +210,8 @@ def main() -> int:
     print(f"addressed nodes: {fl['addressed_node_ids']} roles {fl['clinic_node_roles']} -> {'ok' if addressed_ok else 'VIOLATION'}")
     if "superlink_reply_sources" in fl:
         print(f"SuperLink reply sources: {fl['superlink_reply_sources']}")
+    if "node_messages_received" in fl:
+        print(f"messages received per SuperNode: {fl['node_messages_received']}")
     print(f"canary hits: {scan['hits']} (checked {scan['identifiers_checked']} identifiers across {len(scan['sources'])} sources)")
     return 0 if scan["hits"] == 0 and addressed_ok else 1
 
