@@ -1,0 +1,5 @@
+# Also read by `flwr app publish`: keep local tooling and build outputs out of the upload.
+.venv/
+.pytest_cache/
+__pycache__/
+*.fab
