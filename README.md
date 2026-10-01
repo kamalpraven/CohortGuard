@@ -8,6 +8,8 @@ framework: []
 
 CohortGuard is a Flower AgentApp demo for privacy-preserving, federated clinical-research coordination over synthetic data.
 
+![CohortGuard architecture: a doctor agent scrubs identifiers inside Clinic A; a coordinator and a federated learning app run on Flower SuperGrid; clinics release only noised aggregates or model weights](docs/media/cohortguard-architecture.png)
+
 ## Phase 2 architecture
 
 - **Doctor Agent:** local desktop app on Clinic A's side. Raw doctor text stays local. The Doctor Agent scrubs Clinic A names, MRNs, DOBs, planted canaries, date/ID patterns, and person-name patterns before submitting a structured de-identified request.
@@ -105,6 +107,10 @@ The privacy gate correctly suppresses SGLT2 cohort queries at this data size, be
   - AUC differences between models are within noise.
   - Overall AUC is modest (about 0.6) on this synthetic data.
 - **Canary scan:** 0 hits across FL messages, events and logs.
+
+**Federated learning on SuperGrid** (run 6822625423554031018): both clinics trained each round; the research node received nothing. This 5-round run is a deployment demonstration; the 20-round local run is the reported result.
+
+![Federated learning run on SuperGrid](docs/media/supergrid-fl-run.png)
 
 ![Federated vs clinic-only vs pooled](docs/media/fl-readmission-comparison.png)
 
