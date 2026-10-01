@@ -1408,10 +1408,1423 @@
           }
         }
       ]
+    },
+    "local_deployment": {
+      "mode": "deployment",
+      "config": {
+        "num-server-rounds": 20,
+        "local-epochs": 10,
+        "learning-rate": 1.0,
+        "l2": 0.001,
+        "split-seed": 20260930,
+        "test-fraction": 0.2
+      },
+      "scaling": {
+        "age": {
+          "centre": 60.0,
+          "scale": 20.0
+        },
+        "hba1c": {
+          "centre": 8.0,
+          "scale": 2.0
+        },
+        "egfr": {
+          "centre": 80.0,
+          "scale": 25.0
+        },
+        "bmi": {
+          "centre": 30.0,
+          "scale": 6.0
+        }
+      },
+      "min_feature_patients": 10,
+      "feature_names": [
+        "age",
+        "hba1c",
+        "egfr",
+        "bmi",
+        "sex_female",
+        "dx_T1D",
+        "dx_T2D",
+        "dx_other_specific_diabetes",
+        "dx_secondary_diabetes",
+        "current_basal_insulin",
+        "current_dpp4_inhibitor",
+        "current_glp1_ra",
+        "current_metformin",
+        "current_sglt2_inhibitor",
+        "current_sulfonylurea",
+        "prior_basal_insulin",
+        "prior_dpp4_inhibitor",
+        "prior_glp1_ra",
+        "prior_metformin",
+        "prior_sglt2_inhibitor",
+        "prior_sulfonylurea"
+      ],
+      "coefficients": [
+        0.1594931955729838,
+        0.12716287159011094,
+        -0.17614991508074845,
+        -0.09465419654223368,
+        -0.05282726953439067,
+        -0.3768771201759084,
+        -0.353478007044291,
+        -0.10502023840829891,
+        -0.1884357050249329,
+        0.6267623147196253,
+        -0.023986275398667583,
+        -0.13804267067371023,
+        -0.15925323373676284,
+        -0.5474727721234548,
+        0.40926749777605864,
+        -0.05066920542781446,
+        -0.14494498507200826,
+        -0.18689284899025949,
+        0.3307310923880924,
+        -0.36513372606407063,
+        0.04431266792578536
+      ],
+      "intercept": -1.206678253310915,
+      "rounds": [
+        {
+          "round": 1,
+          "weighted_auc": 0.581952903433958,
+          "weighted_test_loss": 0.4653780129152715,
+          "weighted_train_loss": 0.46257675629919515
+        },
+        {
+          "round": 2,
+          "weighted_auc": 0.605030681778328,
+          "weighted_test_loss": 0.4596184926618973,
+          "weighted_train_loss": 0.4570785596555049
+        },
+        {
+          "round": 3,
+          "weighted_auc": 0.6166391690113905,
+          "weighted_test_loss": 0.4568401149064045,
+          "weighted_train_loss": 0.4540710569558496
+        },
+        {
+          "round": 4,
+          "weighted_auc": 0.6236175933032236,
+          "weighted_test_loss": 0.4554170349276117,
+          "weighted_train_loss": 0.452177240837101
+        },
+        {
+          "round": 5,
+          "weighted_auc": 0.6251931478984412,
+          "weighted_test_loss": 0.4546960463353843,
+          "weighted_train_loss": 0.45093507825313
+        },
+        {
+          "round": 6,
+          "weighted_auc": 0.6250585844753574,
+          "weighted_test_loss": 0.454358460643296,
+          "weighted_train_loss": 0.45009496941078553
+        },
+        {
+          "round": 7,
+          "weighted_auc": 0.6227815155834033,
+          "weighted_test_loss": 0.4542361901766716,
+          "weighted_train_loss": 0.44951071218867356
+        },
+        {
+          "round": 8,
+          "weighted_auc": 0.622331841241276,
+          "weighted_test_loss": 0.45423667273886736,
+          "weighted_train_loss": 0.4490937632374289
+        },
+        {
+          "round": 9,
+          "weighted_auc": 0.6246928567847667,
+          "weighted_test_loss": 0.4543072965989744,
+          "weighted_train_loss": 0.4487891325915259
+        },
+        {
+          "round": 10,
+          "weighted_auc": 0.6250919143553467,
+          "weighted_test_loss": 0.45441735468232924,
+          "weighted_train_loss": 0.4485618404555651
+        },
+        {
+          "round": 11,
+          "weighted_auc": 0.6252977702370801,
+          "weighted_test_loss": 0.4545485133837827,
+          "weighted_train_loss": 0.44838909839603697
+        },
+        {
+          "round": 12,
+          "weighted_auc": 0.6244363841314862,
+          "weighted_test_loss": 0.4546896236572867,
+          "weighted_train_loss": 0.4482557063152681
+        },
+        {
+          "round": 13,
+          "weighted_auc": 0.6247261866647561,
+          "weighted_test_loss": 0.4548338202648544,
+          "weighted_train_loss": 0.4481512916805416
+        },
+        {
+          "round": 14,
+          "weighted_auc": 0.6233691421441587,
+          "weighted_test_loss": 0.4549768583129151,
+          "weighted_train_loss": 0.4480686214827879
+        },
+        {
+          "round": 15,
+          "weighted_auc": 0.6210541106735441,
+          "weighted_test_loss": 0.4551161344175356,
+          "weighted_train_loss": 0.44800254918440463
+        },
+        {
+          "round": 16,
+          "weighted_auc": 0.6198063211902569,
+          "weighted_test_loss": 0.45525009532143657,
+          "weighted_train_loss": 0.44794934414393295
+        },
+        {
+          "round": 17,
+          "weighted_auc": 0.6205331438727673,
+          "weighted_test_loss": 0.45537787095155147,
+          "weighted_train_loss": 0.4479062557045599
+        },
+        {
+          "round": 18,
+          "weighted_auc": 0.6194785560783267,
+          "weighted_test_loss": 0.4554990407383738,
+          "weighted_train_loss": 0.44787122404300483
+        },
+        {
+          "round": 19,
+          "weighted_auc": 0.6185458775140829,
+          "weighted_test_loss": 0.45561348114789935,
+          "weighted_train_loss": 0.44784268461133103
+        },
+        {
+          "round": 20,
+          "weighted_auc": 0.6184366224767728,
+          "weighted_test_loss": 0.45572126405456,
+          "weighted_train_loss": 0.4478194334365798
+        }
+      ],
+      "clinic_node_roles": {
+        "7639901861940771299": "clinic_a",
+        "7846383649474478628": "clinic_b"
+      },
+      "addressed_node_ids": [
+        "7639901861940771299",
+        "7846383649474478628"
+      ],
+      "message_log": [
+        {
+          "round": 1,
+          "phase": "train",
+          "src_node_id": 7846383649474478628,
+          "role": "clinic_b",
+          "array_shapes": [
+            [
+              21
+            ],
+            [
+              1
+            ]
+          ],
+          "metrics": {
+            "num-examples": 515,
+            "train-loss": 0.49212680169004175
+          }
+        },
+        {
+          "round": 1,
+          "phase": "train",
+          "src_node_id": 7639901861940771299,
+          "role": "clinic_a",
+          "array_shapes": [
+            [
+              21
+            ],
+            [
+              1
+            ]
+          ],
+          "metrics": {
+            "num-examples": 419,
+            "train-loss": 0.4262562947806128
+          }
+        },
+        {
+          "round": 1,
+          "phase": "evaluate",
+          "src_node_id": 7639901861940771299,
+          "role": "clinic_a",
+          "array_shapes": [],
+          "metrics": {
+            "num-examples": 105,
+            "test-loss": 0.4155737620184742,
+            "auc": 0.6509831460674157
+          }
+        },
+        {
+          "round": 1,
+          "phase": "evaluate",
+          "src_node_id": 7846383649474478628,
+          "role": "clinic_b",
+          "array_shapes": [],
+          "metrics": {
+            "num-examples": 129,
+            "test-loss": 0.5059163566684786,
+            "auc": 0.5257654966392831
+          }
+        },
+        {
+          "round": 2,
+          "phase": "train",
+          "src_node_id": 7639901861940771299,
+          "role": "clinic_a",
+          "array_shapes": [
+            [
+              21
+            ],
+            [
+              1
+            ]
+          ],
+          "metrics": {
+            "num-examples": 419,
+            "train-loss": 0.42002872546224235
+          }
+        },
+        {
+          "round": 2,
+          "phase": "train",
+          "src_node_id": 7846383649474478628,
+          "role": "clinic_b",
+          "array_shapes": [
+            [
+              21
+            ],
+            [
+              1
+            ]
+          ],
+          "metrics": {
+            "num-examples": 515,
+            "train-loss": 0.48722201698944084
+          }
+        },
+        {
+          "round": 2,
+          "phase": "evaluate",
+          "src_node_id": 7639901861940771299,
+          "role": "clinic_a",
+          "array_shapes": [],
+          "metrics": {
+            "num-examples": 105,
+            "test-loss": 0.40655629546863825,
+            "auc": 0.6762640449438202
+          }
+        },
+        {
+          "round": 2,
+          "phase": "evaluate",
+          "src_node_id": 7846383649474478628,
+          "role": "clinic_b",
+          "array_shapes": [],
+          "metrics": {
+            "num-examples": 129,
+            "test-loss": 0.5028086531680384,
+            "auc": 0.5470500373412994
+          }
+        },
+        {
+          "round": 3,
+          "phase": "train",
+          "src_node_id": 7846383649474478628,
+          "role": "clinic_b",
+          "array_shapes": [
+            [
+              21
+            ],
+            [
+              1
+            ]
+          ],
+          "metrics": {
+            "num-examples": 515,
+            "train-loss": 0.48493697542556946
+          }
+        },
+        {
+          "round": 3,
+          "phase": "train",
+          "src_node_id": 7639901861940771299,
+          "role": "clinic_a",
+          "array_shapes": [
+            [
+              21
+            ],
+            [
+              1
+            ]
+          ],
+          "metrics": {
+            "num-examples": 419,
+            "train-loss": 0.4161332335384135
+          }
+        },
+        {
+          "round": 3,
+          "phase": "evaluate",
+          "src_node_id": 7846383649474478628,
+          "role": "clinic_b",
+          "array_shapes": [],
+          "metrics": {
+            "num-examples": 129,
+            "test-loss": 0.5015273832011649,
+            "auc": 0.5515309932785661
+          }
+        },
+        {
+          "round": 3,
+          "phase": "evaluate",
+          "src_node_id": 7639901861940771299,
+          "role": "clinic_a",
+          "array_shapes": [],
+          "metrics": {
+            "num-examples": 105,
+            "test-loss": 0.40193861385855606,
+            "auc": 0.6966292134831461
+          }
+        },
+        {
+          "round": 4,
+          "phase": "train",
+          "src_node_id": 7639901861940771299,
+          "role": "clinic_a",
+          "array_shapes": [
+            [
+              21
+            ],
+            [
+              1
+            ]
+          ],
+          "metrics": {
+            "num-examples": 419,
+            "train-loss": 0.4135752782131164
+          }
+        },
+        {
+          "round": 4,
+          "phase": "train",
+          "src_node_id": 7846383649474478628,
+          "role": "clinic_b",
+          "array_shapes": [
+            [
+              21
+            ],
+            [
+              1
+            ]
+          ],
+          "metrics": {
+            "num-examples": 515,
+            "train-loss": 0.48358349780690585
+          }
+        },
+        {
+          "round": 4,
+          "phase": "evaluate",
+          "src_node_id": 7639901861940771299,
+          "role": "clinic_a",
+          "array_shapes": [],
+          "metrics": {
+            "num-examples": 105,
+            "test-loss": 0.3992635358832757,
+            "auc": 0.7057584269662921
+          }
+        },
+        {
+          "round": 4,
+          "phase": "evaluate",
+          "src_node_id": 7846383649474478628,
+          "role": "clinic_b",
+          "array_shapes": [],
+          "metrics": {
+            "num-examples": 129,
+            "test-loss": 0.5011233713590479,
+            "auc": 0.5567587752053772
+          }
+        },
+        {
+          "round": 5,
+          "phase": "train",
+          "src_node_id": 7639901861940771299,
+          "role": "clinic_a",
+          "array_shapes": [
+            [
+              21
+            ],
+            [
+              1
+            ]
+          ],
+          "metrics": {
+            "num-examples": 419,
+            "train-loss": 0.4118572918410781
+          }
+        },
+        {
+          "round": 5,
+          "phase": "train",
+          "src_node_id": 7846383649474478628,
+          "role": "clinic_b",
+          "array_shapes": [
+            [
+              21
+            ],
+            [
+              1
+            ]
+          ],
+          "metrics": {
+            "num-examples": 515,
+            "train-loss": 0.48272846176118767
+          }
+        },
+        {
+          "round": 5,
+          "phase": "evaluate",
+          "src_node_id": 7846383649474478628,
+          "role": "clinic_b",
+          "array_shapes": [],
+          "metrics": {
+            "num-examples": 129,
+            "test-loss": 0.5010653350899005,
+            "auc": 0.5567587752053772
+          }
+        },
+        {
+          "round": 5,
+          "phase": "evaluate",
+          "src_node_id": 7639901861940771299,
+          "role": "clinic_a",
+          "array_shapes": [],
+          "metrics": {
+            "num-examples": 105,
+            "test-loss": 0.39772806300840713,
+            "auc": 0.7092696629213483
+          }
+        },
+        {
+          "round": 6,
+          "phase": "train",
+          "src_node_id": 7846383649474478628,
+          "role": "clinic_b",
+          "array_shapes": [
+            [
+              21
+            ],
+            [
+              1
+            ]
+          ],
+          "metrics": {
+            "num-examples": 515,
+            "train-loss": 0.482155830421127
+          }
+        },
+        {
+          "round": 6,
+          "phase": "train",
+          "src_node_id": 7639901861940771299,
+          "role": "clinic_a",
+          "array_shapes": [
+            [
+              21
+            ],
+            [
+              1
+            ]
+          ],
+          "metrics": {
+            "num-examples": 419,
+            "train-loss": 0.4106884218682418
+          }
+        },
+        {
+          "round": 6,
+          "phase": "evaluate",
+          "src_node_id": 7846383649474478628,
+          "role": "clinic_b",
+          "array_shapes": [],
+          "metrics": {
+            "num-examples": 129,
+            "test-loss": 0.5011268783486676,
+            "auc": 0.5593726661687827
+          }
+        },
+        {
+          "round": 6,
+          "phase": "evaluate",
+          "src_node_id": 7639901861940771299,
+          "role": "clinic_a",
+          "array_shapes": [],
+          "metrics": {
+            "num-examples": 105,
+            "test-loss": 0.39690011889098226,
+            "auc": 0.7057584269662921
+          }
+        },
+        {
+          "round": 7,
+          "phase": "train",
+          "src_node_id": 7639901861940771299,
+          "role": "clinic_a",
+          "array_shapes": [
+            [
+              21
+            ],
+            [
+              1
+            ]
+          ],
+          "metrics": {
+            "num-examples": 419,
+            "train-loss": 0.40988632456900903
+          }
+        },
+        {
+          "round": 7,
+          "phase": "train",
+          "src_node_id": 7846383649474478628,
+          "role": "clinic_b",
+          "array_shapes": [
+            [
+              21
+            ],
+            [
+              1
+            ]
+          ],
+          "metrics": {
+            "num-examples": 515,
+            "train-loss": 0.48174880619379856
+          }
+        },
+        {
+          "round": 7,
+          "phase": "evaluate",
+          "src_node_id": 7639901861940771299,
+          "role": "clinic_a",
+          "array_shapes": [],
+          "metrics": {
+            "num-examples": 105,
+            "test-loss": 0.3965234987545583,
+            "auc": 0.7043539325842697
+          }
+        },
+        {
+          "round": 7,
+          "phase": "evaluate",
+          "src_node_id": 7846383649474478628,
+          "role": "clinic_b",
+          "array_shapes": [],
+          "metrics": {
+            "num-examples": 129,
+            "test-loss": 0.5012116366830429,
+            "auc": 0.556385362210605
+          }
+        },
+        {
+          "round": 8,
+          "phase": "train",
+          "src_node_id": 7639901861940771299,
+          "role": "clinic_a",
+          "array_shapes": [
+            [
+              21
+            ],
+            [
+              1
+            ]
+          ],
+          "metrics": {
+            "num-examples": 419,
+            "train-loss": 0.4093335455568451
+          }
+        },
+        {
+          "round": 8,
+          "phase": "train",
+          "src_node_id": 7846383649474478628,
+          "role": "clinic_b",
+          "array_shapes": [
+            [
+              21
+            ],
+            [
+              1
+            ]
+          ],
+          "metrics": {
+            "num-examples": 515,
+            "train-loss": 0.4814423675251272
+          }
+        },
+        {
+          "round": 8,
+          "phase": "evaluate",
+          "src_node_id": 7846383649474478628,
+          "role": "clinic_b",
+          "array_shapes": [],
+          "metrics": {
+            "num-examples": 129,
+            "test-loss": 0.501281604006643,
+            "auc": 0.5589992531740104
+          }
+        },
+        {
+          "round": 8,
+          "phase": "evaluate",
+          "src_node_id": 7639901861940771299,
+          "role": "clinic_a",
+          "array_shapes": [],
+          "metrics": {
+            "num-examples": 105,
+            "test-loss": 0.39643861432417155,
+            "auc": 0.7001404494382022
+          }
+        },
+        {
+          "round": 9,
+          "phase": "train",
+          "src_node_id": 7846383649474478628,
+          "role": "clinic_b",
+          "array_shapes": [
+            [
+              21
+            ],
+            [
+              1
+            ]
+          ],
+          "metrics": {
+            "num-examples": 515,
+            "train-loss": 0.48119958891851755
+          }
+        },
+        {
+          "round": 9,
+          "phase": "train",
+          "src_node_id": 7639901861940771299,
+          "role": "clinic_a",
+          "array_shapes": [
+            [
+              21
+            ],
+            [
+              1
+            ]
+          ],
+          "metrics": {
+            "num-examples": 419,
+            "train-loss": 0.40895289152135716
+          }
+        },
+        {
+          "round": 9,
+          "phase": "evaluate",
+          "src_node_id": 7846383649474478628,
+          "role": "clinic_b",
+          "array_shapes": [],
+          "metrics": {
+            "num-examples": 129,
+            "test-loss": 0.5013250783308217,
+            "auc": 0.5638536221060493
+          }
+        },
+        {
+          "round": 9,
+          "phase": "evaluate",
+          "src_node_id": 7639901861940771299,
+          "role": "clinic_a",
+          "array_shapes": [],
+          "metrics": {
+            "num-examples": 105,
+            "test-loss": 0.39654259332841896,
+            "auc": 0.699438202247191
+          }
+        },
+        {
+          "round": 10,
+          "phase": "train",
+          "src_node_id": 7639901861940771299,
+          "role": "clinic_a",
+          "array_shapes": [
+            [
+              21
+            ],
+            [
+              1
+            ]
+          ],
+          "metrics": {
+            "num-examples": 419,
+            "train-loss": 0.40869267661310504
+          }
+        },
+        {
+          "round": 10,
+          "phase": "train",
+          "src_node_id": 7846383649474478628,
+          "role": "clinic_b",
+          "array_shapes": [
+            [
+              21
+            ],
+            [
+              1
+            ]
+          ],
+          "metrics": {
+            "num-examples": 515,
+            "train-loss": 0.480999082494382
+          }
+        },
+        {
+          "round": 10,
+          "phase": "evaluate",
+          "src_node_id": 7846383649474478628,
+          "role": "clinic_b",
+          "array_shapes": [],
+          "metrics": {
+            "num-examples": 129,
+            "test-loss": 0.5013416870537316,
+            "auc": 0.5657206870799104
+          }
+        },
+        {
+          "round": 10,
+          "phase": "evaluate",
+          "src_node_id": 7639901861940771299,
+          "role": "clinic_a",
+          "array_shapes": [],
+          "metrics": {
+            "num-examples": 105,
+            "test-loss": 0.39676746062603496,
+            "auc": 0.6980337078651685
+          }
+        },
+        {
+          "round": 11,
+          "phase": "train",
+          "src_node_id": 7846383649474478628,
+          "role": "clinic_b",
+          "array_shapes": [
+            [
+              21
+            ],
+            [
+              1
+            ]
+          ],
+          "metrics": {
+            "num-examples": 515,
+            "train-loss": 0.4808281673388041
+          }
+        },
+        {
+          "round": 11,
+          "phase": "train",
+          "src_node_id": 7639901861940771299,
+          "role": "clinic_a",
+          "array_shapes": [
+            [
+              21
+            ],
+            [
+              1
+            ]
+          ],
+          "metrics": {
+            "num-examples": 419,
+            "train-loss": 0.40851768907497465
+          }
+        },
+        {
+          "round": 11,
+          "phase": "evaluate",
+          "src_node_id": 7846383649474478628,
+          "role": "clinic_b",
+          "array_shapes": [],
+          "metrics": {
+            "num-examples": 129,
+            "test-loss": 0.5013353609360467,
+            "auc": 0.5660941000746826
+          }
+        },
+        {
+          "round": 11,
+          "phase": "evaluate",
+          "src_node_id": 7639901861940771299,
+          "role": "clinic_a",
+          "array_shapes": [],
+          "metrics": {
+            "num-examples": 105,
+            "test-loss": 0.397067529248144,
+            "auc": 0.6980337078651685
+          }
+        },
+        {
+          "round": 12,
+          "phase": "train",
+          "src_node_id": 7846383649474478628,
+          "role": "clinic_b",
+          "array_shapes": [
+            [
+              21
+            ],
+            [
+              1
+            ]
+          ],
+          "metrics": {
+            "num-examples": 515,
+            "train-loss": 0.4806791016639823
+          }
+        },
+        {
+          "round": 12,
+          "phase": "train",
+          "src_node_id": 7639901861940771299,
+          "role": "clinic_a",
+          "array_shapes": [
+            [
+              21
+            ],
+            [
+              1
+            ]
+          ],
+          "metrics": {
+            "num-examples": 419,
+            "train-loss": 0.408403561674247
+          }
+        },
+        {
+          "round": 12,
+          "phase": "evaluate",
+          "src_node_id": 7846383649474478628,
+          "role": "clinic_b",
+          "array_shapes": [],
+          "metrics": {
+            "num-examples": 129,
+            "test-loss": 0.5013111243533459,
+            "auc": 0.5679611650485437
+          }
+        },
+        {
+          "round": 12,
+          "phase": "evaluate",
+          "src_node_id": 7639901861940771299,
+          "role": "clinic_a",
+          "array_shapes": [],
+          "metrics": {
+            "num-examples": 105,
+            "test-loss": 0.3974117799449854,
+            "auc": 0.6938202247191011
+          }
+        },
+        {
+          "round": 13,
+          "phase": "train",
+          "src_node_id": 7639901861940771299,
+          "role": "clinic_a",
+          "array_shapes": [
+            [
+              21
+            ],
+            [
+              1
+            ]
+          ],
+          "metrics": {
+            "num-examples": 419,
+            "train-loss": 0.4083331980504029
+          }
+        },
+        {
+          "round": 13,
+          "phase": "train",
+          "src_node_id": 7846383649474478628,
+          "role": "clinic_b",
+          "array_shapes": [
+            [
+              21
+            ],
+            [
+              1
+            ]
+          ],
+          "metrics": {
+            "num-examples": 515,
+            "train-loss": 0.4805469833912756
+          }
+        },
+        {
+          "round": 13,
+          "phase": "evaluate",
+          "src_node_id": 7846383649474478628,
+          "role": "clinic_b",
+          "array_shapes": [],
+          "metrics": {
+            "num-examples": 129,
+            "test-loss": 0.5012737285885109,
+            "auc": 0.570201643017177
+          }
+        },
+        {
+          "round": 13,
+          "phase": "evaluate",
+          "src_node_id": 7639901861940771299,
+          "role": "clinic_a",
+          "array_shapes": [],
+          "metrics": {
+            "num-examples": 105,
+            "test-loss": 0.39777907575293353,
+            "auc": 0.6917134831460674
+          }
+        },
+        {
+          "round": 14,
+          "phase": "train",
+          "src_node_id": 7846383649474478628,
+          "role": "clinic_b",
+          "array_shapes": [
+            [
+              21
+            ],
+            [
+              1
+            ]
+          ],
+          "metrics": {
+            "num-examples": 515,
+            "train-loss": 0.48042857005802314
+          }
+        },
+        {
+          "round": 14,
+          "phase": "train",
+          "src_node_id": 7639901861940771299,
+          "role": "clinic_a",
+          "array_shapes": [
+            [
+              21
+            ],
+            [
+              1
+            ]
+          ],
+          "metrics": {
+            "num-examples": 419,
+            "train-loss": 0.40829446034616235
+          }
+        },
+        {
+          "round": 14,
+          "phase": "evaluate",
+          "src_node_id": 7639901861940771299,
+          "role": "clinic_a",
+          "array_shapes": [],
+          "metrics": {
+            "num-examples": 105,
+            "test-loss": 0.39815505665327544,
+            "auc": 0.6896067415730337
+          }
+        },
+        {
+          "round": 14,
+          "phase": "evaluate",
+          "src_node_id": 7846383649474478628,
+          "role": "clinic_b",
+          "array_shapes": [],
+          "metrics": {
+            "num-examples": 129,
+            "test-loss": 0.501227161989366,
+            "auc": 0.5694548170276326
+          }
+        },
+        {
+          "round": 15,
+          "phase": "train",
+          "src_node_id": 7639901861940771299,
+          "role": "clinic_a",
+          "array_shapes": [
+            [
+              21
+            ],
+            [
+              1
+            ]
+          ],
+          "metrics": {
+            "num-examples": 419,
+            "train-loss": 0.40827864433760036
+          }
+        },
+        {
+          "round": 15,
+          "phase": "train",
+          "src_node_id": 7846383649474478628,
+          "role": "clinic_b",
+          "array_shapes": [
+            [
+              21
+            ],
+            [
+              1
+            ]
+          ],
+          "metrics": {
+            "num-examples": 515,
+            "train-loss": 0.4803216096325813
+          }
+        },
+        {
+          "round": 15,
+          "phase": "evaluate",
+          "src_node_id": 7846383649474478628,
+          "role": "clinic_b",
+          "array_shapes": [],
+          "metrics": {
+            "num-examples": 129,
+            "test-loss": 0.5011745603723078,
+            "auc": 0.5698282300224048
+          }
+        },
+        {
+          "round": 15,
+          "phase": "evaluate",
+          "src_node_id": 7639901861940771299,
+          "role": "clinic_a",
+          "array_shapes": [],
+          "metrics": {
+            "num-examples": 105,
+            "test-loss": 0.3985300682445297,
+            "auc": 0.6839887640449438
+          }
+        },
+        {
+          "round": 16,
+          "phase": "train",
+          "src_node_id": 7846383649474478628,
+          "role": "clinic_b",
+          "array_shapes": [
+            [
+              21
+            ],
+            [
+              1
+            ]
+          ],
+          "metrics": {
+            "num-examples": 515,
+            "train-loss": 0.4802244573408267
+          }
+        },
+        {
+          "round": 16,
+          "phase": "train",
+          "src_node_id": 7639901861940771299,
+          "role": "clinic_a",
+          "array_shapes": [
+            [
+              21
+            ],
+            [
+              1
+            ]
+          ],
+          "metrics": {
+            "num-examples": 419,
+            "train-loss": 0.4082794556083713
+          }
+        },
+        {
+          "round": 16,
+          "phase": "evaluate",
+          "src_node_id": 7846383649474478628,
+          "role": "clinic_b",
+          "array_shapes": [],
+          "metrics": {
+            "num-examples": 129,
+            "test-loss": 0.5011182843147968,
+            "auc": 0.5687079910380881
+          }
+        },
+        {
+          "round": 16,
+          "phase": "evaluate",
+          "src_node_id": 7639901861940771299,
+          "role": "clinic_a",
+          "array_shapes": [],
+          "metrics": {
+            "num-examples": 105,
+            "test-loss": 0.3988977488438798,
+            "auc": 0.6825842696629213
+          }
+        },
+        {
+          "round": 17,
+          "phase": "train",
+          "src_node_id": 7846383649474478628,
+          "role": "clinic_b",
+          "array_shapes": [
+            [
+              21
+            ],
+            [
+              1
+            ]
+          ],
+          "metrics": {
+            "num-examples": 515,
+            "train-loss": 0.480135853694829
+          }
+        },
+        {
+          "round": 17,
+          "phase": "train",
+          "src_node_id": 7639901861940771299,
+          "role": "clinic_a",
+          "array_shapes": [
+            [
+              21
+            ],
+            [
+              1
+            ]
+          ],
+          "metrics": {
+            "num-examples": 419,
+            "train-loss": 0.40829231068072075
+          }
+        },
+        {
+          "round": 17,
+          "phase": "evaluate",
+          "src_node_id": 7639901861940771299,
+          "role": "clinic_a",
+          "array_shapes": [],
+          "metrics": {
+            "num-examples": 105,
+            "test-loss": 0.39925404864754227,
+            "auc": 0.6832865168539326
+          }
+        },
+        {
+          "round": 17,
+          "phase": "evaluate",
+          "src_node_id": 7846383649474478628,
+          "role": "clinic_b",
+          "array_shapes": [],
+          "metrics": {
+            "num-examples": 129,
+            "test-loss": 0.5010600518966752,
+            "auc": 0.5694548170276326
+          }
+        },
+        {
+          "round": 18,
+          "phase": "train",
+          "src_node_id": 7846383649474478628,
+          "role": "clinic_b",
+          "array_shapes": [
+            [
+              21
+            ],
+            [
+              1
+            ]
+          ],
+          "metrics": {
+            "num-examples": 515,
+            "train-loss": 0.48005479399253037
+          }
+        },
+        {
+          "round": 18,
+          "phase": "train",
+          "src_node_id": 7639901861940771299,
+          "role": "clinic_a",
+          "array_shapes": [
+            [
+              21
+            ],
+            [
+              1
+            ]
+          ],
+          "metrics": {
+            "num-examples": 419,
+            "train-loss": 0.40831385286399374
+          }
+        },
+        {
+          "round": 18,
+          "phase": "evaluate",
+          "src_node_id": 7846383649474478628,
+          "role": "clinic_b",
+          "array_shapes": [],
+          "metrics": {
+            "num-examples": 129,
+            "test-loss": 0.5010010763847896,
+            "auc": 0.5698282300224048
+          }
+        },
+        {
+          "round": 18,
+          "phase": "evaluate",
+          "src_node_id": 7639901861940771299,
+          "role": "clinic_a",
+          "array_shapes": [],
+          "metrics": {
+            "num-examples": 105,
+            "test-loss": 0.39959653980134846,
+            "auc": 0.6804775280898876
+          }
+        },
+        {
+          "round": 19,
+          "phase": "train",
+          "src_node_id": 7639901861940771299,
+          "role": "clinic_a",
+          "array_shapes": [
+            [
+              21
+            ],
+            [
+              1
+            ]
+          ],
+          "metrics": {
+            "num-examples": 419,
+            "train-loss": 0.40834161248111195
+          }
+        },
+        {
+          "round": 19,
+          "phase": "train",
+          "src_node_id": 7846383649474478628,
+          "role": "clinic_b",
+          "array_shapes": [
+            [
+              21
+            ],
+            [
+              1
+            ]
+          ],
+          "metrics": {
+            "num-examples": 515,
+            "train-loss": 0.4799804500920335
+          }
+        },
+        {
+          "round": 19,
+          "phase": "evaluate",
+          "src_node_id": 7846383649474478628,
+          "role": "clinic_b",
+          "array_shapes": [],
+          "metrics": {
+            "num-examples": 129,
+            "test-loss": 0.5009421883605224,
+            "auc": 0.5687079910380881
+          }
+        },
+        {
+          "round": 19,
+          "phase": "evaluate",
+          "src_node_id": 7639901861940771299,
+          "role": "clinic_a",
+          "array_shapes": [],
+          "metrics": {
+            "num-examples": 105,
+            "test-loss": 0.399923926572391,
+            "auc": 0.6797752808988764
+          }
+        },
+        {
+          "round": 20,
+          "phase": "train",
+          "src_node_id": 7639901861940771299,
+          "role": "clinic_a",
+          "array_shapes": [
+            [
+              21
+            ],
+            [
+              1
+            ]
+          ],
+          "metrics": {
+            "num-examples": 419,
+            "train-loss": 0.4083737657361381
+          }
+        },
+        {
+          "round": 20,
+          "phase": "train",
+          "src_node_id": 7846383649474478628,
+          "role": "clinic_b",
+          "array_shapes": [
+            [
+              21
+            ],
+            [
+              1
+            ]
+          ],
+          "metrics": {
+            "num-examples": 515,
+            "train-loss": 0.47991212230354113
+          }
+        },
+        {
+          "round": 20,
+          "phase": "evaluate",
+          "src_node_id": 7846383649474478628,
+          "role": "clinic_b",
+          "array_shapes": [],
+          "metrics": {
+            "num-examples": 129,
+            "test-loss": 0.5008839361025463,
+            "auc": 0.5690814040328603
+          }
+        },
+        {
+          "round": 20,
+          "phase": "evaluate",
+          "src_node_id": 7639901861940771299,
+          "role": "clinic_a",
+          "array_shapes": [],
+          "metrics": {
+            "num-examples": 105,
+            "test-loss": 0.4002356955384624,
+            "auc": 0.6790730337078652
+          }
+        }
+      ],
+      "superlink_reply_sources": {
+        "7846383649474478628": 40,
+        "7639901861940771299": 40
+      }
     }
   },
   "comparison": {
-    "source_run": "simulation",
+    "source_run": "local",
     "note": "Offline evaluation with access to both clinics' test sets, possible only because the data is synthetic. The pooled model is an upper bound a real deployment could not train.",
     "models": {
       "federated": {
@@ -1628,6 +3041,26 @@
       "identifiers_checked": 1732,
       "hits": 0,
       "hit_details": []
+    },
+    "local": {
+      "sources": [
+        "clinic_a.err.log",
+        "clinic_a.log",
+        "clinic_b.err.log",
+        "clinic_b.log",
+        "fl_local.log",
+        "fl_results.json",
+        "fl_simulation.log",
+        "message_log",
+        "research.err.log",
+        "research.log",
+        "superlink.err.log",
+        "superlink.log"
+      ],
+      "identifiers_checked": 1732,
+      "hits": 0,
+      "hit_details": []
     }
-  }
+  },
+  "runs_identical_weights": true
 }
