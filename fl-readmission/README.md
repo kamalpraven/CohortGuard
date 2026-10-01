@@ -42,6 +42,20 @@ PYTHONUTF8=1 .venv/Scripts/python.exe run_experiment.py local \
 ../scripts/stop_local_grid.sh
 ```
 
+**SuperGrid (deployment demonstration).** In Flower 1.39 the ServerApp runs as one task for the whole run, so a per-task time limit on SuperGrid also bounds the whole run.
+- Locally, round 1 takes about 40 s and each later round about 34 s, so 20 rounds take about 11 minutes.
+- The SuperGrid run therefore uses 5 rounds (about 3 minutes locally), chosen from timing alone.
+- It is labeled a deployment demonstration, and the 20-round local run remains the reported result.
+
+```shell
+scripts/start_supergrid_nodes.sh --session fl-supergrid-<new>      # from the repo root, Git Bash
+flwr supernode list supergrid --verbose --format json            # read the clinic node IDs
+cd fl-readmission
+PYTHONUTF8=1 .venv/Scripts/python.exe run_experiment.py supergrid --rounds 5 \
+  --federation @praven1/<federation> \
+  --clinic-node-ids '{"clinic_a":"<clinic-a-id>","clinic_b":"<clinic-b-id>"}'
+```
+
 `run_experiment.py` does the following:
 1. Streams the run and parses the ServerApp's single `FL_RESULT` line.
 2. Writes `results/fl_results.json`.
@@ -53,41 +67,45 @@ It exits nonzero on any canary hit or on a node-selection violation.
 
 ## Results
 
-The offline comparison below can see both clinics' test sets. That is possible **only because the data is synthetic**, and the pooled model is an upper bound a real deployment could not train. All AUCs come with seeded bootstrap 95% intervals. The test sets are small: 105 patients with 16 readmissions at A, 129 with 26 at B.
+These results are from the 20-round local deployment. The simulation produced identical weights.
+
+### Headline: SGLT2 inhibitors
+
+**Clinic A's data alone cannot separate the SGLT2 effect from zero. The federated model finds an odds ratio of 0.58, matching the pooled estimate.**
+
+| Model | Coefficient | Odds ratio | 95% CI (odds ratio, Wald) | Separates from zero? |
+|---|---|---|---|---|
+| **Federated** | −0.547 | **0.58** | not computed (see pooled) | matches pooled |
+| Pooled (upper bound) | −0.550 | 0.58 | 0.36 – 0.93 | yes |
+| Clinic A only | −0.278 | 0.76 | 0.37 – 1.56 | **no** (CI includes 1) |
+| Clinic B only | −0.795 | 0.45 | 0.23 – 0.89 | yes |
+
+- **Planted effect:** `generate_data.py` lowers the readmission probability of current `sglt2_inhibitor` users by 0.07 (absolute). The raw training data shows 11.7% for users (n=180) vs 19.5% for non-users (n=754).
+- **Direction:** the federated model recovers the planted direction. SGLT2 use is associated with lower adjusted odds of 30-day readmission.
+- **Magnitude:** the odds ratio is adjusted for the other features and is on a different scale from the planted additive −0.07. It should not be read as recovering the planted size.
+- **Not causal:** this is an observational association in synthetic data.
+
+### Prediction: federated vs clinic-only vs pooled
+
+The comparison below can see both clinics' test sets. That is possible **only because the data is synthetic**, and the pooled model is an upper bound a real deployment could not train. AUCs carry seeded bootstrap 95% intervals. The test sets are small: 105 patients with 16 readmissions at A, 129 with 26 at B.
 
 | Model | AUC Clinic A test | AUC Clinic B test | AUC combined | Log loss combined |
 |---|---|---|---|---|
-| **Federated (FedAvg)** | 0.679 [0.520, 0.827] | 0.569 [0.434, 0.695] | 0.616 [0.512, 0.710] | 0.4557 |
+| **Federated (FedAvg)** | 0.679 [0.520, 0.827] | 0.569 [0.434, 0.695] | 0.616 [0.512, 0.710] | **0.4557** |
 | Clinic A only | 0.790 [0.657, 0.898] | 0.514 [0.392, 0.626] | 0.632 [0.537, 0.720] | 0.4598 |
 | Clinic B only | 0.548 [0.378, 0.724] | 0.597 [0.476, 0.712] | 0.574 [0.474, 0.673] | 0.4759 |
 | Pooled (upper bound) | 0.682 [0.522, 0.834] | 0.570 [0.435, 0.697] | 0.620 [0.515, 0.713] | 0.4548 |
 
-- **Federated vs pooled:** the federated model essentially reaches the pooled upper bound (combined log loss 0.4557 vs 0.4548; AUC 0.616 vs 0.620).
-- **Clinic-only models:** each does best on its own clinic and worse on the other. On the other clinic, A-only reaches AUC 0.514 on B and B-only 0.548 on A.
-- **Clinic A's 0.790:** Clinic A only scores 0.790 on its own test set. That set has 16 readmissions, and every AUC interval here overlaps, so treat that figure with care.
-- **Readmission prediction is weak for every model** (AUC about 0.6). The generator puts little signal in these features.
+- **Federated vs pooled:** the federated model matches the pooled model on both AUC (0.616 vs 0.620 combined) and log loss (0.4557 vs 0.4548).
+- **Federated vs each clinic alone:** it has better log loss than either clinic alone (0.4557 vs 0.4598 and 0.4759).
+- **AUC differences between all four models are within noise.** Every interval overlaps. That includes Clinic A only's 0.790 on its own test set, which rests on 16 readmissions.
+- **Overall AUC is modest (about 0.6) on this synthetic data.** The generator puts little readmission signal in these features, so this is not a useful risk model. The point is the comparison and the SGLT2 association.
 
 ![Per-round AUC and log loss](../docs/media/fl-readmission-auc-per-round.png)
 
 The weighted AUC peaks around round 5 (0.625), then eases to 0.618 by round 20 while test loss rises slightly (mild overfitting). The number of rounds was fixed in advance, so the reported model is round 20, not the best round.
 
 ![Federated vs clinic-only vs pooled](../docs/media/fl-readmission-comparison.png)
-
-### SGLT2 inhibitor coefficient
-
-`generate_data.py` lowers the readmission probability of current `sglt2_inhibitor` users by 0.07 (absolute). The raw training data shows 11.7% for users (n=180) vs 19.5% for non-users (n=754).
-
-| Model | Coefficient | Odds ratio | 95% CI (odds ratio, Wald, reference) | Direction |
-|---|---|---|---|---|
-| **Federated** | −0.547 | 0.58 | not computed | negative |
-| Pooled (upper bound) | −0.550 | 0.58 | 0.36 – 0.93 | negative |
-| Clinic A only | −0.278 | 0.76 | 0.37 – 1.56 | negative, CI includes 1 |
-| Clinic B only | −0.795 | 0.45 | 0.23 – 0.89 | negative |
-
-- **Direction:** the federated model recovers the planted direction. Being on an SGLT2 inhibitor is associated with lower adjusted odds of 30-day readmission (OR 0.58), matching the pooled fit.
-- **Clinic A alone** is too small to separate the effect from zero.
-- **Magnitude:** the odds ratio is adjusted for the other features and is on a different scale from the planted additive −0.07. It should not be read as recovering the planted size.
-- **Not causal:** this is an observational association in synthetic data, not a causal estimate.
 
 ## Runs
 

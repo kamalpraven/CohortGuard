@@ -99,7 +99,11 @@ On Windows, use Git Bash for the start scripts. PowerShell can split Flower's qu
 The privacy gate correctly suppresses SGLT2 cohort queries at this data size, because per-clinic event counts fall below 10 after noise. [fl-readmission/](fl-readmission/README.md) takes a different route. A separate Flower ServerApp/ClientApp trains a 30-day readmission logistic regression with FedAvg across Clinic A and Clinic B, and only model weights plus a few aggregate metrics leave each clinic.
 
 - **Node selection:** the ServerApp addresses only the two pinned clinic SuperNodes, and the research SuperNode never receives a task.
-- **Result:** the federated model nearly matches the pooled upper bound (combined test AUC 0.616 vs 0.620, log loss 0.4557 vs 0.4548). It recovers the planted SGLT2 direction: adjusted odds ratio 0.58, where the pooled reference is 0.58 with 95% CI 0.36–0.93.
+- **SGLT2 headline:** Clinic A's data alone cannot separate the SGLT2 effect from zero (OR 0.76, 95% CI 0.37–1.56). The federated model finds OR 0.58, matching the pooled estimate (0.58, 95% CI 0.36–0.93).
+- **Prediction:**
+  - The federated model matches the pooled model on AUC (0.616 vs 0.620) and log loss (0.4557 vs 0.4548), and has better log loss than either clinic alone.
+  - AUC differences between models are within noise.
+  - Overall AUC is modest (about 0.6) on this synthetic data.
 - **Canary scan:** 0 hits across FL messages, events and logs.
 
 ![Federated vs clinic-only vs pooled](docs/media/fl-readmission-comparison.png)
