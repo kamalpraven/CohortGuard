@@ -83,6 +83,18 @@ It runs locally at Clinic A. `doctor_agent/core.py` scrubs Clinic A names, MRNs,
 
 This is stdlib-only ClinicalTrials.gov and PubMed tooling. `http_cache.Http` supports `live`, `record` and `replay` modes (the coordinator default `http_mode = "replay"` uses the committed `cache/`). `grounding.py` re-verifies every NCT ID and PMID and fails closed. `injection.py` wraps fetched page text as untrusted. `with_mechanism=false` (the default) skips per-candidate model calls, and the research node strips web-page `log` fields before replying.
 
+### Federated readmission app (`fl-readmission/`)
+
+This is a separate Flower ServerApp/ClientApp (publisher `praven1`) with its own uv venv on **Python 3.12**, because Ray for simulation doesn't resolve on 3.13 on Windows.
+- **Training:** NumPy logistic regression with FedAvg.
+- **Features:** fixed clinical scaling constants, never data statistics.
+- **Data:** each clinic reads only its own `node_config` `data-path`.
+- **Node selection:** `ClinicOnlyGrid` plus `ReplyValidator` in `selection.py` guarantee that only the pinned `clinic-node-ids` receive or answer tasks.
+- **Minimum cell:** `MIN_FEATURE_PATIENTS` (10, client-side) freezes updates for rare binary features.
+- **Evaluation:** `evaluate.py` reads both clinics offline (synthetic data only) and is excluded from the FAB.
+- **Running:** `run_experiment.py simulation|local` runs the app, writes `results/fl_results.json` and the plots, and canary-scans.
+- **Tests:** `cd fl-readmission && PYTHONUTF8=1 .venv/Scripts/python.exe -m pytest -q tests`.
+
 ### Other directories
 
 - `agent/` plus the root `pyproject.toml` is the original minimal `flwr new` template AgentApp. It is not part of the CohortGuard pipeline.

@@ -18,6 +18,7 @@ CLINIC_CORE = CLINICS / "clinic_core"
 CLINIC_APPS = (CLINICS / "clinic-a-agent", CLINICS / "clinic-b-agent")
 COORDINATOR = ROOT / "coordinator"
 RESEARCH_APP = ROOT / "research-agent"
+FL_APP = ROOT / "fl-readmission"
 
 
 def _asset_pairs() -> list[tuple[Path, Path]]:
@@ -26,6 +27,7 @@ def _asset_pairs() -> list[tuple[Path, Path]]:
         RESEARCH_APP / "shared",
         CLINICS / "shared",
         COORDINATOR / "shared",
+        FL_APP / "shared",
         *(app / "shared" for app in CLINIC_APPS),
     )
     for destination in allowlist_sources:
