@@ -15,7 +15,7 @@ The app began from `flwr new @flwrlabs/collaborative-agent`. Unlike the template
 - Node handlers do not print or emit custom events.
 - The research node defaults to `with_mechanism=false` and strips every web-page `log` field before replying.
 - Grid calls and replies are visible in SuperLink traces and logs; payloads are therefore treated as public boundary values.
-- Grid pull timeout is capped at 60 seconds (default 45), well below Flower's five-minute task limit.
+- Grid pull timeout is capped at 60 seconds (default 45), well below the five-minute task limit in the hackathon event's FAQ. That limit is not in Flower's docs or the 1.39 source and may no longer apply.
 
 Exact Clinic A patient answers are available only through the local [Doctor Agent](../doctor-agent/README.md).
 
