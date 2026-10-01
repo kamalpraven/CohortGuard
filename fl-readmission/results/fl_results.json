@@ -2826,6 +2826,437 @@
         "clinic_b": 40,
         "research": 0
       }
+    },
+    "supergrid_demonstration": {
+      "mode": "deployment",
+      "config": {
+        "num-server-rounds": 5,
+        "local-epochs": 10,
+        "learning-rate": 1.0,
+        "l2": 0.001,
+        "split-seed": 20260930,
+        "test-fraction": 0.2
+      },
+      "scaling": {
+        "age": {
+          "centre": 60.0,
+          "scale": 20.0
+        },
+        "hba1c": {
+          "centre": 8.0,
+          "scale": 2.0
+        },
+        "egfr": {
+          "centre": 80.0,
+          "scale": 25.0
+        },
+        "bmi": {
+          "centre": 30.0,
+          "scale": 6.0
+        }
+      },
+      "min_feature_patients": 10,
+      "feature_names": [
+        "age",
+        "hba1c",
+        "egfr",
+        "bmi",
+        "sex_female",
+        "dx_T1D",
+        "dx_T2D",
+        "dx_other_specific_diabetes",
+        "dx_secondary_diabetes",
+        "current_basal_insulin",
+        "current_dpp4_inhibitor",
+        "current_glp1_ra",
+        "current_metformin",
+        "current_sglt2_inhibitor",
+        "current_sulfonylurea",
+        "prior_basal_insulin",
+        "prior_dpp4_inhibitor",
+        "prior_glp1_ra",
+        "prior_metformin",
+        "prior_sglt2_inhibitor",
+        "prior_sulfonylurea"
+      ],
+      "coefficients": [
+        0.16012374783452982,
+        0.09438848906988687,
+        -0.18094390555041392,
+        -0.09495576894806801,
+        -0.15818689233193872,
+        -0.2159580088231613,
+        -0.4512485083916604,
+        -0.08531678913330258,
+        -0.10906745319317304,
+        0.44304478218986987,
+        -0.07634364516104583,
+        -0.1276816301679133,
+        -0.2800670351598689,
+        -0.42811836138077614,
+        0.24243612579491014,
+        -0.0903931815871982,
+        -0.09938114916518895,
+        -0.11908216927460732,
+        0.09088304961122641,
+        -0.18403658389015093,
+        -0.03737978140318229
+      ],
+      "intercept": -0.8965263318709502,
+      "rounds": [
+        {
+          "round": 1,
+          "weighted_auc": 0.581952903433958,
+          "weighted_test_loss": 0.4653780129152715,
+          "weighted_train_loss": 0.46257675629919515
+        },
+        {
+          "round": 2,
+          "weighted_auc": 0.605030681778328,
+          "weighted_test_loss": 0.4596184926618973,
+          "weighted_train_loss": 0.4570785596555049
+        },
+        {
+          "round": 3,
+          "weighted_auc": 0.6166391690113905,
+          "weighted_test_loss": 0.4568401149064045,
+          "weighted_train_loss": 0.4540710569558496
+        },
+        {
+          "round": 4,
+          "weighted_auc": 0.6236175933032236,
+          "weighted_test_loss": 0.4554170349276117,
+          "weighted_train_loss": 0.452177240837101
+        },
+        {
+          "round": 5,
+          "weighted_auc": 0.6251931478984412,
+          "weighted_test_loss": 0.4546960463353843,
+          "weighted_train_loss": 0.45093507825313
+        }
+      ],
+      "clinic_node_roles": {
+        "2560982599325327600": "clinic_a",
+        "15298724266902563239": "clinic_b"
+      },
+      "addressed_node_ids": [
+        "15298724266902563239",
+        "2560982599325327600"
+      ],
+      "message_log": [
+        {
+          "round": 1,
+          "phase": "train",
+          "src_node_id": 15298724266902563239,
+          "role": "clinic_b",
+          "array_shapes": [
+            [
+              21
+            ],
+            [
+              1
+            ]
+          ],
+          "metrics": {
+            "num-examples": 515,
+            "train-loss": 0.49212680169004175
+          }
+        },
+        {
+          "round": 1,
+          "phase": "train",
+          "src_node_id": 2560982599325327600,
+          "role": "clinic_a",
+          "array_shapes": [
+            [
+              21
+            ],
+            [
+              1
+            ]
+          ],
+          "metrics": {
+            "num-examples": 419,
+            "train-loss": 0.4262562947806128
+          }
+        },
+        {
+          "round": 1,
+          "phase": "evaluate",
+          "src_node_id": 15298724266902563239,
+          "role": "clinic_b",
+          "array_shapes": [],
+          "metrics": {
+            "num-examples": 129,
+            "test-loss": 0.5059163566684786,
+            "auc": 0.5257654966392831
+          }
+        },
+        {
+          "round": 1,
+          "phase": "evaluate",
+          "src_node_id": 2560982599325327600,
+          "role": "clinic_a",
+          "array_shapes": [],
+          "metrics": {
+            "num-examples": 105,
+            "test-loss": 0.4155737620184742,
+            "auc": 0.6509831460674157
+          }
+        },
+        {
+          "round": 2,
+          "phase": "train",
+          "src_node_id": 15298724266902563239,
+          "role": "clinic_b",
+          "array_shapes": [
+            [
+              21
+            ],
+            [
+              1
+            ]
+          ],
+          "metrics": {
+            "num-examples": 515,
+            "train-loss": 0.48722201698944084
+          }
+        },
+        {
+          "round": 2,
+          "phase": "train",
+          "src_node_id": 2560982599325327600,
+          "role": "clinic_a",
+          "array_shapes": [
+            [
+              21
+            ],
+            [
+              1
+            ]
+          ],
+          "metrics": {
+            "num-examples": 419,
+            "train-loss": 0.42002872546224235
+          }
+        },
+        {
+          "round": 2,
+          "phase": "evaluate",
+          "src_node_id": 2560982599325327600,
+          "role": "clinic_a",
+          "array_shapes": [],
+          "metrics": {
+            "num-examples": 105,
+            "test-loss": 0.40655629546863825,
+            "auc": 0.6762640449438202
+          }
+        },
+        {
+          "round": 2,
+          "phase": "evaluate",
+          "src_node_id": 15298724266902563239,
+          "role": "clinic_b",
+          "array_shapes": [],
+          "metrics": {
+            "num-examples": 129,
+            "test-loss": 0.5028086531680384,
+            "auc": 0.5470500373412994
+          }
+        },
+        {
+          "round": 3,
+          "phase": "train",
+          "src_node_id": 2560982599325327600,
+          "role": "clinic_a",
+          "array_shapes": [
+            [
+              21
+            ],
+            [
+              1
+            ]
+          ],
+          "metrics": {
+            "num-examples": 419,
+            "train-loss": 0.4161332335384135
+          }
+        },
+        {
+          "round": 3,
+          "phase": "train",
+          "src_node_id": 15298724266902563239,
+          "role": "clinic_b",
+          "array_shapes": [
+            [
+              21
+            ],
+            [
+              1
+            ]
+          ],
+          "metrics": {
+            "num-examples": 515,
+            "train-loss": 0.48493697542556946
+          }
+        },
+        {
+          "round": 3,
+          "phase": "evaluate",
+          "src_node_id": 15298724266902563239,
+          "role": "clinic_b",
+          "array_shapes": [],
+          "metrics": {
+            "num-examples": 129,
+            "test-loss": 0.5015273832011649,
+            "auc": 0.5515309932785661
+          }
+        },
+        {
+          "round": 3,
+          "phase": "evaluate",
+          "src_node_id": 2560982599325327600,
+          "role": "clinic_a",
+          "array_shapes": [],
+          "metrics": {
+            "num-examples": 105,
+            "test-loss": 0.40193861385855606,
+            "auc": 0.6966292134831461
+          }
+        },
+        {
+          "round": 4,
+          "phase": "train",
+          "src_node_id": 2560982599325327600,
+          "role": "clinic_a",
+          "array_shapes": [
+            [
+              21
+            ],
+            [
+              1
+            ]
+          ],
+          "metrics": {
+            "num-examples": 419,
+            "train-loss": 0.4135752782131164
+          }
+        },
+        {
+          "round": 4,
+          "phase": "train",
+          "src_node_id": 15298724266902563239,
+          "role": "clinic_b",
+          "array_shapes": [
+            [
+              21
+            ],
+            [
+              1
+            ]
+          ],
+          "metrics": {
+            "num-examples": 515,
+            "train-loss": 0.48358349780690585
+          }
+        },
+        {
+          "round": 4,
+          "phase": "evaluate",
+          "src_node_id": 15298724266902563239,
+          "role": "clinic_b",
+          "array_shapes": [],
+          "metrics": {
+            "num-examples": 129,
+            "test-loss": 0.5011233713590479,
+            "auc": 0.5567587752053772
+          }
+        },
+        {
+          "round": 4,
+          "phase": "evaluate",
+          "src_node_id": 2560982599325327600,
+          "role": "clinic_a",
+          "array_shapes": [],
+          "metrics": {
+            "num-examples": 105,
+            "test-loss": 0.3992635358832757,
+            "auc": 0.7057584269662921
+          }
+        },
+        {
+          "round": 5,
+          "phase": "train",
+          "src_node_id": 15298724266902563239,
+          "role": "clinic_b",
+          "array_shapes": [
+            [
+              21
+            ],
+            [
+              1
+            ]
+          ],
+          "metrics": {
+            "num-examples": 515,
+            "train-loss": 0.48272846176118767
+          }
+        },
+        {
+          "round": 5,
+          "phase": "train",
+          "src_node_id": 2560982599325327600,
+          "role": "clinic_a",
+          "array_shapes": [
+            [
+              21
+            ],
+            [
+              1
+            ]
+          ],
+          "metrics": {
+            "num-examples": 419,
+            "train-loss": 0.4118572918410781
+          }
+        },
+        {
+          "round": 5,
+          "phase": "evaluate",
+          "src_node_id": 15298724266902563239,
+          "role": "clinic_b",
+          "array_shapes": [],
+          "metrics": {
+            "num-examples": 129,
+            "test-loss": 0.5010653350899005,
+            "auc": 0.5567587752053772
+          }
+        },
+        {
+          "round": 5,
+          "phase": "evaluate",
+          "src_node_id": 2560982599325327600,
+          "role": "clinic_a",
+          "array_shapes": [],
+          "metrics": {
+            "num-examples": 105,
+            "test-loss": 0.39772806300840713,
+            "auc": 0.7092696629213483
+          }
+        }
+      ],
+      "label": "deployment demonstration: round count chosen from local timing to fit the SuperGrid time limit; the 20-round local deployment remains the reported result",
+      "node_messages_received": {
+        "clinic_a": 10,
+        "clinic_b": 10,
+        "research": 0
+      },
+      "supergrid": {
+        "run_id": "6822625423554031018",
+        "federation": "@praven1/cohortguard-phase2",
+        "rounds": 5,
+        "wall_clock_seconds_approx": 210
+      }
     }
   },
   "comparison": {
@@ -3062,6 +3493,22 @@
         "research.log",
         "superlink.err.log",
         "superlink.log"
+      ],
+      "identifiers_checked": 1732,
+      "hits": 0,
+      "hit_details": []
+    },
+    "supergrid": {
+      "sources": [
+        "fl_results.json",
+        "fl_supergrid.log",
+        "message_log",
+        "supergrid_clinic_a.err.log",
+        "supergrid_clinic_a.log",
+        "supergrid_clinic_b.err.log",
+        "supergrid_clinic_b.log",
+        "supergrid_research.err.log",
+        "supergrid_research.log"
       ],
       "identifiers_checked": 1732,
       "hits": 0,

@@ -42,7 +42,7 @@ PYTHONUTF8=1 .venv/Scripts/python.exe run_experiment.py local \
 ../scripts/stop_local_grid.sh
 ```
 
-**SuperGrid (deployment demonstration).** In Flower 1.39 the ServerApp runs as one task for the whole run, so a per-task time limit on SuperGrid also bounds the whole run.
+**SuperGrid (deployment demonstration).** The hackathon event's FAQ gave a five-minute task limit. That limit is not in Flower's docs or the 1.39 source and may no longer apply; the run plan below still respects it. In Flower 1.39 the ServerApp runs as one task for the whole run, so such a limit would also bound the whole run.
 - Locally, round 1 takes about 40 s and each later round about 34 s, so 20 rounds take about 11 minutes.
 - The SuperGrid run therefore uses 5 rounds (about 3 minutes locally), chosen from timing alone.
 - It is labeled a deployment demonstration, and the 20-round local run remains the reported result.
@@ -113,6 +113,7 @@ The weighted AUC peaks around round 5 (0.625), then eases to 0.618 by round 20 w
 |---|---|---|
 | Simulation | 2 simulated clinic nodes | 20 rounds; canary hits 0 |
 | Local deployment | SuperLink + Clinic A + Clinic B + **research** SuperNode; only the clinic IDs pinned | 20 rounds; final weights **identical** to the simulation; canary hits 0 across 12 sources |
+| SuperGrid, deployment demonstration (run `6822625423554031018`, `@praven1/cohortguard-phase2`) | Flower SuperGrid + the same three SuperNodes; only the clinic IDs pinned | 5 rounds (chosen from timing), about 3.5 min; messages received: Clinic A 10, Clinic B 10, **research 0**; canary hits 0 across 9 sources. Not the reported result. |
 
 **Research node exclusion, local deployment:**
 - The SuperLink logged 40 replies from each clinic node (20 train + 20 evaluate) and none from any other node.
