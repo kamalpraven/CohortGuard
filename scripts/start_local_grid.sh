@@ -47,6 +47,9 @@ echo "Clinic B ledger: $CLINIC_B_LEDGER"
 # Fail closed: only this explicit step starts a session at zero spent. A readable
 # ledger is continued; a missing or corrupted ledger of an existing session aborts.
 "$ROOT/coordinator/.venv/Scripts/python.exe" "$ROOT/scripts/init_ledgers.py" "$CLINIC_A_LEDGER" "$CLINIC_B_LEDGER"
+# Each SuperNode gets its own Flower home: Flower names a run's runtime environment by run ID
+# and deletes it when a ClientApp exits, so nodes sharing one home break each other's runs.
+mkdir -p "$LEDGER_ROOT/flwr-home/clinic_a" "$LEDGER_ROOT/flwr-home/clinic_b" "$LEDGER_ROOT/flwr-home/research"
 echo "Logs: $LOG_DIR"
 
 (
@@ -63,7 +66,7 @@ sleep 5
 
 (
   cd "$ROOT"
-  coordinator/.venv/Scripts/flower-supernode.exe \
+  FLWR_HOME="$LEDGER_ROOT/flwr-home/clinic_a" coordinator/.venv/Scripts/flower-supernode.exe \
     --insecure --grpc-rere --superlink 127.0.0.1:9092 \
     --host 127.0.0.1 --port 9094 \
     --allow-runtime-dependency-installation \
@@ -73,7 +76,7 @@ sleep 5
 
 (
   cd "$ROOT"
-  coordinator/.venv/Scripts/flower-supernode.exe \
+  FLWR_HOME="$LEDGER_ROOT/flwr-home/clinic_b" coordinator/.venv/Scripts/flower-supernode.exe \
     --insecure --grpc-rere --superlink 127.0.0.1:9092 \
     --host 127.0.0.1 --port 9095 \
     --allow-runtime-dependency-installation \
@@ -83,7 +86,7 @@ sleep 5
 
 (
   cd "$ROOT"
-  coordinator/.venv/Scripts/flower-supernode.exe \
+  FLWR_HOME="$LEDGER_ROOT/flwr-home/research" coordinator/.venv/Scripts/flower-supernode.exe \
     --insecure --grpc-rere --superlink 127.0.0.1:9092 \
     --host 127.0.0.1 --port 9096 \
     --allow-runtime-dependency-installation \

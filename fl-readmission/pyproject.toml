@@ -18,6 +18,11 @@ dev = [
   "matplotlib>=3.9",
 ]
 
+[tool.uv]
+# SuperNodes install app dependencies with `uv sync` at runtime; keep dev tools out of
+# that install. Locally: `uv sync --all-groups`.
+default-groups = []
+
 [tool.hatch.build.targets.wheel]
 packages = ["fl_readmission", "shared"]
 

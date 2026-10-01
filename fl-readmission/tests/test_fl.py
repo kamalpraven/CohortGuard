@@ -373,3 +373,21 @@ def test_fab_contains_code_only(tmp_path):
     assert not any(name.endswith(".json") and "patients" in name for name in names)
     assert not any("evaluate" in name or "canaries" in name or "run_experiment" in name for name in names)
     assert {"fl_readmission/client_app.py", "fl_readmission/server_app.py", "shared/allowlist.py"} <= set(names)
+
+
+def test_start_scripts_give_each_supernode_its_own_flower_home():
+    """Flower names a run's runtime env by run ID and deletes it when a ClientApp exits;
+    SuperNodes sharing one Flower home on this machine would break each other's runs."""
+    import re
+    for script in ("start_local_grid.sh", "start_supergrid_nodes.sh"):
+        text = (ROOT / "scripts" / script).read_text(encoding="utf-8")
+        homes = re.findall(r'FLWR_HOME="\$LEDGER_ROOT/flwr-home/(\w+)" coordinator/\.venv/Scripts/flower-supernode\.exe', text)
+        roles = re.findall(r"--node-config 'role=\"(\w+)\"", text)
+        assert homes == roles == ["clinic_a", "clinic_b", "research"], script
+        assert text.count("flower-supernode.exe") == 3
+
+
+def test_runtime_install_excludes_dev_tools():
+    config = tomllib.loads((APP / "pyproject.toml").read_text(encoding="utf-8"))
+    assert config["tool"]["uv"]["default-groups"] == []
+    assert sorted(dep.split(">")[0] for dep in config["project"]["dependencies"]) == ["flwr", "numpy"]
