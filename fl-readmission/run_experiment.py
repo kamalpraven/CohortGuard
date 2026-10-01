@@ -58,12 +58,17 @@ def flwr_command(mode: str, superlink: str | None, clinic_node_ids: str | None,
     return command + ["--run-config", run_config]
 
 
-def node_messages_received(log_dir: Path) -> dict[str, int]:
+NODE_LOG_PREFIX = {"local": "", "supergrid": "supergrid_"}  # as written by scripts/start_*.sh
+
+
+def node_messages_received(log_dir: Path, prefix: str) -> dict[str, int]:
     """Messages each local SuperNode logged as received (works when the SuperLink is remote)."""
     counts = {}
     for role in (*CLINIC_ROLES, "research"):
-        path = log_dir / f"{role}.err.log"
-        text = re.sub(r"\x1b\[[0-9;]*m", "", path.read_text(encoding="utf-8", errors="ignore")) if path.exists() else ""
+        path = log_dir / f"{prefix}{role}.err.log"
+        if not path.exists():
+            raise SystemExit(f"missing SuperNode log {path}")
+        text = re.sub(r"\x1b\[[0-9;]*m", "", path.read_text(encoding="utf-8", errors="ignore"))
         counts[role] = len(re.findall(r"Receiving: \w+ message", text))
     return counts
 
@@ -176,7 +181,7 @@ def main() -> int:
                         and all(count == expected_replies for count in sources.values()))
     if args.mode in {"local", "supergrid"}:
         # The SuperNodes run on this machine in both modes: their own logs show what they received.
-        received = node_messages_received(LOG_DIR)
+        received = node_messages_received(LOG_DIR, NODE_LOG_PREFIX[args.mode])
         fl["node_messages_received"] = received
         expected_messages = 2 * len(fl["rounds"])
         addressed_ok = (addressed_ok and received["research"] == 0
@@ -189,7 +194,8 @@ def main() -> int:
 
     texts = {log_path.name: output}
     if args.mode in {"local", "supergrid"}:
-        texts |= {p.name: p.read_text(encoding="utf-8", errors="ignore") for p in sorted(LOG_DIR.glob("*.log")) if p != log_path}
+        node_logs = LOG_DIR.glob("supergrid_*.log") if args.mode == "supergrid" else LOG_DIR.glob("*.log")
+        texts |= {p.name: p.read_text(encoding="utf-8", errors="ignore") for p in sorted(node_logs) if p != log_path}
     RESULTS.parent.mkdir(exist_ok=True)
     draft = json.dumps(results, indent=2)
     scan = canary_scan(texts, {"fl_results.json": draft, "message_log": json.dumps(fl["message_log"])})
