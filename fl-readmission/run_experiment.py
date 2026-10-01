@@ -66,6 +66,15 @@ def parse_result(output: str) -> dict[str, Any]:
     return json.loads(re.sub(r"\x1b\[[0-9;]*m", "", lines[0]).strip())
 
 
+def superlink_reply_sources(log_dir: Path) -> dict[str, int]:
+    """Count replies per source node as the SuperLink logged them (deployment only)."""
+    text = re.sub(r"\[[0-9;]*m", "", (log_dir / "superlink.err.log").read_text(encoding="utf-8", errors="ignore"))
+    counts: dict[str, int] = {}
+    for node_id in re.findall(r"Push replies from node_id=(\d+)", text):
+        counts[node_id] = counts.get(node_id, 0) + 1
+    return counts
+
+
 def identifier_needles() -> list[str]:
     """Every patient's MRN and name at both clinics, plus all canary DOB formats."""
     needles: set[str] = set()
@@ -124,6 +133,13 @@ def main() -> int:
     addressed_ok = set(fl["addressed_node_ids"]) == set(fl["clinic_node_roles"]) and \
         sorted(fl["clinic_node_roles"].values()) == sorted(CLINIC_ROLES)
 
+    if args.mode == "local":
+        # Independent of the ServerApp's own bookkeeping: what the SuperLink saw come back.
+        sources = superlink_reply_sources(LOG_DIR)
+        expected_replies = 2 * len(fl["rounds"])  # one train + one evaluate reply per round
+        fl["superlink_reply_sources"] = sources
+        addressed_ok = addressed_ok and set(sources) == set(fl["clinic_node_roles"]) and             all(count == expected_replies for count in sources.values())
+
     MEDIA.mkdir(parents=True, exist_ok=True)
     plot_rounds(fl, comparison, MEDIA / "fl-readmission-auc-per-round.png")
     plot_comparison(comparison, MEDIA / "fl-readmission-comparison.png")
@@ -145,6 +161,8 @@ def main() -> int:
               f" | log loss combined {s['combined']['log_loss']:.4f} | sglt2 coef {model['sglt2']['coefficient']:+.3f}"
               f" OR {model['sglt2']['odds_ratio']:.2f}")
     print(f"addressed nodes: {fl['addressed_node_ids']} roles {fl['clinic_node_roles']} -> {'ok' if addressed_ok else 'VIOLATION'}")
+    if "superlink_reply_sources" in fl:
+        print(f"SuperLink reply sources: {fl['superlink_reply_sources']}")
     print(f"canary hits: {scan['hits']} (checked {scan['identifiers_checked']} identifiers across {len(scan['sources'])} sources)")
     return 0 if scan["hits"] == 0 and addressed_ok else 1
 
