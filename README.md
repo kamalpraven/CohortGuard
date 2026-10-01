@@ -94,6 +94,16 @@ scripts/stop_local_grid.sh
 
 On Windows, use Git Bash for the start scripts. PowerShell can split Flower's quoted `--node-config` argument incorrectly. Use `PYTHONUTF8=1` for Flower commands to avoid Windows console encoding issues.
 
+## Phase 4: federated readmission model
+
+The privacy gate correctly suppresses SGLT2 cohort queries at this data size, because per-clinic event counts fall below 10 after noise. [fl-readmission/](fl-readmission/README.md) takes a different route. A separate Flower ServerApp/ClientApp trains a 30-day readmission logistic regression with FedAvg across Clinic A and Clinic B, and only model weights plus a few aggregate metrics leave each clinic.
+
+- **Node selection:** the ServerApp addresses only the two pinned clinic SuperNodes, and the research SuperNode never receives a task.
+- **Result:** the federated model nearly matches the pooled upper bound (combined test AUC 0.616 vs 0.620, log loss 0.4557 vs 0.4548). It recovers the planted SGLT2 direction: adjusted odds ratio 0.58, where the pooled reference is 0.58 with 95% CI 0.36–0.93.
+- **Canary scan:** 0 hits across FL messages, events and logs.
+
+![Federated vs clinic-only vs pooled](docs/media/fl-readmission-comparison.png)
+
 ## Known limitations
 
 - **Synthetic data only:** all clinical records are synthetic and intended for demo/testing.
@@ -101,6 +111,11 @@ On Windows, use Git Bash for the start scripts. PowerShell can split Flower's qu
 - **Salted canary hashes:** the coordinator ships salted SHA-256 hashes of planted canary values instead of plaintext canaries. Because the salt ships with the hashes, low-entropy values such as DOBs and MRNs could be brute-forced; this is bundle hygiene and regression protection, not a cryptographic privacy guarantee.
 - **Budget per session:** privacy ledgers persist by session path. The main four-workflow demo spends 2.0 + 2.0 + 0.5 = 4.5 of 5.0 budget per clinic; the SGLT2 suppression example runs in its own session. Scripts create new ledger filenames with `--session`; they never auto-delete or reset ledgers. Ledgers fail closed: only the start scripts create a new session at zero spent, and a missing, corrupted or unreadable ledger during a session refuses every release.
 - **Noisy aggregates:** clinic counts are privacy-gated/noised and must not be interpreted as exact patient counts.
+- **Federated model updates reveal aggregates:** "only weights leave" does not mean nothing sensitive leaves.
+  - A clinic's first-round logistic-regression update is close to its per-feature sums of (label − ½)·feature. For SGLT2 users that is roughly "readmissions − n/2" at that clinic: the kind of count the privacy gate noises and suppresses, but here it is **un-noised**.
+  - Each clinic sends no update for features held by fewer than 10 of its patients (the FL analogue of the minimum cell size). That rule adds no noise and does not protect feature combinations.
+  - The server sees each clinic's update individually, and FL runs are not charged to the clinic ledgers.
+  - Patient-level DP-SGD with privacy accounting is future work. See [fl-readmission/README.md](fl-readmission/README.md#privacy).
 
 ## Project areas
 
@@ -108,3 +123,4 @@ On Windows, use Git Bash for the start scripts. PowerShell can split Flower's qu
 - [doctor-agent/](doctor-agent/README.md): Clinic A-local Doctor Agent.
 - [clinic-agents/](clinic-agents/README.md): synthetic clinic data, privacy gate, original clinic AgentApps.
 - [research-agent/](research-agent/README.md): public evidence/trial pipeline and replay cache.
+- [fl-readmission/](fl-readmission/README.md): Phase 4 federated readmission model (Flower ServerApp + ClientApp).

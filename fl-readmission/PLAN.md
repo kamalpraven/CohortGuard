@@ -1,6 +1,13 @@
 # Phase 4 plan: federated 30-day readmission model
 
-Status: **plan for review**. Nothing below is built yet.
+Status: **approved and built**. Decisions from review:
+1. NumPy logistic regression.
+2. Centred fixed clinical constants.
+3. The gradient leak is documented as a known limit, and each clinic zeroes updates for binary features held by fewer than 10 of its patients.
+4. Client-level DP is skipped; patient-level DP-SGD is listed as future work.
+5. The research SuperNode runs during local deployment.
+
+Section 9's DP stretch was therefore not built. See README.md for results.
 
 ## Goal
 
